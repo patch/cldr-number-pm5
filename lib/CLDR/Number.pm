@@ -184,7 +184,14 @@ sub percent {
     my ($self, $num) = @_;
     my $res = $self->percent_pattern;
 
-    return $num;
+    return $num * 100;
+};
+
+sub per_mille {
+    my ($self, $num) = @_;
+    my $res = $self->percent_pattern;
+
+    return $num * 1000;
 };
 
 sub scientific {
@@ -278,6 +285,8 @@ CLDR::Number - Unicode CLDR formatter for numbers
 =item scientific
 
 =item percent
+
+=item per_mille
 
 =item currency
 
