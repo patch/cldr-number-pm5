@@ -227,7 +227,7 @@ sub range {
 
 =encoding UTF-8
 
-=head NAME
+=head1 NAME
 
 CLDR::Number - Unicode CLDR formatter for numbers
 
