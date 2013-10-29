@@ -303,6 +303,8 @@ CLDR::Number - Unicode CLDR formatter for numbers
 
 =over
 
+=item * only formatting is supported, not parsing
+
 =item * only the Latin (C<latn>) number system currently is supported
 
 =item * only the C<standard> type of formats are currently supported, not C<short>, C<long>, etc.
