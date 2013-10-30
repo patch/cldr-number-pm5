@@ -8,7 +8,7 @@ use CLDR::Number;
 my $f = CLDR::Number->new;
 my ($in, $out);
 
-# Tests from examples in:
+# Tests adapted from examples in:
 # UTS #35: Unicode LDML, Part 3: Numbers
 # http://www.unicode.org/reports/tr35/tr35-numbers.html
 

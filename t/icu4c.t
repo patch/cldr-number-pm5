@@ -8,7 +8,7 @@ use CLDR::Number;
 my $f = CLDR::Number->new;
 my ($in, $out);
 
-# Tests from ICU4C:
+# Tests adapted from ICU4C:
 # source/test/intltest/numfmtst.cpp
 
 # NumberFormatTest::TestPerMill
