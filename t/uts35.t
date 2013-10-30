@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 34;
+use Test::More tests => 38;
 use CLDR::Number;
 
 my $f = CLDR::Number->new;
@@ -78,3 +78,20 @@ $f->decimal_pattern('@@@');  is $f->decimal(0.12345), '0.123', 'significant digi
 $f->decimal_pattern('@@##'); is $f->decimal(3.14159), '3.142', 'significant digits; min: 2, max: 4';
 $f->decimal_pattern('@@##'); is $f->decimal(1.23004), '1.23',  'significant digits; min: 2, max: 4';
 $f->decimal_pattern('@##');  is $f->decimal(0.1203),  '0.12',  'significant digits; min: 1, max: ';
+
+# 3.6 Padding
+$f->locale('en');
+$f->currency_code('USD');
+$f->currency_pattern('¤*x#,##0.00');
+is $f->decimal(123),  '$xx123.00', 'padding (applied)';
+is $f->decimal(1234), '$1,234.00', 'padding (not applied)';
+
+# Rounding
+$f->locale('en');
+$f->decimal_pattern('0.65');
+is $f->decimal(1.234), '1.3', 'rounding to 0.65';
+
+# 3.7 Quoting Rules
+$f->locale('en');
+$f->decimal_pattern("'X '#' Q '");
+is $f->decimal(1939), 'X 1939 Q ', 'pattern quoting';
