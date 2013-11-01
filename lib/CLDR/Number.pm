@@ -9,66 +9,12 @@ use Moo;
 use Carp qw( carp croak );
 use Scalar::Util qw( looks_like_number );
 use List::Util qw( any );
+use CLDR::Number::Data;
 
 our $VERSION      = '0.00';
 our $CLDR_VERSION = '24';
 
-# XXX: data for testing
-my %locales = (
-    root => {
-        default_number_system     => 'latn',
-        other_number_systems      => { native => 'latn' },
-        decimal_sign              => '.',
-        group_sign                => ',',
-        list_sign                 => ';',
-        percent_sign              => '%',
-        plus_sign                 => '+',
-        minus_sign                => '-',
-        exponent_sign             => 'E',
-        superscript_exponent_sign => '×',
-        per_mille_sign            => '‰',
-        infinity_sign             => '∞',
-        nan_sign                  => 'NaN',
-        decimal_pattern           => '#,##0.###',
-        scientific_pattern        => '#E0',
-        percent_pattern           => '#,##0%',
-        currency_pattern          => '¤ #,##0.00',
-        at_least_pattern          => '⩾{0}',
-        range_pattern             => '{0}–{1}',
-    },
-    ar => {
-        default_number_system => 'arab',
-        other_number_systems  => { native => 'arab' },
-        decimal_sign          => '٫',
-        group_sign            => '٬',
-        list_sign             => '؛',
-        percent_sign          => '٪',
-        plus_sign             => "\N{RIGHT-TO-LEFT MARK}+",
-        minus_sign            => "\N{RIGHT-TO-LEFT MARK}-",
-        exponent_sign         => 'ﺎﺳ',
-        per_mille_sign        => '؉',
-        nan_sign              => 'ﻞﻴﺳ ﺮﻘﻣ',
-        currency_pattern      => '¤ #,##0.00',
-        at_least_pattern      => '+{0}',
-    },
-    en => {
-        currency_pattern   => '¤#,##0.00;(¤#,##0.00)',
-        at_least_pattern   => '{0}+',
-    },
-    fr => {
-        decimal_sign       => ',',
-        group_sign         => ' ',
-        percent_pattern    => '#,##0 %',
-        currency_pattern   => '#,##0.00 ¤;(#,##0.00 ¤)',
-        at_least_pattern   => 'au moins {0}',
-        range_pattern      => 'de {0} à {1}',
-    },
-    in => {
-        decimal_pattern    => '#,##,##0.###',
-        percent_pattern    => '#,##,##0%',
-        currency_pattern   => '¤ #,##,##0.00',
-    },
-);
+my $locales = $CLDR::Number::Data::LOCALES;
 
 # TODO: patternDigit
 my @attributes = qw{
@@ -111,7 +57,7 @@ has locale => (
     is      => 'rw',
     isa     => sub {
         croak "Locale is not defined"  unless defined $_[0];
-        croak "Invalid locale '$_[0]'" unless exists $locales{$_[0]};
+        croak "Invalid locale '$_[0]'" unless exists $locales->{$_[0]};
     },
     trigger => 1,
     default => 'en',
@@ -127,7 +73,7 @@ sub BUILD {
     for my $attribute (@attributes, @optional_attributes) { 
         next if defined $self->$attribute;
         $self->$attribute(
-            $locales{$self->locale}{$attribute} || $locales{root}{$attribute}
+            $locales->{$self->locale}{$attribute} || $locales->{root}{$attribute}
         );
     }
 }
@@ -137,7 +83,7 @@ sub _trigger_locale {
 
     for my $attribute (@attributes, @optional_attributes) { 
         $self->$attribute(
-            $locales{$self->locale}{$attribute} || $locales{root}{$attribute}
+            $locales->{$self->locale}{$attribute} || $locales->{root}{$attribute}
         );
     }
 }
