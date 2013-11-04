@@ -71,6 +71,7 @@ sub BUILD {
     my ($self) = @_;
 
     for my $attribute (@pattern_attributes) {
+        $attribute .= '_pattern';
         next if defined $self->$attribute;
         $self->$attribute(
             $locales->{$self->locale}{patterns}{$attribute}
@@ -79,6 +80,7 @@ sub BUILD {
     }
 
     for my $attribute (@symbol_attributes) {
+        $attribute .= '_symbol';
         next if defined $self->$attribute;
         $self->$attribute(
             $locales->{$self->locale}{symbols}{$attribute}
@@ -91,6 +93,7 @@ sub _trigger_locale {
     my ($self) = @_;
 
     for my $attribute (@pattern_attributes) {
+        $attribute .= '_pattern';
         $self->$attribute(
             $locales->{$self->locale}{patterns}{$attribute}
             || $locales->{root}{patterns}{$attribute}
@@ -98,6 +101,7 @@ sub _trigger_locale {
     }
 
     for my $attribute (@symbol_attributes) {
+        $attribute .= '_symbol';
         $self->$attribute(
             $locales->{$self->locale}{symbols}{$attribute}
             || $locales->{root}{symbols}{$attribute}
@@ -123,8 +127,8 @@ sub decimal {
     my $negative = $num < 0;
 
     my $pattern = $self->decimal_pattern;
-    my $decimal = $self->decimal_sign;
-    my $group   = $self->group_sign;
+    my $decimal = $self->decimal_symbol;
+    my $group   = $self->group_symbol;
 
     return $num;
 };
@@ -174,7 +178,7 @@ sub currency {
 sub at_least {
     my $self = shift;
     my $num  = $self->decimal(shift);
-    my $res  = $self->at_least_pattern;
+    my $res  = $self->atLeast_pattern;
 
     $res =~ s/[{]0[}]/$num/;
 
