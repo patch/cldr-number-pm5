@@ -14,7 +14,8 @@ use CLDR::Number::Data;
 our $VERSION      = '0.00';
 our $CLDR_VERSION = '24';
 
-my $locales = $CLDR::Number::Data::NUMBERS;
+my $NUMBERS    = $CLDR::Number::Data::NUMBERS;
+my $CURRENCIES = $CLDR::Number::Data::CURRENCIES;
 
 my @pattern_attributes = qw{
     atLeast
@@ -57,10 +58,10 @@ has locale => (
     is      => 'rw',
     isa     => sub {
         croak "Locale is not defined"  unless defined $_[0];
-        croak "Invalid locale '$_[0]'" unless exists $locales->{$_[0]};
+        croak "Invalid locale '$_[0]'" unless exists $NUMBERS->{$_[0]};
     },
     trigger => 1,
-    default => 'en',
+    default => 'root',
 );
 
 has currency_code => (
@@ -71,20 +72,20 @@ sub BUILD {
     my ($self) = @_;
 
     for my $attribute (@pattern_attributes) {
-        $attribute .= '_pattern';
-        next if defined $self->$attribute;
-        $self->$attribute(
-            $locales->{$self->locale}{patterns}{$attribute}
-            || $locales->{root}{patterns}{$attribute}
+        my $method = $attribute . '_pattern';
+        next if defined $self->$method;
+        $self->$method(
+            $NUMBERS->{$self->locale}{patterns}{$attribute}
+            || $NUMBERS->{root}{patterns}{$attribute}
         );
     }
 
     for my $attribute (@symbol_attributes) {
-        $attribute .= '_symbol';
-        next if defined $self->$attribute;
-        $self->$attribute(
-            $locales->{$self->locale}{symbols}{$attribute}
-            || $locales->{root}{symbols}{$attribute}
+        my $method = $attribute . '_symbol';
+        next if defined $self->$method;
+        $self->$method(
+            $NUMBERS->{$self->locale}{symbols}{$attribute}
+            || $NUMBERS->{root}{symbols}{$attribute}
         );
     }
 }
@@ -93,18 +94,18 @@ sub _trigger_locale {
     my ($self) = @_;
 
     for my $attribute (@pattern_attributes) {
-        $attribute .= '_pattern';
-        $self->$attribute(
-            $locales->{$self->locale}{patterns}{$attribute}
-            || $locales->{root}{patterns}{$attribute}
+        my $method = $attribute . '_pattern';
+        $self->$method(
+            $NUMBERS->{$self->locale}{patterns}{$attribute}
+            || $NUMBERS->{root}{patterns}{$attribute}
         );
     }
 
     for my $attribute (@symbol_attributes) {
-        $attribute .= '_symbol';
-        $self->$attribute(
-            $locales->{$self->locale}{symbols}{$attribute}
-            || $locales->{root}{symbols}{$attribute}
+        my $method = $attribute . '_symbol';
+        $self->$method(
+            $NUMBERS->{$self->locale}{symbols}{$attribute}
+            || $NUMBERS->{root}{symbols}{$attribute}
         );
     }
 }
@@ -170,9 +171,13 @@ sub scientific {
 
 sub currency {
     my ($self, $num) = @_;
-    my $res = $self->currency_pattern;
+    my $currency_pattern = $self->currency_pattern;
+    my $currency_symbol  = $CURRENCIES->{$self->locale}{$self->currency_code};
 
-    return $num;
+    $currency_pattern =~ s/[#0,.]+/$num/;
+    $currency_pattern =~ s/¤/$currency_symbol/;
+
+    return $currency_pattern;
 };
 
 sub at_least {

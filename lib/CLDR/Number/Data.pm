@@ -498,6 +498,17 @@ our $NUMBERS = {
 };
 
 our $CURRENCIES = {
+    root => {
+        AUD => 'A$',
+        CHF => 'CHF',
+        DKK => 'DKK',
+        EUR => '€',
+        GBP => '£',
+        JPY => 'JP¥',
+        NOK => 'NOK',
+        SEK => 'SEK',
+        USD => 'US$',
+    },
     cs => {
         AUD => 'AU$',
         CHF => 'CHF',
