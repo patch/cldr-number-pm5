@@ -16,36 +16,36 @@ our $CLDR_VERSION = '24';
 
 my $locales = $CLDR::Number::Data::NUMBERS;
 
-# TODO: patternDigit
-my @attributes = qw{
-    default_number_system
-    other_number_systems
-    decimal_sign
-    group_sign
-    list_sign
-    percent_sign
-    plus_sign
-    minus_sign
-    exponent_sign
-    superscript_exponent_sign
-    per_mille_sign
-    infinity_sign
-    nan_sign
-    decimal_pattern
-    percent_pattern
-    scientific_pattern
-    currency_pattern
-    at_least_pattern
-    range_pattern
+my @pattern_attributes = qw{
+    atLeast
+    currency
+    decimal
+    percent
+    range
+    scientific
 };
 
-my @optional_attributes = qw{
-    currency_decimal_sign
-    currency_group_sign
+my @symbol_attributes = qw{
+    currencyDecimal
+    decimal
+    exponential
+    group
+    infinity
+    list
+    minusSign
+    nan
+    perMille
+    percentSign
+    plusSign
+    superscriptingExponent
 };
 
-for my $attribute (@attributes, @optional_attributes) {
-    has $attribute => (is => 'rw');
+for my $attribute (@pattern_attributes) {
+    has $attribute . '_pattern' => (is => 'rw');
+}
+
+for my $attribute (@symbol_attributes) {
+    has $attribute . '_symbol' => (is => 'rw');
 }
 
 has cldr_version => (
@@ -70,10 +70,19 @@ has currency_code => (
 sub BUILD {
     my ($self) = @_;
 
-    for my $attribute (@attributes, @optional_attributes) { 
+    for my $attribute (@pattern_attributes) {
         next if defined $self->$attribute;
         $self->$attribute(
-            $locales->{$self->locale}{$attribute} || $locales->{root}{$attribute}
+            $locales->{$self->locale}{patterns}{$attribute}
+            || $locales->{root}{patterns}{$attribute}
+        );
+    }
+
+    for my $attribute (@symbol_attributes) {
+        next if defined $self->$attribute;
+        $self->$attribute(
+            $locales->{$self->locale}{symbols}{$attribute}
+            || $locales->{root}{symbols}{$attribute}
         );
     }
 }
@@ -81,9 +90,17 @@ sub BUILD {
 sub _trigger_locale {
     my ($self) = @_;
 
-    for my $attribute (@attributes, @optional_attributes) { 
+    for my $attribute (@pattern_attributes) {
         $self->$attribute(
-            $locales->{$self->locale}{$attribute} || $locales->{root}{$attribute}
+            $locales->{$self->locale}{patterns}{$attribute}
+            || $locales->{root}{patterns}{$attribute}
+        );
+    }
+
+    for my $attribute (@symbol_attributes) {
+        $self->$attribute(
+            $locales->{$self->locale}{symbols}{$attribute}
+            || $locales->{root}{symbols}{$attribute}
         );
     }
 }
