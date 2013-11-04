@@ -14,7 +14,7 @@ use CLDR::Number::Data;
 our $VERSION      = '0.00';
 our $CLDR_VERSION = '24';
 
-my $locales = $CLDR::Number::Data::LOCALES;
+my $locales = $CLDR::Number::Data::NUMBERS;
 
 # TODO: patternDigit
 my @attributes = qw{
