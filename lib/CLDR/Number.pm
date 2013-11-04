@@ -8,7 +8,7 @@ use charnames qw( :full );
 use Moo;
 use Carp qw( carp croak );
 use Scalar::Util qw( looks_like_number );
-use List::Util qw( any );
+use List::MoreUtils qw( any );
 use CLDR::Number::Data;
 
 our $VERSION      = '0.00';
@@ -174,6 +174,20 @@ sub currency {
     my $currency_pattern = $self->currency_pattern;
     my $currency_symbol  = $CURRENCIES->{$self->locale}{$self->currency_code};
 
+    my $int = int $num;
+    my $reverse = reverse $int;
+    $reverse =~ s/(?<=\G.{3})/$self->group_symbol/eg;
+    my $int_group = reverse $reverse;
+
+    # TODO: proof-of-concept only - all sorts of rounding errors
+    if (my $frac = int(($num - $int) * 100)) {
+        $num = $int_group . $self->decimal_symbol . $frac;
+    }
+    else {
+        $num = $int_group;
+    }
+
+    $currency_pattern =~ s/;.*//;
     $currency_pattern =~ s/[#0,.]+/$num/;
     $currency_pattern =~ s/¤/$currency_symbol/;
 
