@@ -176,7 +176,7 @@ sub currency {
 
     my $int = int $num;
     my $reverse = reverse $int;
-    $reverse =~ s/(?<=\G.{3})/$self->group_symbol/eg;
+    $reverse =~ s{ (?<= \G .{3} ) (?= . ) }{ $self->group_symbol }eg;
     my $int_group = reverse $reverse;
 
     # TODO: proof-of-concept only - all sorts of rounding errors
