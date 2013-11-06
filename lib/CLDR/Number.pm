@@ -65,7 +65,7 @@ has locale => (
 );
 
 has minimum_integer_digits => {
-    is  => rw,
+    is  => 'rw',
     isa => sub {
         croak "minimum_integer_digits '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
@@ -74,7 +74,7 @@ has minimum_integer_digits => {
 };
 
 has maximum_integer_digits => {
-    is  => rw,
+    is  => 'rw',
     isa => sub {
         croak "maximum_integer_digits '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
@@ -82,7 +82,7 @@ has maximum_integer_digits => {
 };
 
 has minimum_fraction_digits => {
-    is  => rw,
+    is  => 'rw',
     isa => sub {
         croak "minimum_fraction_digits '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
@@ -91,7 +91,7 @@ has minimum_fraction_digits => {
 };
 
 has maximum_fraction_digits => {
-    is  => rw,
+    is  => 'rw',
     isa => sub {
         croak "maximum_fraction_digits '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
@@ -100,16 +100,16 @@ has maximum_fraction_digits => {
 };
 
 has primary_grouping_size => {
-    is  => rw,
+    is  => 'rw',
     isa => sub {
-        croak "primary_grouping_size '$_[0]'
+        croak "primary_grouping_size '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
     },
     default => 3,
 };
 
 has secondary_grouping_size => {
-    is  => rw,
+    is  => 'rw',
     isa => sub {
         croak "secondary_grouping_size '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
@@ -120,7 +120,7 @@ has currency_code => (
     is  => 'rw',
     isa => sub {
         croak "currency_code is not defined"     if !defined $_[0];
-        croak "currency_code '$_[0]' is invalid" if !exists $CURRENCIES->$_[0]};
+        croak "currency_code '$_[0]' is invalid" if !exists $CURRENCIES->{$_[0]};
     },
 );
 
@@ -185,7 +185,7 @@ sub decimal {
 
     my $pattern = $self->decimal_pattern;
 
-    $pettern = $self->_format_number($num, $pattern);
+    $pattern = $self->_format_number($num, $pattern);
 
     return $pattern;
 };
@@ -266,18 +266,18 @@ sub range {
 
 sub _format_number {
     my ($self, $num, $pattern) = @_;
+    my $integer = int $num;
     my $formatted_integer;
 
     if (my $primary_grouping_size = $self->primary_grouping_size) {
-        my $int = int $num;
-        my $reverse = reverse $int;
+        my $reverse = reverse $integer;
         $reverse =~ s{ (?<= \G .{$primary_grouping_size} ) (?= . ) }{ $self->group_symbol }eg;
         my $formatted_integer = reverse $reverse;
     }
 
     # TODO: proof-of-concept only - all sorts of rounding errors
-    if (my $frac = int(($num - $int) * 100)) {
-        $num = formatted_integer . $self->decimal_symbol . $frac;
+    if (my $frac = int(($num - $integer) * 100)) {
+        $num = $formatted_integer . $self->decimal_symbol . $frac;
     }
     else {
         $num = $formatted_integer;
