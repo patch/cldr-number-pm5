@@ -184,10 +184,10 @@ sub decimal {
     my $negative = $num < 0;
 
     my $pattern = $self->decimal_pattern;
-    my $decimal = $self->decimal_symbol;
-    my $group   = $self->group_symbol;
 
-    return $num;
+    $pettern = $self->_format_number($num, $pattern);
+
+    return $pattern;
 };
 
 sub short_decimal {
@@ -206,16 +206,22 @@ sub long_decimal {
 
 sub percent {
     my ($self, $num) = @_;
-    my $res = $self->percent_pattern;
+    my $pattern = $self->percent_pattern;
 
-    return $num * 100;
+    $num *= 100;
+    $pattern = $self->_format_number($num, $pattern);
+
+    return $pattern;
 };
 
 sub per_mille {
     my ($self, $num) = @_;
-    my $res = $self->percent_pattern;
+    my $pattern = $self->per_mille_pattern;
 
-    return $num * 1000;
+    $num *= 1000;
+    $pattern = $self->_format_number($num, $pattern);
+
+    return $pattern;
 };
 
 sub scientific {
@@ -227,30 +233,13 @@ sub scientific {
 
 sub currency {
     my ($self, $num) = @_;
-    my $currency_pattern = $self->currency_pattern;
-    my $currency_symbol  = $CURRENCIES->{$self->locale}{$self->currency_code};
-    my $formatted_integer;
+    my $pattern         = $self->currency_pattern;
+    my $currency_symbol = $CURRENCIES->{$self->locale}{$self->currency_code};
 
-    if (my $primary_grouping_size = $self->primary_grouping_size) {
-        my $int = int $num;
-        my $reverse = reverse $int;
-        $reverse =~ s{ (?<= \G .{$primary_grouping_size} ) (?= . ) }{ $self->group_symbol }eg;
-        my $formatted_integer = reverse $reverse;
-    }
+    $pattern = $self->_format_number($num, $pattern);
+    $pattern =~ s{¤}{$currency_symbol};
 
-    # TODO: proof-of-concept only - all sorts of rounding errors
-    if (my $frac = int(($num - $int) * 100)) {
-        $num = formatted_integer . $self->decimal_symbol . $frac;
-    }
-    else {
-        $num = $formatted_integer;
-    }
-
-    $currency_pattern =~ s/;.*//;
-    $currency_pattern =~ s/[#0,.]+/$num/;
-    $currency_pattern =~ s/¤/$currency_symbol/;
-
-    return $currency_pattern;
+    return $pattern;
 };
 
 sub at_least {
@@ -274,6 +263,31 @@ sub range {
 
     return $res;
 };
+
+sub _format_number {
+    my ($self, $num, $pattern) = @_;
+    my $formatted_integer;
+
+    if (my $primary_grouping_size = $self->primary_grouping_size) {
+        my $int = int $num;
+        my $reverse = reverse $int;
+        $reverse =~ s{ (?<= \G .{$primary_grouping_size} ) (?= . ) }{ $self->group_symbol }eg;
+        my $formatted_integer = reverse $reverse;
+    }
+
+    # TODO: proof-of-concept only - all sorts of rounding errors
+    if (my $frac = int(($num - $int) * 100)) {
+        $num = formatted_integer . $self->decimal_symbol . $frac;
+    }
+    else {
+        $num = $formatted_integer;
+    }
+
+    $pattern =~ s{ ; .* }{}x;
+    $pattern =~ s{ [#0,.]+ }{$num}x;
+
+    return $pattern;
+}
 
 1;
 
