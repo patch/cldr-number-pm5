@@ -192,14 +192,14 @@ sub decimal {
 
 sub short_decimal {
     my ($self, $num) = @_;
-    #my $res = $self->short_decimal_pattern;
+    #my $pattern = $self->short_decimal_pattern;
 
     return $num;
 };
 
 sub long_decimal {
     my ($self, $num) = @_;
-    #my $res = $self->long_decimal_pattern;
+    #my $pattern = $self->long_decimal_pattern;
 
     return $num;
 };
@@ -207,61 +207,65 @@ sub long_decimal {
 sub percent {
     my ($self, $num) = @_;
     my $pattern = $self->percent_pattern;
+    my $symbol  = $self->percentSign_symbol;
 
     $num *= 100;
     $pattern = $self->_format_number($num, $pattern);
+    $pattern =~ s{%}{$symbol};
 
     return $pattern;
 };
 
 sub per_mille {
     my ($self, $num) = @_;
-    my $pattern = $self->per_mille_pattern;
+    my $pattern = $self->percent_pattern;
+    my $symbol  = $self->perMille_symbol;
 
     $num *= 1000;
     $pattern = $self->_format_number($num, $pattern);
+    $pattern =~ s{%}{$symbol};
 
     return $pattern;
 };
 
 sub scientific {
     my ($self, $num) = @_;
-    my $res = $self->scientific_pattern;
+    my $pattern = $self->scientific_pattern;
 
     return $num;
 };
 
 sub currency {
     my ($self, $num) = @_;
-    my $pattern         = $self->currency_pattern;
-    my $currency_symbol = $CURRENCIES->{$self->locale}{$self->currency_code};
+    my $pattern = $self->currency_pattern;
+    my $symbol  = $CURRENCIES->{$self->locale}{$self->currency_code};
 
     $pattern = $self->_format_number($num, $pattern);
-    $pattern =~ s{¤}{$currency_symbol};
+    $pattern =~ s{¤}{$symbol};
 
     return $pattern;
 };
 
 sub at_least {
-    my $self = shift;
-    my $num  = $self->decimal(shift);
-    my $res  = $self->atLeast_pattern;
+    my ($self, $num) = @_;
+    my $pattern = $self->atLeast_pattern;
 
-    $res =~ s/[{]0[}]/$num/;
+    $num = $self->decimal($num);
+    $pattern =~ s{ \{ 0 \} }{$num}x;
 
-    return $res;
+    return $pattern;
 };
 
 sub range {
-    my $self = shift;
-    my $num0 = $self->decimal(shift);
-    my $num1 = $self->decimal(shift);
-    my $res  = $self->range_pattern;
+    my ($self, @nums) = shift;
+    my $pattern = $self->range_pattern;
 
-    $res =~ s/[{]0[}]/$num0/;
-    $res =~ s/[{]1[}]/$num1/;
+    for my $i (0, 1) {
+        $nums[$i] = $self->decimal($nums[$i]);
+        $pattern =~ s{ \{ $i \} }{$nums[$i]}x;
+    }
 
-    return $res;
+    return $pattern;
 };
 
 sub _format_number {
