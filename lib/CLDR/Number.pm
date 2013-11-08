@@ -1,296 +1,42 @@
 package CLDR::Number;
 
-use v5.8.1;
 use utf8;
-use strict;
-use warnings;
-use charnames qw( :full );
 use Moo;
-use Carp qw( carp croak );
-use Scalar::Util qw( looks_like_number );
-use List::MoreUtils qw( any );
-use CLDR::Number::Data;
+use Carp;
 
-our $VERSION      = '0.00';
-our $CLDR_VERSION = '24';
+our $VERSION = '0.00';
 
-my $NUMBERS    = $CLDR::Number::Data::NUMBERS;
-my $CURRENCIES = $CLDR::Number::Data::CURRENCIES;
+with qw( CLDR::Number::Role::Base );
 
-my @pattern_attributes = qw{
-    atLeast
-    currency
-    decimal
-    percent
-    range
-    scientific
-};
-
-my @symbol_attributes = qw{
-    currencyDecimal
-    decimal
-    exponential
-    group
-    infinity
-    list
-    minusSign
-    nan
-    perMille
-    percentSign
-    plusSign
-    superscriptingExponent
-};
-
-for my $attribute (@pattern_attributes) {
-    has $attribute . '_pattern' => (is => 'rw');
-}
-
-for my $attribute (@symbol_attributes) {
-    has $attribute . '_symbol' => (is => 'rw');
-}
-
-has cldr_version => (
-    is      => 'ro',
-    default => $CLDR_VERSION,
-);
-
-has locale => (
-    is  => 'rw',
-    isa => sub {
-        croak "locale is not defined"     if !defined $_[0];
-        croak "locale '$_[0]' is invalid" if !exists $NUMBERS->{$_[0]};
-    },
-    trigger => 1,
-    default => 'root',
-);
-
-has minimum_integer_digits => {
-    is  => 'rw',
-    isa => sub {
-        croak "minimum_integer_digits '$_[0]' is invalid"
-            if defined $_[0] && !looks_like_number $_[0];
-    },
-    default => 1,
-};
-
-has maximum_integer_digits => {
-    is  => 'rw',
-    isa => sub {
-        croak "maximum_integer_digits '$_[0]' is invalid"
-            if defined $_[0] && !looks_like_number $_[0];
-    },
-};
-
-has minimum_fraction_digits => {
-    is  => 'rw',
-    isa => sub {
-        croak "minimum_fraction_digits '$_[0]' is invalid"
-            if defined $_[0] && !looks_like_number $_[0];
-    },
-    default => 0,
-};
-
-has maximum_fraction_digits => {
-    is  => 'rw',
-    isa => sub {
-        croak "maximum_fraction_digits '$_[0]' is invalid"
-            if defined $_[0] && !looks_like_number $_[0];
-    },
-    default => 3,
-};
-
-has primary_grouping_size => {
-    is  => 'rw',
-    isa => sub {
-        croak "primary_grouping_size '$_[0]' is invalid"
-            if defined $_[0] && !looks_like_number $_[0];
-    },
-    default => 3,
-};
-
-has secondary_grouping_size => {
-    is  => 'rw',
-    isa => sub {
-        croak "secondary_grouping_size '$_[0]' is invalid"
-            if defined $_[0] && !looks_like_number $_[0];
-    },
-};
-
-has currency_code => (
-    is  => 'rw',
-    isa => sub {
-        croak "currency_code is not defined"     if !defined $_[0];
-        croak "currency_code '$_[0]' is invalid" if !exists $CURRENCIES->{$_[0]};
-    },
-);
-
-sub BUILD {
+sub decimal_formatter {
     my ($self) = @_;
+    require CLDR::Number::Format::Decimal;
+    CLDR::Number::Format::Decimal->new($self->_attribute_args);
+};
 
-    for my $attribute (@pattern_attributes) {
-        my $method = $attribute . '_pattern';
-        next if defined $self->$method;
-        $self->$method(
-            $NUMBERS->{$self->locale}{patterns}{$attribute}
-            || $NUMBERS->{root}{patterns}{$attribute}
-        );
-    }
-
-    for my $attribute (@symbol_attributes) {
-        my $method = $attribute . '_symbol';
-        next if defined $self->$method;
-        $self->$method(
-            $NUMBERS->{$self->locale}{symbols}{$attribute}
-            || $NUMBERS->{root}{symbols}{$attribute}
-        );
-    }
-}
-
-sub _trigger_locale {
+sub percent_formatter {
     my ($self) = @_;
+    require CLDR::Number::Format::Percent;
+    CLDR::Number::Format::Percent->new($self->_attribute_args);
+};
 
-    for my $attribute (@pattern_attributes) {
-        my $method = $attribute . '_pattern';
-        $self->$method(
-            $NUMBERS->{$self->locale}{patterns}{$attribute}
-            || $NUMBERS->{root}{patterns}{$attribute}
-        );
+sub currency_formatter {
+    my ($self) = @_;
+    require CLDR::Number::Format::Currency;
+    CLDR::Number::Format::Currency->new($self->_attribute_args);
+};
+
+sub _attribute_args {
+    my ($self) = @_;
+    my %args;
+
+    for my $attribute ($self->_symbol_attributes) {
+        my $predicate = "has_$attribute";
+        next unless $self->$predicate;
+        $args{$attribute} = $self->$attribute;
     }
 
-    for my $attribute (@symbol_attributes) {
-        my $method = $attribute . '_symbol';
-        $self->$method(
-            $NUMBERS->{$self->locale}{symbols}{$attribute}
-            || $NUMBERS->{root}{symbols}{$attribute}
-        );
-    }
-}
-
-sub decimal {
-    my ($self, $num) = @_;
-
-    if (!defined $num) {
-        carp 'Use of uninitialized value in CLDR::Number->decimal';
-        return undef;
-    }
-
-    if (!looks_like_number $num) {
-        carp 'Use of invalid number in CLDR::Number->decimal';
-        return $num;
-    }
-
-    $num += 0;
-
-    my $negative = $num < 0;
-
-    my $pattern = $self->decimal_pattern;
-
-    $pattern = $self->_format_number($num, $pattern);
-
-    return $pattern;
-};
-
-sub short_decimal {
-    my ($self, $num) = @_;
-    #my $pattern = $self->short_decimal_pattern;
-
-    return $num;
-};
-
-sub long_decimal {
-    my ($self, $num) = @_;
-    #my $pattern = $self->long_decimal_pattern;
-
-    return $num;
-};
-
-sub percent {
-    my ($self, $num) = @_;
-    my $pattern = $self->percent_pattern;
-    my $symbol  = $self->percentSign_symbol;
-
-    $num *= 100;
-    $pattern = $self->_format_number($num, $pattern);
-    $pattern =~ s{%}{$symbol};
-
-    return $pattern;
-};
-
-sub per_mille {
-    my ($self, $num) = @_;
-    my $pattern = $self->percent_pattern;
-    my $symbol  = $self->perMille_symbol;
-
-    $num *= 1000;
-    $pattern = $self->_format_number($num, $pattern);
-    $pattern =~ s{%}{$symbol};
-
-    return $pattern;
-};
-
-sub scientific {
-    my ($self, $num) = @_;
-    my $pattern = $self->scientific_pattern;
-
-    return $num;
-};
-
-sub currency {
-    my ($self, $num) = @_;
-    my $pattern = $self->currency_pattern;
-    my $symbol  = $CURRENCIES->{$self->locale}{$self->currency_code};
-
-    $pattern = $self->_format_number($num, $pattern);
-    $pattern =~ s{¤}{$symbol};
-
-    return $pattern;
-};
-
-sub at_least {
-    my ($self, $num) = @_;
-    my $pattern = $self->atLeast_pattern;
-
-    $num = $self->decimal($num);
-    $pattern =~ s{ \{ 0 \} }{$num}x;
-
-    return $pattern;
-};
-
-sub range {
-    my ($self, @nums) = shift;
-    my $pattern = $self->range_pattern;
-
-    for my $i (0, 1) {
-        $nums[$i] = $self->decimal($nums[$i]);
-        $pattern =~ s{ \{ $i \} }{$nums[$i]}x;
-    }
-
-    return $pattern;
-};
-
-sub _format_number {
-    my ($self, $num, $pattern) = @_;
-    my $integer = int $num;
-    my $formatted_integer;
-
-    if (my $primary_grouping_size = $self->primary_grouping_size) {
-        my $reverse = reverse $integer;
-        $reverse =~ s{ (?<= \G .{$primary_grouping_size} ) (?= . ) }{ $self->group_symbol }eg;
-        my $formatted_integer = reverse $reverse;
-    }
-
-    # TODO: proof-of-concept only - all sorts of rounding errors
-    if (my $frac = int(($num - $integer) * 100)) {
-        $num = $formatted_integer . $self->decimal_symbol . $frac;
-    }
-    else {
-        $num = $formatted_integer;
-    }
-
-    $pattern =~ s{ ; .* }{}x;
-    $pattern =~ s{ [#0,.]+ }{$num}x;
-
-    return $pattern;
+    return %args;
 }
 
 1;
@@ -299,7 +45,7 @@ sub _format_number {
 
 =head1 NAME
 
-CLDR::Number - Unicode CLDR formatter for numbers
+CLDR::Number - Number formatters using the Unicode CLDR
 
 =head1 SYNOPSIS
 
@@ -313,49 +59,23 @@ CLDR::Number - Unicode CLDR formatter for numbers
     CLDR::Number->is_currency('EUR')  # true
     CLDR::Number->is_currency('XXX')  # false
 
-    $numf = CLDR::Number->new(
-        locale        => 'es',
-        currency_code => 'USD',
-    );
+=head1 ATTRIBUTES
 
-    $numf->decimal(1337)   # 1.337
-    $numf->decimal(-1337)  # -1.337
-    $numf->percent(1337)   # 1.337%
-    $numf->currency(1337)  # 1.337,00 $
+=over
 
-    $numf->precision(3);
-    $numf->currency_code('EUR');
-    $numf->decimal(1337)   # 1.337,000
-    $numf->percent(1337)   # 1.337,000%
-    $numf->currency(1337)  # 1.337,00 €
+=item locale
 
-    $numf->locale('en');
-    $numf->short_decimal(2337)     # 2K
-    $numf->short_decimal(1337123)  # 1M
-    $numf->long_decimal(2337)      # 2 thousand
-    $numf->long_decimal(1337123)   # 1 million
+=back
 
 =head1 METHODS
 
 =over
 
-=item decimal
+=item decimal_formatter
 
-=item short_decimal
+=item percent_formatter
 
-=item long_decimal
-
-=item scientific
-
-=item percent
-
-=item per_mille
-
-=item currency
-
-=item at_least
-
-=item range
+=item currency_formatter
 
 =back
 
