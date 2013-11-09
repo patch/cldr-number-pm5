@@ -8,10 +8,16 @@ our $VERSION = '0.00';
 
 with qw( CLDR::Number::Role::Format );
 
+sub BUILD {
+    my ($self) = @_;
+
+    $self->pattern($self->_number_data->{$self->locale}{patterns}{percent});
+}
+
 after _trigger_locale => sub {
     my ($self) = @_;
 
-    $self->pattern($self->_number_data->{$self->locale}{pattern}{currency});
+    $self->pattern($self->_number_data->{$self->locale}{patterns}{percent});
 };
 
 sub format {

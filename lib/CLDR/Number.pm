@@ -9,25 +9,28 @@ our $VERSION = '0.00';
 with qw( CLDR::Number::Role::Base );
 
 sub decimal_formatter {
-    my ($self) = @_;
+    my ($self, %args) = @_;
+    
     require CLDR::Number::Format::Decimal;
-    CLDR::Number::Format::Decimal->new($self->_attribute_args);
+    CLDR::Number::Format::Decimal->new($self->_make_args(%args));
 };
 
 sub percent_formatter {
-    my ($self) = @_;
+    my ($self, %args) = @_;
+
     require CLDR::Number::Format::Percent;
-    CLDR::Number::Format::Percent->new($self->_attribute_args);
+    CLDR::Number::Format::Percent->new($self->_make_args(%args));
 };
 
 sub currency_formatter {
-    my ($self) = @_;
+    my ($self, %args) = @_;
+
     require CLDR::Number::Format::Currency;
-    CLDR::Number::Format::Currency->new($self->_attribute_args);
+    CLDR::Number::Format::Currency->new($self->_make_args(%args));
 };
 
-sub _attribute_args {
-    my ($self) = @_;
+sub _make_args {
+    my ($self, %new_args) = @_;
     my %args;
 
     for my $attribute ($self->_symbol_attributes) {
@@ -35,6 +38,8 @@ sub _attribute_args {
         next unless $self->$predicate;
         $args{$attribute} = $self->$attribute;
     }
+
+    @args{keys %new_args} = values %new_args;
 
     return %args;
 }

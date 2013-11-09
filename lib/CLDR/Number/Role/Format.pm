@@ -47,7 +47,7 @@ sub _format_number {
 
 sub at_least {
     my ($self, $num) = @_;
-    my $pattern = $self->atLeast_pattern;
+    my $pattern = $self->_number_data->{$self->locale}{patterns}{atLeast};
 
     $num = $self->format($num);
     $pattern =~ s{ \{ 0 \} }{$num}x;
@@ -56,8 +56,8 @@ sub at_least {
 };
 
 sub range {
-    my ($self, @nums) = shift;
-    my $pattern = $self->range_pattern;
+    my ($self, @nums) = @_;
+    my $pattern = $self->_number_data->{$self->locale}{patterns}{range};
 
     for my $i (0, 1) {
         $nums[$i] = $self->format($nums[$i]);

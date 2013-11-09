@@ -13,7 +13,7 @@ has currency_code => (
     is  => 'rw',
     isa => sub {
         croak "currency_code is not defined"     if !defined $_[0];
-        croak "currency_code '$_[0]' is invalid" if !exists _currency_data()->{$_[0]};
+        croak "currency_code '$_[0]' is invalid" if !exists _currency_data()->{root}{$_[0]};
     },
 );
 
@@ -21,11 +21,17 @@ sub _currency_data {
     return $CLDR::Number::Data::Currency::DATA;
 };
 
+sub BUILD {
+    my ($self) = @_;
+
+    $self->pattern($self->_number_data->{$self->locale}{patterns}{currency});
+}
+
 after _trigger_locale => sub {
     my ($self) = @_;
     my $number_data = $self->_number_data->{$self->locale};
 
-    $self->pattern($number_data->{pattern}{currency});
+    $self->pattern($number_data->{patterns}{currency});
 
     if (my $decimal = $number_data->{symbols}{currencyDecimal}) {
         $self->decimal($decimal);

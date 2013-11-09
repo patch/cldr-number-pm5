@@ -11,6 +11,18 @@ with qw( CLDR::Number::Role::Format );
 
 my $CLASS = __PACKAGE__;
 
+sub BUILD {
+    my ($self) = @_;
+
+    $self->pattern($self->_number_data->{$self->locale}{patterns}{decimal});
+}
+
+after _trigger_locale => sub {
+    my ($self) = @_;
+
+    $self->pattern($self->_number_data->{$self->locale}{patterns}{decimal});
+};
+
 sub format {
     my ($self, $num) = @_;
 
