@@ -39,7 +39,7 @@ sub _normalize_pattern {
             }
         }
 
-        s{ , }{}xg;  # temporarily remove groups
+        tr{,}{}d;  # temporarily remove groups
 
         if ($primary) {
             s{ (?= .{$primary} (?: \. | $ ) ) }{,}x;  # add primary group
@@ -62,9 +62,13 @@ sub _normalize_pattern {
 sub _trigger_pattern {
     my ($self, $pattern) = @_;
 
-    if ($pattern =~ m{ \. ( ( 0* ) \#* ) }x) {
-        $self->minimum_fraction_digits(length $2);
-        $self->maximum_fraction_digits(length $1);
+    my ($min_int) = $pattern =~ m{ ( [0,]+ ) (?= \. | $ ) }x;
+    $min_int =~ tr{,}{}d;
+    $self->minimum_integer_digits(length $min_int);
+
+    if (my ($max, $min) = $pattern =~ m{ \. ( ( 0* ) \#* ) }x) {
+        $self->minimum_fraction_digits(length $min);
+        $self->maximum_fraction_digits(length $max);
     }
     else {
         $self->minimum_fraction_digits(0);
