@@ -15,7 +15,48 @@ has pattern => (
 #    isa => sub {
 #        croak "pattern is not defined" if !defined $_[0];
 #    },
+    coerce => \&_normalize_pattern,
 );
+
+sub _normalize_pattern {
+    my ($pattern) = @_;
+
+    for ($pattern) {
+        s{ \. $ }{}x;                    # no trailing decimal sign
+        s{ (?: ^ | \# ) (?= \. ) }{0}x;  # integer requires at least one 0
+
+        my ($primary, $secondary);
+        if (m{ (?: , ( [^,]* ) )? , ( [^,.]* ) $ }x) {  # calculate groups
+            if (defined $2 && length $2) {
+                $primary = length $2;
+                if (length $1 && length $1 != $primary) {
+                    $secondary = length $1;
+                }
+            }
+            elsif (defined $1 && length $1) {
+                $primary = length $1;
+            }
+        }
+
+        s{ , }{}xg;  # temporarily remove groups
+
+        if ($primary) {
+            s{ (?= .{$primary} (?: \. | $ ) ) }{,}x;  # add primary group
+            if ($secondary) {
+                s{ (?= .{$secondary} , ) }{,}x;  # add secondary group
+            }
+        }
+
+        if (!m{ \. }x) {
+            s{ (?: ^ | \# ) $ }{0}x;  # integer requires at least one 0
+        }
+
+        s{ ^ \#+ (?= [#0] ) }{}x;  # no leading multiple #s
+        s{ ^ (?= , ) }{#}x;        # leading # before group
+    }
+
+    return $pattern;
+}
 
 sub _format_number {
     my ($self, $num, $pattern) = @_;
