@@ -2,11 +2,35 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 27;
+use Test::More tests => 39;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new;
 my $decf = $cldr->decimal_formatter;
+
+$decf->pattern('0');
+is $decf->minimum_fraction_digits, 0;
+is $decf->maximum_fraction_digits, 0;
+
+$decf->pattern('0.');
+is $decf->minimum_fraction_digits, 0;
+is $decf->maximum_fraction_digits, 0;
+
+$decf->pattern('0.#');
+is $decf->minimum_fraction_digits, 0;
+is $decf->maximum_fraction_digits, 1;
+
+$decf->pattern('0.0');
+is $decf->minimum_fraction_digits, 1;
+is $decf->maximum_fraction_digits, 1;
+
+$decf->pattern('0.0#');
+is $decf->minimum_fraction_digits, 1;
+is $decf->maximum_fraction_digits, 2;
+
+$decf->pattern('0.00##');
+is $decf->minimum_fraction_digits, 2;
+is $decf->maximum_fraction_digits, 4;
 
 $decf->pattern('0');
 ok !defined $decf->primary_grouping_size;

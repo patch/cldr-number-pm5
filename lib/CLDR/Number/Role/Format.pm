@@ -62,6 +62,15 @@ sub _normalize_pattern {
 sub _trigger_pattern {
     my ($self, $pattern) = @_;
 
+    if ($pattern =~ m{ \. ( ( 0* ) \#* ) }x) {
+        $self->minimum_fraction_digits(length $2);
+        $self->maximum_fraction_digits(length $1);
+    }
+    else {
+        $self->minimum_fraction_digits(0);
+        $self->maximum_fraction_digits(0);
+    }
+
     if ($pattern =~ m{ (?: , ( [^,]* ) )? , ( [^,.]* ) $ }x) {
         if (defined $2) {
             $self->primary_grouping_size(length $2);
