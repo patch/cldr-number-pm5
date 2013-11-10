@@ -51,13 +51,10 @@ after _trigger_locale => sub {
 
 sub format {
     my ($self, $num) = @_;
-    my $pattern = $self->pattern;
-    my $symbol  = $self->_currency_data->{$self->locale}{$self->currency_code};
-
-    $pattern = $self->_format_number($num, $pattern);
-    $pattern =~ s{¤}{$symbol};
-
-    return $pattern;
+    my $symbol = $self->_currency_data->{$self->locale}{$self->currency_code};
+    my $format = $self->_format_number($num);
+    $format =~ s{¤}{$symbol};
+    return $format;
 };
 
 1;

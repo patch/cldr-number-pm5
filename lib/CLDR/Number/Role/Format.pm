@@ -87,7 +87,8 @@ sub _trigger_pattern {
 }
 
 sub _format_number {
-    my ($self, $num, $pattern) = @_;
+    my ($self, $num) = @_;
+    my $format = $self->pattern;
     my $min_frac = $self->minimum_fraction_digits;
     my $max_frac = $self->maximum_fraction_digits;
     my $int = int $num;
@@ -118,10 +119,10 @@ sub _format_number {
         $num = $formatted_int;
     }
 
-    $pattern =~ s{ ; .* }{}x;
-    $pattern =~ s{ [#0,.]+ }{$num}x;
+    $format =~ s{ ; .* }{}x;
+    $format =~ s{ [#0,.]+ }{$num}x;
 
-    return $pattern;
+    return $format;
 }
 
 sub at_least {

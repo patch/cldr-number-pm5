@@ -39,11 +39,8 @@ sub format {
     $num += 0;
 
     my $negative = $num < 0;
-    my $pattern  = $self->pattern;
 
-    $pattern = $self->_format_number($num, $pattern);
-
-    return $pattern;
+    return $self->_format_number($num);
 };
 
 1;

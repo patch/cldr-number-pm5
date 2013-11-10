@@ -22,26 +22,16 @@ after _trigger_locale => sub {
 
 sub format {
     my ($self, $num) = @_;
-    my $pattern = $self->pattern;
-    my $symbol  = $self->percentSign;
-
-    $num *= 100;
-    $pattern = $self->_format_number($num, $pattern);
-    $pattern =~ s{%}{$symbol};
-
-    return $pattern;
+    my $format = $self->_format_number($num * 100, $self->pattern);
+    $format =~ s{%}{$self->percentSign}e;
+    return $format;
 };
 
 sub format_permil {
     my ($self, $num) = @_;
-    my $pattern = $self->pattern;
-    my $symbol  = $self->perMille;
-
-    $num *= 1000;
-    $pattern = $self->_format_number($num, $pattern);
-    $pattern =~ s{%}{$symbol};
-
-    return $pattern;
+    my $format = $self->_format_number($num * 1000, $self->pattern);
+    $format =~ s{%}{$self->perMille}e;
+    return $format;
 };
 
 1;
