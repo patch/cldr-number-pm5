@@ -21,8 +21,9 @@ has pattern => (
 
 sub _normalize_pattern {
     my ($pattern) = @_;
+    my ($number_pattern) = $pattern =~ m{ ( [#0,.]+ ) }x;
 
-    for ($pattern) {
+    for ($number_pattern) {
         s{ \. $ }{}x;                    # no trailing decimal sign
         s{ (?: ^ | \# ) (?= \. ) }{0}x;  # integer requires at least one 0
 
@@ -56,17 +57,19 @@ sub _normalize_pattern {
         s{ ^ (?= , ) }{#}x;        # leading # before group
     }
 
+    $pattern =~ s{ [#0,.]+ }{$number_pattern}x;
     return $pattern;
 }
 
 sub _trigger_pattern {
     my ($self, $pattern) = @_;
+    my ($number_pattern) = $pattern =~ m{ ( [#0,.]+ ) }x;
 
-    my ($min_int) = $pattern =~ m{ ( [0,]+ ) (?= \. | $ ) }x;
+    my ($min_int) = $number_pattern =~ m{ ( [0,]+ ) (?= \. | $ ) }x;
     $min_int =~ tr{,}{}d;
     $self->minimum_integer_digits(length $min_int);
 
-    if (my ($max, $min) = $pattern =~ m{ \. ( ( 0* ) \#* ) }x) {
+    if (my ($max, $min) = $number_pattern =~ m{ \. ( ( 0* ) \#* ) }x) {
         $self->minimum_fraction_digits(length $min);
         $self->maximum_fraction_digits(length $max);
     }
@@ -75,7 +78,7 @@ sub _trigger_pattern {
         $self->maximum_fraction_digits(0);
     }
 
-    if ($pattern =~ m{ (?: , ( [^,]* ) )? , ( [^,.]* ) $ }x) {
+    if ($number_pattern =~ m{ (?: , ( [^,]* ) )? , ( [^,.]* ) $ }x) {
         if (defined $2) {
             $self->primary_grouping_size(length $2);
             if (defined $1) {
@@ -105,20 +108,19 @@ sub _format_number {
     my $min_frac = $self->minimum_fraction_digits;
     my $max_frac = $self->maximum_fraction_digits;
     my $int = int $num;
-    my $formatted_int;
+    my $format_int = $int;
 
     $num = sprintf "%.${max_frac}f", $num;
 
-    if (my $primary_grouping_size = $self->primary_grouping_size) {
-        my $reverse = reverse $int;
-        $reverse =~ s{ (?<= \G .{$primary_grouping_size} ) (?= . ) }{ $self->group }eg;
-        $formatted_int = reverse $reverse;
-    }
-    else {
-        $formatted_int = $num;
+    if (my $primary_group = $self->primary_grouping_size) {
+        $format_int =~ s{ (?<! ^ ) (?= .{$primary_group} $ ) }{ $self->group }xe;
+
+        my $other_groups = $self->secondary_grouping_size || $primary_group;
+        while (1) {
+            last if $format_int !~ s{ (?<! ^ ) (?<! , ) (?= .{$other_groups} , ) }{ $self->group }xe;
+        }
     }
 
-    # TODO: proof-of-concept only - all sorts of rounding errors
     if (my $frac = ($num * 100 - $int * 100) / 10) {
         my $pad_size = $min_frac - length $frac;
 
@@ -126,10 +128,10 @@ sub _format_number {
             $frac .= 0 x $pad_size;
         }
 
-        $num = $formatted_int . $self->decimal . $frac;
+        $num = $format_int . $self->decimal . $frac;
     }
     else {
-        $num = $formatted_int;
+        $num = $format_int;
     }
 
     $format =~ s{ ; .* }{}x;
