@@ -15,7 +15,8 @@ has pattern => (
 #    isa => sub {
 #        croak "pattern is not defined" if !defined $_[0];
 #    },
-    coerce => \&_normalize_pattern,
+    coerce  => \&_normalize_pattern,
+    trigger => 1,
 );
 
 sub _normalize_pattern {
@@ -56,6 +57,33 @@ sub _normalize_pattern {
     }
 
     return $pattern;
+}
+
+sub _trigger_pattern {
+    my ($self, $pattern) = @_;
+
+    if ($pattern =~ m{ (?: , ( [^,]* ) )? , ( [^,.]* ) $ }x) {
+        if (defined $2) {
+            $self->primary_grouping_size(length $2);
+            if (defined $1) {
+                $self->secondary_grouping_size(length $1);
+            }
+            else {
+                $self->clear_secondary_grouping_size;
+            }
+        }
+        elsif (defined $1) {
+            $self->primary_grouping_size(length $1);
+        }
+        else {
+            $self->clear_primary_grouping_size;
+            $self->clear_secondary_grouping_size;
+        }
+    }
+    else {
+        $self->clear_primary_grouping_size;
+        $self->clear_secondary_grouping_size;
+    }
 }
 
 sub _format_number {

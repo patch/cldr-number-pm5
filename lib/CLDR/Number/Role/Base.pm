@@ -68,6 +68,7 @@ has primary_grouping_size => (
             if defined $_[0] && !looks_like_number $_[0];
     },
     default => 3,
+    clearer => 1,
 );
 
 has secondary_grouping_size => (
@@ -76,6 +77,7 @@ has secondary_grouping_size => (
         croak "secondary_grouping_size '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
     },
+    clearer => 1,
 );
 
 for my $attribute ( _symbol_attributes() ) {
