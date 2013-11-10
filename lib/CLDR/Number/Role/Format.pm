@@ -19,24 +19,34 @@ has pattern => (
 
 sub _format_number {
     my ($self, $num, $pattern) = @_;
-    my $integer = int $num;
-    my $formatted_integer;
+    my $min_frac = $self->minimum_fraction_digits;
+    my $max_frac = $self->maximum_fraction_digits;
+    my $int = int $num;
+    my $formatted_int;
+
+    $num = sprintf "%.${max_frac}f", $num;
 
     if (my $primary_grouping_size = $self->primary_grouping_size) {
-        my $reverse = reverse $integer;
+        my $reverse = reverse $int;
         $reverse =~ s{ (?<= \G .{$primary_grouping_size} ) (?= . ) }{ $self->group }eg;
-        $formatted_integer = reverse $reverse;
+        $formatted_int = reverse $reverse;
     }
     else {
-        $formatted_integer = $num;
+        $formatted_int = $num;
     }
 
     # TODO: proof-of-concept only - all sorts of rounding errors
-    if (my $frac = int(($num - $integer) * 100)) {
-        $num = $formatted_integer . $self->decimal . $frac;
+    if (my $frac = ($num * 100 - $int * 100) / 10) {
+        my $pad_size = $min_frac - length $frac;
+
+        if ($pad_size > 0) {
+            $frac .= 0 x $pad_size;
+        }
+
+        $num = $formatted_int . $self->decimal . $frac;
     }
     else {
-        $num = $formatted_integer;
+        $num = $formatted_int;
     }
 
     $pattern =~ s{ ; .* }{}x;

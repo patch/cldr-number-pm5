@@ -15,6 +15,17 @@ has currency_code => (
         croak "currency_code is not defined"     if !defined $_[0];
         croak "currency_code '$_[0]' is invalid" if !exists _currency_data()->{root}{$_[0]};
     },
+    trigger => sub {
+        my ($self) = @_;
+        $self->currency_sign($self->_currency_data->{$self->locale}{$self->currency_code});
+    },
+);
+
+has currency_sign => (
+    is  => 'rw',
+    isa => sub {
+        croak "currency_sign is not defined" if !defined $_[0];
+    },
 );
 
 sub _currency_data {

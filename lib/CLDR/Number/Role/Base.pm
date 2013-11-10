@@ -14,10 +14,13 @@ has cldr_version => (
 );
 
 has locale => (
-    is  => 'rw',
-    isa => sub {
-        croak "locale is not defined"     if !defined $_[0];
-        croak "locale '$_[0]' is invalid" if !exists _number_data()->{$_[0]};
+    is      => 'rw',
+    coerce  => sub {
+        my ($locale) = @_;
+        if    (!defined $locale)                  { carp "locale is not defined"      }
+        elsif (!exists _number_data()->{$locale}) { carp "locale '$locale' is invalid" }
+        else                                      { return $locale                     }
+                                                    return 'root'
     },
     trigger => 1,
     default => 'root',

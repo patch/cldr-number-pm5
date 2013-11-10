@@ -35,8 +35,8 @@ $perf->maximum_fraction_digits(3);
 is $perf->format(-12), '-12,000 %', 'respect the percent_precision attribute';
 
 # currency_formatter_spec.rb
-my $curf = $cldr->currency_formatter(locale => 'ms');
-is $curf->format(12),  '$12.00',    'use a dollar sign when no other currency symbol is given (and default to a precision of 2)';
+my $curf = $cldr->currency_formatter(locale => 'ms', currency_code => 'USD');
+is $curf->format(12),  '$12.00',    'handles positive numbers';
 is $curf->format(-12), '-($12.00)', 'handles negative numbers';
 $curf->currency_sign('S/.');       is $curf->format(12), 'S/.12.00',  'use the specified currency symbol when specified';
 $curf->currency_code('XYZ');       is $curf->format(12), 'XYZ12.00',  'use the currency code as the symbol if the currency code cannot be identified';
