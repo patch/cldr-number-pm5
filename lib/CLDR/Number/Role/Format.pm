@@ -104,38 +104,49 @@ sub _trigger_pattern {
 
 sub _format_number {
     my ($self, $num) = @_;
-    my $format = $self->pattern;
-    my $min_frac = $self->minimum_fraction_digits;
-    my $max_frac = $self->maximum_fraction_digits;
-    my $int = int $num;
-    my $format_int = $int;
-
-    $num = sprintf "%.${max_frac}f", $num;
+    my $negative = $num < 0;
+    $num = sprintf '%.' . $self->maximum_fraction_digits . 'f' => abs $num;
+    my $int  = int $num;
+    my $frac = ($num * 100 - $int * 100) / 10;
 
     if (my $primary_group = $self->primary_grouping_size) {
-        $format_int =~ s{ (?<! ^ ) (?= .{$primary_group} $ ) }{ $self->group }xe;
-
+        $int =~ s{ (?<! ^ ) (?= .{$primary_group} $ ) }{ $self->group }xe;
         my $other_groups = $self->secondary_grouping_size || $primary_group;
         while (1) {
-            last if $format_int !~ s{ (?<! ^ ) (?<! , ) (?= .{$other_groups} , ) }{ $self->group }xe;
+            last if $int !~ s{ (?<! ^ ) (?<! , ) (?= .{$other_groups} , ) }{ $self->group }xe;
         }
     }
 
-    if (my $frac = ($num * 100 - $int * 100) / 10) {
-        my $pad_size = $min_frac - length $frac;
+    my $pad_size = $self->minimum_fraction_digits - length $frac;
 
-        if ($pad_size > 0) {
-            $frac .= 0 x $pad_size;
+    if ($pad_size > 0) {
+        $frac .= 0 x $pad_size;
+    }
+    elsif ($pad_size == -1 && $frac == 0) {
+        $frac = '';
+    }
+
+    my $num_format = $int;
+
+    if (length $frac) {
+        $num_format .= $self->decimal . $frac;
+    }
+
+    my $format = $self->pattern;
+
+    if ($negative) {
+        if ($format =~ s{ ^ .* ; }{}x) {
+            $format =~ s{-}{$self->minusSign}e;
         }
-
-        $num = $format_int . $self->decimal . $frac;
+        else {
+            $format = $self->minusSign . $format;
+        }
     }
     else {
-        $num = $format_int;
+        $format =~ s{ ; .* $ }{}x;
     }
 
-    $format =~ s{ ; .* }{}x;
-    $format =~ s{ [#0,.]+ }{$num}x;
+    $format =~ s{ [#0,.]+ }{$num_format}x;
 
     return $format;
 }

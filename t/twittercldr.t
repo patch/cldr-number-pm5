@@ -22,22 +22,22 @@ $decf->maximum_fraction_digits(1); is $decf->format(12.25), '12,3', 'rounds and 
 
 # decimal_formatter_spec.rb
 $decf->locale('sv');
-is $decf->decimal(12.0),  '12,0',  'format positive decimals correctly';
-is $decf->decimal(-12.0), '-12,0', 'format negative decimals correctly';
+is $decf->format(12.0),  '12',    'format positive decimals correctly';
+is $decf->format(-12.0), '−12',   'format negative decimals correctly';
 $decf->minimum_fraction_digits(3);
-is $decf->decimal(-12), '-12,000', 'respect the decimal_precision attribute';
+is $decf->format(-12), '−12,000', 'respect the minimum_fraction_digits attribute';
 
 # percent_formatter_spec.rb
 my $perf = $cldr->percent_formatter(locale => 'da');
-is $perf->format(12),  '12 %',      'format the number correctly';
-is $perf->format(-12), '-12 %',     'format negative numbers correctly';
-$perf->maximum_fraction_digits(3);
-is $perf->format(-12), '-12,000 %', 'respect the percent_precision attribute';
+is $perf->format(0.12),  '12 %',      'format the number correctly';
+is $perf->format(-0.12), '-12 %',     'format negative numbers correctly';
+$perf->minimum_fraction_digits(3);
+is $perf->format(-0.12), '-12,000 %', 'respect the minimum_fraction_digits attribute';
 
 # currency_formatter_spec.rb
 my $curf = $cldr->currency_formatter(locale => 'ms', currency_code => 'USD');
-is $curf->format(12),  '$12.00',    'handles positive numbers';
-is $curf->format(-12), '-($12.00)', 'handles negative numbers';
+is $curf->format(12),  '$12.00',   'handles positive numbers';
+is $curf->format(-12), '($12.00)', 'handles negative numbers';
 $curf->currency_sign('S/.');       is $curf->format(12), 'S/.12.00',  'use the specified currency symbol when specified';
 $curf->currency_code('XYZ');       is $curf->format(12), 'XYZ12.00',  'use the currency code as the symbol if the currency code cannot be identified';
 $curf->currency_code('CAD');       is $curf->format(12), '$12.00',    'respect the :use_cldr_symbol option';

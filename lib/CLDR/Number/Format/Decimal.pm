@@ -26,20 +26,6 @@ after _trigger_locale => sub {
 sub format {
     my ($self, $num) = @_;
 
-    if (!defined $num) {
-        carp 'Use of uninitialized value in $CLASS->format';
-        return undef;
-    }
-
-    if (!looks_like_number $num) {
-        carp 'Use of invalid number in $CLASS->format';
-        return $num;
-    }
-
-    $num += 0;
-
-    my $negative = $num < 0;
-
     return $self->_format_number($num);
 };
 
