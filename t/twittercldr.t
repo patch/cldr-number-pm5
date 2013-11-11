@@ -14,7 +14,7 @@ my $cldr = CLDR::Number->new;
 # number_formatter_spec.rb
 my $decf = $cldr->decimal_formatter(locale => 'sv');
 is $decf->format(12),      '12',       'format a basic integer';
-is $decf->format(12.0),    '12,0',     'format a basic decimal';
+is $decf->format(12.0),    '12',       'format a basic decimal';
 is $decf->format(1337),    '1 337',    'formats an integer larger than 999';
 is $decf->format(1337.37), '1 337,37', 'formats a decimal larger than 999.9';
 $decf->maximum_fraction_digits(0); is $decf->format(12.1),  '12',   'formats with precision of 0';

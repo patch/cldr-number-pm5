@@ -27,17 +27,17 @@ sub _normalize_pattern {
         s{ \. $ }{}x;                    # no trailing decimal sign
         s{ (?: ^ | \# ) (?= \. ) }{0}x;  # integer requires at least one 0
 
-        my ($primary, $secondary);
-        if (m{ (?: , ( [^,]* ) )? , ( [^,.]* ) $ }x) {  # calculate groups
-            if (defined $2 && length $2) {
-                $primary = length $2;
-                if (length $1 && length $1 != $primary) {
-                    $secondary = length $1;
-                }
-            }
-            elsif (defined $1 && length $1) {
-                $primary = length $1;
-            }
+        # calculate grouping sizes
+        my ($secondary, $primary) = map { length } m{ , ( [^,]* ) , ( [^,.]* ) (?: \. | $ ) }x;
+        if (!defined $primary) {
+            ($primary) = map { length } m{ , ( [^,.]* ) (?: \. | $ ) }x;
+        }
+        elsif ($primary == 0) {
+            $primary   = $secondary;
+            $secondary = undef;
+        }
+        elsif ($primary == $secondary) {
+            $secondary = undef;
         }
 
         tr{,}{}d;  # temporarily remove groups
@@ -78,36 +78,40 @@ sub _trigger_pattern {
         $self->maximum_fraction_digits(0);
     }
 
-    if ($number_pattern =~ m{ (?: , ( [^,]* ) )? , ( [^,.]* ) $ }x) {
-        if (defined $2) {
-            $self->primary_grouping_size(length $2);
-            if (defined $1) {
-                $self->secondary_grouping_size(length $1);
-            }
-            else {
-                $self->clear_secondary_grouping_size;
-            }
-        }
-        elsif (defined $1) {
-            $self->primary_grouping_size(length $1);
+    # calculate grouping sizes
+    # TODO: remove duplicate code block with _normalize_pattern
+    my ($secondary, $primary) = map { length } $number_pattern =~ m{ , ( [^,]* ) , ( [^,.]* ) (?: \. | $ ) }x;
+    if (!defined $primary) {
+        ($primary) = map { length } $number_pattern =~ m{ , ( [^,.]* ) (?: \. | $ ) }x;
+    }
+    elsif ($primary == 0) {
+        $primary   = $secondary;
+        $secondary = undef;
+    }
+    elsif ($primary == $secondary) {
+        $secondary = undef;
+    }
+
+    if ($primary) {
+        $self->primary_grouping_size($primary);
+
+        if ($secondary) {
+            $self->secondary_grouping_size($secondary);
         }
         else {
-            $self->clear_primary_grouping_size;
             $self->clear_secondary_grouping_size;
         }
     }
     else {
         $self->clear_primary_grouping_size;
-        $self->clear_secondary_grouping_size;
+        $self->secondary_grouping_size($secondary);
     }
 }
 
 sub _format_number {
     my ($self, $num) = @_;
     my $negative = $num < 0;
-    $num = sprintf '%.' . $self->maximum_fraction_digits . 'f' => abs $num;
-    my $int  = int $num;
-    my $frac = ($num * 100 - $int * 100) / 10;
+    my ($int, $frac) = split /\./, sprintf '%.' . $self->maximum_fraction_digits . 'f', abs $num;
 
     if (my $primary_group = $self->primary_grouping_size) {
         $int =~ s{ (?<! ^ ) (?= .{$primary_group} $ ) }{ $self->group }xe;
@@ -117,13 +121,14 @@ sub _format_number {
         }
     }
 
-    my $pad_size = $self->minimum_fraction_digits - length $frac;
+    my $pad_size = $self->minimum_fraction_digits - (length $frac || 0);
 
     if ($pad_size > 0) {
         $frac .= 0 x $pad_size;
     }
-    elsif ($pad_size == -1 && $frac == 0) {
-        $frac = '';
+    elsif ($pad_size < 0) {
+        my $truncate_size = abs $pad_size;
+        $frac =~ s{ 0{1,$truncate_size} $ }{}x;
     }
 
     my $num_format = $int;
