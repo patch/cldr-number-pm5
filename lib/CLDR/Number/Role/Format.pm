@@ -3,14 +3,15 @@ package CLDR::Number::Role::Format;
 use utf8;
 use Moo::Role;
 use Carp;
+use Math::BigFloat;
 
 our $VERSION = '0.00';
-
-my $number_pattern_re = qr{ (?: \* \X )? [@#0-9,.]+ }x;
 
 requires qw( format );
 
 with qw( CLDR::Number::Role::Base );
+
+my $number_pattern_re = qr{ (?: \* \X )? [@#0-9,.]+ }x;
 
 has pattern => (
     is  => 'rw',
@@ -113,7 +114,10 @@ sub _trigger_pattern {
 sub _format_number {
     my ($self, $num) = @_;
     my $negative = $num < 0;
-    my ($int, $frac) = split /\./, sprintf '%.' . $self->maximum_fraction_digits . 'f', abs $num;
+    $num = Math::BigFloat->new(abs $num);
+    $num->round_mode('even');
+    $num->ffround(-$self->maximum_fraction_digits);
+    my ($int, $frac) = split /\./, $num->bstr;
 
     if (my $primary_group = $self->primary_grouping_size) {
         $int =~ s{ (?<! ^ ) (?= .{$primary_group} $ ) }{ $self->group }xe;
