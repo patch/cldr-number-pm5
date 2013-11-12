@@ -36,18 +36,18 @@ is $perf->format(-0.12), '-12,000 %', 'respect the minimum_fraction_digits attr
 
 # currency_formatter_spec.rb
 my $curf = $cldr->currency_formatter(locale => 'ms', currency_code => 'USD');
-is $curf->format(12),  '$12.00',   'handles positive numbers';
-is $curf->format(-12), '($12.00)', 'handles negative numbers';
+is $curf->format(12),  'US$12.00',   'handles positive numbers';
+is $curf->format(-12), '(US$12.00)', 'handles negative numbers';
 $curf->currency_sign('S/.');       is $curf->format(12), 'S/.12.00',  'use the specified currency symbol when specified';
 $curf->currency_code('XYZ');       is $curf->format(12), 'XYZ12.00',  'use the currency code as the symbol if the currency code cannot be identified';
-$curf->currency_code('CAD');       is $curf->format(12), '$12.00',    'respect the :use_cldr_symbol option';
 $curf->currency_code('THB');       is $curf->format(12), '฿12.00',    'use the currency symbol for the corresponding currency code';
-$curf->minimum_fraction_digits(3); is $curf->format(12), '$12.000',   'overrides the default precision';
-$curf->currency_code('TND');       is $curf->format(12), 'TND12.000', 'use the currency-specific default precision';
-$curf->currency_code('CHF');
+$curf->currency_code('TND');       is $curf->format(12), 'TND12.000', 'use the currency-specific default minimum fraction digits';
+$curf->currency_code('CAD');       is $curf->format(12), 'CA$12.00',  'use the currency-specific default minimum fraction digits';
+$curf->minimum_fraction_digits(3); is $curf->format(12), 'CA$12.000', 'overrides the default minimum fraction digits';
 
-SKIP {
+SKIP: {
     skip 'rounding_increment NYI', 2;
+    $curf->currency_code('CHF');
     $curf->rounding_increment(5);
     is $curf->format(12.03), 'CHF12.05', 'use the currency rounding for the currency code';
     is $curf->format(12.02), 'CHF12.00', 'use the currency rounding for the currency code';

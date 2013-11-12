@@ -13,8 +13,10 @@ has currency_code => (
     is  => 'rw',
     isa => sub {
         croak "currency_code is not defined"     if !defined $_[0];
-        croak "currency_code '$_[0]' is invalid" if !exists _currency_data()->{root}{$_[0]};
+        croak "currency_code '$_[0]' is invalid" if $_[0] !~ m{ [A-Z]{3} }x;
+        carp  "currency_code '$_[0]' is unknown" if !exists _currency_data()->{root}{$_[0]};
     },
+    coerce  => sub { defined $_[0] ? uc $_[0] : $_[0] },
     trigger => 1,
 );
 
@@ -42,7 +44,7 @@ after _trigger_locale => sub {
     $self->pattern($number_data->{patterns}{currency});
 
     if ($self->currency_code) {
-        $self->currency_sign($self->_currency_data->{$self->locale}{$self->currency_code});
+        $self->currency_sign($self->_currency_data->{$self->locale}{$self->currency_code} || $self->currency_code);
     }
 
     if (my $decimal = $number_data->{symbols}{currencyDecimal}) {
@@ -54,7 +56,7 @@ sub _trigger_currency_code {
     my ($self) = @_;
 
     if ($self->locale) {
-        $self->currency_sign($self->_currency_data->{$self->locale}{$self->currency_code});
+        $self->currency_sign($self->_currency_data->{$self->locale}{$self->currency_code} || $self->currency_code);
     }
 }
 
