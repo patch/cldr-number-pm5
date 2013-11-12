@@ -18,7 +18,7 @@ is $decf->format(12.0),    '12',       'format a basic decimal';
 is $decf->format(1337),    '1 337',    'formats an integer larger than 999';
 is $decf->format(1337.37), '1 337,37', 'formats a decimal larger than 999.9';
 $decf->maximum_fraction_digits(0); is $decf->format(12.1),  '12',   'formats with precision of 0';
-$decf->maximum_fraction_digits(1); is $decf->format(12.25), '12,3', 'rounds and formats with precision of 1';
+$decf->maximum_fraction_digits(1); is $decf->format(12.25), '12,2', 'half-even rounding and formats with precision of 1';
 
 # decimal_formatter_spec.rb
 $decf->locale('sv');
