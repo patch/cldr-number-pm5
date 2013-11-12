@@ -283,6 +283,29 @@ our $DATA = {
             superscriptingExponent => '×',
         },
     },
+    ms => {
+        patterns => {
+            atLeast => '{0}+',
+            currency => '¤#,##0.00',
+            decimal => '#,##0.###',
+            percent => '#,##0%',
+            range => '{0}–{1}',
+            scientific => '#E0',
+        },
+        symbols => {
+            decimal => '.',
+            exponential => 'E',
+            group => ',',
+            infinity => '∞',
+            list => ';',
+            minusSign => '-',
+            nan => 'NaN',
+            perMille => '‰',
+            percentSign => '%',
+            plusSign => '+',
+            superscriptingExponent => '×',
+        },
+    },
     nb => {
         patterns => {
             atLeast => '⩾{0}',

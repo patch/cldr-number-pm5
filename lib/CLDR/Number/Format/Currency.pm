@@ -15,10 +15,7 @@ has currency_code => (
         croak "currency_code is not defined"     if !defined $_[0];
         croak "currency_code '$_[0]' is invalid" if !exists _currency_data()->{root}{$_[0]};
     },
-    trigger => sub {
-        my ($self) = @_;
-        $self->currency_sign($self->_currency_data->{$self->locale}{$self->currency_code});
-    },
+    trigger => 1,
 );
 
 has currency_sign => (
@@ -44,16 +41,27 @@ after _trigger_locale => sub {
 
     $self->pattern($number_data->{patterns}{currency});
 
+    if ($self->currency_code) {
+        $self->currency_sign($self->_currency_data->{$self->locale}{$self->currency_code});
+    }
+
     if (my $decimal = $number_data->{symbols}{currencyDecimal}) {
         $self->decimal($decimal);
     }
 };
 
+sub _trigger_currency_code {
+    my ($self) = @_;
+
+    if ($self->locale) {
+        $self->currency_sign($self->_currency_data->{$self->locale}{$self->currency_code});
+    }
+}
+
 sub format {
     my ($self, $num) = @_;
-    my $symbol = $self->_currency_data->{$self->locale}{$self->currency_code};
     my $format = $self->_format_number($num);
-    $format =~ s{¤}{$symbol};
+    $format =~ s{¤}{$self->currency_sign}e;
     return $format;
 };
 

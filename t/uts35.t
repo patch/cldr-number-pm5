@@ -45,8 +45,7 @@ $decf->pattern('#,##0.###');  is $decf->format(1_234.567), '1 234,567';
 $decf->pattern('###0.#####'); is $decf->format(1_234.567), '1234,567';
 $decf->pattern('###0.0000#'); is $decf->format(1_234.567), '1234,5670';
 $decf->pattern('00000.0000'); is $decf->format(1_234.567), '01234,5670';
-$curf->pattern('#,##0.00 ¤');
-$decf = $cldr->currency_formatter(locale => 'fr');
+$decf = $cldr->currency_formatter(locale => 'fr', pattern => '#,##0.00 ¤');
 $curf->currency_code('EUR'); is $curf->format(1_234.567), '1 234,57 €';
 $curf->currency_code('JPY'); is $curf->format(1_234.567), '1 235 ¥';
 
@@ -82,8 +81,7 @@ $decf->pattern('@@##'); is $decf->format(1.23004), '1.23',  'significant digits;
 $decf->pattern('@##');  is $decf->format(0.1203),  '0.12',  'significant digits; min: 1, max: ';
 
 # 3.6 Padding
-$curf = $cldr->currency_formatter(locale => 'en');
-$curf->currency_code('USD');
+$curf = $cldr->currency_formatter(locale => 'en', currency_code => 'USD');
 $curf->pattern('¤*x#,##0.00');
 is $curf->format(123),  '$xx123.00', 'padding (applied)';
 is $curf->format(1234), '$1,234.00', 'padding (not applied)';
