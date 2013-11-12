@@ -45,10 +45,7 @@ $curf->currency_code('TND');       is $curf->format(12), 'TND12.000', 'use the c
 $curf->currency_code('CAD');       is $curf->format(12), 'CA$12.00',  'use the currency-specific default minimum fraction digits';
 $curf->minimum_fraction_digits(3); is $curf->format(12), 'CA$12.000', 'overrides the default minimum fraction digits';
 
-SKIP: {
-    skip 'rounding_increment NYI', 2;
-    $curf->currency_code('CHF');
-    $curf->rounding_increment(5);
-    is $curf->format(12.03), 'CHF12.05', 'use the currency rounding for the currency code';
-    is $curf->format(12.02), 'CHF12.00', 'use the currency rounding for the currency code';
-}
+$curf->currency_code('CHF');
+$curf->rounding_increment(0.05);  # TODO: should this be 5?
+is $curf->format(12.03), 'CHF12.05', 'use the currency rounding for the currency code';
+is $curf->format(12.02), 'CHF12.00', 'use the currency rounding for the currency code';

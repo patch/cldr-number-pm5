@@ -80,6 +80,15 @@ has secondary_grouping_size => (
     clearer => 1,
 );
 
+has rounding_increment => (
+    is  => 'rw',
+    isa => sub {
+        croak "rounding_increment '$_[0]' is invalid"
+            if defined $_[0] && !looks_like_number $_[0];
+    },
+    default => 0,
+);
+
 for my $attribute ( _symbol_attributes() ) {
     has $attribute => (
         is        => 'rw',

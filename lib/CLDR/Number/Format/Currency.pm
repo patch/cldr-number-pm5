@@ -58,6 +58,11 @@ sub _trigger_currency_code {
     if ($self->locale) {
         $self->currency_sign($self->_currency_data->{$self->locale}{$self->currency_code} || $self->currency_code);
     }
+
+    # TODO: load supplemental currency data
+    $self->minimum_fraction_digits(2);
+    $self->maximum_fraction_digits(2);
+    $self->rounding_increment(0);
 }
 
 sub format {

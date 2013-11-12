@@ -4,6 +4,7 @@ use utf8;
 use Moo::Role;
 use Carp;
 use Math::BigFloat;
+use Math::Round;
 
 our $VERSION = '0.00';
 
@@ -68,19 +69,6 @@ sub _trigger_pattern {
     my ($self, $pattern) = @_;
     my ($number_pattern) = $pattern =~ m{ ( $number_pattern_re ) }x;
 
-    my ($min_int) = $number_pattern =~ m{ ( [0-9,]+ ) (?= \. | $ ) }x;
-    $min_int =~ tr{,}{}d;
-    $self->minimum_integer_digits(length $min_int);
-
-    if (my ($max, $min) = $number_pattern =~ m{ \. ( ( [0-9]* ) \#* ) }x) {
-        $self->minimum_fraction_digits(length $min);
-        $self->maximum_fraction_digits(length $max);
-    }
-    else {
-        $self->minimum_fraction_digits(0);
-        $self->maximum_fraction_digits(0);
-    }
-
     # calculate grouping sizes
     # TODO: remove duplicate code block with _normalize_pattern
     my ($secondary, $primary) = map { length } $number_pattern =~ m{ , ( [^,]* ) , ( [^,.]* ) (?: \. | $ ) }x;
@@ -109,15 +97,50 @@ sub _trigger_pattern {
         $self->clear_primary_grouping_size;
         $self->secondary_grouping_size($secondary);
     }
+
+    $number_pattern =~ tr{,}{}d;
+
+    my ($min_int) = $number_pattern =~ m{ ( [0-9,]+ ) (?= \. | $ ) }x;
+    $self->minimum_integer_digits(length $min_int);
+
+    if (my ($max, $min) = $number_pattern =~ m{ \. ( ( [0-9]* ) \#* ) }x) {
+        $self->minimum_fraction_digits(length $min);
+        $self->maximum_fraction_digits(length $max);
+    }
+    else {
+        $self->minimum_fraction_digits(0);
+        $self->maximum_fraction_digits(0);
+    }
+
+    if (my ($round_inc) = $number_pattern =~ m{ (
+        (?: [1-9] [0-9,]* | 0 )  # integer
+        (?= \. | $ )
+        (?: \. [0-9]* [1-9] )?   # fraction
+    ) }x) {
+        $self->rounding_increment($round_inc);
+    }
+    else {
+        $self->rounding_increment(0);
+    }
 }
 
 sub _format_number {
     my ($self, $num) = @_;
     my $negative = $num < 0;
-    $num = Math::BigFloat->new(abs $num);
-    $num->round_mode('even');
-    $num->ffround(-$self->maximum_fraction_digits);
-    my ($int, $frac) = split /\./, $num->bstr;
+
+    if ($self->rounding_increment) {
+        # TODO: round half to even
+        $num = Math::Round::nearest($self->rounding_increment, $num);
+    }
+    else {
+        # round half to even
+        my $bf = Math::BigFloat->new(abs $num);
+        $bf->round_mode('even');
+        $bf->ffround(-$self->maximum_fraction_digits);
+        $num = $bf->bstr;
+    }
+
+    my ($int, $frac) = split /\./, $num;
 
     if (my $primary_group = $self->primary_grouping_size) {
         $int =~ s{ (?<! ^ ) (?= .{$primary_group} $ ) }{ $self->group }xe;

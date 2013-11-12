@@ -95,7 +95,7 @@ TODO: {
 # Rounding
 $decf = $cldr->decimal_formatter(locale => 'en');
 $decf->pattern('0.65');
-is $decf->format(1.234), '1.3', 'rounding to 0.65';
+is $decf->format(1.234), '1.30', 'rounding to 0.65';
 
 # 3.7 Quoting Rules
 $decf = $cldr->decimal_formatter(locale => 'en');
