@@ -6,6 +6,8 @@ use Carp;
 
 our $VERSION = '0.00';
 
+my $number_pattern_re = qr{ (?: \* \X )? [@#0-9,.]+ }x;
+
 requires qw( format );
 
 with qw( CLDR::Number::Role::Base );
@@ -21,11 +23,11 @@ has pattern => (
 
 sub _normalize_pattern {
     my ($pattern) = @_;
-    my ($number_pattern) = $pattern =~ m{ ( [#0,.]+ ) }x;
+    my ($number_pattern) = $pattern =~ m{ ( $number_pattern_re ) }x;
 
     for ($number_pattern) {
         s{ \. $ }{}x;                    # no trailing decimal sign
-        s{ (?: ^ | \# ) (?= \. ) }{0}x;  # integer requires at least one 0
+        s{ (?: ^ | \# ) (?= \. ) }{0}x;  # integer requires at least one minimum digit
 
         # calculate grouping sizes
         my ($secondary, $primary) = map { length } m{ , ( [^,]* ) , ( [^,.]* ) (?: \. | $ ) }x;
@@ -50,26 +52,26 @@ sub _normalize_pattern {
         }
 
         if (!m{ \. }x) {
-            s{ (?: ^ | \# ) $ }{0}x;  # integer requires at least one 0
+            s{ (?: ^ | \# ) $ }{0}x;  # integer requires at least one minimum digit
         }
 
-        s{ ^ \#+ (?= [#0] ) }{}x;  # no leading multiple #s
-        s{ ^ (?= , ) }{#}x;        # leading # before group
+        s{ ^ \#+ (?= [#0-9] ) }{}x;  # no leading multiple #s
+        s{ ^ (?= , ) }{#}x;          # leading # before group
     }
 
-    $pattern =~ s{ [#0,.]+ }{$number_pattern}x;
+    $pattern =~ s{$number_pattern_re}{$number_pattern};
     return $pattern;
 }
 
 sub _trigger_pattern {
     my ($self, $pattern) = @_;
-    my ($number_pattern) = $pattern =~ m{ ( [#0,.]+ ) }x;
+    my ($number_pattern) = $pattern =~ m{ ( $number_pattern_re ) }x;
 
-    my ($min_int) = $number_pattern =~ m{ ( [0,]+ ) (?= \. | $ ) }x;
+    my ($min_int) = $number_pattern =~ m{ ( [0-9,]+ ) (?= \. | $ ) }x;
     $min_int =~ tr{,}{}d;
     $self->minimum_integer_digits(length $min_int);
 
-    if (my ($max, $min) = $number_pattern =~ m{ \. ( ( 0* ) \#* ) }x) {
+    if (my ($max, $min) = $number_pattern =~ m{ \. ( ( [0-9]* ) \#* ) }x) {
         $self->minimum_fraction_digits(length $min);
         $self->maximum_fraction_digits(length $max);
     }
@@ -121,13 +123,17 @@ sub _format_number {
         }
     }
 
-    my $pad_size = $self->minimum_fraction_digits - (length $frac || 0);
-
-    if ($pad_size > 0) {
-        $frac .= 0 x $pad_size;
+    my $int_pad = $self->minimum_integer_digits - (length $int || 0);
+    if ($int_pad > 0) {
+        $int = 0 x $int_pad . $int;
     }
-    elsif ($pad_size < 0) {
-        my $truncate_size = abs $pad_size;
+
+    my $frac_pad = $self->minimum_fraction_digits - (length $frac || 0);
+    if ($frac_pad > 0) {
+        $frac .= 0 x $frac_pad;
+    }
+    elsif ($frac_pad < 0) {
+        my $truncate_size = abs $frac_pad;
         $frac =~ s{ 0{1,$truncate_size} $ }{}x;
     }
 
@@ -151,7 +157,7 @@ sub _format_number {
         $format =~ s{ ; .* $ }{}x;
     }
 
-    $format =~ s{ [#0,.]+ }{$num_format}x;
+    $format =~ s{$number_pattern_re}{$num_format};
 
     return $format;
 }

@@ -57,9 +57,9 @@ $decf->pattern('0.##');   is $decf->format(0.125),   '0.12',   'maximum fraction
 $decf->pattern('0.0000'); is $decf->format(0.125),   '0.1250', 'minimum fraction digits';
 $decf->pattern('0.####'); is $decf->format(0.10004), '0.1',    'trailing fractional zeros are not displayed';
 
+# 3.4 Scientific Notation
 SKIP: {
     skip 'scientific_formatter NYI', 7;
-    # 3.4 Scientific Notation
     $scif = $cldr->scientific_formatter(locale => 'en');
     $scif->pattern('0.###E0');
     is $scif->format(1234), '1.234E3', 'scientific notation';
@@ -73,18 +73,24 @@ SKIP: {
 };
 
 # 3.5 Significant Digits
-$decf = $cldr->decimal_formatter(locale => 'en');
-$decf->pattern('@@@');  is $decf->format(12345),   '12300', 'significant digits; min/max: 3';
-$decf->pattern('@@@');  is $decf->format(0.12345), '0.123', 'significant digits; min/max: 3';
-$decf->pattern('@@##'); is $decf->format(3.14159), '3.142', 'significant digits; min: 2, max: 4';
-$decf->pattern('@@##'); is $decf->format(1.23004), '1.23',  'significant digits; min: 2, max: 4';
-$decf->pattern('@##');  is $decf->format(0.1203),  '0.12',  'significant digits; min: 1, max: ';
+SKIP: {
+    skip 'significant digits NYI', 5;
+    $decf = $cldr->decimal_formatter(locale => 'en');
+    $decf->pattern('@@@');  is $decf->format(12345),   '12300', 'significant digits; min/max: 3';
+    $decf->pattern('@@@');  is $decf->format(0.12345), '0.123', 'significant digits; min/max: 3';
+    $decf->pattern('@@##'); is $decf->format(3.14159), '3.142', 'significant digits; min: 2, max: 4';
+    $decf->pattern('@@##'); is $decf->format(1.23004), '1.23',  'significant digits; min: 2, max: 4';
+    $decf->pattern('@##');  is $decf->format(0.1203),  '0.12',  'significant digits; min: 1, max: 3';
+}
 
 # 3.6 Padding
-$curf = $cldr->currency_formatter(locale => 'en', currency_code => 'USD');
-$curf->pattern('¤*x#,##0.00');
-is $curf->format(123),  '$xx123.00', 'padding (applied)';
-is $curf->format(1234), '$1,234.00', 'padding (not applied)';
+TODO: {
+    local $TODO = 'padding NYI';
+    $curf = $cldr->currency_formatter(locale => 'en', currency_code => 'USD');
+    $curf->pattern('¤*x#,##0.00');
+    is $curf->format(123),  '$xx123.00', 'padding (applied)';
+    is $curf->format(1234), '$1,234.00', 'padding (not applied)';
+}
 
 # Rounding
 $decf = $cldr->decimal_formatter(locale => 'en');
