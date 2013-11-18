@@ -3,6 +3,7 @@ package CLDR::Number::Role::Format;
 use utf8;
 use Moo::Role;
 use Carp;
+use English qw( -no_match_vars );
 use Math::BigFloat;
 use Math::Round;
 
@@ -25,43 +26,60 @@ has pattern => (
 
 sub _normalize_pattern {
     my ($pattern) = @_;
-    my ($number_pattern) = $pattern =~ m{ ( $number_pattern_re ) }x;
+    my $number_pattern;
 
-    for ($number_pattern) {
-        s{ \. $ }{}x;                    # no trailing decimal sign
-        s{ (?: ^ | \# ) (?= \. ) }{0}x;  # integer requires at least one minimum digit
+    while ($pattern =~ m{ \G (?:
+                   ( (?: [^'] | '' )+ )  # non-quoted (incl. escaped quotes)
+        | (?=! ' ) ' (?: [^'] | '' )+ (?: ' (?! ' ) | $ )  # quoted
+    ) }xg) {
+        my $subpattern = $1;
+        next unless $subpattern;
 
-        # calculate grouping sizes
-        my ($secondary, $primary) = map { length } m{ , ( [^,]* ) , ( [^,.]* ) (?: \. | $ ) }x;
-        if (!defined $primary) {
-            ($primary) = map { length } m{ , ( [^,.]* ) (?: \. | $ ) }x;
-        }
-        elsif ($primary == 0) {
-            $primary   = $secondary;
-            $secondary = undef;
-        }
-        elsif ($primary == $secondary) {
-            $secondary = undef;
-        }
+        my $subpattern_offset = $LAST_MATCH_START[0];
+        my $subpattern_length = $LAST_MATCH_END[0] - $subpattern_offset;
 
-        tr{,}{}d;  # temporarily remove groups
+        if (my ($number_pattern) = $subpattern =~ m{ ( $number_pattern_re ) }x) {
+            for ($number_pattern) {
+                s{ \. $ }{}x;                    # no trailing decimal sign
+                s{ (?: ^ | \# ) (?= \. ) }{0}x;  # integer requires at least one minimum digit
 
-        if ($primary) {
-            s{ (?= .{$primary} (?: \. | $ ) ) }{,}x;  # add primary group
-            if ($secondary) {
-                s{ (?= .{$secondary} , ) }{,}x;  # add secondary group
+                # calculate grouping sizes
+                my ($secondary, $primary) = map { length } m{ , ( [^,]* ) , ( [^,.]* ) (?: \. | $ ) }x;
+                if (!defined $primary) {
+                    ($primary) = map { length } m{ , ( [^,.]* ) (?: \. | $ ) }x;
+                }
+                elsif ($primary == 0) {
+                    $primary   = $secondary;
+                    $secondary = undef;
+                }
+                elsif ($primary == $secondary) {
+                    $secondary = undef;
+                }
+
+                tr{,}{}d;  # temporarily remove groups
+
+                if ($primary) {
+                    s{ (?= .{$primary} (?: \. | $ ) ) }{,}x;  # add primary group
+                    if ($secondary) {
+                        s{ (?= .{$secondary} , ) }{,}x;  # add secondary group
+                    }
+                }
+
+                if (!m{ \. }x) {
+                    s{ (?: ^ | \# ) $ }{0}x;  # integer requires at least one minimum digit
+                }
+
+                s{ ^ \#+ (?= [#0-9] ) }{}x;  # no leading multiple #s
+                s{ ^ (?= , ) }{#}x;          # leading # before group
             }
-        }
 
-        if (!m{ \. }x) {
-            s{ (?: ^ | \# ) $ }{0}x;  # integer requires at least one minimum digit
-        }
+            $subpattern =~ s{$number_pattern_re}{$number_pattern};
+            substr $pattern, $subpattern_offset, $subpattern_length, $subpattern;
 
-        s{ ^ \#+ (?= [#0-9] ) }{}x;  # no leading multiple #s
-        s{ ^ (?= , ) }{#}x;          # leading # before group
+            last;
+        }
     }
 
-    $pattern =~ s{$number_pattern_re}{$number_pattern};
     return $pattern;
 }
 

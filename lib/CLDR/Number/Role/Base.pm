@@ -17,10 +17,16 @@ has locale => (
     is      => 'rw',
     coerce  => sub {
         my ($locale) = @_;
-        if    (!defined $locale)                  { carp "locale is not defined"      }
-        elsif (!exists _number_data()->{$locale}) { carp "locale '$locale' is invalid" }
-        else                                      { return $locale                     }
-                                                    return 'root'
+        if (!defined $locale) {
+            carp 'locale is not defined';
+        }
+        elsif (!exists _number_data()->{$locale}) {
+            carp "locale '$locale' is unknown";
+        }
+        else {
+            return $locale;
+        }
+        return 'root';
     },
     trigger => 1,
     default => 'root',
