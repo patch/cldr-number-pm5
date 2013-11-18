@@ -27,6 +27,13 @@ has currency_sign => (
     },
 );
 
+has cash => (
+    is      => 'rw',
+    coerce  => sub { $_[0] ? 1 : 0 },
+    trigger => 1,
+    default => 0,
+);
+
 sub _currency_locales {
     return $CLDR::Number::Data::Currency::LOCALES;
 };
@@ -39,6 +46,10 @@ sub BUILD {
     my ($self) = @_;
 
     $self->pattern($self->_number_data->{$self->locale}{patterns}{currency});
+
+    if ($self->currency_code) {
+        $self->_trigger_currency_code;
+    }
 }
 
 after _trigger_locale => sub {
@@ -63,14 +74,32 @@ sub _trigger_currency_code {
         $self->currency_sign($self->_currency_locales->{$self->locale}{$self->currency_code} || $self->currency_code);
     }
 
+    $self->_trigger_cash;
+}
+
+sub _trigger_cash {
+    my ($self) = @_;
+
     my $currency_data
-        = exists _currency_data->{$self->currency_code}
+        = $self->currency_code && exists _currency_data->{$self->currency_code}
         ? _currency_data->{$self->currency_code}
         : _currency_data->{DEFAULT};
 
-    $self->minimum_fraction_digits($currency_data->{_digits});
-    $self->maximum_fraction_digits($currency_data->{_digits});
-    $self->rounding_increment($currency_data->{_rounding});
+    if ($self->cash && exists $currency_data->{_cashDigits}) {
+        $self->minimum_fraction_digits($currency_data->{_cashDigits});
+        $self->maximum_fraction_digits($currency_data->{_cashDigits});
+    }
+    else {
+        $self->minimum_fraction_digits($currency_data->{_digits});
+        $self->maximum_fraction_digits($currency_data->{_digits});
+    }
+
+    if ($self->cash && exists $currency_data->{_cashRounding}) {
+        $self->rounding_increment($currency_data->{_cashRounding});
+    }
+    else {
+        $self->rounding_increment($currency_data->{_rounding});
+    }
 }
 
 sub format {
