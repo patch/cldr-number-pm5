@@ -6,9 +6,10 @@ use warnings;
 
 our $VERSION = '0.00';
 
-our $DATA = {
+our $LOCALES = {
     root => {
         AUD => 'A$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -20,6 +21,7 @@ our $DATA = {
     },
     cs => {
         AUD => 'AU$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -31,6 +33,7 @@ our $DATA = {
     },
     da => {
         AUD => 'AU$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'kr',
         EUR => '€',
@@ -42,6 +45,7 @@ our $DATA = {
     },
     de => {
         AUD => 'AU$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -53,6 +57,7 @@ our $DATA = {
     },
     en => {
         AUD => 'A$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -64,6 +69,7 @@ our $DATA = {
     },
     es => {
         AUD => 'AU$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -75,6 +81,7 @@ our $DATA = {
     },
     fi => {
         AUD => 'AUD',
+        CAD => 'CAD',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -86,6 +93,7 @@ our $DATA = {
     },
     fr => {
         AUD => '$AU',
+        CAD => '$CA',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -97,6 +105,7 @@ our $DATA = {
     },
     hu => {
         AUD => 'AUD',
+        CAD => 'CAD',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => 'EUR',
@@ -108,6 +117,7 @@ our $DATA = {
     },
     it => {
         AUD => 'A$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -119,6 +129,7 @@ our $DATA = {
     },
     ja => {
         AUD => 'AU$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -130,6 +141,7 @@ our $DATA = {
     },
     ko => {
         AUD => 'AU$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -154,6 +166,7 @@ our $DATA = {
     },
     nb => {
         AUD => 'AUD',
+        CAD => 'CAD',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -165,6 +178,7 @@ our $DATA = {
     },
     nl => {
         AUD => 'AU$',
+        CAD => 'C$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -176,6 +190,7 @@ our $DATA = {
     },
     pl => {
         AUD => 'AUD',
+        CAD => 'CAD',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -187,6 +202,7 @@ our $DATA = {
     },
     pt => {
         AUD => 'AU$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -198,6 +214,7 @@ our $DATA = {
     },
     ru => {
         AUD => 'A$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -209,6 +226,7 @@ our $DATA = {
     },
     sv => {
         AUD => 'AU$',
+        CAD => 'CAN$',
         CHF => 'CHF',
         DKK => 'Dkr',
         EUR => '€',
@@ -220,6 +238,7 @@ our $DATA = {
     },
     th => {
         AUD => 'AU$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -231,6 +250,7 @@ our $DATA = {
     },
     tr => {
         AUD => 'AU$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -242,6 +262,7 @@ our $DATA = {
     },
     zh => {
         AUD => 'AU$',
+        CAD => 'CA$',
         CHF => 'CHF',
         DKK => 'DKK',
         EUR => '€',
@@ -250,6 +271,31 @@ our $DATA = {
         NOK => 'NOK',
         SEK => 'SEK',
         USD => 'US$',
+    },
+};
+
+our $CURRENCIES = {
+    DEFAULT => {
+        _rounding     => 0,
+        _digits       => 2,
+    },
+    CAD => {
+        _rounding     => 0,
+        _digits       => 2,
+        _cashRounding => 5,
+    },
+    CHF => {
+        _rounding     => 0,
+        _digits       => 2,
+        _cashRounding => 5,
+    },
+    JPY => {
+        _rounding     => 0,
+        _digits       => 0,
+    },
+    TND => {
+        _rounding     => 0,
+        _digits       => 3,
     },
 };
 

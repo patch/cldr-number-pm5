@@ -14,7 +14,7 @@ has currency_code => (
     isa => sub {
         croak "currency_code is not defined"     if !defined $_[0];
         croak "currency_code '$_[0]' is invalid" if $_[0] !~ m{ ^ [A-Z]{3} $ }x;
-        carp  "currency_code '$_[0]' is unknown" if !exists _currency_data()->{root}{$_[0]};
+        carp  "currency_code '$_[0]' is unknown" if !exists _currency_locales()->{root}{$_[0]};
     },
     coerce  => sub { defined $_[0] ? uc $_[0] : $_[0] },
     trigger => 1,
@@ -27,8 +27,12 @@ has currency_sign => (
     },
 );
 
+sub _currency_locales {
+    return $CLDR::Number::Data::Currency::LOCALES;
+};
+
 sub _currency_data {
-    return $CLDR::Number::Data::Currency::DATA;
+    return $CLDR::Number::Data::Currency::CURRENCIES;
 };
 
 sub BUILD {
@@ -44,7 +48,7 @@ after _trigger_locale => sub {
     $self->pattern($number_data->{patterns}{currency});
 
     if ($self->currency_code) {
-        $self->currency_sign($self->_currency_data->{$self->locale}{$self->currency_code} || $self->currency_code);
+        $self->currency_sign($self->_currency_locales->{$self->locale}{$self->currency_code} || $self->currency_code);
     }
 
     if (my $decimal = $number_data->{symbols}{currencyDecimal}) {
@@ -56,13 +60,17 @@ sub _trigger_currency_code {
     my ($self) = @_;
 
     if ($self->locale) {
-        $self->currency_sign($self->_currency_data->{$self->locale}{$self->currency_code} || $self->currency_code);
+        $self->currency_sign($self->_currency_locales->{$self->locale}{$self->currency_code} || $self->currency_code);
     }
 
-    # TODO: load supplemental currency data
-    $self->minimum_fraction_digits(2);
-    $self->maximum_fraction_digits(2);
-    $self->rounding_increment(0);
+    my $currency_data
+        = exists _currency_data->{$self->currency_code}
+        ? _currency_data->{$self->currency_code}
+        : _currency_data->{DEFAULT};
+
+    $self->minimum_fraction_digits($currency_data->{_digits});
+    $self->maximum_fraction_digits($currency_data->{_digits});
+    $self->rounding_increment($currency_data->{_rounding});
 }
 
 sub format {
