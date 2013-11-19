@@ -139,10 +139,17 @@ sub _format_number {
     my ($int, $frac) = split /\./, $num;
 
     if (my $primary_group = $self->primary_grouping_size) {
-        $int =~ s{ (?<! ^ ) (?= .{$primary_group} $ ) }{ $self->group }xe;
+        my $group_symbol = $self->group;
         my $other_groups = $self->secondary_grouping_size || $primary_group;
+
+        $int =~ s{ (?<! ^ ) (?= .{$primary_group} $ ) }{$group_symbol}x;
+
         while (1) {
-            last if $int !~ s{ (?<! ^ ) (?<! , ) (?= .{$other_groups} , ) }{ $self->group }xe;
+            last if $int !~ s{
+                (?<! ^ )
+                (?<! \Q$group_symbol\E )
+                (?= .{$other_groups} \Q$group_symbol\E )
+            }{$group_symbol}x;
         }
     }
 
