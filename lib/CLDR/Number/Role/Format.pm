@@ -25,13 +25,12 @@ has pattern => (
 
 sub _trigger_pattern {
     my ($self, $pattern) = @_;
-    my $number_pattern;
 
     PATTERN:
     while ($pattern =~ m{ \G (?:
         ( (?: [^'] | '' )+ )           # non-quoted text (incl. escaped quotes)
     |
-        (?: ^ | (?=! ' ) ) '           # start quote
+        (?: ^ | (?<! ' ) ) '           # start quote
             (?: [^'] | '' )+           # quoted text (incl. escaped quotes)
         (?: ' (?: (?! ' ) | $ ) | $ )  # end quote (optional at end of pattern)
     ) }xg) {
@@ -181,9 +180,29 @@ sub _format_number {
         $format =~ s{ ; .* $ }{}x;
     }
 
-    $format =~ s{$number_pattern_re}{$num_format};
+    my $final_format = '';
+    my $formatted;
+    # TODO: remove duplicate regex code shared with _trigger_pattern
+    while ($format =~ m{ \G (?:
+        ( (?: [^'] | '' )+ )           # non-quoted text (incl. escaped quotes)
+    |
+        (?: ^ | (?<! ' ) ) '           # start quote
+            ( (?: [^'] | '' )+ )       # quoted text (incl. escaped quotes)
+        (?: ' (?: (?! ' ) | $ ) | $ )  # end quote (optional at end of pattern)
+    ) }xg) {
+        my $nonquote = $1;
+        my $quote    = $2;
 
-    return $format;
+        if (!$formatted && defined $nonquote && $nonquote =~ s{$number_pattern_re}{$num_format}) {
+            $formatted = 1;
+        }
+
+        $final_format .= defined $nonquote ? $nonquote : $quote;
+    }
+
+    $final_format =~ s{''}{}g;
+
+    return $final_format;
 }
 
 sub at_least {
