@@ -20,25 +20,29 @@ has pattern => (
 #    isa => sub {
 #        croak "pattern is not defined" if !defined $_[0];
 #    },
-    coerce  => \&_normalize_pattern,
     trigger => 1,
 );
 
-sub _normalize_pattern {
-    my ($pattern) = @_;
+sub _trigger_pattern {
+    my ($self, $pattern) = @_;
     my $number_pattern;
 
+    PATTERN:
     while ($pattern =~ m{ \G (?:
-                   ( (?: [^'] | '' )+ )  # non-quoted (incl. escaped quotes)
-        | (?=! ' ) ' (?: [^'] | '' )+ (?: ' (?! ' ) | $ )  # quoted
+        ( (?: [^'] | '' )+ )           # non-quoted text (incl. escaped quotes)
+    |
+        (?: ^ | (?=! ' ) ) '           # start quote
+            (?: [^'] | '' )+           # quoted text (incl. escaped quotes)
+        (?: ' (?: (?! ' ) | $ ) | $ )  # end quote (optional at end of pattern)
     ) }xg) {
         my $subpattern = $1;
-        next unless $subpattern;
+        next PATTERN unless $subpattern;
 
         my $subpattern_offset = $LAST_MATCH_START[0];
         my $subpattern_length = $LAST_MATCH_END[0] - $subpattern_offset;
 
         if (my ($number_pattern) = $subpattern =~ m{ ( $number_pattern_re ) }x) {
+            SUBPATTERN:
             for ($number_pattern) {
                 s{ \. $ }{}x;                    # no trailing decimal sign
                 s{ (?: ^ | \# ) (?= \. ) }{0}x;  # integer requires at least one minimum digit
@@ -58,88 +62,63 @@ sub _normalize_pattern {
 
                 tr{,}{}d;  # temporarily remove groups
 
-                if ($primary) {
-                    s{ (?= .{$primary} (?: \. | $ ) ) }{,}x;  # add primary group
-                    if ($secondary) {
-                        s{ (?= .{$secondary} , ) }{,}x;  # add secondary group
-                    }
-                }
-
                 if (!m{ \. }x) {
                     s{ (?: ^ | \# ) $ }{0}x;  # integer requires at least one minimum digit
                 }
 
+                my ($min_int) = m{ ( [0-9,]+ ) (?= \. | $ ) }x;
+                $self->minimum_integer_digits(length $min_int);
+
+                if ($primary) {
+                    s{ (?= .{$primary} (?: \. | $ ) ) }{,}x;  # add primary group
+                    $self->primary_grouping_size($primary);
+
+                    if ($secondary) {
+                        s{ (?= .{$secondary} , ) }{,}x;  # add secondary group
+                        $self->secondary_grouping_size($secondary);
+                    }
+                    else {
+                        $self->clear_secondary_grouping_size;
+                    }
+                }
+                else {
+                    $self->clear_primary_grouping_size;
+                    $self->secondary_grouping_size($secondary);
+                }
+
                 s{ ^ \#+ (?= [#0-9] ) }{}x;  # no leading multiple #s
                 s{ ^ (?= , ) }{#}x;          # leading # before group
+
+                if (my ($max, $min) = m{ \. ( ( [0-9]* ) \#* ) }x) {
+                    $self->minimum_fraction_digits(length $min);
+                    $self->maximum_fraction_digits(length $max);
+                }
+                else {
+                    $self->minimum_fraction_digits(0);
+                    $self->maximum_fraction_digits(0);
+                }
+
+                if (my ($round_inc) = $number_pattern =~ m{ (
+                    (?: [1-9] [0-9,]* | 0 )  # integer
+                    (?= \. | $ )
+                    (?: \. [0-9]* [1-9] )?   # fraction
+                ) }x) {
+                    $self->rounding_increment($round_inc);
+                }
+                else {
+                    $self->rounding_increment(0);
+                }
             }
 
             $subpattern =~ s{$number_pattern_re}{$number_pattern};
             substr $pattern, $subpattern_offset, $subpattern_length, $subpattern;
 
-            last;
+            last PATTERN;
         }
     }
 
-    return $pattern;
-}
-
-sub _trigger_pattern {
-    my ($self, $pattern) = @_;
-    my ($number_pattern) = $pattern =~ m{ ( $number_pattern_re ) }x;
-
-    # calculate grouping sizes
-    # TODO: remove duplicate code block with _normalize_pattern
-    my ($secondary, $primary) = map { length } $number_pattern =~ m{ , ( [^,]* ) , ( [^,.]* ) (?: \. | $ ) }x;
-    if (!defined $primary) {
-        ($primary) = map { length } $number_pattern =~ m{ , ( [^,.]* ) (?: \. | $ ) }x;
-    }
-    elsif ($primary == 0) {
-        $primary   = $secondary;
-        $secondary = undef;
-    }
-    elsif ($primary == $secondary) {
-        $secondary = undef;
-    }
-
-    if ($primary) {
-        $self->primary_grouping_size($primary);
-
-        if ($secondary) {
-            $self->secondary_grouping_size($secondary);
-        }
-        else {
-            $self->clear_secondary_grouping_size;
-        }
-    }
-    else {
-        $self->clear_primary_grouping_size;
-        $self->secondary_grouping_size($secondary);
-    }
-
-    $number_pattern =~ tr{,}{}d;
-
-    my ($min_int) = $number_pattern =~ m{ ( [0-9,]+ ) (?= \. | $ ) }x;
-    $self->minimum_integer_digits(length $min_int);
-
-    if (my ($max, $min) = $number_pattern =~ m{ \. ( ( [0-9]* ) \#* ) }x) {
-        $self->minimum_fraction_digits(length $min);
-        $self->maximum_fraction_digits(length $max);
-    }
-    else {
-        $self->minimum_fraction_digits(0);
-        $self->maximum_fraction_digits(0);
-    }
-
-    if (my ($round_inc) = $number_pattern =~ m{ (
-        (?: [1-9] [0-9,]* | 0 )  # integer
-        (?= \. | $ )
-        (?: \. [0-9]* [1-9] )?   # fraction
-    ) }x) {
-        $self->rounding_increment($round_inc);
-    }
-    else {
-        $self->rounding_increment(0);
-    }
+    # hashref instead of attribute method so wo don't retrigger this trigger
+    $self->{pattern} = $pattern;
 }
 
 sub _format_number {
