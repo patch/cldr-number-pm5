@@ -1,0 +1,20 @@
+Build.PL
+lib/CLDR/Number.pm
+lib/CLDR/Number/Data/Base.pm
+lib/CLDR/Number/Data/Currency.pm
+lib/CLDR/Number/Format/Currency.pm
+lib/CLDR/Number/Format/Decimal.pm
+lib/CLDR/Number/Format/Percent.pm
+lib/CLDR/Number/Role/Base.pm
+lib/CLDR/Number/Role/Format.pm
+MANIFEST			This list of files
+META.json
+META.yml
+README
+t/format.t
+t/icu4c.t
+t/pattern_coerce.t
+t/pattern_trigger.t
+t/rounding.t
+t/twittercldr.t
+t/uts35.t
