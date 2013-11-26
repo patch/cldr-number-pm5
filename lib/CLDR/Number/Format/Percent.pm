@@ -23,14 +23,14 @@ after _trigger_locale => sub {
 sub format {
     my ($self, $num) = @_;
     my $format = $self->_format_number($num * 100, $self->pattern);
-    $format =~ s{%}{$self->percentSign}e;
+    $format =~ s{%}{$self->percent}e;
     return $format;
 };
 
 sub format_permil {
     my ($self, $num) = @_;
     my $format = $self->_format_number($num * 1000, $self->pattern);
-    $format =~ s{%}{$self->perMille}e;
+    $format =~ s{%}{$self->permil}e;
     return $format;
 };
 

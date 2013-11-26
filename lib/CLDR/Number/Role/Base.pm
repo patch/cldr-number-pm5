@@ -109,16 +109,13 @@ sub _number_data {
 sub _symbol_attributes {
     return qw(
         decimal
-        exponential
         group
         infinity
-        list
-        minusSign
+        minus
         nan
-        perMille
-        percentSign
-        plusSign
-        superscriptingExponent
+        permil
+        percent
+        plus
     );
 }
 

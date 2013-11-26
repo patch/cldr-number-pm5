@@ -177,10 +177,10 @@ sub _format_number {
 
     if ($negative) {
         if ($format =~ s{ ^ .* ; }{}x) {
-            $format =~ s{-}{$self->minusSign}e;
+            $format =~ s{-}{$self->minus}e;
         }
         else {
-            $format = $self->minusSign . $format;
+            $format = $self->minus . $format;
         }
     }
     else {
@@ -214,7 +214,8 @@ sub _format_number {
 
 sub at_least {
     my ($self, $num) = @_;
-    my $pattern = $self->_number_data->{$self->locale}{patterns}{atLeast};
+    my $pattern = $self->_number_data->{$self->locale}{patterns}{atleast}
+               || $self->_number_data->{root}{patterns}{atleast};
 
     $num = $self->format($num);
     $pattern =~ s{ \{ 0 \} }{$num}x;
@@ -224,7 +225,8 @@ sub at_least {
 
 sub range {
     my ($self, @nums) = @_;
-    my $pattern = $self->_number_data->{$self->locale}{patterns}{range};
+    my $pattern = $self->_number_data->{$self->locale}{patterns}{range}
+               || $self->_number_data->{root}{patterns}{range};
 
     for my $i (0, 1) {
         $nums[$i] = $self->format($nums[$i]);
