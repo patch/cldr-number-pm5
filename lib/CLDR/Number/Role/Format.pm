@@ -207,7 +207,7 @@ sub _format_number {
         $final_format .= defined $nonquote ? $nonquote : $quote;
     }
 
-    $final_format =~ s{''}{}g;
+    $final_format =~ s{''}{'}g;
 
     return $final_format;
 }

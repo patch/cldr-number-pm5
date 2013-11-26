@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 38;
+use Test::More tests => 40;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new;
@@ -48,6 +48,11 @@ $decf->pattern('00000.0000'); is $decf->format(1_234.567), '01234,5670';
 $curf = $cldr->currency_formatter(locale => 'fr', pattern => '#,##0.00 ¤');
 $curf->currency_code('EUR'); is $curf->format(1_234.567), '1 234,57 €';
 $curf->currency_code('JPY'); is $curf->format(1_234.567), '1 235 ¥JP';
+
+# 3.2 Special Pattern Characters
+$decf = $cldr->decimal_formatter(locale => 'en');
+$decf->pattern("'#'#");       is $decf->format(123), '#123',      'quote special characters';
+$decf->pattern("# o''clock"); is $decf->format(1),   "1 o'clock", 'single quote itself';
 
 # 3.3 Formatting
 $decf = $cldr->decimal_formatter(locale => 'en');
