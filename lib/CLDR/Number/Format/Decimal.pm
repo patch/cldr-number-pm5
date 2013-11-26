@@ -41,19 +41,19 @@ CLDR::Number::Format::Decimal - Decimal formatter using the Unicode CLDR
 
     # either
     use CLDR::Number::Format::Decimal;
-    my $curf = CLDR::Number::Format::Decimal->new(locale => 'es');
+    my $decf = CLDR::Number::Format::Decimal->new(locale => 'es');
 
     # or
     use CLDR::Number;
     my $cldr = CLDR::Number->new(locale => 'es');
-    my $curf = $cldr->decimal_formatter,
+    my $decf = $cldr->decimal_formatter,
 
-    $curf->format(1337)   # 1.337
-    $curf->format(-1337)  # -1.337
+    $decf->format(1337)   # 1.337
+    $decf->format(-1337)  # -1.337
 
-    $curf->locale('en');
-    $curf->minimum_fraction_size(3);
-    $curf->format(1337)  # 1,337.000
+    $decf->locale('en');
+    $decf->minimum_fraction_size(3);
+    $decf->format(1337)  # 1,337.000
 
 =head1 METHODS
 

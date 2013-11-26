@@ -46,14 +46,14 @@ CLDR::Number::Format::Percent - Percent formatter using the Unicode CLDR
 
     # either
     use CLDR::Number::Format::Percent;
-    my $curf = CLDR::Number::Format::Percent->new(locale => 'es');
+    my $perf = CLDR::Number::Format::Percent->new(locale => 'es');
 
     # or
     use CLDR::Number;
     my $cldr = CLDR::Number->new(locale => 'es');
-    my $curf = $cldr->percent_formatter;
+    my $perf = $cldr->percent_formatter;
 
-    $curf->format(1337)  # 1.337%
+    $perf->format(1337)  # 1.337%
 
 =head1 METHODS
 

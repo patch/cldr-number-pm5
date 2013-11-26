@@ -55,14 +55,30 @@ CLDR::Number - Number formatters using the Unicode CLDR
 =head1 SYNOPSIS
 
     use CLDR::Number;
+    my $cldr = CLDR::Number->new(locale => 'es');
 
-    CLDR::Number->locales          # list
-    CLDR::Number->is_locale('es')  # true
-    CLDR::Number->is_locale('xx')  # false
+    # decimals
+    my $decf = $cldr->decimal_formatter,
+    $decf->format(1337)   # 1.337
+    $decf->format(-1337)  # -1.337
 
-    CLDR::Number->currencies          # list
-    CLDR::Number->is_currency('EUR')  # true
-    CLDR::Number->is_currency('XXX')  # false
+    $decf->locale('en');
+    $decf->minimum_fraction_size(3);
+    $decf->format(1337)  # 1,337.000
+
+    # percents
+    my $perf = $cldr->percent_formatter;
+    $perf->format(1337)  # 1.337%
+
+    # currencies
+    my $curf = $cldr->currency_formatter(currency => 'USD'),
+    $curf->format(1337)  # 1.337,00 $
+
+    $curf->currency('EUR');
+    $curf->format(1337)  # 1.337,00 €
+
+    $curf->locale('en');
+    $curf->format(1337)  # €1,337.00
 
 =head1 ATTRIBUTES
 
