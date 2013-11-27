@@ -137,6 +137,9 @@ sub _format_number {
     }
 
     my ($int, $frac) = split /\./, $num;
+    if (!defined $frac) {
+        $frac = '';
+    }
 
     if (my $primary_group = $self->primary_grouping_size) {
         my $group_symbol = $self->group;
