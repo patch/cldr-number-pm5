@@ -1,0 +1,20 @@
+use utf8;
+use strict;
+use warnings;
+use open qw( :encoding(UTF-8) :std );
+use Test::More tests => 9;
+use CLDR::Number;
+
+my $cldr = new_ok 'CLDR::Number' => [locale => 'zh'], 'CLDR::Number';
+is $cldr->locale, 'zh', 'generator locale set on instantiation';
+$cldr->locale('ja');
+is $cldr->locale, 'ja', 'generator locale updated';
+my $decf = $cldr->decimal_formatter;
+isa_ok $decf, 'CLDR::Number::Format::Decimal';
+is $decf->locale, 'ja', 'generator locale passed to formatter';
+$decf->locale('ko');
+is $decf->locale, 'ko', 'formatter locale updated';
+is $cldr->locale, 'ja', 'generator locale remains the same';
+$cldr->locale('vi');
+is $cldr->locale, 'vi', 'generator locale updated';
+is $decf->locale, 'ko', 'formatter locale remains the same';

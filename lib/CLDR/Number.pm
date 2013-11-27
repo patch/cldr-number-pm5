@@ -31,7 +31,7 @@ sub currency_formatter {
 
 sub _make_args {
     my ($self, %new_args) = @_;
-    my %args;
+    my %args = (locale => $self->locale);
 
     for my $attribute ($self->_symbol_attributes) {
         my $predicate = "has_$attribute";
