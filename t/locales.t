@@ -2,17 +2,40 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 13;
+use Test::More tests => 20;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new;
+
+# conversion
+$cldr->locale('zh_Hant_HK');
+is $cldr->locale, 'zh-Hant-HK', 'convert undercore to dash';
+
+$cldr->locale('ZH-Hant-HK');
+is $cldr->locale, 'zh-Hant-HK', 'convert language to lowercase';
+
+$cldr->locale('zh-hANT-hk');
+is $cldr->locale, 'zh-Hant-HK', 'convert script to titlecase';
+
+$cldr->locale('zh-Hant-hk');
+is $cldr->locale, 'zh-Hant-HK', 'convert region to uppercase';
+
+$cldr->locale('AST');
+is $cldr->locale, 'ast', 'convert 3-letter language to lowercase';
+
+# BCP 47 conversion
+$cldr->locale('und');
+is $cldr->locale, 'root', 'und → root';
+
+# defaults
+$cldr = CLDR::Number->new;
 is $cldr->locale, 'root', 'locale is root when undefined with no default';
 ok !$cldr->default_locale, 'no default for the default locale';
 
 $cldr->locale('xx');
 is $cldr->locale, 'root', 'locale is root when invalid with no default';
 
-$cldr->default_locale('xx');
+$cldr = CLDR::Number->new(default_locale => 'xx');
 ok !$cldr->default_locale, 'default locale does not fallback like locale';
 
 $cldr = CLDR::Number->new(default_locale => 'en-US');
@@ -22,6 +45,8 @@ is $cldr->locale, 'en-US', 'locale is default when undefined with default';
 $cldr->locale('xx');
 is $cldr->locale, 'en-US', 'locale is default when invalid with default';
 
+# fallbacks
+$cldr = CLDR::Number->new;
 $cldr->locale('en-XX');
 is $cldr->locale, 'en', 'locale is language when invalid country';
 
@@ -39,3 +64,6 @@ is $cldr->locale, 'zh-Hant', 'locale is language-script when unavailable country
 
 $cldr->locale('en-Hant-US');
 is $cldr->locale, 'en-US', 'locale is language-country when unavailable script';
+
+$cldr->locale('es-419');
+is $cldr->locale, 'es-419', 'numeric regions are supported';

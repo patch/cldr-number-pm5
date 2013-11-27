@@ -16,15 +16,7 @@ has locale => (
     is     => 'rw',
     coerce => sub {
         my ($locale) = @_;
-        if (!defined $locale) {
-            carp 'locale is not defined';
-        }
-        elsif (!exists _number_data()->{$locale}) {
-            carp "locale '$locale' is unknown";
-        }
-        else {
-            return $locale;
-        }
+        return $locale if $locale && exists _number_data()->{$locale};
         return 'root';
     },
     trigger => 1,
@@ -32,19 +24,19 @@ has locale => (
 );
 
 has default_locale => (
-    is     => 'rw',
+    is     => 'ro',
     coerce => sub {
         my ($locale) = @_;
         if (!defined $locale) {
-            carp 'locale is not defined';
+            carp 'default_locale is not defined';
         }
         elsif (!exists _number_data()->{$locale}) {
-            carp "locale '$locale' is unknown";
+            carp "default_locale '$locale' is unknown";
         }
         else {
             return $locale;
         }
-        return undef;
+        return;
     },
 );
 
