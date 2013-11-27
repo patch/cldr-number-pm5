@@ -4,6 +4,7 @@ use utf8;
 use Moo::Role;
 use Carp;
 use English qw( -no_match_vars );
+use Scalar::Util qw( looks_like_number );
 use Math::BigFloat;
 use Math::Round;
 
@@ -21,6 +22,69 @@ has pattern => (
 #        croak "pattern is not defined" if !defined $_[0];
 #    },
     trigger => 1,
+);
+
+has minimum_integer_digits => (
+    is  => 'rw',
+    isa => sub {
+        croak "minimum_integer_digits '$_[0]' is invalid"
+            if defined $_[0] && !looks_like_number $_[0];
+    },
+    default => 1,
+);
+
+has maximum_integer_digits => (
+    is  => 'rw',
+    isa => sub {
+        croak "maximum_integer_digits '$_[0]' is invalid"
+            if defined $_[0] && !looks_like_number $_[0];
+    },
+);
+
+has minimum_fraction_digits => (
+    is  => 'rw',
+    isa => sub {
+        croak "minimum_fraction_digits '$_[0]' is invalid"
+            if defined $_[0] && !looks_like_number $_[0];
+    },
+    default => 0,
+);
+
+has maximum_fraction_digits => (
+    is  => 'rw',
+    isa => sub {
+        croak "maximum_fraction_digits '$_[0]' is invalid"
+            if defined $_[0] && !looks_like_number $_[0];
+    },
+    default => 3,
+);
+
+has primary_grouping_size => (
+    is  => 'rw',
+    isa => sub {
+        croak "primary_grouping_size '$_[0]' is invalid"
+            if defined $_[0] && !looks_like_number $_[0];
+    },
+    default => 3,
+    clearer => 1,
+);
+
+has secondary_grouping_size => (
+    is  => 'rw',
+    isa => sub {
+        croak "secondary_grouping_size '$_[0]' is invalid"
+            if defined $_[0] && !looks_like_number $_[0];
+    },
+    clearer => 1,
+);
+
+has rounding_increment => (
+    is  => 'rw',
+    isa => sub {
+        croak "rounding_increment '$_[0]' is invalid"
+            if defined $_[0] && !looks_like_number $_[0];
+    },
+    default => 0,
 );
 
 sub _trigger_pattern {
