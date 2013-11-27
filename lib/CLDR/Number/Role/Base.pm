@@ -13,8 +13,8 @@ has cldr_version => (
 );
 
 has locale => (
-    is      => 'rw',
-    coerce  => sub {
+    is     => 'rw',
+    coerce => sub {
         my ($locale) = @_;
         if (!defined $locale) {
             carp 'locale is not defined';
@@ -29,6 +29,23 @@ has locale => (
     },
     trigger => 1,
     default => 'root',
+);
+
+has default_locale => (
+    is     => 'rw',
+    coerce => sub {
+        my ($locale) = @_;
+        if (!defined $locale) {
+            carp 'locale is not defined';
+        }
+        elsif (!exists _number_data()->{$locale}) {
+            carp "locale '$locale' is unknown";
+        }
+        else {
+            return $locale;
+        }
+        return undef;
+    },
 );
 
 for my $attribute ( _symbol_attributes() ) {
