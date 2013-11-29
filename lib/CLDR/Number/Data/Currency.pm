@@ -2793,26 +2793,264 @@ our $LOCALES = {
 
 our $CURRENCIES = {
     DEFAULT => {
-        _rounding     => 0,
-        _digits       => 2,
+        digits => 2,
+        rounding => 0,
+    },
+    ADP => {
+        digits => 0,
+        rounding => 0,
+    },
+    AFN => {
+        digits => 0,
+        rounding => 0,
+    },
+    ALL => {
+        digits => 0,
+        rounding => 0,
+    },
+    AMD => {
+        digits => 0,
+        rounding => 0,
+    },
+    BHD => {
+        digits => 3,
+        rounding => 0,
+    },
+    BIF => {
+        digits => 0,
+        rounding => 0,
+    },
+    BYR => {
+        digits => 0,
+        rounding => 0,
     },
     CAD => {
-        _rounding     => 0,
-        _digits       => 2,
-        _cashRounding => 5,
+        digits => 2,
+        rounding => 0,
+        cash_rounding => 5,
     },
     CHF => {
-        _rounding     => 0,
-        _digits       => 2,
-        _cashRounding => 5,
+        digits => 2,
+        rounding => 0,
+        cash_rounding => 5,
+    },
+    CLF => {
+        digits => 0,
+        rounding => 0,
+    },
+    CLP => {
+        digits => 0,
+        rounding => 0,
+    },
+    COP => {
+        digits => 0,
+        rounding => 0,
+    },
+    CRC => {
+        digits => 0,
+        rounding => 0,
+    },
+    DJF => {
+        digits => 0,
+        rounding => 0,
+    },
+    ESP => {
+        digits => 0,
+        rounding => 0,
+    },
+    GNF => {
+        digits => 0,
+        rounding => 0,
+    },
+    GYD => {
+        digits => 0,
+        rounding => 0,
+    },
+    HUF => {
+        digits => 0,
+        rounding => 0,
+    },
+    IDR => {
+        digits => 0,
+        rounding => 0,
+    },
+    IQD => {
+        digits => 0,
+        rounding => 0,
+    },
+    IRR => {
+        digits => 0,
+        rounding => 0,
+    },
+    ISK => {
+        digits => 0,
+        rounding => 0,
+    },
+    ITL => {
+        digits => 0,
+        rounding => 0,
+    },
+    JOD => {
+        digits => 3,
+        rounding => 0,
     },
     JPY => {
-        _rounding     => 0,
-        _digits       => 0,
+        digits => 0,
+        rounding => 0,
+    },
+    KMF => {
+        digits => 0,
+        rounding => 0,
+    },
+    KPW => {
+        digits => 0,
+        rounding => 0,
+    },
+    KRW => {
+        digits => 0,
+        rounding => 0,
+    },
+    KWD => {
+        digits => 3,
+        rounding => 0,
+    },
+    LAK => {
+        digits => 0,
+        rounding => 0,
+    },
+    LBP => {
+        digits => 0,
+        rounding => 0,
+    },
+    LUF => {
+        digits => 0,
+        rounding => 0,
+    },
+    LYD => {
+        digits => 3,
+        rounding => 0,
+    },
+    MGA => {
+        digits => 0,
+        rounding => 0,
+    },
+    MGF => {
+        digits => 0,
+        rounding => 0,
+    },
+    MMK => {
+        digits => 0,
+        rounding => 0,
+    },
+    MNT => {
+        digits => 0,
+        rounding => 0,
+    },
+    MRO => {
+        digits => 0,
+        rounding => 0,
+    },
+    MUR => {
+        digits => 0,
+        rounding => 0,
+    },
+    OMR => {
+        digits => 3,
+        rounding => 0,
+    },
+    PKR => {
+        digits => 0,
+        rounding => 0,
+    },
+    PYG => {
+        digits => 0,
+        rounding => 0,
+    },
+    RSD => {
+        digits => 0,
+        rounding => 0,
+    },
+    RWF => {
+        digits => 0,
+        rounding => 0,
+    },
+    SLL => {
+        digits => 0,
+        rounding => 0,
+    },
+    SOS => {
+        digits => 0,
+        rounding => 0,
+    },
+    STD => {
+        digits => 0,
+        rounding => 0,
+    },
+    SYP => {
+        digits => 0,
+        rounding => 0,
+    },
+    TMM => {
+        digits => 0,
+        rounding => 0,
     },
     TND => {
-        _rounding     => 0,
-        _digits       => 3,
+        digits => 3,
+        rounding => 0,
+    },
+    TRL => {
+        digits => 0,
+        rounding => 0,
+    },
+    TZS => {
+        digits => 0,
+        rounding => 0,
+    },
+    TWD => {
+        digits => 2,
+        rounding => 0,
+        cash_digits => 0,
+        cash_rounding => 0,
+    },
+    UGX => {
+        digits => 0,
+        rounding => 0,
+    },
+    UZS => {
+        digits => 0,
+        rounding => 0,
+    },
+    VND => {
+        digits => 0,
+        rounding => 0,
+    },
+    VUV => {
+        digits => 0,
+        rounding => 0,
+    },
+    XAF => {
+        digits => 0,
+        rounding => 0,
+    },
+    XOF => {
+        digits => 0,
+        rounding => 0,
+    },
+    XPF => {
+        digits => 0,
+        rounding => 0,
+    },
+    YER => {
+        digits => 0,
+        rounding => 0,
+    },
+    ZMK => {
+        digits => 0,
+        rounding => 0,
+    },
+    ZWD => {
+        digits => 0,
+        rounding => 0,
     },
 };
 

@@ -85,20 +85,20 @@ sub _trigger_cash {
         ? _currency_data->{$self->currency_code}
         : _currency_data->{DEFAULT};
 
-    if ($self->cash && exists $currency_data->{_cashDigits}) {
-        $self->minimum_fraction_digits($currency_data->{_cashDigits});
-        $self->maximum_fraction_digits($currency_data->{_cashDigits});
+    if ($self->cash && exists $currency_data->{cash_digits}) {
+        $self->minimum_fraction_digits($currency_data->{cash_digits});
+        $self->maximum_fraction_digits($currency_data->{cash_digits});
     }
     else {
-        $self->minimum_fraction_digits($currency_data->{_digits});
-        $self->maximum_fraction_digits($currency_data->{_digits});
+        $self->minimum_fraction_digits($currency_data->{digits});
+        $self->maximum_fraction_digits($currency_data->{digits});
     }
 
-    if ($self->cash && exists $currency_data->{_cashRounding}) {
-        $self->rounding_increment($currency_data->{_cashRounding});
+    if ($self->cash && exists $currency_data->{cash_rounding}) {
+        $self->rounding_increment($currency_data->{cash_rounding});
     }
     else {
-        $self->rounding_increment($currency_data->{_rounding});
+        $self->rounding_increment($currency_data->{rounding});
     }
 }
 
