@@ -17,19 +17,21 @@ has locale => (
     coerce => sub {
         my ($locale) = @_;
         return 'root' unless $locale;
-        $locale =~ tr{_}{-};
         my ($lang, $script, $region) = $locale =~ m{ ^
                      ( [a-z]{2,3}          )     # language
             (?: [-_] ( [a-z]{4}            ) )?  # script
             (?: [-_] ( [a-z]{2} | [0-9]{3} ) )?  # country or region
-            (?: $ | [-_] )
+            (?: $ | [-_] u [-_] )
         }xi;
         return 'root' unless $lang;
         $lang   =         lc $lang;
         $script = ucfirst lc $script if $script;
         $region =         uc $region if $region;
         $locale = join '-', $lang, grep { $_ } $script, $region;
-        return $locale if exists _number_data()->{$locale};
+        return $locale         if            exists _number_data()->{$locale};
+        return "$lang-$script" if $script && exists _number_data()->{"$lang-$script"};
+        return "$lang-$region" if $region && exists _number_data()->{"$lang-$region"};
+        return $lang           if            exists _number_data()->{$lang};
         return 'root';
     },
     trigger => 1,

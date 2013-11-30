@@ -670,7 +670,7 @@ our $DATA = {
             percent => '#,##,##0%'
         }
     },
-    'en-US-POSIX' => {
+    'en-US-u-va-posix' => {
         patterns => {
             currency => "\x{a4}\x{a0}#0.00",
             decimal => '#0.######',
@@ -2964,7 +2964,52 @@ our $DATA = {
             permil => "\x{2030}",
             plus => '+'
         }
-    }
+    },
+    map { $_ => undef } qw(
+        aa-DJ aa-ER aa-ET af-ZA agq-CM ak-GH am-ET ar-001 ar-AE ar-BH ar-DJ
+        ar-EH ar-ER ar-IL ar-IQ ar-JO ar-KM ar-KW ar-OM ar-PS ar-SD ar-SO ar-SS
+        ar-TD as-IN asa-TZ ast-ES az-Cyrl-AZ az-Latn az-Latn-AZ bas-CM be-BY
+        bem-ZM bez-TZ bg-BG bm-ML bn-BD bn-IN bo-CN bo-IN br-FR brx-IN
+        bs-Cyrl-BA bs-Latn bs-Latn-BA byn-ER ca-AD ca-ES ca-FR ca-IT cgg-UG
+        chr-US cs-CZ cy-GB da-DK da-GL dav-KE de-BE de-DE de-LU dje-NE dua-CM
+        dyo-SN dz-BT ebu-KE ee-GH ee-TG el-GR en-001 en-AG en-AI en-AS en-BB
+        en-BM en-BS en-BW en-BZ en-CA en-CC en-CK en-CM en-CX en-DG en-DM
+        en-Dsrt en-Dsrt-US en-ER en-FJ en-FK en-FM en-GD en-GG en-GH en-GI
+        en-GM en-GU en-GY en-HK en-IE en-IM en-IO en-JE en-JM en-KE en-KI en-KN
+        en-KY en-LC en-LR en-LS en-MG en-MH en-MO en-MP en-MS en-MT en-MU en-MW
+        en-NA en-NF en-NG en-NR en-NU en-NZ en-PG en-PH en-PN en-PR en-PW en-RW
+        en-SB en-SC en-SD en-SG en-SH en-SL en-SS en-SX en-SZ en-TC en-TK en-TO
+        en-TT en-TV en-TZ en-UG en-UM en-US en-VC en-VG en-VI en-VU en-WS en-ZM
+        en-ZW eo-001 es-CU es-DO es-EA es-ES es-GT es-HN es-IC es-NI es-PA es-PE
+        es-PH es-PR es-SV es-US et-EE eu-ES ewo-CM fa-IR ff-SN fi-FI fil-PH
+        fo-FO fr-BF fr-BI fr-BJ fr-BL fr-CA fr-CD fr-CF fr-CG fr-CI fr-CM fr-DJ
+        fr-DZ fr-FR fr-GA fr-GF fr-GN fr-GP fr-GQ fr-HT fr-KM fr-MA fr-MC fr-MF
+        fr-MG fr-ML fr-MQ fr-MR fr-MU fr-NC fr-NE fr-PF fr-PM fr-RE fr-RW fr-SC
+        fr-SN fr-SY fr-TD fr-TG fr-TN fr-VU fr-WF fr-YT fur-IT ga-IE gd-GB gl-ES
+        gsw-CH gsw-LI gu-IN guz-KE gv-IM ha-Latn ha-Latn-GH ha-Latn-NE
+        ha-Latn-NG haw-US he-IL hi-IN hr-BA hr-HR hu-HU hy-AM ia-FR id-ID ig-NG
+        ii-CN is-IS it-IT it-SM ja-JP jgo-CM jmc-TZ ka-GE kab-DZ kam-KE kde-TZ
+        kea-CV khq-ML ki-KE kk-Cyrl kk-Cyrl-KZ kkj-CM kl-GL kln-KE km-KH kn-IN
+        ko-KP ko-KR kok-IN ks-Arab ks-Arab-IN ksb-TZ ksf-CM ksh-DE kw-GB ky-Cyrl
+        ky-Cyrl-KG lag lag-TZ lg-UG lkt-US ln-AO ln-CD ln-CF ln-CG lo-LA lt-LT
+        lu-CD luo-KE luy-KE lv-LV mas-KE mas-TZ mer-KE mfe-MU mg-MG mgh-MZ
+        mgo-CM mk-MK ml-IN mn-Cyrl mn-Cyrl-MN mr-IN ms-Latn ms-Latn-MY
+        ms-Latn-SG mt-MT mua-CM my-MM naq-NA nb-NO nb-SJ nd-ZW ne-IN ne-NP nl-AW
+        nl-BQ nl-CW nl-NL nl-SR nl-SX nmg-CM nn-NO nnh-CM nr-ZA nso-ZA nus-SD
+        nyn-UG om-ET om-KE or-IN os-GE os-RU pa-Arab-PK pa-Guru pa-Guru-IN pl-PL
+        ps-AF pt-AO pt-BR pt-CV pt-GW pt-MO pt-MZ pt-ST pt-TL rm-CH rn-BI ro-MD
+        ro-RO rof-TZ ru-BY ru-KG ru-KZ ru-MD ru-RU ru-UA rw-RW rwk-TZ sah sah-RU
+        saq-KE sbp-TZ se-FI se-NO seh-MZ ses-ML sg-CF shi-Latn-MA shi-Tfng
+        shi-Tfng-MA si-LK sk-SK sl-SI sn-ZW so-DJ so-ET so-KE so-SO sq-AL sq-MK
+        sq-XK sr-Cyrl sr-Cyrl-BA sr-Cyrl-ME sr-Cyrl-RS sr-Cyrl-XK sr-Latn-BA
+        sr-Latn-ME sr-Latn-RS sr-Latn-XK ss-SZ ss-ZA ssy-ER st-LS st-ZA sv-AX
+        sv-FI sv-SE sw-KE sw-TZ sw-UG swc-CD ta-IN ta-LK te-IN teo-KE teo-UG tg
+        tg-Cyrl tg-Cyrl-TJ th-TH ti-ER ti-ET tig-ER tn-BW tn-ZA to-TO tr-CY
+        tr-TR ts-ZA twq-NE tzm-Latn tzm-Latn-MA uk-UA ur-PK uz-Arab-AF
+        uz-Cyrl-UZ uz-Latn uz-Latn-UZ vai-Latn-LR vai-Vaii vai-Vaii-LR ve-ZA
+        vi-VN vo vo-001 vun-TZ wae-CH wal-ET xh-ZA xog-UG yav-CM yo-NG zgh-MA
+        zh-Hans zh-Hans-CN zh-Hant-MO zh-Hant-TW zu-ZA
+    )
 };
 
 1;
