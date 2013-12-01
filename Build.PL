@@ -20,6 +20,7 @@ my $builder = Module::Build->new(
         'warnings'       => 0,
         'Carp'           => 0,
         'English'        => 0,
+        'List::Util'     => 1.33,
         'Math::BigFloat' => 0,
         'Math::Round'    => 0,
         'Moo'            => '1.000000',

@@ -3,15 +3,22 @@ package CLDR::Number::Format::Percent;
 use utf8;
 use Moo;
 use Carp;
+use List::Util qw( any );
 
 our $VERSION = '0.00';
 
 with qw( CLDR::Number::Role::Format );
 
-has is_permil => (
+my @types = qw( percent permil );;
+has type => (
     is      => 'rw',
-    coerce  => sub { $_[0] ? 1 : 0 },
-    default => 0,
+    coerce  => sub {
+        my ($type) = @_;
+        return $type if any { $type eq $_ } @types;
+        carp "type '$type' is invalid; using '$types[0]'";
+        return $types[0];
+    },
+    default => $types[0],
 );
 
 sub BUILD {
@@ -28,8 +35,16 @@ after _trigger_locale => sub {
 
 sub format {
     my ($self, $num) = @_;
-    my $factor = $self->is_permil ? 1_000         : 100;
-    my $sign   = $self->is_permil ? $self->permil : $self->percent;
+    my ($factor, $sign);
+
+    if ($self->type eq 'percent') {
+        $factor = 100;
+        $sign   = $self->percent;
+    }
+    elsif ($self->type eq 'permil') {
+        $factor = 1_000;
+        $sign   = $self->permil;
+    }
 
     my $format = $self->_format_number($num * $factor, $self->pattern);
     $format =~ s{%}{$sign};
