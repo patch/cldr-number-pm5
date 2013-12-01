@@ -281,8 +281,7 @@ sub _format_number {
 
 sub at_least {
     my ($self, $num) = @_;
-    my $pattern = $self->_number_data->{$self->locale}{patterns}{atleast}
-               || $self->_number_data->{root}{patterns}{atleast};
+    my $pattern = $self->_get_data(patterns => 'atleast');
 
     $num = $self->format($num);
     $pattern =~ s{ \{ 0 \} }{$num}x;
@@ -292,8 +291,7 @@ sub at_least {
 
 sub range {
     my ($self, @nums) = @_;
-    my $pattern = $self->_number_data->{$self->locale}{patterns}{range}
-               || $self->_number_data->{root}{patterns}{range};
+    my $pattern = $self->_get_data(patterns => 'range');
 
     for my $i (0, 1) {
         $nums[$i] = $self->format($nums[$i]);

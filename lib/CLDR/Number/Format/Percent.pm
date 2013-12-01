@@ -11,13 +11,13 @@ with qw( CLDR::Number::Role::Format );
 sub BUILD {
     my ($self) = @_;
 
-    $self->pattern($self->_number_data->{$self->locale}{patterns}{percent});
+    $self->pattern($self->_get_data(patterns => 'percent'));
 }
 
 after _trigger_locale => sub {
     my ($self) = @_;
 
-    $self->pattern($self->_number_data->{$self->locale}{patterns}{percent});
+    $self->pattern($self->_get_data(patterns => 'percent'));
 };
 
 sub format {

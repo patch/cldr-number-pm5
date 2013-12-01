@@ -21,15 +21,17 @@ has default_locale => (
     is     => 'ro',
     coerce => sub {
         my ($locale) = @_;
+
         if (!defined $locale) {
             carp 'default_locale is not defined';
         }
-        elsif (!exists _number_data()->{$locale}) {
+        elsif (!exists $CLDR::Number::Data::Base::DATA->{$locale}) {
             carp "default_locale '$locale' is unknown";
         }
         else {
             return $locale;
         }
+
         return;
     },
 );
@@ -46,8 +48,18 @@ for my $attribute ( _symbol_attributes() ) {
     );
 }
 
-sub _number_data {
-    return $CLDR::Number::Data::Base::DATA;
+sub _get_data {
+    my ($self, $type, $key) = @_;
+    my $data = $CLDR::Number::Data::Base::DATA;
+
+    for my $locale (@{$self->_locale_inheritance}) {
+        return $data->{$locale}{$type}{$key}
+            if exists $data->{$locale}
+            && exists $data->{$locale}{$type}
+            && exists $data->{$locale}{$type}{$key};
+    }
+
+    return undef;
 };
 
 sub _symbol_attributes {
@@ -68,7 +80,7 @@ sub _trigger_locale {
     my ($lang, $script, $region, $ext) = _split_locale($self->locale);
     my $locale;
 
-    if ($lang && exists _number_data()->{$lang}) {
+    if ($lang && exists $CLDR::Number::Data::Base::DATA->{$lang}) {
         $self->_locale_inheritance(
             _build_inheritance($lang, $script, $region, $ext)
         );
@@ -88,10 +100,7 @@ sub _trigger_locale {
     $self->{locale} = $locale;
 
     for my $attribute ($self->_symbol_attributes) {
-        $self->$attribute(
-            $self->_number_data->{$self->locale}{symbols}{$attribute}
-            || $self->_number_data->{root}{symbols}{$attribute}
-        );
+        $self->$attribute($self->_get_data(symbols => $attribute));
     }
 }
 
@@ -129,7 +138,7 @@ sub _build_inheritance {
     ) {
         next if grep { !$_ } @$subtags;
         my $locale = join '-', @$subtags;
-        next if !exists _number_data()->{$locale};
+        next if !exists $CLDR::Number::Data::Base::DATA->{$locale};
         push @tree, $locale;
     }
     push @tree, 'root';
