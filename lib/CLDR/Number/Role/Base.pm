@@ -41,12 +41,35 @@ has _locale_inheritance => (
     default => sub { [] },
 );
 
-for my $attribute ( _symbol_attributes() ) {
-    has $attribute => (
-        is        => 'rw',
-        predicate => 1,
-    );
-}
+has decimal_sign => (
+    is        => 'rw',
+    predicate => 1,
+);
+
+has group_sign => (
+    is        => 'rw',
+    predicate => 1,
+);
+
+has plus_sign => (
+    is        => 'rw',
+    predicate => 1,
+);
+
+has minus_sign => (
+    is        => 'rw',
+    predicate => 1,
+);
+
+has infinity => (
+    is        => 'rw',
+    predicate => 1,
+);
+
+has nan => (
+    is        => 'rw',
+    predicate => 1,
+);
 
 sub _get_data {
     my ($self, $type, $key) = @_;
@@ -61,19 +84,6 @@ sub _get_data {
 
     return undef;
 };
-
-sub _symbol_attributes {
-    return qw(
-        decimal
-        group
-        infinity
-        minus
-        nan
-        permil
-        percent
-        plus
-    );
-}
 
 sub _trigger_locale {
     my ($self) = @_;
@@ -99,9 +109,12 @@ sub _trigger_locale {
 
     $self->{locale} = $locale;
 
-    for my $attribute ($self->_symbol_attributes) {
-        $self->$attribute($self->_get_data(symbols => $attribute));
-    }
+    $self->decimal_sign( $self->_get_data( symbols => 'decimal'  ) );
+    $self->group_sign(   $self->_get_data( symbols => 'group'    ) );
+    $self->plus_sign(    $self->_get_data( symbols => 'plus'     ) );
+    $self->minus_sign(   $self->_get_data( symbols => 'minus'    ) );
+    $self->infinity(     $self->_get_data( symbols => 'infinity' ) );
+    $self->nan(          $self->_get_data( symbols => 'nan'      ) );
 }
 
 sub _split_locale {

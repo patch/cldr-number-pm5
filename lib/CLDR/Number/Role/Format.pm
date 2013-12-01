@@ -206,17 +206,17 @@ sub _format_number {
     }
 
     if (my $primary_group = $self->primary_grouping_size) {
-        my $group_symbol = $self->group;
+        my $group_sign   = $self->group_sign;
         my $other_groups = $self->secondary_grouping_size || $primary_group;
 
-        $int =~ s{ (?<! ^ ) (?= .{$primary_group} $ ) }{$group_symbol}x;
+        $int =~ s{ (?<! ^ ) (?= .{$primary_group} $ ) }{$group_sign}x;
 
         while (1) {
             last if $int !~ s{
                 (?<! ^ )
-                (?<! \Q$group_symbol\E )
-                (?= .{$other_groups} \Q$group_symbol\E )
-            }{$group_symbol}x;
+                (?<! \Q$group_sign\E )
+                (?= .{$other_groups} \Q$group_sign\E )
+            }{$group_sign}x;
         }
     }
 
@@ -237,17 +237,19 @@ sub _format_number {
     my $num_format = $int;
 
     if (length $frac) {
-        $num_format .= $self->decimal . $frac;
+        $num_format .= $self->decimal_sign . $frac;
     }
 
     my $format = $self->pattern;
 
     if ($negative) {
+        my $minus_sign = $self->minus_sign;
+
         if ($format =~ s{ ^ .* ; }{}x) {
-            $format =~ s{-}{$self->minus}e;
+            $format =~ s{-}{$minus_sign};
         }
         else {
-            $format = $self->minus . $format;
+            $format = $minus_sign . $format;
         }
     }
     else {

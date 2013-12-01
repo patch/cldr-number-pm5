@@ -67,7 +67,7 @@ after _trigger_locale => sub {
     }
 
     if (my $decimal = $self->_get_data(symbols => 'currency_decimal')) {
-        $self->decimal($decimal);
+        $self->decimal_sign($decimal);
     }
 };
 
@@ -147,7 +147,11 @@ CLDR::Number::Format::Currency - Currency formatter using the Unicode CLDR
 
 =over
 
-=item currency
+=item currency_code
+
+=item currency_sign
+
+=item cash
 
 =back
 

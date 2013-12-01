@@ -10,6 +10,7 @@ our $VERSION = '0.00';
 with qw( CLDR::Number::Role::Format );
 
 my @types = qw( percent permil );;
+
 has type => (
     is      => 'rw',
     coerce  => sub {
@@ -21,17 +22,35 @@ has type => (
     default => $types[0],
 );
 
+has percent_sign => (
+    is        => 'rw',
+    predicate => 1,
+);
+
+has permil_sign => (
+    is        => 'rw',
+    predicate => 1,
+);
+
 sub BUILD {
     my ($self) = @_;
 
-    $self->pattern($self->_get_data(patterns => 'percent'));
+    $self->_build_attributes;
 }
 
 after _trigger_locale => sub {
     my ($self) = @_;
 
-    $self->pattern($self->_get_data(patterns => 'percent'));
+    $self->_build_attributes;
 };
+
+sub _build_attributes {
+    my ($self) = @_;
+
+    $self->pattern(      $self->_get_data( patterns => 'percent' ) );
+    $self->percent_sign( $self->_get_data( symbols  => 'percent' ) );
+    $self->permil_sign(  $self->_get_data( symbols  => 'permil'  ) );
+}
 
 sub format {
     my ($self, $num) = @_;
@@ -39,11 +58,11 @@ sub format {
 
     if ($self->type eq 'percent') {
         $factor = 100;
-        $sign   = $self->percent;
+        $sign   = $self->percent_sign;
     }
     elsif ($self->type eq 'permil') {
         $factor = 1_000;
-        $sign   = $self->permil;
+        $sign   = $self->permil_sign;
     }
 
     my $format = $self->_format_number($num * $factor, $self->pattern);
@@ -77,7 +96,15 @@ CLDR::Number::Format::Percent - Percent formatter using the Unicode CLDR
 
 =over
 
-=item is_permil
+=item type
+
+Default: C<percent>
+
+Valid: C<percent>, C<permil>
+
+=item percent_sign
+
+=item permil_sign
 
 =back
 

@@ -14,5 +14,5 @@ my $cldr = CLDR::Number->new;
 my $perf = $cldr->percent_formatter(type => 'permil');
 $perf->pattern('###.###%');
 is $perf->format(0.4857), '485.7‰', '0.4857 x ###.###‰';
-$perf->permil('m');
+$perf->permil_sign('m');
 is $perf->format(0.4857), '485.7m', '0.4857 x ###.###m';

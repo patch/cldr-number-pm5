@@ -8,17 +8,17 @@ use CLDR::Number;
 my $cldr = CLDR::Number->new;
 
 $cldr->locale('ar-DZ');
-is $cldr->decimal, ',', 'decimal directly from ar-DZ';
+is $cldr->decimal_sign, ',', 'decimal directly from ar-DZ';
 
 $cldr->locale('ar-EG');
-is $cldr->decimal, '.', 'decimal inherited from ar';
+is $cldr->decimal_sign, '.', 'decimal inherited from ar';
 
 $cldr->locale('lu');
-is $cldr->decimal, ',', 'decimal directly from lu';
-is $cldr->minus,   '-', 'minus inherited from root';
+is $cldr->decimal_sign, ',', 'decimal directly from lu';
+is $cldr->minus_sign,   '-', 'minus inherited from root';
 
 my $curf = $cldr->currency_formatter(locale => 'sv-FI');
-is $curf->decimal, ':', 'currency decimal inherited from sv';
+is $curf->decimal_sign, ':', 'currency decimal inherited from sv';
 
 $curf->locale('en-AU');
 $curf->currency_code('AUD');

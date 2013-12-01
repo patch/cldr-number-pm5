@@ -33,7 +33,9 @@ sub _make_args {
     my ($self, %new_args) = @_;
     my %args = (locale => $self->locale);
 
-    for my $attribute ($self->_symbol_attributes) {
+    for my $attribute (qw(
+        decimal_sign group_sign plus_sign minus_sign infinity nan
+    )) {
         my $predicate = "has_$attribute";
         next unless $self->$predicate;
         $args{$attribute} = $self->$attribute;
@@ -68,7 +70,7 @@ CLDR::Number - Number formatters using the Unicode CLDR
 
     # percents
     my $perf = $cldr->percent_formatter;
-    $perf->format(1337)  # 1.337%
+    $perf->format(0.50)  # 50%
 
     # currencies
     my $curf = $cldr->currency_formatter(currency => 'USD'),
@@ -85,6 +87,24 @@ CLDR::Number - Number formatters using the Unicode CLDR
 =over
 
 =item locale
+
+=back
+
+=head1 ATTRIBUTES
+
+=over
+
+=item decimal_sign
+
+=item group_sign
+
+=item plus_sign
+
+=item minus_sign
+
+=item infinity
+
+=item nan
 
 =back
 
