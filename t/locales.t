@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 20;
+use Test::More tests => 22;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new;
@@ -67,3 +67,10 @@ is $cldr->locale, 'en-US', 'locale is language-country when unavailable script';
 
 $cldr->locale('es-419');
 is $cldr->locale, 'es-419', 'numeric regions are supported';
+
+# inheritance
+$cldr->locale('zh-Hant-HK');
+is_deeply $cldr->_locale_inheritance, [qw( zh-Hant-HK zh-Hant zh root )], 'locale inheritance';
+
+$cldr->locale('en-US-u-va-posix');
+is_deeply $cldr->_locale_inheritance, [qw( en-US-u-va-posix en-US en root )], 'locale inheritance';

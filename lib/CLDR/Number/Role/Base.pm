@@ -13,29 +13,8 @@ has cldr_version => (
 );
 
 has locale => (
-    is     => 'rw',
-    coerce => sub {
-        my ($locale) = @_;
-        return 'root' unless $locale;
-        my ($lang, $script, $region) = $locale =~ m{ ^
-                     ( [a-z]{2,3}          )     # language
-            (?: [-_] ( [a-z]{4}            ) )?  # script
-            (?: [-_] ( [a-z]{2} | [0-9]{3} ) )?  # country or region
-            (?: $ | [-_] u [-_] )
-        }xi;
-        return 'root' unless $lang;
-        $lang   =         lc $lang;
-        $script = ucfirst lc $script if $script;
-        $region =         uc $region if $region;
-        $locale = join '-', $lang, grep { $_ } $script, $region;
-        return $locale         if            exists _number_data()->{$locale};
-        return "$lang-$script" if $script && exists _number_data()->{"$lang-$script"};
-        return "$lang-$region" if $region && exists _number_data()->{"$lang-$region"};
-        return $lang           if            exists _number_data()->{$lang};
-        return 'root';
-    },
+    is      => 'rw',
     trigger => 1,
-    default => 'root',
 );
 
 has default_locale => (
@@ -53,6 +32,11 @@ has default_locale => (
         }
         return;
     },
+);
+
+has _locale_inheritance => (
+    is      => 'rw',
+    default => sub { [] },
 );
 
 for my $attribute ( _symbol_attributes() ) {
@@ -81,6 +65,27 @@ sub _symbol_attributes {
 
 sub _trigger_locale {
     my ($self) = @_;
+    my ($lang, $script, $region, $ext) = _split_locale($self->locale);
+    my $locale;
+
+    if ($lang && exists _number_data()->{$lang}) {
+        $self->_locale_inheritance(
+            _build_inheritance($lang, $script, $region, $ext)
+        );
+        $locale = $self->_locale_inheritance->[0];
+    }
+    elsif ($self->default_locale) {
+        $locale = $self->default_locale;
+        $self->_locale_inheritance(
+            _build_inheritance( _split_locale($locale) )
+        );
+    }
+    else {
+        $locale = 'root';
+        $self->_locale_inheritance( [$locale] );
+    }
+
+    $self->{locale} = $locale;
 
     for my $attribute ($self->_symbol_attributes) {
         $self->$attribute(
@@ -88,6 +93,48 @@ sub _trigger_locale {
             || $self->_number_data->{root}{symbols}{$attribute}
         );
     }
+}
+
+sub _split_locale {
+    my ($locale) = @_;
+
+    return unless defined $locale;
+
+    $locale = lc $locale;
+    $locale =~ tr{_}{-};
+
+    my ($lang, $script, $region, $ext) = $locale =~ m{ ^
+              ( [a-z]{2,3}          )     # language
+        (?: - ( [a-z]{4}            ) )?  # script
+        (?: - ( [a-z]{2} | [0-9]{3} ) )?  # country or region
+        (?: - ( u- .+               ) )?  # extension
+    $ }xi;
+
+    $script = ucfirst $script if $script;
+    $region = uc      $region if $region;
+
+    return $lang, $script, $region, $ext;
+}
+
+sub _build_inheritance {
+    my ($lang, $script, $region, $ext) = @_;
+    my @tree;
+
+    for my $subtags (
+        [$lang, $region, $ext],
+        [$lang, $script, $region],
+        [$lang, $script],
+        [$lang, $region],
+        [$lang],
+    ) {
+        next if grep { !$_ } @$subtags;
+        my $locale = join '-', @$subtags;
+        next if !exists _number_data()->{$locale};
+        push @tree, $locale;
+    }
+    push @tree, 'root';
+
+    return \@tree;
 }
 
 sub BUILD {
