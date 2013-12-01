@@ -8,6 +8,12 @@ our $VERSION = '0.00';
 
 with qw( CLDR::Number::Role::Format );
 
+has is_permil => (
+    is      => 'rw',
+    coerce  => sub { $_[0] ? 1 : 0 },
+    default => 0,
+);
+
 sub BUILD {
     my ($self) = @_;
 
@@ -22,15 +28,12 @@ after _trigger_locale => sub {
 
 sub format {
     my ($self, $num) = @_;
-    my $format = $self->_format_number($num * 100, $self->pattern);
-    $format =~ s{%}{$self->percent}e;
-    return $format;
-};
+    my $factor = $self->is_permil ? 1_000         : 100;
+    my $sign   = $self->is_permil ? $self->permil : $self->percent;
 
-sub format_permil {
-    my ($self, $num) = @_;
-    my $format = $self->_format_number($num * 1000, $self->pattern);
-    $format =~ s{%}{$self->permil}e;
+    my $format = $self->_format_number($num * $factor, $self->pattern);
+    $format =~ s{%}{$sign};
+
     return $format;
 };
 
@@ -53,7 +56,15 @@ CLDR::Number::Format::Percent - Percent formatter using the Unicode CLDR
     my $cldr = CLDR::Number->new(locale => 'es');
     my $perf = $cldr->percent_formatter;
 
-    $perf->format(1337)  # 1.337%
+    $perf->format(0.50)  # 50%
+
+=head1 ATTRIBUTES
+
+=over
+
+=item is_permil
+
+=back
 
 =head1 METHODS
 
