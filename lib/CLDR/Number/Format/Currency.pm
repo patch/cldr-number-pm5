@@ -62,7 +62,7 @@ after _trigger_locale => sub {
         $self->currency_sign($self->_currency_locales->{$self->locale}{$self->currency_code} || $self->currency_code);
     }
 
-    if (my $decimal = $number_data->{symbols}{currencyDecimal}) {
+    if (my $decimal = $number_data->{symbols}{currency_decimal}) {
         $self->decimal($decimal);
     }
 };

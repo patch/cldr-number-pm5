@@ -2475,6 +2475,7 @@ our $DATA = {
             range => "{0}\x{2012}{1}"
         },
         symbols => {
+            currency_decimal => ':',
             decimal => ',',
             group => "\x{a0}",
             infinity => "\x{221e}",
