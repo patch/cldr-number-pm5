@@ -20,7 +20,7 @@ $decf->pattern('#,##,###');      is $decf->format(12_34_56_789), '12,34,56,789',
 $decf->pattern('###,###,####');  is $decf->format(100_000_0000), '100,000,0000', 'primary group by 4, secondary group by 3';
 $decf->pattern('#,##,###,####'); is $decf->format(100_000_0000), '100,000,0000', 'ignore tertiary group';
 $decf->pattern('##,#,###,####'); is $decf->format(100_000_0000), '100,000,0000', 'ignore tertiary group';
-$perf = $cldr->percent_formatter(locale => 'en', type => 'permil');
+$perf = $cldr->percent_formatter(locale => 'en', permil => 1);
 is $perf->format(1.23), '1,230‰', 'per mille multiplied by 1,000 before formatting';
 
 SKIP: {

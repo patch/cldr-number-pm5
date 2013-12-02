@@ -13,35 +13,30 @@ sub decimal_formatter {
     
     require CLDR::Number::Format::Decimal;
     CLDR::Number::Format::Decimal->new($self->_make_args(%args));
-};
+}
 
 sub percent_formatter {
     my ($self, %args) = @_;
 
     require CLDR::Number::Format::Percent;
     CLDR::Number::Format::Percent->new($self->_make_args(%args));
-};
+}
 
 sub currency_formatter {
     my ($self, %args) = @_;
 
     require CLDR::Number::Format::Currency;
     CLDR::Number::Format::Currency->new($self->_make_args(%args));
-};
+}
 
 sub _make_args {
     my ($self, %new_args) = @_;
-    my %args = (locale => $self->locale);
 
-    for my $attribute (qw(
-        decimal_sign group_sign plus_sign minus_sign infinity nan
-    )) {
-        my $predicate = "has_$attribute";
-        next unless $self->$predicate;
-        $args{$attribute} = $self->$attribute;
-    }
-
-    @args{keys %new_args} = values %new_args;
+    my %args = ((
+        map { $_ => $self->$_ }
+        qw  { locale decimal_sign group_sign plus_sign minus_sign }
+        ), %new_args,
+    );
 
     return %args;
 }
@@ -70,7 +65,7 @@ CLDR::Number - Number formatters using the Unicode CLDR
 
     # percents
     my $perf = $cldr->percent_formatter;
-    $perf->format(0.50)  # 50%
+    $perf->format(0.05)  # 5%
 
     # currencies
     my $curf = $cldr->currency_formatter(currency => 'USD'),
@@ -88,11 +83,7 @@ CLDR::Number - Number formatters using the Unicode CLDR
 
 =item locale
 
-=back
-
-=head1 ATTRIBUTES
-
-=over
+=item length
 
 =item decimal_sign
 
@@ -101,10 +92,6 @@ CLDR::Number - Number formatters using the Unicode CLDR
 =item plus_sign
 
 =item minus_sign
-
-=item infinity
-
-=item nan
 
 =back
 

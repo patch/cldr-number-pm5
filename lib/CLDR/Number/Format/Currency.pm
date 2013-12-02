@@ -26,36 +26,19 @@ has currency_sign => (
     },
 );
 
+# TODO: accounting NYI
+has accounting => (
+    is      => 'rw',
+    coerce  => sub { $_[0] ? 1 : 0 },
+    default => 0,
+);
+
 has cash => (
     is      => 'rw',
     coerce  => sub { $_[0] ? 1 : 0 },
     trigger => 1,
     default => 0,
 );
-
-sub _build_currency_sign {
-    my ($self) = @_;
-    my $data = $CLDR::Number::Data::Currency::LOCALES;
-    my $currency_sign;
-
-    for my $locale (@{$self->_locale_inheritance}) {
-        next if !exists $data->{$locale} || !exists $data->{$locale}{$self->currency_code};
-        $currency_sign = $data->{$locale}{$self->currency_code};
-        last;
-    }
-
-    $self->currency_sign($currency_sign || $self->currency_code);
-};
-
-sub BUILD {
-    my ($self) = @_;
-
-    $self->pattern($self->_get_data(patterns => 'currency'));
-
-    if ($self->currency_code) {
-        $self->_trigger_currency_code;
-    }
-}
 
 after _trigger_locale => sub {
     my ($self) = @_;
@@ -71,6 +54,16 @@ after _trigger_locale => sub {
     }
 };
 
+sub BUILD {
+    my ($self) = @_;
+
+    $self->pattern($self->_get_data(patterns => 'currency'));
+
+    if ($self->currency_code) {
+        $self->_trigger_currency_code;
+    }
+}
+
 sub _trigger_currency_code {
     my ($self) = @_;
 
@@ -79,6 +72,20 @@ sub _trigger_currency_code {
     }
 
     $self->_trigger_cash;
+}
+
+sub _build_currency_sign {
+    my ($self) = @_;
+    my $data = $CLDR::Number::Data::Currency::LOCALES;
+    my $currency_sign;
+
+    for my $locale (@{$self->_locale_inheritance}) {
+        next if !exists $data->{$locale} || !exists $data->{$locale}{$self->currency_code};
+        $currency_sign = $data->{$locale}{$self->currency_code};
+        last;
+    }
+
+    $self->currency_sign($currency_sign || $self->currency_code);
 }
 
 sub _trigger_cash {
@@ -111,7 +118,7 @@ sub format {
     my $format = $self->_format_number($num);
     $format =~ s{¤}{$self->currency_sign}e;
     return $format;
-};
+}
 
 1;
 
@@ -150,6 +157,8 @@ CLDR::Number::Format::Currency - Currency formatter using the Unicode CLDR
 =item currency_code
 
 =item currency_sign
+
+=item accounting
 
 =item cash
 

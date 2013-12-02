@@ -41,49 +41,32 @@ has _locale_inheritance => (
     default => sub { [] },
 );
 
+# TODO: length NYI
+has length => (
+    is => 'rw',
+);
+
 has decimal_sign => (
-    is        => 'rw',
-    predicate => 1,
+    is => 'rw',
 );
 
 has group_sign => (
-    is        => 'rw',
-    predicate => 1,
+    is => 'rw',
 );
 
 has plus_sign => (
-    is        => 'rw',
-    predicate => 1,
+    is => 'rw',
 );
 
 has minus_sign => (
-    is        => 'rw',
-    predicate => 1,
+    is => 'rw',
 );
 
-has infinity => (
-    is        => 'rw',
-    predicate => 1,
-);
+sub BUILD {
+    my ($self) = @_;
 
-has nan => (
-    is        => 'rw',
-    predicate => 1,
-);
-
-sub _get_data {
-    my ($self, $type, $key) = @_;
-    my $data = $CLDR::Number::Data::Base::DATA;
-
-    for my $locale (@{$self->_locale_inheritance}) {
-        return $data->{$locale}{$type}{$key}
-            if exists $data->{$locale}
-            && exists $data->{$locale}{$type}
-            && exists $data->{$locale}{$type}{$key};
-    }
-
-    return undef;
-};
+    $self->_trigger_locale;
+}
 
 sub _trigger_locale {
     my ($self) = @_;
@@ -113,8 +96,6 @@ sub _trigger_locale {
     $self->group_sign(   $self->_get_data( symbols => 'group'    ) );
     $self->plus_sign(    $self->_get_data( symbols => 'plus'     ) );
     $self->minus_sign(   $self->_get_data( symbols => 'minus'    ) );
-    $self->infinity(     $self->_get_data( symbols => 'infinity' ) );
-    $self->nan(          $self->_get_data( symbols => 'nan'      ) );
 }
 
 sub _split_locale {
@@ -159,10 +140,18 @@ sub _build_inheritance {
     return \@tree;
 }
 
-sub BUILD {
-    my ($self) = @_;
+sub _get_data {
+    my ($self, $type, $key) = @_;
+    my $data = $CLDR::Number::Data::Base::DATA;
 
-    $self->_trigger_locale;
+    for my $locale (@{$self->_locale_inheritance}) {
+        return $data->{$locale}{$type}{$key}
+            if exists $data->{$locale}
+            && exists $data->{$locale}{$type}
+            && exists $data->{$locale}{$type}{$key};
+    }
+
+    return undef;
 }
 
 1;

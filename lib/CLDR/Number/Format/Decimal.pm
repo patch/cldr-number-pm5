@@ -9,25 +9,39 @@ our $VERSION = '0.00';
 
 with qw( CLDR::Number::Role::Format );
 
-my $CLASS = __PACKAGE__;
+has infinity => (
+    is => 'rw',
+);
 
-sub BUILD {
-    my ($self) = @_;
-
-    $self->pattern($self->_get_data(patterns => 'decimal'));
-}
+has nan => (
+    is => 'rw',
+);
 
 after _trigger_locale => sub {
     my ($self) = @_;
 
-    $self->pattern($self->_get_data(patterns => 'decimal'));
+    $self->_build_attributes;
 };
+
+sub BUILD {
+    my ($self) = @_;
+
+    $self->_build_attributes;
+}
+
+sub _build_attributes {
+    my ($self) = @_;
+
+    $self->pattern(  $self->_get_data(patterns => 'decimal'  ) );
+    $self->infinity( $self->_get_data( symbols => 'infinity' ) );
+    $self->nan(      $self->_get_data( symbols => 'nan'      ) );
+}
 
 sub format {
     my ($self, $num) = @_;
 
     return $self->_format_number($num);
-};
+}
 
 1;
 
@@ -54,6 +68,16 @@ CLDR::Number::Format::Decimal - Decimal formatter using the Unicode CLDR
     $decf->locale('en');
     $decf->minimum_fraction_size(3);
     $decf->format(1337)  # 1,337.000
+
+=head1 ATTRIBUTES
+
+=over
+
+=item infinity
+
+=item nan
+
+=back
 
 =head1 METHODS
 

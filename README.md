@@ -20,7 +20,7 @@ CLDR::Number - Number formatters using the Unicode CLDR
 
     # percents
     my $perf = $cldr->percent_formatter;
-    $perf->format(0.50)  # 50%
+    $perf->format(0.05)  # 5%
 
     # currencies
     my $curf = $cldr->currency_formatter(currency => 'USD'),
@@ -35,15 +35,11 @@ CLDR::Number - Number formatters using the Unicode CLDR
 # ATTRIBUTES
 
 - locale
-
-# ATTRIBUTES
-
+- length
 - decimal\_sign
 - group\_sign
 - plus\_sign
 - minus\_sign
-- infinity
-- nan
 
 # METHODS
 

@@ -289,7 +289,7 @@ sub at_least {
     $pattern =~ s{ \{ 0 \} }{$num}x;
 
     return $pattern;
-};
+}
 
 sub range {
     my ($self, @nums) = @_;
@@ -301,6 +301,6 @@ sub range {
     }
 
     return $pattern;
-};
+}
 
 1;

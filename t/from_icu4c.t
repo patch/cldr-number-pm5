@@ -11,7 +11,7 @@ my $cldr = CLDR::Number->new;
 # source/test/intltest/numfmtst.cpp
 
 # NumberFormatTest::TestPerMill
-my $perf = $cldr->percent_formatter(type => 'permil');
+my $perf = $cldr->percent_formatter(permil => 1);
 $perf->pattern('###.###%');
 is $perf->format(0.4857), '485.7‰', '0.4857 x ###.###‰';
 $perf->permil_sign('m');
