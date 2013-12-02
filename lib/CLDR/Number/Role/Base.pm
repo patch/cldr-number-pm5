@@ -5,7 +5,7 @@ use Moo::Role;
 use Carp;
 use CLDR::Number::Data::Base;
 
-our $VERSION = '0.00';
+our $VERSION = '0.00_01';
 
 has cldr_version => (
     is      => 'ro',

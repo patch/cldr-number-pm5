@@ -3,9 +3,8 @@ package CLDR::Number::Format::Decimal;
 use utf8;
 use Moo;
 use Carp;
-use Scalar::Util qw( looks_like_number );
 
-our $VERSION = '0.00';
+our $VERSION = '0.00_01';
 
 with qw( CLDR::Number::Role::Format );
 
@@ -32,9 +31,9 @@ sub BUILD {
 sub _build_attributes {
     my ($self) = @_;
 
-    $self->pattern(  $self->_get_data(patterns => 'decimal'  ) );
-    $self->infinity( $self->_get_data( symbols => 'infinity' ) );
-    $self->nan(      $self->_get_data( symbols => 'nan'      ) );
+    $self->pattern(  $self->_get_data( patterns => 'decimal'  ) );
+    $self->infinity( $self->_get_data( symbols  => 'infinity' ) );
+    $self->nan(      $self->_get_data( symbols  => 'nan'      ) );
 }
 
 sub format {
@@ -45,11 +44,18 @@ sub format {
 
 1;
 
+__END__
+
 =encoding UTF-8
 
 =head1 NAME
 
 CLDR::Number::Format::Decimal - Decimal formatter using the Unicode CLDR
+
+=head1 VERSION
+
+This document describes CLDR::Number::Format::Decimal v0.00_01, built with
+Unicode CLDR v24. This is a development release without full documentation.
 
 =head1 SYNOPSIS
 
@@ -94,6 +100,10 @@ CLDR::Number::Format::Decimal - Decimal formatter using the Unicode CLDR
 =head1 AUTHOR
 
 Nick Patch <patch@cpan.org>
+
+This module is brought to you by L<Shutterstock|http://www.shutterstock.com/>.
+Additional open source projects from Shutterstock can be found at
+L<code.shutterstock.com|http://code.shutterstock.com/>.
 
 =head1 COPYRIGHT AND LICENSE
 

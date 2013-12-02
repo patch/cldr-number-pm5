@@ -31,15 +31,15 @@ is $decf->format(5_000_000_000.05), '5 000 000 000,05';
 is $decf->format(-50_000.05),       '-50 000,05';
 
 TODO: {
-    local $TODO = 'ar & bn not yet included';
+    local $TODO = 'non-Latin scripts NYI';
 
     $decf->locale('ar');
     is $decf->format(-50.0),   '50-';
     is $decf->format(-50_000), '50,000-';
     is $decf->format(-50.05),  '50.05-';
     is $decf->format(-.05),    '0.05-';
-
-    $decf->locale('bn');
-    is $decf->format(1_23_456),    '1,23,456';
-    is $decf->format(1_23_45_678), '1,23,45,678';
 }
+
+$decf->locale('bn');
+is $decf->format(1_23_456),    '1,23,456';
+is $decf->format(1_23_45_678), '1,23,45,678';

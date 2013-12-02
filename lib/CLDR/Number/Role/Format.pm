@@ -8,7 +8,7 @@ use Scalar::Util qw( looks_like_number );
 use Math::BigFloat;
 use Math::Round;
 
-our $VERSION = '0.00';
+our $VERSION = '0.00_01';
 
 requires qw( format );
 

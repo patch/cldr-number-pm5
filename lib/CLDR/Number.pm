@@ -4,7 +4,7 @@ use utf8;
 use Moo;
 use Carp;
 
-our $VERSION = '0.00';
+our $VERSION = '0.00_01';
 
 with qw( CLDR::Number::Role::Base );
 
@@ -43,11 +43,18 @@ sub _make_args {
 
 1;
 
+__END__
+
 =encoding UTF-8
 
 =head1 NAME
 
 CLDR::Number - Number formatters using the Unicode CLDR
+
+=head1 VERSION
+
+This document describes CLDR::Number v0.00_01, built with Unicode CLDR v24. This
+is a development release without full documentation.
 
 =head1 SYNOPSIS
 
@@ -107,18 +114,17 @@ CLDR::Number - Number formatters using the Unicode CLDR
 
 =back
 
-=head1 NOTES
-
-    otherNumberingSystems (native, traditional, finance)
-    accountingCurrencyPattern
+=head1 TODO
 
 =over
-
-=item * only formatting is supported, not parsing
 
 =item * only the Latin (C<latn>) number system currently is supported
 
 =item * only the C<standard> type of formats are currently supported, not C<short>, C<long>, etc.
+
+=item * other numbering systems: C<native>, C<traditional>, C<finance>
+
+=item * accounting currency patterns
 
 =back
 
@@ -130,11 +136,17 @@ CLDR::Number - Number formatters using the Unicode CLDR
 
 =item * L<Perl CLDR|http://perl-cldr.github.io/>
 
+=item * Twitter: L<@PerlCLDR|http://twitter.com/PerlCLDR>
+
 =back
 
 =head1 AUTHOR
 
 Nick Patch <patch@cpan.org>
+
+This module is brought to you by L<Shutterstock|http://www.shutterstock.com/>.
+Additional open source projects from Shutterstock can be found at
+L<code.shutterstock.com|http://code.shutterstock.com/>.
 
 =head1 COPYRIGHT AND LICENSE
 

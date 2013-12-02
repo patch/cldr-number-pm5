@@ -5,7 +5,7 @@ use Moo;
 use Carp;
 use CLDR::Number::Data::Currency;
 
-our $VERSION = '0.00';
+our $VERSION = '0.00_01';
 
 with qw( CLDR::Number::Role::Format );
 
@@ -122,11 +122,18 @@ sub format {
 
 1;
 
+__END__
+
 =encoding UTF-8
 
 =head1 NAME
 
 CLDR::Number::Format::Currency - Currency formatter using the Unicode CLDR
+
+=head1 VERSION
+
+This document describes CLDR::Number::Format::Currency v0.00_01, built with
+Unicode CLDR v24. This is a development release without full documentation.
 
 =head1 SYNOPSIS
 
@@ -150,7 +157,7 @@ CLDR::Number::Format::Currency - Currency formatter using the Unicode CLDR
     $curf->locale('en');
     $curf->format(1337)  # €1,337.00
 
-=head ATTRIBUTES
+=head1 ATTRIBUTES
 
 =over
 
@@ -179,6 +186,10 @@ CLDR::Number::Format::Currency - Currency formatter using the Unicode CLDR
 =head1 AUTHOR
 
 Nick Patch <patch@cpan.org>
+
+This module is brought to you by L<Shutterstock|http://www.shutterstock.com/>.
+Additional open source projects from Shutterstock can be found at
+L<code.shutterstock.com|http://code.shutterstock.com/>.
 
 =head1 COPYRIGHT AND LICENSE
 

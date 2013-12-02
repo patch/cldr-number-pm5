@@ -3,9 +3,8 @@ package CLDR::Number::Format::Percent;
 use utf8;
 use Moo;
 use Carp;
-use List::Util qw( any );
 
-our $VERSION = '0.00';
+our $VERSION = '0.00_01';
 
 with qw( CLDR::Number::Role::Format );
 
@@ -64,11 +63,18 @@ sub format {
 
 1;
 
+__END__
+
 =encoding UTF-8
 
 =head1 NAME
 
 CLDR::Number::Format::Percent - Percent formatter using the Unicode CLDR
+
+=head1 VERSION
+
+This document describes CLDR::Number::Format::Percent v0.00_01, built with
+Unicode CLDR v24. This is a development release without full documentation.
 
 =head1 SYNOPSIS
 
@@ -113,6 +119,10 @@ CLDR::Number::Format::Percent - Percent formatter using the Unicode CLDR
 =head1 AUTHOR
 
 Nick Patch <patch@cpan.org>
+
+This module is brought to you by L<Shutterstock|http://www.shutterstock.com/>.
+Additional open source projects from Shutterstock can be found at
+L<code.shutterstock.com|http://code.shutterstock.com/>.
 
 =head1 COPYRIGHT AND LICENSE
 

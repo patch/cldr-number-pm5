@@ -1,4 +1,5 @@
 Build.PL
+Changes
 lib/CLDR/Number.pm
 lib/CLDR/Number/Data/Base.pm
 lib/CLDR/Number/Data/Currency.pm
@@ -11,10 +12,16 @@ MANIFEST			This list of files
 META.json
 META.yml
 README
+t/00-load.t
+t/currency.t
 t/format.t
-t/icu4c.t
+t/from_icu4c.t
+t/from_twittercldr.t
+t/from_uts35.t
+t/inheritance.t
+t/locales.t
+t/objects.t
 t/pattern_coerce.t
 t/pattern_trigger.t
+t/quoting.t
 t/rounding.t
-t/twittercldr.t
-t/uts35.t

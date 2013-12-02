@@ -4,6 +4,11 @@
 
 CLDR::Number - Number formatters using the Unicode CLDR
 
+# VERSION
+
+This document describes CLDR::Number v0.00\_01, built with Unicode CLDR v24. This
+is a development release without full documentation.
+
 # SYNOPSIS
 
     use CLDR::Number;
@@ -47,23 +52,26 @@ CLDR::Number - Number formatters using the Unicode CLDR
 - percent\_formatter
 - currency\_formatter
 
-# NOTES
+# TODO
 
-    otherNumberingSystems (native, traditional, finance)
-    accountingCurrencyPattern
-
-- only formatting is supported, not parsing
 - only the Latin (`latn`) number system currently is supported
 - only the `standard` type of formats are currently supported, not `short`, `long`, etc.
+- other numbering systems: `native`, `traditional`, `finance`
+- accounting currency patterns
 
 # SEE ALSO
 
 - [UTS \#35: Unicode LDML, Part 3: Numbers](http://www.unicode.org/reports/tr35/tr35-numbers.html)
 - [Perl CLDR](http://perl-cldr.github.io/)
+- Twitter: [@PerlCLDR](http://twitter.com/PerlCLDR)
 
 # AUTHOR
 
 Nick Patch <patch@cpan.org>
+
+This module is brought to you by [Shutterstock](http://www.shutterstock.com/).
+Additional open source projects from Shutterstock can be found at
+[code.shutterstock.com](http://code.shutterstock.com/).
 
 # COPYRIGHT AND LICENSE
 

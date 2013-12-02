@@ -4,7 +4,7 @@ use utf8;
 use strict;
 use warnings;
 
-our $VERSION = '0.00';
+our $VERSION = '0.00_01';
 
 our $DATA = {
     root => {
