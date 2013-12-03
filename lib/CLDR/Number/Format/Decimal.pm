@@ -50,12 +50,12 @@ __END__
 
 =head1 NAME
 
-CLDR::Number::Format::Decimal - Decimal formatter using the Unicode CLDR
+CLDR::Number::Format::Decimal - Localized decimal formatter using Unicode CLDR
 
 =head1 VERSION
 
 This document describes CLDR::Number::Format::Decimal v0.00_01, built with
-Unicode CLDR v24. This is a development release without full documentation.
+Unicode CLDR v24. This is a development release and functionality may change.
 
 =head1 SYNOPSIS
 
@@ -66,24 +66,12 @@ Unicode CLDR v24. This is a development release without full documentation.
     # or
     use CLDR::Number;
     my $cldr = CLDR::Number->new(locale => 'es');
-    my $decf = $cldr->decimal_formatter,
+    my $decf = $cldr->decimal_formatter;
 
-    $decf->format(1337)   # 1.337
-    $decf->format(-1337)  # -1.337
+    say $decf->format(1234.5);  # '1 234,5' (Spanish)
 
-    $decf->locale('en');
-    $decf->minimum_fraction_size(3);
-    $decf->format(1337)  # 1,337.000
-
-=head1 ATTRIBUTES
-
-=over
-
-=item infinity
-
-=item nan
-
-=back
+    $decf->locale('es-MX');
+    say $decf->format(1234.5);  # '1,234.5' (Mexican Spanish)
 
 =head1 METHODS
 
@@ -91,9 +79,63 @@ Unicode CLDR v24. This is a development release without full documentation.
 
 =item format
 
+Accepts a number and returns a formatted decimal, localized with the current
+locale.
+
 =item at_least
 
+Accepts a number and returns a formatted decimal for at least the supplied
+number.
+
+    say $decf->at_least(100);  # '100+'
+
 =item range
+
+Accepts two numbers and returns a formatted range of decimals.
+
+    say $decf->range(1, 10);  # '1–10'
+
+=back
+
+=head1 ATTRIBUTES
+
+=over
+
+=item infinity
+
+Default: C<∞> when C<root> locale
+
+=item nan
+
+Default: C<NaN> when C<root> locale
+
+=item pattern
+
+Default: C<#,##0.###> when C<root> locale
+
+=item minimum_integer_digits
+
+Default: C<1> when C<root> locale
+
+=item minimum_fraction_digits
+
+Default: C<0> when C<root> locale
+
+=item maximum_fraction_digits
+
+Default: C<3> when C<root> locale
+
+=item primary_grouping_size
+
+Default: C<3> when C<root> locale
+
+=item secondary_grouping_size
+
+Default: not set when C<root> locale
+
+=item rounding_increment
+
+Default: C<0> when C<root> locale
 
 =back
 

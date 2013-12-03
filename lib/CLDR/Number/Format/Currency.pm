@@ -133,48 +133,34 @@ __END__
 
 =head1 NAME
 
-CLDR::Number::Format::Currency - Currency formatter using the Unicode CLDR
+CLDR::Number::Format::Currency - Localized currency formatter using Unicode CLDR
 
 =head1 VERSION
 
 This document describes CLDR::Number::Format::Currency v0.00_01, built with
-Unicode CLDR v24. This is a development release without full documentation.
+Unicode CLDR v24. This is a development release and functionality may change.
 
 =head1 SYNOPSIS
 
     # either
     use CLDR::Number::Format::Currency;
     my $curf = CLDR::Number::Format::Currency->new(
-        locale   => 'es',
+        locale   => 'en',
         currency => 'USD',
     );
 
     # or
     use CLDR::Number;
-    my $cldr = CLDR::Number->new(locale => 'es');
-    my $curf = $cldr->currency_formatter(currency => 'USD'),
+    my $cldr = CLDR::Number->new(locale => 'en');
+    my $curf = $cldr->currency_formatter(currency_code => 'USD');
 
-    $curf->format(1337)  # 1.337,00 $
+    say $curf->format(9.99);  # '$9.99' (English / USD)
 
-    $curf->currency('EUR');
-    $curf->format(1337)  # 1.337,00 €
+    $curf->locale('en-CA');
+    say $curf->format(9.99);  # 'US$9.99' (Canadian English / USD)
 
-    $curf->locale('en');
-    $curf->format(1337)  # €1,337.00
-
-=head1 ATTRIBUTES
-
-=over
-
-=item currency_code
-
-=item currency_sign
-
-=item accounting
-
-=item cash
-
-=back
+    $curf->locale('fr-CA');
+    say $curf->format(9.99);  # '9,99 $US' (Canadian French / USD)
 
 =head1 METHODS
 
@@ -182,9 +168,73 @@ Unicode CLDR v24. This is a development release without full documentation.
 
 =item format
 
+Accepts a number and returns a formatted currency value using the currency from
+the C<currency_code> attribute and localized with the current locale.
+
 =item at_least
 
+Accepts a number and returns a formatted currency for at least the supplied
+number.
+
+    say $perf->at_least(0);  # 'au moins 10,00 $US'
+
 =item range
+
+Accepts two numbers and returns a formatted range of currencies.
+
+    say $perf->range(1, 10);  # 'de 1,00 $US à 10,00 $US'
+
+=back
+
+=head1 ATTRIBUTES
+
+=over
+
+=item currency_code
+
+Default: not set
+
+=item currency_sign
+
+Default: not set
+
+=item accounting
+
+Default: false (C<0>)
+
+This attribute is a no-op because the functionality is not yet implemented.
+
+=item cash
+
+Default: false (C<0>)
+
+=item pattern
+
+Default: C<¤ #,##0.00> when C<root> locale
+
+=item minimum_integer_digits
+
+Default: C<1> when C<root> locale
+
+=item minimum_fraction_digits
+
+Default: C<2> when C<root> locale
+
+=item maximum_fraction_digits
+
+Default: C<2> when C<root> locale
+
+=item primary_grouping_size
+
+Default: C<3> when C<root> locale
+
+=item secondary_grouping_size
+
+Default: not set when C<root> locale
+
+=item rounding_increment
+
+Default: C<0> when C<root> locale
 
 =back
 

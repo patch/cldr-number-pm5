@@ -2,55 +2,99 @@
 
 # NAME
 
-CLDR::Number - Number formatters using the Unicode CLDR
+CLDR::Number - Localized number formatters using Unicode CLDR
 
 # VERSION
 
 This document describes CLDR::Number v0.00\_01, built with Unicode CLDR v24. This
-is a development release without full documentation.
+is a development release and functionality may change.
 
 # SYNOPSIS
 
     use CLDR::Number;
+
     my $cldr = CLDR::Number->new(locale => 'es');
 
     # decimals
-    my $decf = $cldr->decimal_formatter,
-    $decf->format(1337)   # 1.337
-    $decf->format(-1337)  # -1.337
+    my $decf = $cldr->decimal_formatter;
 
-    $decf->locale('en');
-    $decf->minimum_fraction_size(3);
-    $decf->format(1337)  # 1,337.000
+    say $decf->format(1234.5);  # '1 234,5' (Spanish)
+
+    $decf->locale('es-MX');
+    say $decf->format(1234.5);  # '1,234.5' (Mexican Spanish)
 
     # percents
-    my $perf = $cldr->percent_formatter;
-    $perf->format(0.05)  # 5%
+    my $perf = $cldr->percent_formatter(locale => 'eu');
+
+    say $perf->format(0.05);  # '% 5' (Basque)
 
     # currencies
-    my $curf = $cldr->currency_formatter(currency => 'USD'),
-    $curf->format(1337)  # 1.337,00 $
+    my $curf = $cldr->currency_formatter(
+        locale        => 'en',
+        currency_code => 'USD',
+    );
 
-    $curf->currency('EUR');
-    $curf->format(1337)  # 1.337,00 €
+    say $curf->format(9.99);  # '$9.99' (English / USD)
 
-    $curf->locale('en');
-    $curf->format(1337)  # €1,337.00
+    $curf->locale('en-CA');
+    say $curf->format(9.99);  # 'US$9.99' (Canadian English / USD)
 
-# ATTRIBUTES
-
-- locale
-- length
-- decimal\_sign
-- group\_sign
-- plus\_sign
-- minus\_sign
+    $curf->locale('fr-CA');
+    say $curf->format(9.99);  # '9,99 $US' (Canadian French / USD)
 
 # METHODS
 
 - decimal\_formatter
+
+    Returns a decimal formatter, which as a [CLDR::Number::Format::Decimal](http://search.cpan.org/perldoc?CLDR::Number::Format::Decimal) object
+    instantiated with all of the attributes from your CLDR::Number object as well as
+    any attributes passed to this method.
+
 - percent\_formatter
+
+    Returns a percent formatter, which as a [CLDR::Number::Format::Percent](http://search.cpan.org/perldoc?CLDR::Number::Format::Percent) object
+    instantiated with all of the attributes from your CLDR::Number object as well as
+    any attributes passed to this method.
+
 - currency\_formatter
+
+    Returns a currency formatter, which as a [CLDR::Number::Format::Currency](http://search.cpan.org/perldoc?CLDR::Number::Format::Currency)
+    object instantiated with all of the attributes from your CLDR::Number object as
+    well as any attributes passed to this method.
+
+# ATTRIBUTES
+
+- locale
+
+    Default: value of `default_locale` attribute if exists, otherwise `root`
+
+    Valid: Unicode locale identifier
+
+- default\_locale
+
+    Default: none
+
+    Valid: Unicode locale identifier
+
+- decimal\_sign
+
+    Default: `.` when `root` locale
+
+- group\_sign
+
+    Default: `,` when `root` locale
+
+- plus\_sign
+
+    Default: `+` when `root` locale
+
+- minus\_sign
+
+    Default: `-` when `root` locale
+
+- cldr\_version
+
+    Value: `24`
 
 # TODO
 

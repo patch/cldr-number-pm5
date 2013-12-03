@@ -69,40 +69,31 @@ __END__
 
 =head1 NAME
 
-CLDR::Number::Format::Percent - Percent formatter using the Unicode CLDR
+CLDR::Number::Format::Percent - Localized percent formatter using Unicode CLDR
 
 =head1 VERSION
 
 This document describes CLDR::Number::Format::Percent v0.00_01, built with
-Unicode CLDR v24. This is a development release without full documentation.
+Unicode CLDR v24. This is a development release and functionality may change.
 
 =head1 SYNOPSIS
 
     # either
     use CLDR::Number::Format::Percent;
-    my $perf = CLDR::Number::Format::Percent->new(locale => 'es');
+    my $perf = CLDR::Number::Format::Percent->new(locale => 'eu');
 
     # or
     use CLDR::Number;
-    my $cldr = CLDR::Number->new(locale => 'es');
+    my $cldr = CLDR::Number->new(locale => 'eu');
     my $perf = $cldr->percent_formatter;
 
-    $perf->format(0.05)  # 5%
+    say $perf->format(0.05);  # '% 5' (Basque)
+
+    $perf->locale('es');
+    say $perf->format(0.05);  # '5%' (Spanish)
 
     $perf->permil(1);
-    $perf->format(0.05)  # 50‰
-
-=head1 ATTRIBUTES
-
-=over
-
-=item permil
-
-=item percent_sign
-
-=item permil_sign
-
-=back
+    say $perf->format(0.05);  # '50‰' (Spanish / per mil)
 
 =head1 METHODS
 
@@ -110,9 +101,67 @@ Unicode CLDR v24. This is a development release without full documentation.
 
 =item format
 
+Accepts a number and returns a formatted percent, localized with the current
+locale. If the C<permil> attribute is true, returns per mil instead of percent.
+
 =item at_least
 
+Accepts a number and returns a formatted percent for at least the supplied
+number.
+
+    say $perf->at_least(0.05);  # '5%+'
+
 =item range
+
+Accepts two numbers and returns a formatted range of percents.
+
+    say $perf->range(0.05, 0.1);  # '5%–10%'
+
+=back
+
+=head1 ATTRIBUTES
+
+=over
+
+=item permil
+
+Default: false (C<0>)
+
+=item percent_sign
+
+Default: C<%> when C<root> locale
+
+=item permil_sign
+
+Default: C<‰> when C<root> locale
+
+=item pattern
+
+Default: C<#,##0%> when C<root> locale
+
+=item minimum_integer_digits
+
+Default: C<1> when C<root> locale
+
+=item minimum_fraction_digits
+
+Default: C<0> when C<root> locale
+
+=item maximum_fraction_digits
+
+Default: C<0> when C<root> locale
+
+=item primary_grouping_size
+
+Default: C<3> when C<root> locale
+
+=item secondary_grouping_size
+
+Default: not set when C<root> locale
+
+=item rounding_increment
+
+Default: C<0> when C<root> locale
 
 =back
 

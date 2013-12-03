@@ -49,58 +49,45 @@ __END__
 
 =head1 NAME
 
-CLDR::Number - Number formatters using the Unicode CLDR
+CLDR::Number - Localized number formatters using Unicode CLDR
 
 =head1 VERSION
 
 This document describes CLDR::Number v0.00_01, built with Unicode CLDR v24. This
-is a development release without full documentation.
+is a development release and functionality may change.
 
 =head1 SYNOPSIS
 
     use CLDR::Number;
+
     my $cldr = CLDR::Number->new(locale => 'es');
 
     # decimals
-    my $decf = $cldr->decimal_formatter,
-    $decf->format(1337)   # 1.337
-    $decf->format(-1337)  # -1.337
+    my $decf = $cldr->decimal_formatter;
 
-    $decf->locale('en');
-    $decf->minimum_fraction_size(3);
-    $decf->format(1337)  # 1,337.000
+    say $decf->format(1234.5);  # '1 234,5' (Spanish)
+
+    $decf->locale('es-MX');
+    say $decf->format(1234.5);  # '1,234.5' (Mexican Spanish)
 
     # percents
-    my $perf = $cldr->percent_formatter;
-    $perf->format(0.05)  # 5%
+    my $perf = $cldr->percent_formatter(locale => 'eu');
+
+    say $perf->format(0.05);  # '% 5' (Basque)
 
     # currencies
-    my $curf = $cldr->currency_formatter(currency => 'USD'),
-    $curf->format(1337)  # 1.337,00 $
+    my $curf = $cldr->currency_formatter(
+        locale        => 'en',
+        currency_code => 'USD',
+    );
 
-    $curf->currency('EUR');
-    $curf->format(1337)  # 1.337,00 €
+    say $curf->format(9.99);  # '$9.99' (English / USD)
 
-    $curf->locale('en');
-    $curf->format(1337)  # €1,337.00
+    $curf->locale('en-CA');
+    say $curf->format(9.99);  # 'US$9.99' (Canadian English / USD)
 
-=head1 ATTRIBUTES
-
-=over
-
-=item locale
-
-=item length
-
-=item decimal_sign
-
-=item group_sign
-
-=item plus_sign
-
-=item minus_sign
-
-=back
+    $curf->locale('fr-CA');
+    say $curf->format(9.99);  # '9,99 $US' (Canadian French / USD)
 
 =head1 METHODS
 
@@ -108,9 +95,59 @@ is a development release without full documentation.
 
 =item decimal_formatter
 
+Returns a decimal formatter, which as a L<CLDR::Number::Format::Decimal> object
+instantiated with all of the attributes from your CLDR::Number object as well as
+any attributes passed to this method.
+
 =item percent_formatter
 
+Returns a percent formatter, which as a L<CLDR::Number::Format::Percent> object
+instantiated with all of the attributes from your CLDR::Number object as well as
+any attributes passed to this method.
+
 =item currency_formatter
+
+Returns a currency formatter, which as a L<CLDR::Number::Format::Currency>
+object instantiated with all of the attributes from your CLDR::Number object as
+well as any attributes passed to this method.
+
+=back
+
+=head1 ATTRIBUTES
+
+=over
+
+=item locale
+
+Default: value of C<default_locale> attribute if exists, otherwise C<root>
+
+Valid: Unicode locale identifier
+
+=item default_locale
+
+Default: none
+
+Valid: Unicode locale identifier
+
+=item decimal_sign
+
+Default: C<.> when C<root> locale
+
+=item group_sign
+
+Default: C<,> when C<root> locale
+
+=item plus_sign
+
+Default: C<+> when C<root> locale
+
+=item minus_sign
+
+Default: C<-> when C<root> locale
+
+=item cldr_version
+
+Value: C<24>
 
 =back
 

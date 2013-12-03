@@ -5,6 +5,10 @@ use Moo::Role;
 use Carp;
 use CLDR::Number::Data::Base;
 
+# This role does not have a publicly supported interface and may change in
+# backward incompatible ways in the future. Please use one of the documented
+# classes instead.
+
 our $VERSION = '0.00_01';
 
 has cldr_version => (
