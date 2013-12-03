@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 22;
+use Test::More tests => 24;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new;
@@ -22,6 +22,12 @@ is $cldr->locale, 'zh-Hant-HK', 'convert region to uppercase';
 
 $cldr->locale('AST');
 is $cldr->locale, 'ast', 'convert 3-letter language to lowercase';
+
+$cldr->locale('en-');
+is $cldr->locale, 'en', 'allow trailing dash and remove';
+
+$cldr->locale('fr_');
+is $cldr->locale, 'fr', 'allow trailing underscore and remove';
 
 # BCP 47 conversion
 $cldr->locale('und');

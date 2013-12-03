@@ -111,6 +111,7 @@ sub _split_locale {
         (?: - ( [a-z]{4}            ) )?  # script
         (?: - ( [a-z]{2} | [0-9]{3} ) )?  # country or region
         (?: - ( u- .+               ) )?  # extension
+            -?                            # trailing separator
     $ }xi;
 
     $script = ucfirst $script if $script;
