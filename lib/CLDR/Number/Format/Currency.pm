@@ -12,8 +12,8 @@ with qw( CLDR::Number::Role::Format );
 has currency_code => (
     is  => 'rw',
     isa => sub {
-        croak "currency_code is not defined"     if !defined $_[0];
-        croak "currency_code '$_[0]' is invalid" if $_[0] !~ m{ ^ [A-Z]{3} $ }x;
+        croak 'uninitialized value'     if !defined $_[0];
+        croak qq{invalid value "$_[0]"} if $_[0] !~ m{ ^ [A-Z]{3} $ }x;
     },
     coerce  => sub { defined $_[0] ? uc $_[0] : $_[0] },
     trigger => 1,
@@ -115,8 +115,13 @@ sub _trigger_cash {
 
 sub format {
     my ($self, $num) = @_;
+
+    croak 'Missing required attribute: currency_code'
+        unless $self->currency_code;
+
     my $format = $self->_format_number($num);
     $format =~ s{¤}{$self->currency_sign}e;
+
     return $format;
 }
 

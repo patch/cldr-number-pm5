@@ -10,8 +10,9 @@ my $builder = Module::Build->new(
         'Module::Build' => '0.36',
     },
     build_requires => {
-        'Pod::Man'   => '2.04',
-        'Test::More' => '0.82',
+        'Pod::Man'        => '2.04',
+        'Test::Exception' => '0.22',
+        'Test::More'      => '0.82',
     },
     requires => {
         'perl'           => '5.8.1',
