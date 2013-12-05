@@ -2,19 +2,49 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 9;
+use Test::More tests => 17;
 use CLDR::Number;
 
 my $cldr = new_ok 'CLDR::Number' => [locale => 'zh'], 'CLDR::Number';
 is $cldr->locale, 'zh', 'generator locale set on instantiation';
+
 $cldr->locale('ja');
 is $cldr->locale, 'ja', 'generator locale updated';
+
 my $decf = $cldr->decimal_formatter;
 isa_ok $decf, 'CLDR::Number::Format::Decimal';
 is $decf->locale, 'ja', 'generator locale passed to formatter';
+
 $decf->locale('ko');
 is $decf->locale, 'ko', 'formatter locale updated';
 is $cldr->locale, 'ja', 'generator locale remains the same';
+
 $cldr->locale('vi');
 is $cldr->locale, 'vi', 'generator locale updated';
 is $decf->locale, 'ko', 'formatter locale remains the same';
+
+$decf = $cldr->decimal_formatter(
+    locale                  => 'en',
+    minimum_integer_digits  => 2,
+    maximum_integer_digits  => 3,
+    minimum_fraction_digits => 1,
+    maximum_fraction_digits => 2,
+    primary_grouping_size   => 2,
+    secondary_grouping_size => 1,
+    rounding_increment      => 2,
+);
+
+is $decf->minimum_integer_digits,  2, 'min int spared by locale on create';
+is $decf->maximum_integer_digits,  3, 'max int spared by locale on create';
+is $decf->minimum_fraction_digits, 1, 'min frac spared by locale on create';
+is $decf->maximum_fraction_digits, 2, 'max frac spared by locale on create';
+is $decf->primary_grouping_size,   2, '1st group spared by locale on create';
+is $decf->secondary_grouping_size, 1, '2nd group spared by locale on create';
+is $decf->rounding_increment,      2, 'rounding spared by locale on create';
+
+$decf = $cldr->decimal_formatter(
+    locale  => 'en',
+    pattern => '00.0#',
+);
+
+is $decf->pattern, '00.0#', 'pattern spared by locale on create';

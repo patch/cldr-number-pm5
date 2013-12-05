@@ -96,10 +96,10 @@ sub _trigger_locale {
 
     $self->{locale} = $locale;
 
-    $self->decimal_sign( $self->_get_data( symbols => 'decimal'  ) );
-    $self->group_sign(   $self->_get_data( symbols => 'group'    ) );
-    $self->plus_sign(    $self->_get_data( symbols => 'plus'     ) );
-    $self->minus_sign(   $self->_get_data( symbols => 'minus'    ) );
+    $self->decimal_sign( $self->_get_data( symbols => 'decimal' ) );
+    $self->group_sign(   $self->_get_data( symbols => 'group'   ) );
+    $self->plus_sign(    $self->_get_data( symbols => 'plus'    ) );
+    $self->minus_sign(   $self->_get_data( symbols => 'minus'   ) );
 }
 
 sub _split_locale {

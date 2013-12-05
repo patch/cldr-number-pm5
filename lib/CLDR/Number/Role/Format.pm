@@ -22,10 +22,11 @@ my $number_pattern_re = qr{ (?: \* \X )? [@#0-9,.]+ }x;
 
 has pattern => (
     is  => 'rw',
-#    isa => sub {
-#        croak "pattern is not defined" if !defined $_[0];
-#    },
-    trigger => 1,
+    isa => sub {
+        croak "pattern is not defined" if !defined $_[0];
+    },
+    trigger   => 1,
+    predicate => 1,
 );
 
 has minimum_integer_digits => (

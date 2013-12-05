@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 15;
+use Test::More tests => 19;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new;
@@ -33,3 +33,15 @@ is $decf->maximum_fraction_digits, 3, 'max fraction becomes min if min > max';
 
 is $decf->format(5),      '5.000', 'fraction less than min';
 is $decf->format(7.7777), '7.778', 'fraction greater than max';
+
+$decf = $cldr->decimal_formatter(
+    minimum_integer_digits  => 2,
+    minimum_fraction_digits => 1,
+    maximum_fraction_digits => 2,
+);
+
+is $decf->minimum_integer_digits,  2, 'set min integer digits on create';
+is $decf->minimum_fraction_digits, 1, 'set min fraction digits on create';
+is $decf->maximum_fraction_digits, 2, 'set max fraction digits on create';
+
+is $decf->format(5), '05.0', 'integer less than min';
