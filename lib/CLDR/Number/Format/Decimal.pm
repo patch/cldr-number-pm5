@@ -143,8 +143,9 @@ Default: C<0> when C<root> locale
 
 Nick Patch <patch@cpan.org>
 
-This module is brought to you by L<Shutterstock|http://www.shutterstock.com/>.
-Additional open source projects from Shutterstock can be found at
+This project is brought to you by L<Perl CLDR|http://perl-cldr.github.io/> and
+L<Shutterstock|http://www.shutterstock.com/>. Additional open source projects
+from Shutterstock can be found at
 L<code.shutterstock.com|http://code.shutterstock.com/>.
 
 =head1 COPYRIGHT AND LICENSE

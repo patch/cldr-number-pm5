@@ -95,19 +95,19 @@ is a development release and functionality may change.
 
 =item decimal_formatter
 
-Returns a decimal formatter, which as a L<CLDR::Number::Format::Decimal> object
+Returns a decimal formatter, which is a L<CLDR::Number::Format::Decimal> object
 instantiated with all of the attributes from your CLDR::Number object as well as
 any attributes passed to this method.
 
 =item percent_formatter
 
-Returns a percent formatter, which as a L<CLDR::Number::Format::Percent> object
+Returns a percent formatter, which is a L<CLDR::Number::Format::Percent> object
 instantiated with all of the attributes from your CLDR::Number object as well as
 any attributes passed to this method.
 
 =item currency_formatter
 
-Returns a currency formatter, which as a L<CLDR::Number::Format::Currency>
+Returns a currency formatter, which is a L<CLDR::Number::Format::Currency>
 object instantiated with all of the attributes from your CLDR::Number object as
 well as any attributes passed to this method.
 
@@ -173,16 +173,15 @@ Value: C<24>
 
 =item * L<Perl CLDR|http://perl-cldr.github.io/>
 
-=item * Twitter: L<@PerlCLDR|http://twitter.com/PerlCLDR>
-
 =back
 
 =head1 AUTHOR
 
 Nick Patch <patch@cpan.org>
 
-This module is brought to you by L<Shutterstock|http://www.shutterstock.com/>.
-Additional open source projects from Shutterstock can be found at
+This project is brought to you by L<Perl CLDR|http://perl-cldr.github.io/> and
+L<Shutterstock|http://www.shutterstock.com/>. Additional open source projects
+from Shutterstock can be found at
 L<code.shutterstock.com|http://code.shutterstock.com/>.
 
 =head1 COPYRIGHT AND LICENSE

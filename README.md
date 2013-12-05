@@ -46,19 +46,19 @@ is a development release and functionality may change.
 
 - decimal\_formatter
 
-    Returns a decimal formatter, which as a [CLDR::Number::Format::Decimal](http://search.cpan.org/perldoc?CLDR::Number::Format::Decimal) object
+    Returns a decimal formatter, which is a [CLDR::Number::Format::Decimal](http://search.cpan.org/perldoc?CLDR::Number::Format::Decimal) object
     instantiated with all of the attributes from your CLDR::Number object as well as
     any attributes passed to this method.
 
 - percent\_formatter
 
-    Returns a percent formatter, which as a [CLDR::Number::Format::Percent](http://search.cpan.org/perldoc?CLDR::Number::Format::Percent) object
+    Returns a percent formatter, which is a [CLDR::Number::Format::Percent](http://search.cpan.org/perldoc?CLDR::Number::Format::Percent) object
     instantiated with all of the attributes from your CLDR::Number object as well as
     any attributes passed to this method.
 
 - currency\_formatter
 
-    Returns a currency formatter, which as a [CLDR::Number::Format::Currency](http://search.cpan.org/perldoc?CLDR::Number::Format::Currency)
+    Returns a currency formatter, which is a [CLDR::Number::Format::Currency](http://search.cpan.org/perldoc?CLDR::Number::Format::Currency)
     object instantiated with all of the attributes from your CLDR::Number object as
     well as any attributes passed to this method.
 
@@ -107,14 +107,14 @@ is a development release and functionality may change.
 
 - [UTS \#35: Unicode LDML, Part 3: Numbers](http://www.unicode.org/reports/tr35/tr35-numbers.html)
 - [Perl CLDR](http://perl-cldr.github.io/)
-- Twitter: [@PerlCLDR](http://twitter.com/PerlCLDR)
 
 # AUTHOR
 
 Nick Patch <patch@cpan.org>
 
-This module is brought to you by [Shutterstock](http://www.shutterstock.com/).
-Additional open source projects from Shutterstock can be found at
+This project is brought to you by [Perl CLDR](http://perl-cldr.github.io/) and
+[Shutterstock](http://www.shutterstock.com/). Additional open source projects
+from Shutterstock can be found at
 [code.shutterstock.com](http://code.shutterstock.com/).
 
 # COPYRIGHT AND LICENSE
