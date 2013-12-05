@@ -51,6 +51,12 @@ has minimum_fraction_digits => (
         croak "minimum_fraction_digits '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
     },
+    trigger => sub {
+        my ($self, $min) = @_;
+        return unless defined $self->maximum_fraction_digits;
+        return if $min <= $self->maximum_fraction_digits;
+        $self->{maximum_fraction_digits} = $min;
+    },
     default => 0,
 );
 
@@ -59,6 +65,12 @@ has maximum_fraction_digits => (
     isa => sub {
         croak "maximum_fraction_digits '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
+    },
+    trigger => sub {
+        my ($self, $max) = @_;
+        return unless defined $self->minimum_fraction_digits;
+        return if $max >= $self->minimum_fraction_digits;
+        $self->{minimum_fraction_digits} = $max;
     },
     default => 3,
 );
