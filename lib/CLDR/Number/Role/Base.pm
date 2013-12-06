@@ -11,6 +11,11 @@ use CLDR::Number::Data::Base;
 
 our $VERSION = '0.00_01';
 
+has version => (
+    is      => 'ro',
+    default => $VERSION,
+);
+
 has cldr_version => (
     is      => 'ro',
     default => 24,
