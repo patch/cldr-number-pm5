@@ -14,10 +14,13 @@ all_pod_files_spelling_ok();
 
 __DATA__
 CLDR
+com
 formatter
 formatters
 LDML
+nan
 permil
+shutterstock
 Shutterstock
 TODO
 UTS
