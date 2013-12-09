@@ -516,7 +516,7 @@ our $DATA = {
         },
         symbols => {
             decimal => '.',
-            group => '\'',
+            group => q['],
         },
     },
     'de-LI' => {
@@ -525,7 +525,7 @@ our $DATA = {
         },
         symbols => {
             decimal => '.',
-            group => '\'',
+            group => q['],
         },
     },
     dje => {
@@ -986,7 +986,7 @@ our $DATA = {
         },
         symbols => {
             decimal => '.',
-            group => '\'',
+            group => q['],
         },
     },
     'fr-LU' => {
@@ -1293,7 +1293,7 @@ our $DATA = {
         },
         symbols => {
             decimal => '.',
-            group => '\'',
+            group => q['],
         },
     },
     ja => {
