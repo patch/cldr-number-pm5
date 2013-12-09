@@ -33,16 +33,16 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     aa => {
-        ETB => 'Br'
+        ETB => 'Br',
     },
     'aa-DJ' => {
-        DJF => 'Fdj'
+        DJF => 'Fdj',
     },
     'aa-ER' => {
-        ERN => 'Nfk'
+        ERN => 'Nfk',
     },
     af => {
         BRL => 'R$',
@@ -65,13 +65,13 @@ our $LOCALES = {
         XCD => 'EC$',
         XOF => 'CFA',
         XPF => 'CFPF',
-        ZAR => 'R'
+        ZAR => 'R',
     },
     'af-NA' => {
-        NAD => '$'
+        NAD => '$',
     },
     ak => {
-        GHS => 'GH₵'
+        GHS => 'GH₵',
     },
     am => {
         AUD => 'AU$',
@@ -94,7 +94,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     ar => {
         AED => "د.إ.\N{RIGHT-TO-LEFT MARK}",
@@ -139,26 +139,26 @@ our $LOCALES = {
         XOF => 'CFA',
         XPF => 'CFPF',
         XXX => '***',
-        YER => "ر.ي.\N{RIGHT-TO-LEFT MARK}"
+        YER => "ر.ي.\N{RIGHT-TO-LEFT MARK}",
     },
     'ar-DJ' => {
-        DJF => 'Fdj'
+        DJF => 'Fdj',
     },
     'ar-ER' => {
-        ERN => 'Nfk'
+        ERN => 'Nfk',
     },
     'ar-LB' => {
-        SDG => 'SDG'
+        SDG => 'SDG',
     },
     'ar-SO' => {
-        SOS => 'S'
+        SOS => 'S',
     },
     'ar-SS' => {
         GBP => 'GB£',
-        SSP => '£'
+        SSP => '£',
     },
     asa => {
-        TZS => 'TSh'
+        TZS => 'TSh',
     },
     ast => {
         AUD => 'A$',
@@ -181,7 +181,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     az => {
         AUD => 'A$',
@@ -205,22 +205,22 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'az-Cyrl' => {
-        AZN => 'ман.'
+        AZN => 'ман.',
     },
     be => {
         BYR => 'р.',
         JPY => '¥',
         RUB => 'рас. руб.',
-        USD => '$'
+        USD => '$',
     },
     bem => {
-        ZMW => 'K'
+        ZMW => 'K',
     },
     bez => {
-        TZS => 'TSh'
+        TZS => 'TSh',
     },
     bg => {
         AUD => 'AUD',
@@ -245,7 +245,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'XCD',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     bn => {
         AUD => 'A$',
@@ -269,19 +269,19 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     bo => {
-        CNY => '¥'
+        CNY => '¥',
     },
     'bo-IN' => {
-        CNY => 'CN¥'
+        CNY => 'CN¥',
     },
     bs => {
         BAM => 'KM',
         CZK => 'Kč',
         PLN => 'zl',
-        RSD => 'din.'
+        RSD => 'din.',
     },
     'bs-Cyrl' => {
         BAM => 'КМ',
@@ -289,10 +289,10 @@ our $LOCALES = {
         JPY => '¥',
         PLN => 'зл',
         RSD => 'дин.',
-        TRY => 'Тл'
+        TRY => 'Тл',
     },
     byn => {
-        ERN => 'Nfk'
+        ERN => 'Nfk',
     },
     ca => {
         AUD => 'AU$',
@@ -316,16 +316,16 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'XCD',
         XOF => 'XOF',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'ca-FR' => {
-        FRF => 'F'
+        FRF => 'F',
     },
     cgg => {
-        UGX => 'USh'
+        UGX => 'USh',
     },
     chr => {
-        USD => '$'
+        USD => '$',
     },
     cs => {
         AUD => 'AU$',
@@ -352,7 +352,7 @@ our $LOCALES = {
         XCD => 'EC$',
         XEU => 'ECU',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     cy => {
         AUD => 'A$',
@@ -375,7 +375,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     da => {
         AUD => 'AU$',
@@ -399,10 +399,10 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     dav => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     de => {
         ATS => 'öS',
@@ -426,13 +426,13 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'de-CH' => {
-        CHF => 'CHF'
+        CHF => 'CHF',
     },
     'de-LU' => {
-        LUF => 'F'
+        LUF => 'F',
     },
     dz => {
         AUD => 'AU$',
@@ -452,10 +452,10 @@ our $LOCALES = {
         THB => 'TH฿',
         TWD => 'NT$',
         USD => 'US$',
-        XAF => 'XAF'
+        XAF => 'XAF',
     },
     ebu => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     ee => {
         AUD => 'AU$',
@@ -476,7 +476,7 @@ our $LOCALES = {
         TWD => 'NT$',
         USD => 'US$',
         VND => '₫',
-        XCD => 'EC$'
+        XCD => 'EC$',
     },
     el => {
         AUD => 'A$',
@@ -500,62 +500,62 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     en => {
         JPY => '¥',
-        USD => '$'
+        USD => '$',
     },
     'en-001' => {
-        USD => 'US$'
+        USD => 'US$',
     },
     'en-AU' => {
         AUD => '$',
-        USD => 'US$'
+        USD => 'US$',
     },
     'en-BB' => {
-        BBD => '$'
+        BBD => '$',
     },
     'en-BE' => {
-        USD => 'US$'
+        USD => 'US$',
     },
     'en-BM' => {
-        BMD => '$'
+        BMD => '$',
     },
     'en-BS' => {
-        BSD => '$'
+        BSD => '$',
     },
     'en-BW' => {
-        BWP => 'P'
+        BWP => 'P',
     },
     'en-BZ' => {
-        BZD => '$'
+        BZD => '$',
     },
     'en-CA' => {
         CAD => '$',
-        USD => 'US$'
+        USD => 'US$',
     },
     'en-CC' => {
-        AUD => '$'
+        AUD => '$',
     },
     'en-CK' => {
-        NZD => '$'
+        NZD => '$',
     },
     'en-CX' => {
-        AUD => '$'
+        AUD => '$',
     },
     'en-Dsrt' => {
-        USD => '$'
+        USD => '$',
     },
     'en-ER' => {
-        ERN => 'Nfk'
+        ERN => 'Nfk',
     },
     'en-FJ' => {
-        FJD => '$'
+        FJD => '$',
     },
     'en-FK' => {
         FKP => '£',
-        GBP => 'GB£'
+        GBP => 'GB£',
     },
     'en-GB' => {
         AUD => 'AU$',
@@ -577,155 +577,155 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'en-GH' => {
-        GHS => 'GH₵'
+        GHS => 'GH₵',
     },
     'en-GI' => {
         GBP => 'GB£',
         GIP => '£',
-        USD => 'US$'
+        USD => 'US$',
     },
     'en-GM' => {
-        GMD => 'D'
+        GMD => 'D',
     },
     'en-GY' => {
-        GYD => '$'
+        GYD => '$',
     },
     'en-HK' => {
         HKD => '$',
-        USD => 'US$'
+        USD => 'US$',
     },
     'en-IN' => {
-        USD => 'US$'
+        USD => 'US$',
     },
     'en-JM' => {
-        JMD => '$'
+        JMD => '$',
     },
     'en-KE' => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     'en-KI' => {
-        AUD => '$'
+        AUD => '$',
     },
     'en-KY' => {
-        KYD => '$'
+        KYD => '$',
     },
     'en-LR' => {
-        LRD => '$'
+        LRD => '$',
     },
     'en-LS' => {
-        ZAR => 'R'
+        ZAR => 'R',
     },
     'en-MG' => {
-        MGA => 'Ar'
+        MGA => 'Ar',
     },
     'en-MO' => {
         MOP => 'MOP$',
-        USD => 'US$'
+        USD => 'US$',
     },
     'en-MT' => {
         GBP => 'GB£',
-        USD => 'US$'
+        USD => 'US$',
     },
     'en-MU' => {
-        MUR => 'Rs'
+        MUR => 'Rs',
     },
     'en-MW' => {
-        MWK => 'MK'
+        MWK => 'MK',
     },
     'en-NA' => {
-        NAD => '$'
+        NAD => '$',
     },
     'en-NF' => {
-        AUD => '$'
+        AUD => '$',
     },
     'en-NG' => {
-        NGN => '₦'
+        NGN => '₦',
     },
     'en-NR' => {
-        AUD => '$'
+        AUD => '$',
     },
     'en-NU' => {
-        NZD => '$'
+        NZD => '$',
     },
     'en-NZ' => {
         NZD => '$',
-        USD => 'US$'
+        USD => 'US$',
     },
     'en-PG' => {
-        PGK => 'K'
+        PGK => 'K',
     },
     'en-PH' => {
-        PHP => '₱'
+        PHP => '₱',
     },
     'en-PK' => {
         PKR => 'Rs',
-        USD => 'US$'
+        USD => 'US$',
     },
     'en-PN' => {
-        NZD => '$'
+        NZD => '$',
     },
     'en-RW' => {
-        RWF => 'RF'
+        RWF => 'RF',
     },
     'en-SB' => {
-        SBD => '$'
+        SBD => '$',
     },
     'en-SC' => {
-        SCR => 'SR'
+        SCR => 'SR',
     },
     'en-SG' => {
         SGD => '$',
-        USD => 'US$'
+        USD => 'US$',
     },
     'en-SH' => {
         GBP => 'GB£',
-        SHP => '£'
+        SHP => '£',
     },
     'en-SL' => {
-        SLL => 'Le'
+        SLL => 'Le',
     },
     'en-SS' => {
         GBP => 'GB£',
-        SSP => '£'
+        SSP => '£',
     },
     'en-SX' => {
-        ANG => 'NAf.'
+        ANG => 'NAf.',
     },
     'en-SZ' => {
-        SZL => 'E'
+        SZL => 'E',
     },
     'en-TK' => {
-        NZD => '$'
+        NZD => '$',
     },
     'en-TO' => {
-        TOP => 'T$'
+        TOP => 'T$',
     },
     'en-TT' => {
-        TTD => '$'
+        TTD => '$',
     },
     'en-TV' => {
-        AUD => '$'
+        AUD => '$',
     },
     'en-TZ' => {
-        TZS => 'TSh'
+        TZS => 'TSh',
     },
     'en-UG' => {
-        UGX => 'USh'
+        UGX => 'USh',
     },
     'en-VU' => {
-        VUV => 'VT'
+        VUV => 'VT',
     },
     'en-WS' => {
-        WST => 'WS$'
+        WST => 'WS$',
     },
     'en-ZA' => {
-        ZAR => 'R'
+        ZAR => 'R',
     },
     'en-ZM' => {
-        ZMW => 'K'
+        ZMW => 'K',
     },
     es => {
         ARS => 'AR$',
@@ -748,39 +748,39 @@ our $LOCALES = {
         VND => 'VND',
         XCD => 'EC$',
         XOF => 'XOF',
-        XPF => 'XPF'
+        XPF => 'XPF',
     },
     'es-AR' => {
         ARS => '$',
-        USD => 'US$'
+        USD => 'US$',
     },
     'es-BO' => {
-        BOB => 'Bs'
+        BOB => 'Bs',
     },
     'es-CL' => {
         CLP => '$',
-        USD => 'US$'
+        USD => 'US$',
     },
     'es-CO' => {
         COP => '$',
-        USD => 'US$'
+        USD => 'US$',
     },
     'es-CR' => {
-        CRC => '₡'
+        CRC => '₡',
     },
     'es-CU' => {
         CUP => '$',
-        USD => 'US$'
+        USD => 'US$',
     },
     'es-DO' => {
         DOP => '$',
-        USD => 'US$'
+        USD => 'US$',
     },
     'es-GT' => {
-        GTQ => 'Q'
+        GTQ => 'Q',
     },
     'es-HN' => {
-        HNL => 'L'
+        HNL => 'L',
     },
     'es-MX' => {
         AED => 'AED',
@@ -959,36 +959,36 @@ our $LOCALES = {
         XPF => 'XPF',
         YER => 'YER',
         ZAR => 'ZAR',
-        ZMW => 'ZMK'
+        ZMW => 'ZMK',
     },
     'es-NI' => {
-        NIO => 'C$'
+        NIO => 'C$',
     },
     'es-PA' => {
-        PAB => 'B/.'
+        PAB => 'B/.',
     },
     'es-PE' => {
-        PEN => 'S/.'
+        PEN => 'S/.',
     },
     'es-PH' => {
-        PHP => '₱'
+        PHP => '₱',
     },
     'es-PR' => {
-        USD => '$'
+        USD => '$',
     },
     'es-PY' => {
-        PYG => '₲'
+        PYG => '₲',
     },
     'es-US' => {
         JPY => '¥',
-        USD => '$'
+        USD => '$',
     },
     'es-UY' => {
         USD => 'US$',
-        UYU => '$'
+        UYU => '$',
     },
     'es-VE' => {
-        VEF => 'Bs.'
+        VEF => 'Bs.',
     },
     et => {
         AUD => 'AU$',
@@ -1012,7 +1012,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     eu => {
         AUD => 'A$',
@@ -1036,7 +1036,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     fa => {
         AFN => '؋',
@@ -1058,7 +1058,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => '$EC',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     fi => {
         AUD => 'AUD',
@@ -1081,7 +1081,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'XCD',
         XOF => 'CFA',
-        XPF => 'XPF'
+        XPF => 'XPF',
     },
     fil => {
         AUD => 'A$',
@@ -1105,10 +1105,10 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     fo => {
-        DKK => 'kr'
+        DKK => 'kr',
     },
     fr => {
         ARS => '$AR',
@@ -1161,70 +1161,70 @@ our $LOCALES = {
         WST => 'WS$',
         XAF => 'FCFA',
         XOF => 'CFA',
-        XPF => 'FCFP'
+        XPF => 'FCFP',
     },
     'fr-BI' => {
-        BIF => 'FBu'
+        BIF => 'FBu',
     },
     'fr-CA' => {
         CAD => '$',
         CNY => 'CN¥',
-        WST => 'WST'
+        WST => 'WST',
     },
     'fr-CD' => {
-        CDF => 'FC'
+        CDF => 'FC',
     },
     'fr-CH' => {
-        CHF => 'CHF'
+        CHF => 'CHF',
     },
     'fr-DJ' => {
-        DJF => 'Fdj'
+        DJF => 'Fdj',
     },
     'fr-DZ' => {
-        DZD => 'DA'
+        DZD => 'DA',
     },
     'fr-GN' => {
-        GNF => 'FG'
+        GNF => 'FG',
     },
     'fr-HT' => {
-        HTG => 'G'
+        HTG => 'G',
     },
     'fr-KM' => {
-        KMF => 'CF'
+        KMF => 'CF',
     },
     'fr-LU' => {
         FRF => 'FRF',
-        LUF => 'F'
+        LUF => 'F',
     },
     'fr-MG' => {
-        MGA => 'Ar'
+        MGA => 'Ar',
     },
     'fr-MR' => {
-        MRO => 'UM'
+        MRO => 'UM',
     },
     'fr-MU' => {
-        MUR => 'Rs'
+        MUR => 'Rs',
     },
     'fr-RW' => {
-        RWF => 'RF'
+        RWF => 'RF',
     },
     'fr-SC' => {
-        SCR => 'SR'
+        SCR => 'SR',
     },
     'fr-SY' => {
-        SYP => 'LS'
+        SYP => 'LS',
     },
     'fr-TN' => {
-        TND => 'DT'
+        TND => 'DT',
     },
     'fr-VU' => {
-        VUV => 'VT'
+        VUV => 'VT',
     },
     ga => {
-        ANG => 'AÍ f.'
+        ANG => 'AÍ f.',
     },
     gd => {
-        USD => '$'
+        USD => '$',
     },
     gl => {
         CAD => '$CA',
@@ -1238,13 +1238,13 @@ our $LOCALES = {
         KRW => '₩',
         MXN => '$MX',
         THB => '฿',
-        USD => '$'
+        USD => '$',
     },
     gsw => {
         ATS => 'öS',
         CHF => 'CHF',
         JPY => '¥',
-        USD => '$'
+        USD => '$',
     },
     gu => {
         AUD => 'A$',
@@ -1267,19 +1267,19 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     guz => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     ha => {
-        NGN => '₦'
+        NGN => '₦',
     },
     'ha-Latn-GH' => {
-        GHS => 'GH₵'
+        GHS => 'GH₵',
     },
     haw => {
-        USD => '$'
+        USD => '$',
     },
     he => {
         AUD => 'A$',
@@ -1303,7 +1303,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     hi => {
         AUD => 'A$',
@@ -1326,7 +1326,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     hr => {
         AUD => 'AUD',
@@ -1349,10 +1349,10 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'XCD',
         XOF => 'CFA',
-        XPF => 'XPF'
+        XPF => 'XPF',
     },
     'hr-BA' => {
-        BAM => 'KM'
+        BAM => 'KM',
     },
     hu => {
         AUD => 'AUD',
@@ -1376,7 +1376,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'XCD',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     hy => {
         AMD => 'դր.',
@@ -1400,7 +1400,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     id => {
         AUD => 'AU$',
@@ -1424,13 +1424,13 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     ig => {
-        NGN => '₦'
+        NGN => '₦',
     },
     ii => {
-        CNY => '¥'
+        CNY => '¥',
     },
     is => {
         CAD => 'CAD',
@@ -1443,7 +1443,7 @@ our $LOCALES = {
         THB => '฿',
         USD => 'USD',
         XAF => 'FCFA',
-        XOF => 'CFA'
+        XOF => 'CFA',
     },
     it => {
         AUD => 'A$',
@@ -1465,10 +1465,10 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'it-CH' => {
-        CHF => 'CHF'
+        CHF => 'CHF',
     },
     ja => {
         AUD => 'AU$',
@@ -1491,13 +1491,13 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     jgo => {
-        XAF => 'FCFA'
+        XAF => 'FCFA',
     },
     jmc => {
-        TZS => 'TSh'
+        TZS => 'TSh',
     },
     ka => {
         AUD => 'AUD',
@@ -1520,16 +1520,16 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     kab => {
-        DZD => 'DA'
+        DZD => 'DA',
     },
     kam => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     kde => {
-        TZS => 'TSh'
+        TZS => 'TSh',
     },
     kea => {
         AUD => 'AU$',
@@ -1551,29 +1551,29 @@ our $LOCALES = {
         VND => '₫',
         XAF => 'FCFA',
         XCD => 'EC$',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     ki => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     kk => {
         CAD => 'CA$',
         KZT => '₸',
         MXN => 'MX$',
         RUB => 'руб.',
-        USD => 'US$'
+        USD => 'US$',
     },
     kkj => {
-        XAF => 'FCFA'
+        XAF => 'FCFA',
     },
     kl => {
         DKK => 'kr',
         EUR => '€',
         NOK => 'Nkr',
-        SEK => 'Skr'
+        SEK => 'Skr',
     },
     kln => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     km => {
         AUD => 'A$',
@@ -1597,7 +1597,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     kn => {
         AUD => 'A$',
@@ -1619,7 +1619,7 @@ our $LOCALES = {
         VND => '₫',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     ko => {
         AUD => 'AU$',
@@ -1642,10 +1642,10 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     ksb => {
-        TZS => 'TSh'
+        TZS => 'TSh',
     },
     ky => {
         AUD => 'AUD',
@@ -1668,22 +1668,22 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'XCD',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     lag => {
-        TZS => 'TSh'
+        TZS => 'TSh',
     },
     lg => {
-        UGX => 'USh'
+        UGX => 'USh',
     },
     lkt => {
-        USD => '$'
+        USD => '$',
     },
     ln => {
-        CDF => 'FC'
+        CDF => 'FC',
     },
     'ln-AO' => {
-        AOA => 'Kz'
+        AOA => 'Kz',
     },
     lo => {
         AUD => 'A$',
@@ -1707,7 +1707,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     lt => {
         AUD => 'AUD',
@@ -1730,16 +1730,16 @@ our $LOCALES = {
         XAF => 'XAF',
         XCD => 'XCD',
         XOF => 'XOF',
-        XPF => 'XPF'
+        XPF => 'XPF',
     },
     lu => {
-        CDF => 'FC'
+        CDF => 'FC',
     },
     luo => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     luy => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     lv => {
         AUD => 'AU$',
@@ -1763,28 +1763,28 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     mas => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     'mas-TZ' => {
-        TZS => 'TSh'
+        TZS => 'TSh',
     },
     mer => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     mfe => {
-        MUR => 'Rs'
+        MUR => 'Rs',
     },
     mg => {
-        MGA => 'Ar'
+        MGA => 'Ar',
     },
     mgh => {
-        MZN => 'MTn'
+        MZN => 'MTn',
     },
     mgo => {
-        XAF => 'FCFA'
+        XAF => 'FCFA',
     },
     mk => {
         AUD => 'AUD',
@@ -1807,7 +1807,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     ml => {
         AUD => 'A$',
@@ -1828,7 +1828,7 @@ our $LOCALES = {
         VND => '₫',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     mn => {
         AUD => 'A$',
@@ -1852,7 +1852,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     mr => {
         AUD => 'A$',
@@ -1875,7 +1875,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     ms => {
         AUD => 'A$',
@@ -1899,13 +1899,13 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'ms-Latn-BN' => {
-        BND => '$'
+        BND => '$',
     },
     'ms-Latn-SG' => {
-        SGD => '$'
+        SGD => '$',
     },
     my => {
         AUD => 'A$',
@@ -1929,10 +1929,10 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     naq => {
-        NAD => '$'
+        NAD => '$',
     },
     nb => {
         ALK => 'ALK',
@@ -1960,7 +1960,7 @@ our $LOCALES = {
         XAF => 'XAF',
         XCD => 'XCD',
         XOF => 'CFA',
-        XPF => 'XPF'
+        XPF => 'XPF',
     },
     ne => {
         AUD => 'A$',
@@ -1984,7 +1984,7 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     nl => {
         AUD => 'AU$',
@@ -2009,52 +2009,52 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'XPF'
+        XPF => 'XPF',
     },
     'nl-AW' => {
-        AWG => 'Afl.'
+        AWG => 'Afl.',
     },
     'nl-BQ' => {
-        USD => '$'
+        USD => '$',
     },
     'nl-CW' => {
-        ANG => 'NAf.'
+        ANG => 'NAf.',
     },
     'nl-SR' => {
-        SRD => '$'
+        SRD => '$',
     },
     'nl-SX' => {
-        ANG => 'NAf.'
+        ANG => 'NAf.',
     },
     nn => {
-        NOK => 'kr'
+        NOK => 'kr',
     },
     nnh => {
-        XAF => 'FCFA'
+        XAF => 'FCFA',
     },
     nr => {
-        ZAR => 'R'
+        ZAR => 'R',
     },
     nso => {
-        ZAR => 'R'
+        ZAR => 'R',
     },
     nyn => {
-        UGX => 'USh'
+        UGX => 'USh',
     },
     om => {
-        ETB => 'Br'
+        ETB => 'Br',
     },
     'om-KE' => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     os => {
         BRL => 'R$',
         EUR => '€',
         GBP => '£',
-        USD => '$'
+        USD => '$',
     },
     'os-RU' => {
-        RUB => 'руб.'
+        RUB => 'руб.',
     },
     pa => {
         AUD => 'A$',
@@ -2077,10 +2077,10 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'pa-Arab' => {
-        PKR => 'ر'
+        PKR => 'ر',
     },
     pl => {
         AUD => 'AUD',
@@ -2103,10 +2103,10 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     ps => {
-        AFN => '؋'
+        AFN => '؋',
     },
     pt => {
         AUD => 'AU$',
@@ -2130,16 +2130,16 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'pt-AO' => {
-        AOA => 'Kz'
+        AOA => 'Kz',
     },
     'pt-MO' => {
-        MOP => 'MOP$'
+        MOP => 'MOP$',
     },
     'pt-MZ' => {
-        MZN => 'MTn'
+        MZN => 'MTn',
     },
     'pt-PT' => {
         AUD => 'AU$',
@@ -2165,16 +2165,16 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'pt-ST' => {
-        STD => 'Db'
+        STD => 'Db',
     },
     rm => {
-        CHF => 'CHF'
+        CHF => 'CHF',
     },
     rn => {
-        BIF => 'FBu'
+        BIF => 'FBu',
     },
     ro => {
         AUD => 'AUD',
@@ -2194,13 +2194,13 @@ our $LOCALES = {
         USD => 'USD',
         VND => 'VND',
         XCD => 'XCD',
-        XOF => 'CFA'
+        XOF => 'CFA',
     },
     'ro-MD' => {
-        MDL => 'L'
+        MDL => 'L',
     },
     rof => {
-        TZS => 'TSh'
+        TZS => 'TSh',
     },
     ru => {
         AUD => 'A$',
@@ -2228,35 +2228,35 @@ our $LOCALES = {
         XCD => 'EC$',
         XOF => 'CFA',
         XPF => 'CFPF',
-        XXX => 'XXXX'
+        XXX => 'XXXX',
     },
     'ru-BY' => {
         BYR => 'р.',
-        RUR => 'RUR'
+        RUR => 'RUR',
     },
     'ru-KG' => {
-        KGS => 'сом'
+        KGS => 'сом',
     },
     'ru-KZ' => {
-        KZT => '₸'
+        KZT => '₸',
     },
     'ru-MD' => {
-        MDL => 'L'
+        MDL => 'L',
     },
     rw => {
-        RWF => 'RF'
+        RWF => 'RF',
     },
     rwk => {
-        TZS => 'TSh'
+        TZS => 'TSh',
     },
     sah => {
-        RUB => 'руб.'
+        RUB => 'руб.',
     },
     saq => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     sbp => {
-        TZS => 'TSh'
+        TZS => 'TSh',
     },
     se => {
         DKK => 'Dkr',
@@ -2267,13 +2267,13 @@ our $LOCALES = {
         MXN => 'MX$',
         NOK => 'kr',
         SEK => 'Skr',
-        THB => '฿'
+        THB => '฿',
     },
     seh => {
-        MZN => 'MTn'
+        MZN => 'MTn',
     },
     si => {
-        LKR => 'රු.'
+        LKR => 'රු.',
     },
     sk => {
         AUD => 'AUD',
@@ -2297,24 +2297,24 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     sl => {
         CAD => 'CAD',
         JPY => '¥',
-        USD => '$'
+        USD => '$',
     },
     so => {
-        SOS => 'S'
+        SOS => 'S',
     },
     'so-DJ' => {
-        DJF => 'Fdj'
+        DJF => 'Fdj',
     },
     'so-ET' => {
-        ETB => 'Br'
+        ETB => 'Br',
     },
     'so-KE' => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     sq => {
         ALL => 'Lekë',
@@ -2338,10 +2338,10 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'sq-MK' => {
-        MKD => 'den'
+        MKD => 'den',
     },
     sr => {
         AUD => 'A$',
@@ -2363,7 +2363,7 @@ our $LOCALES = {
         VND => '₫',
         XAF => 'FCFA',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'sr-Latn' => {
         AUD => 'A$',
@@ -2385,20 +2385,20 @@ our $LOCALES = {
         VND => '₫',
         XAF => 'FCFA',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     ss => {
         SZL => 'E',
-        ZAR => 'R'
+        ZAR => 'R',
     },
     ssy => {
-        ERN => 'Nfk'
+        ERN => 'Nfk',
     },
     st => {
-        ZAR => 'R'
+        ZAR => 'R',
     },
     'st-LS' => {
-        LSL => 'M'
+        LSL => 'M',
     },
     sv => {
         AUD => 'AU$',
@@ -2433,7 +2433,7 @@ our $LOCALES = {
         TWD => 'TW$',
         USD => 'US$',
         VND => 'VN₫',
-        XCD => 'EC$'
+        XCD => 'EC$',
     },
     sw => {
         AUD => 'A$',
@@ -2458,32 +2458,32 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'sw-UG' => {
-        UGX => 'USh'
+        UGX => 'USh',
     },
     swc => {
-        CDF => 'FC'
+        CDF => 'FC',
     },
     ta => {
         CAD => 'CA$',
         MXN => 'MX$',
         USD => '$',
         XCD => 'EC$',
-        XOF => 'CFA'
+        XOF => 'CFA',
     },
     'ta-LK' => {
-        LKR => 'Rs.'
+        LKR => 'Rs.',
     },
     'ta-MY' => {
         MYR => 'RM',
-        SGD => 'S$'
+        SGD => 'S$',
     },
     'ta-SG' => {
         MYR => 'RM',
         SGD => '$',
-        USD => 'US$'
+        USD => 'US$',
     },
     te => {
         AUD => 'A$',
@@ -2506,16 +2506,16 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     teo => {
-        UGX => 'USh'
+        UGX => 'USh',
     },
     'teo-KE' => {
-        KES => 'Ksh'
+        KES => 'Ksh',
     },
     tg => {
-        TJS => 'сом'
+        TJS => 'сом',
     },
     th => {
         AUD => 'AU$',
@@ -2538,25 +2538,25 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     ti => {
-        ETB => 'Br'
+        ETB => 'Br',
     },
     'ti-ER' => {
-        ERN => 'Nfk'
+        ERN => 'Nfk',
     },
     tig => {
-        ERN => 'Nfk'
+        ERN => 'Nfk',
     },
     tn => {
-        ZAR => 'R'
+        ZAR => 'R',
     },
     'tn-BW' => {
-        BWP => 'P'
+        BWP => 'P',
     },
     to => {
-        TOP => 'T$'
+        TOP => 'T$',
     },
     tr => {
         AUD => 'AU$',
@@ -2580,10 +2580,10 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     ts => {
-        ZAR => 'R'
+        ZAR => 'R',
     },
     uk => {
         AUD => 'AU$',
@@ -2611,13 +2611,13 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'XCD',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     ur => {
         AUD => 'A$',
         PKR => 'Rs',
         USD => '$',
-        XOF => 'CFA'
+        XOF => 'CFA',
     },
     uz => {
         AUD => 'A$',
@@ -2641,10 +2641,10 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'uz-Arab' => {
-        AFN => '؋'
+        AFN => '؋',
     },
     'uz-Cyrl' => {
         AUD => 'A$',
@@ -2668,16 +2668,16 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     vai => {
-        LRD => '$'
+        LRD => '$',
     },
     'vai-Latn' => {
-        LRD => '$'
+        LRD => '$',
     },
     ve => {
-        ZAR => 'R'
+        ZAR => 'R',
     },
     vi => {
         AUD => 'AU$',
@@ -2700,30 +2700,30 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     vun => {
-        TZS => 'TSh'
+        TZS => 'TSh',
     },
     wae => {
         JPY => '¥',
         RUB => 'руб',
-        USD => '$'
+        USD => '$',
     },
     wal => {
-        ETB => 'Br'
+        ETB => 'Br',
     },
     xh => {
-        ZAR => 'R'
+        ZAR => 'R',
     },
     xog => {
-        UGX => 'USh'
+        UGX => 'USh',
     },
     yo => {
-        NGN => '₦'
+        NGN => '₦',
     },
     'yo-BJ' => {
-        NGN => '₦'
+        NGN => '₦',
     },
     zh => {
         AUD => 'AU$',
@@ -2746,18 +2746,18 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'zh-Hans-HK' => {
-        HKD => '$'
+        HKD => '$',
     },
     'zh-Hans-MO' => {
         CNY => 'CN¥',
-        MOP => 'MOP$'
+        MOP => 'MOP$',
     },
     'zh-Hans-SG' => {
         CNY => 'CN¥',
-        SGD => '$'
+        SGD => '$',
     },
     'zh-Hant' => {
         ALK => 'ALK',
@@ -2782,18 +2782,18 @@ our $LOCALES = {
         XAF => 'FCFA',
         XCD => 'EC$',
         XOF => 'CFA',
-        XPF => 'CFPF'
+        XPF => 'CFPF',
     },
     'zh-Hant-HK' => {
         HKD => '$',
-        USD => 'US$'
+        USD => 'US$',
     },
     'zh-Hant-MO' => {
-        MOP => 'MOP$'
+        MOP => 'MOP$',
     },
     zu => {
-        ZAR => 'R'
-    }
+        ZAR => 'R',
+    },
 };
 
 our $CURRENCIES = {

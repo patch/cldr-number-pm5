@@ -33,8 +33,8 @@ our $DATA = {
     },
     aa => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     af => {
         patterns => {
@@ -42,7 +42,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -52,33 +52,33 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'af-NA' => {
         patterns => {
-            currency => '¤ #,##0.00'
-        }
+            currency => '¤ #,##0.00',
+        },
     },
     agq => {
         patterns => {
             currency => '#,##0.00¤',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     ak => {
         patterns => {
-            currency => '¤#,##0.00'
+            currency => '¤#,##0.00',
         },
         symbols => {
             decimal => '.',
-            group => ','
-        }
+            group => ',',
+        },
     },
     am => {
         patterns => {
@@ -86,7 +86,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -96,8 +96,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ar => {
         patterns => {
@@ -105,7 +105,7 @@ our $DATA = {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -115,90 +115,90 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => "\N{LEFT-TO-RIGHT MARK}+"
-        }
+            plus => "\N{LEFT-TO-RIGHT MARK}+",
+        },
     },
     'ar-DZ' => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'ar-EG' => {
         symbols => {
-            nan => 'NaN'
-        }
+            nan => 'NaN',
+        },
     },
     'ar-LB' => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'ar-LY' => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'ar-MA' => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'ar-MR' => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'ar-QA' => {
         patterns => {
-            currency => '¤#0.00'
-        }
+            currency => '¤#0.00',
+        },
     },
     'ar-SA' => {
         patterns => {
-            currency => '¤#0.00'
-        }
+            currency => '¤#0.00',
+        },
     },
     'ar-SY' => {
         patterns => {
-            currency => '¤#0.00'
-        }
+            currency => '¤#0.00',
+        },
     },
     'ar-TN' => {
         patterns => {
-            currency => '¤#0.00'
+            currency => '¤#0.00',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'ar-YE' => {
         patterns => {
-            currency => '¤#0.00'
-        }
+            currency => '¤#0.00',
+        },
     },
     as => {
         patterns => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
-            percent => '#,##,##0%'
-        }
+            percent => '#,##,##0%',
+        },
     },
     asa => {
         patterns => {
-            currency => '#,##0.00 ¤'
-        }
+            currency => '#,##0.00 ¤',
+        },
     },
     ast => {
         patterns => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
@@ -208,8 +208,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     az => {
         patterns => {
@@ -217,7 +217,7 @@ our $DATA = {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -227,12 +227,12 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'az-Cyrl' => {
         patterns => {
-            currency => '¤ #,##0.00'
+            currency => '¤ #,##0.00',
         },
         symbols => {
             decimal => ',',
@@ -242,40 +242,40 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     bas => {
         patterns => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => '#,##0 %'
+            percent => '#,##0 %',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     be => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     bem => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     bez => {
         patterns => {
-            currency => '#,##0.00¤'
-        }
+            currency => '#,##0.00¤',
+        },
     },
     bg => {
         patterns => {
@@ -283,7 +283,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0} – {1}'
+            range => '{0} – {1}',
         },
         symbols => {
             decimal => ',',
@@ -293,13 +293,13 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     bm => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     bn => {
         patterns => {
@@ -307,7 +307,7 @@ our $DATA = {
             currency => '#,##,##0.00¤;(#,##,##0.00¤)',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -317,32 +317,32 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     bo => {
         patterns => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => '.',
             group => ',',
-            nan => 'NaN'
-        }
+            nan => 'NaN',
+        },
     },
     br => {
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     brx => {
         patterns => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
-            percent => '#,##,##0%'
+            percent => '#,##,##0%',
         },
         symbols => {
             decimal => '.',
@@ -352,20 +352,20 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     bs => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'bs-Cyrl' => {
         patterns => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
@@ -375,13 +375,13 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     byn => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     ca => {
         patterns => {
@@ -389,7 +389,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => ',',
@@ -399,19 +399,19 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     cgg => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     chr => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => '.',
@@ -421,8 +421,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     cs => {
         patterns => {
@@ -430,7 +430,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -440,8 +440,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     cy => {
         patterns => {
@@ -449,7 +449,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => '.',
@@ -459,8 +459,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     da => {
         patterns => {
@@ -468,7 +468,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => ',',
@@ -478,13 +478,13 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     dav => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     de => {
         patterns => {
@@ -492,7 +492,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -502,70 +502,70 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'de-AT' => {
         patterns => {
-            currency => '¤ #,##0.00'
-        }
+            currency => '¤ #,##0.00',
+        },
     },
     'de-CH' => {
         patterns => {
-            currency => '¤ #,##0.00;¤-#,##0.00'
+            currency => '¤ #,##0.00;¤-#,##0.00',
         },
         symbols => {
             decimal => '.',
-            group => '\''
-        }
+            group => '\'',
+        },
     },
     'de-LI' => {
         patterns => {
-            currency => '¤ #,##0.00'
+            currency => '¤ #,##0.00',
         },
         symbols => {
             decimal => '.',
-            group => '\''
-        }
+            group => '\'',
+        },
     },
     dje => {
         patterns => {
             currency => '#,##0.00¤',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => '.',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     dua => {
         patterns => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => '#,##0 %'
+            percent => '#,##0 %',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     dyo => {
         patterns => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     dz => {
         patterns => {
             currency => '¤#,##,##0.00',
             decimal => '#,##,##0.###',
-            percent => '#,##,##0 %'
+            percent => '#,##,##0 %',
         },
         symbols => {
             decimal => '.',
@@ -575,21 +575,21 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ebu => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     ee => {
         patterns => {
-            currency => '¤#,##0.00'
+            currency => '¤#,##0.00',
         },
         symbols => {
-            nan => 'mnn'
-        }
+            nan => 'mnn',
+        },
     },
     el => {
         patterns => {
@@ -597,7 +597,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -607,20 +607,20 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'el-CY' => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     en => {
         patterns => {
             atleast => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => '.',
@@ -630,73 +630,73 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'en-150' => {
         patterns => {
-            currency => '#,##0.00 ¤'
+            currency => '#,##0.00 ¤',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'en-AU' => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     'en-BE' => {
         patterns => {
-            currency => '#,##0.00 ¤'
+            currency => '#,##0.00 ¤',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'en-GB' => {
         patterns => {
-            range => '{0}–{1}'
-        }
+            range => '{0}–{1}',
+        },
     },
     'en-IN' => {
         patterns => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
-            percent => '#,##,##0%'
-        }
+            percent => '#,##,##0%',
+        },
     },
     'en-PK' => {
         patterns => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
-            percent => '#,##,##0%'
-        }
+            percent => '#,##,##0%',
+        },
     },
     'en-US-u-va-posix' => {
         patterns => {
             currency => '¤ #0.00',
             decimal => '#0.######',
-            percent => '#0%'
+            percent => '#0%',
         },
         symbols => {
             infinity => 'INF',
-            permil => '0/00'
-        }
+            permil => '0/00',
+        },
     },
     'en-ZA' => {
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     eo => {
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     es => {
         patterns => {
@@ -704,7 +704,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => ',',
@@ -714,64 +714,64 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'es-419' => {
         patterns => {
-            currency => '¤#,##0.00'
+            currency => '¤#,##0.00',
         },
         symbols => {
             decimal => '.',
-            group => ','
-        }
+            group => ',',
+        },
     },
     'es-AR' => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'es-BO' => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'es-CL' => {
         patterns => {
-            currency => '¤#,##0.00;¤-#,##0.00'
+            currency => '¤#,##0.00;¤-#,##0.00',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'es-CO' => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'es-CR' => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'es-EC' => {
         patterns => {
-            currency => '¤#,##0.00;¤-#,##0.00'
+            currency => '¤#,##0.00;¤-#,##0.00',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'es-GQ' => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     'es-MX' => {
         patterns => {
@@ -779,7 +779,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => '.',
@@ -789,35 +789,35 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'es-PY' => {
         patterns => {
-            currency => '¤ #,##0.00;¤ -#,##0.00'
+            currency => '¤ #,##0.00;¤ -#,##0.00',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'es-UY' => {
         patterns => {
-            currency => '¤ #,##0.00'
+            currency => '¤ #,##0.00',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'es-VE' => {
         patterns => {
-            currency => '¤#,##0.00;¤-#,##0.00'
+            currency => '¤#,##0.00;¤-#,##0.00',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     et => {
         patterns => {
@@ -825,7 +825,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}‒{1}'
+            range => '{0}‒{1}',
         },
         symbols => {
             decimal => ',',
@@ -835,8 +835,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     eu => {
         patterns => {
@@ -844,7 +844,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '% #,##0',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -854,19 +854,19 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ewo => {
         patterns => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     fa => {
         patterns => {
@@ -874,7 +874,7 @@ our $DATA = {
             currency => "\N{LEFT-TO-RIGHT MARK}¤#,##0.00",
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -884,22 +884,22 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => "\N{LEFT-TO-RIGHT MARK}+"
-        }
+            plus => "\N{LEFT-TO-RIGHT MARK}+",
+        },
     },
     'fa-AF' => {
         patterns => {
-            percent => "'\N{LEFT-TO-RIGHT EMBEDDING}'#,##0%'\N{POP DIRECTIONAL FORMATTING}'"
-        }
+            percent => "'\N{LEFT-TO-RIGHT EMBEDDING}'#,##0%'\N{POP DIRECTIONAL FORMATTING}'",
+        },
     },
     ff => {
         patterns => {
-            currency => '#,##0.00 ¤'
+            currency => '#,##0.00 ¤',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     fi => {
         patterns => {
@@ -907,7 +907,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
-            range => '{0}‒{1}'
+            range => '{0}‒{1}',
         },
         symbols => {
             decimal => ',',
@@ -917,8 +917,8 @@ our $DATA = {
             nan => 'epäluku',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     fil => {
         patterns => {
@@ -926,7 +926,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => '.',
@@ -936,14 +936,14 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     fo => {
         patterns => {
             currency => '¤#,##0.00;¤-#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0 %'
+            percent => '#,##0 %',
         },
         symbols => {
             decimal => ',',
@@ -953,8 +953,8 @@ our $DATA = {
             nan => '¤¤¤',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     fr => {
         patterns => {
@@ -962,7 +962,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
-            range => 'de {0} à {1}'
+            range => 'de {0} à {1}',
         },
         symbols => {
             decimal => ',',
@@ -972,33 +972,33 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'fr-BE' => {
         symbols => {
-            group => '.'
-        }
+            group => '.',
+        },
     },
     'fr-CH' => {
         patterns => {
-            currency => '¤ #,##0.00;¤-#,##0.00'
+            currency => '¤ #,##0.00;¤-#,##0.00',
         },
         symbols => {
             decimal => '.',
-            group => '\''
-        }
+            group => '\'',
+        },
     },
     'fr-LU' => {
         symbols => {
-            group => '.'
-        }
+            group => '.',
+        },
     },
     fur => {
         patterns => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
@@ -1008,23 +1008,23 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ga => {
         patterns => {
-            currency => '¤#,##0.00'
+            currency => '¤#,##0.00',
         },
         symbols => {
             decimal => '.',
-            group => ','
-        }
+            group => ',',
+        },
     },
     gd => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => '.',
@@ -1034,8 +1034,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     gl => {
         patterns => {
@@ -1043,7 +1043,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -1053,14 +1053,14 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     gsw => {
         patterns => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => '#,##0 %'
+            percent => '#,##0 %',
         },
         symbols => {
             decimal => '.',
@@ -1070,8 +1070,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     gu => {
         patterns => {
@@ -1079,7 +1079,7 @@ our $DATA = {
             currency => '¤#,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => '.',
@@ -1089,34 +1089,34 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     guz => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     gv => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     ha => {
         patterns => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => '.',
-            group => ','
-        }
+            group => ',',
+        },
     },
     haw => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     he => {
         patterns => {
@@ -1124,7 +1124,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => '.',
@@ -1134,8 +1134,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => "\N{LEFT-TO-RIGHT MARK}+"
-        }
+            plus => "\N{LEFT-TO-RIGHT MARK}+",
+        },
     },
     hi => {
         patterns => {
@@ -1143,7 +1143,7 @@ our $DATA = {
             currency => '¤#,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -1153,8 +1153,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     hr => {
         patterns => {
@@ -1162,7 +1162,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -1172,8 +1172,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     hu => {
         patterns => {
@@ -1181,7 +1181,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -1191,8 +1191,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     hy => {
         patterns => {
@@ -1200,7 +1200,7 @@ our $DATA = {
             currency => '#0.00 ¤',
             decimal => '#0.###',
             percent => '#0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => ',',
@@ -1210,14 +1210,14 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ia => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     id => {
         patterns => {
@@ -1225,7 +1225,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -1235,19 +1235,19 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ig => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     ii => {
         symbols => {
             decimal => '.',
-            group => ','
-        }
+            group => ',',
+        },
     },
     is => {
         patterns => {
@@ -1255,7 +1255,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -1265,8 +1265,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     it => {
         patterns => {
@@ -1274,7 +1274,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => ',',
@@ -1284,17 +1284,17 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'it-CH' => {
         patterns => {
-            currency => '¤ #,##0.00;¤-#,##0.00'
+            currency => '¤ #,##0.00;¤-#,##0.00',
         },
         symbols => {
             decimal => '.',
-            group => '\''
-        }
+            group => '\'',
+        },
     },
     ja => {
         patterns => {
@@ -1302,7 +1302,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}～{1}'
+            range => '{0}～{1}',
         },
         symbols => {
             decimal => '.',
@@ -1312,14 +1312,14 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     jgo => {
         patterns => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
@@ -1329,13 +1329,13 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     jmc => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     ka => {
         patterns => {
@@ -1343,7 +1343,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => ',',
@@ -1353,33 +1353,33 @@ our $DATA = {
             nan => 'არ არის რიცხვი',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     kab => {
         patterns => {
-            currency => '#,##0.00¤'
+            currency => '#,##0.00¤',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     kam => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     kde => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     kea => {
         patterns => {
             currency => '#,##0.00¤',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
@@ -1389,21 +1389,21 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     khq => {
         patterns => {
-            currency => '#,##0.00¤'
+            currency => '#,##0.00¤',
         },
         symbols => {
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     ki => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     kk => {
         patterns => {
@@ -1411,7 +1411,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -1421,20 +1421,20 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     kkj => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     kl => {
         patterns => {
             currency => '¤#,##0.00;¤-#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0 %'
+            percent => '#,##0 %',
         },
         symbols => {
             decimal => ',',
@@ -1444,13 +1444,13 @@ our $DATA = {
             nan => '¤¤¤',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     kln => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     km => {
         patterns => {
@@ -1458,7 +1458,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -1468,8 +1468,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     kn => {
         patterns => {
@@ -1477,7 +1477,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -1487,8 +1487,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ko => {
         patterns => {
@@ -1496,7 +1496,7 @@ our $DATA = {
             currency => '¤#,##0.00;(¤#,##0.00)',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => '.',
@@ -1506,21 +1506,21 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     kok => {
         patterns => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
-            percent => '#,##,##0%'
-        }
+            percent => '#,##,##0%',
+        },
     },
     ks => {
         patterns => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
-            percent => '#,##,##0%'
+            percent => '#,##,##0%',
         },
         symbols => {
             decimal => '.',
@@ -1530,29 +1530,29 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => "\N{LEFT-TO-RIGHT MARK}+"
-        }
+            plus => "\N{LEFT-TO-RIGHT MARK}+",
+        },
     },
     ksb => {
         patterns => {
-            currency => '#,##0.00¤'
-        }
+            currency => '#,##0.00¤',
+        },
     },
     ksf => {
         patterns => {
             currency => '#,##0.00 ¤',
-            decimal => '#,##0.###'
+            decimal => '#,##0.###',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     ksh => {
         patterns => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => '#,##0 %'
+            percent => '#,##0 %',
         },
         symbols => {
             decimal => ',',
@@ -1562,13 +1562,13 @@ our $DATA = {
             nan => '¤¤¤',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     kw => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     ky => {
         patterns => {
@@ -1576,7 +1576,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -1586,13 +1586,13 @@ our $DATA = {
             nan => 'сан эмес',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     lg => {
         patterns => {
-            currency => '#,##0.00¤'
-        }
+            currency => '#,##0.00¤',
+        },
     },
     lkt => {
         symbols => {
@@ -1603,13 +1603,13 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ln => {
         patterns => {
             currency => '#,##0.00 ¤',
-            decimal => '#,##0.###'
+            decimal => '#,##0.###',
         },
         symbols => {
             decimal => ',',
@@ -1618,8 +1618,8 @@ our $DATA = {
             minus => '-',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     lo => {
         patterns => {
@@ -1627,7 +1627,7 @@ our $DATA = {
             currency => '¤#,##0.00;¤-#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -1637,8 +1637,8 @@ our $DATA = {
             nan => 'ບໍ່ແມ່ນໂຕເລກ',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     lt => {
         patterns => {
@@ -1646,7 +1646,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -1656,28 +1656,28 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     lu => {
         patterns => {
             currency => '#,##0.00¤',
-            decimal => '#,##0.###'
+            decimal => '#,##0.###',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     luo => {
         patterns => {
-            currency => '#,##0.00¤'
-        }
+            currency => '#,##0.00¤',
+        },
     },
     luy => {
         patterns => {
-            currency => '¤#,##0.00;¤- #,##0.00'
-        }
+            currency => '¤#,##0.00;¤- #,##0.00',
+        },
     },
     lv => {
         patterns => {
@@ -1685,7 +1685,7 @@ our $DATA = {
             currency => '¤#,##0.00;(¤#,##0.00)',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}‒{1}'
+            range => '{0}‒{1}',
         },
         symbols => {
             decimal => ',',
@@ -1695,40 +1695,40 @@ our $DATA = {
             nan => 'nav skaitlis',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     mas => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     mer => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     mfe => {
         symbols => {
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     mg => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     mgh => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     mgo => {
         patterns => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => '.',
@@ -1738,8 +1738,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     mk => {
         patterns => {
@@ -1747,7 +1747,7 @@ our $DATA = {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -1757,8 +1757,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ml => {
         patterns => {
@@ -1766,7 +1766,7 @@ our $DATA = {
             currency => '#,##,##0.00¤',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => '.',
@@ -1776,8 +1776,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     mn => {
         patterns => {
@@ -1785,7 +1785,7 @@ our $DATA = {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -1795,8 +1795,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     mr => {
         patterns => {
@@ -1804,7 +1804,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -1814,8 +1814,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ms => {
         patterns => {
@@ -1823,7 +1823,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -1833,37 +1833,37 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'ms-Latn-BN' => {
         patterns => {
-            currency => '¤ #,##0.00'
+            currency => '¤ #,##0.00',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     mt => {
         patterns => {
-            currency => '¤#,##0.00'
+            currency => '¤#,##0.00',
         },
         symbols => {
             decimal => '.',
-            group => ','
-        }
+            group => ',',
+        },
     },
     mua => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     my => {
         patterns => {
@@ -1871,7 +1871,7 @@ our $DATA = {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -1881,13 +1881,13 @@ our $DATA = {
             nan => 'ဂဏန်းမဟုတ်သော',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     naq => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     nb => {
         patterns => {
@@ -1895,7 +1895,7 @@ our $DATA = {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0 %',
-            range => '{0}‒{1}'
+            range => '{0}‒{1}',
         },
         symbols => {
             decimal => ',',
@@ -1905,13 +1905,13 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     nd => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     ne => {
         patterns => {
@@ -1919,7 +1919,7 @@ our $DATA = {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -1929,8 +1929,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     nl => {
         patterns => {
@@ -1938,7 +1938,7 @@ our $DATA = {
             currency => '¤ #,##0.00;¤ #,##0.00-',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => ',',
@@ -1948,31 +1948,31 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'nl-BE' => {
         patterns => {
-            currency => '#,##0.00 ¤'
-        }
+            currency => '#,##0.00 ¤',
+        },
     },
     nmg => {
         patterns => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     nn => {
         patterns => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
-            range => '{0}‒{1}'
+            range => '{0}‒{1}',
         },
         symbols => {
             decimal => ',',
@@ -1982,75 +1982,75 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     nnh => {
         symbols => {
             decimal => ',',
             group => '.',
-            percent => '%'
-        }
+            percent => '%',
+        },
     },
     nr => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     nso => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     nus => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => '.',
-            group => ','
-        }
+            group => ',',
+        },
     },
     nyn => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     om => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     or => {
         patterns => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
-            percent => '#,##,##0%'
+            percent => '#,##,##0%',
         },
         symbols => {
             decimal => '.',
-            group => ','
-        }
+            group => ',',
+        },
     },
     os => {
         patterns => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
@@ -2060,8 +2060,8 @@ our $DATA = {
             nan => 'НН',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     pa => {
         patterns => {
@@ -2069,7 +2069,7 @@ our $DATA = {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -2079,14 +2079,14 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'pa-Arab' => {
         symbols => {
             minus => "\N{LEFT-TO-RIGHT MARK}-",
-            plus => "\N{LEFT-TO-RIGHT MARK}+"
-        }
+            plus => "\N{LEFT-TO-RIGHT MARK}+",
+        },
     },
     pl => {
         patterns => {
@@ -2094,7 +2094,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -2104,20 +2104,20 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ps => {
         patterns => {
-            currency => '#,##0.00 ¤'
+            currency => '#,##0.00 ¤',
         },
         symbols => {
             decimal => ',',
             group => '.',
             minus => "\N{LEFT-TO-RIGHT MARK}−",
             percent => '%',
-            plus => "\N{LEFT-TO-RIGHT MARK}+"
-        }
+            plus => "\N{LEFT-TO-RIGHT MARK}+",
+        },
     },
     pt => {
         patterns => {
@@ -2125,7 +2125,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -2135,8 +2135,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'pt-PT' => {
         patterns => {
@@ -2144,7 +2144,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0} - {1}'
+            range => '{0} - {1}',
         },
         symbols => {
             decimal => ',',
@@ -2154,14 +2154,14 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     rm => {
         patterns => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => '#,##0 %'
+            percent => '#,##0 %',
         },
         symbols => {
             decimal => '.',
@@ -2171,19 +2171,19 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     rn => {
         patterns => {
             currency => '#,##0.00¤',
             decimal => '#,##0.###',
-            percent => '#,##0 %'
+            percent => '#,##0 %',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     ro => {
         patterns => {
@@ -2191,7 +2191,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
-            range => '{0} - {1}'
+            range => '{0} - {1}',
         },
         symbols => {
             decimal => ',',
@@ -2201,13 +2201,13 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     rof => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     ru => {
         patterns => {
@@ -2215,7 +2215,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => ',',
@@ -2225,41 +2225,41 @@ our $DATA = {
             nan => 'не число',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     rw => {
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     rwk => {
         patterns => {
-            currency => '#,##0.00¤'
-        }
+            currency => '#,##0.00¤',
+        },
     },
     saq => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     sbp => {
         patterns => {
             currency => '#,##0.00¤',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => '.',
-            group => ','
-        }
+            group => ',',
+        },
     },
     se => {
         patterns => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => '#,##0 %'
+            percent => '#,##0 %',
         },
         symbols => {
             decimal => ',',
@@ -2269,52 +2269,52 @@ our $DATA = {
             nan => '¤¤¤',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     seh => {
         patterns => {
-            currency => '#,##0.00¤'
+            currency => '#,##0.00¤',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     ses => {
         patterns => {
-            currency => '#,##0.00¤'
+            currency => '#,##0.00¤',
         },
         symbols => {
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     sg => {
         patterns => {
-            currency => '¤#,##0.00;¤-#,##0.00'
+            currency => '¤#,##0.00;¤-#,##0.00',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     shi => {
         patterns => {
-            currency => '#,##0.00¤'
+            currency => '#,##0.00¤',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     'shi-Latn' => {
         patterns => {
-            currency => '#,##0.00¤'
+            currency => '#,##0.00¤',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     si => {
         patterns => {
@@ -2322,7 +2322,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -2332,8 +2332,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     sk => {
         patterns => {
@@ -2341,7 +2341,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -2351,8 +2351,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     sl => {
         patterns => {
@@ -2360,7 +2360,7 @@ our $DATA = {
             currency => '¤#,##0.00;(¤#,##0.00)',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -2370,22 +2370,22 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     sn => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     so => {
         patterns => {
-            currency => '¤#,##0.00'
+            currency => '¤#,##0.00',
         },
         symbols => {
             decimal => '.',
-            group => ','
-        }
+            group => ',',
+        },
     },
     sq => {
         patterns => {
@@ -2393,7 +2393,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => ',',
@@ -2403,8 +2403,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     sr => {
         patterns => {
@@ -2412,7 +2412,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -2422,8 +2422,8 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'sr-Latn' => {
         patterns => {
@@ -2431,7 +2431,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -2441,35 +2441,35 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ss => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     ssy => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     st => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     sv => {
         patterns => {
@@ -2477,7 +2477,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
-            range => '{0}‒{1}'
+            range => '{0}‒{1}',
         },
         symbols => {
             currency_decimal => ':',
@@ -2488,8 +2488,8 @@ our $DATA = {
             nan => '¤¤¤',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     sw => {
         patterns => {
@@ -2497,7 +2497,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -2507,18 +2507,18 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     swc => {
         patterns => {
             currency => '¤#,##0.00',
-            decimal => '#,##0.###'
+            decimal => '#,##0.###',
         },
         symbols => {
             decimal => ',',
-            group => '.'
-        }
+            group => '.',
+        },
     },
     ta => {
         patterns => {
@@ -2526,7 +2526,7 @@ our $DATA = {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -2536,22 +2536,22 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'ta-MY' => {
         patterns => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
-        }
+            percent => '#,##0%',
+        },
     },
     'ta-SG' => {
         patterns => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
-        }
+            percent => '#,##0%',
+        },
     },
     te => {
         patterns => {
@@ -2559,7 +2559,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -2569,13 +2569,13 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     teo => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     th => {
         patterns => {
@@ -2583,7 +2583,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => '.',
@@ -2593,29 +2593,29 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ti => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     tig => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     tn => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     to => {
         patterns => {
@@ -2623,7 +2623,7 @@ our $DATA = {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}—{1}'
+            range => '{0}—{1}',
         },
         symbols => {
             decimal => '.',
@@ -2633,8 +2633,8 @@ our $DATA = {
             nan => 'TF',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     tr => {
         patterns => {
@@ -2642,7 +2642,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '%#,##0',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -2652,39 +2652,39 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ts => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     twq => {
         patterns => {
             currency => '#,##0.00¤',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => '.',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     tzm => {
         patterns => {
-            currency => '#,##0.00 ¤'
+            currency => '#,##0.00 ¤',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     uk => {
         patterns => {
@@ -2692,7 +2692,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -2702,8 +2702,8 @@ our $DATA = {
             nan => 'Не число',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     ur => {
         patterns => {
@@ -2711,7 +2711,7 @@ our $DATA = {
             currency => "¤#,##0.00\N{LEFT-TO-RIGHT MARK}",
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => '.',
@@ -2721,15 +2721,15 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => "\N{LEFT-TO-RIGHT MARK}+"
-        }
+            plus => "\N{LEFT-TO-RIGHT MARK}+",
+        },
     },
     'ur-IN' => {
         patterns => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
-            percent => '#,##,##0%'
-        }
+            percent => '#,##,##0%',
+        },
     },
     uz => {
         patterns => {
@@ -2737,7 +2737,7 @@ our $DATA = {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -2747,19 +2747,19 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'uz-Arab' => {
         patterns => {
-            currency => '#,##0.00 ¤'
+            currency => '#,##0.00 ¤',
         },
         symbols => {
             decimal => ',',
             group => '.',
             minus => "\N{LEFT-TO-RIGHT MARK}−",
-            plus => "\N{LEFT-TO-RIGHT MARK}+"
-        }
+            plus => "\N{LEFT-TO-RIGHT MARK}+",
+        },
     },
     'uz-Cyrl' => {
         patterns => {
@@ -2767,7 +2767,7 @@ our $DATA = {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}–{1}'
+            range => '{0}–{1}',
         },
         symbols => {
             decimal => ',',
@@ -2777,39 +2777,39 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     vai => {
         patterns => {
             currency => '¤#,##0.00',
-            decimal => '#,##0.###'
+            decimal => '#,##0.###',
         },
         symbols => {
             decimal => '.',
-            group => ','
-        }
+            group => ',',
+        },
     },
     'vai-Latn' => {
         patterns => {
             currency => '¤#,##0.00',
-            decimal => '#,##0.###'
+            decimal => '#,##0.###',
         },
         symbols => {
             decimal => '.',
-            group => ','
-        }
+            group => ',',
+        },
     },
     ve => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     vi => {
         patterns => {
@@ -2817,7 +2817,7 @@ our $DATA = {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => ',',
@@ -2827,74 +2827,74 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     vun => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     wae => {
         symbols => {
             decimal => ',',
-            group => '’'
-        }
+            group => '’',
+        },
     },
     wal => {
         patterns => {
-            currency => '¤#,##0.00'
+            currency => '¤#,##0.00',
         },
         symbols => {
-            group => '’'
-        }
+            group => '’',
+        },
     },
     xh => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     xog => {
         patterns => {
-            currency => '#,##0.00 ¤'
-        }
+            currency => '#,##0.00 ¤',
+        },
     },
     yav => {
         patterns => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     yo => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     'yo-BJ' => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     zgh => {
         patterns => {
             currency => '#,##0.00¤',
-            percent => '#,##0 %'
+            percent => '#,##0 %',
         },
         symbols => {
             decimal => ',',
-            group => ' '
-        }
+            group => ' ',
+        },
     },
     zh => {
         patterns => {
@@ -2902,7 +2902,7 @@ our $DATA = {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => '.',
@@ -2912,23 +2912,23 @@ our $DATA = {
             nan => 'NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'zh-Hans-HK' => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     'zh-Hans-MO' => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     'zh-Hans-SG' => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     'zh-Hant' => {
         patterns => {
@@ -2936,7 +2936,7 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => '{0}-{1}'
+            range => '{0}-{1}',
         },
         symbols => {
             decimal => '.',
@@ -2946,19 +2946,19 @@ our $DATA = {
             nan => '非數值',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     'zh-Hant-HK' => {
         patterns => {
-            currency => '¤#,##0.00'
-        }
+            currency => '¤#,##0.00',
+        },
     },
     zu => {
         patterns => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
-            percent => '#,##0%'
+            percent => '#,##0%',
         },
         symbols => {
             decimal => '.',
@@ -2968,8 +2968,8 @@ our $DATA = {
             nan => 'I-NaN',
             percent => '%',
             permil => '‰',
-            plus => '+'
-        }
+            plus => '+',
+        },
     },
     map { $_ => undef } qw(
         aa-DJ aa-ER aa-ET af-ZA agq-CM ak-GH am-ET ar-001 ar-AE ar-BH ar-DJ
