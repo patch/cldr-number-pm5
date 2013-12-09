@@ -3,6 +3,7 @@ package CLDR::Number::Data::Base;
 use utf8;
 use strict;
 use warnings;
+use charnames qw( :full );
 
 # This module does not have a publicly supported interface and may change in
 # backward incompatible ways in the future. Please use one of the documented
@@ -32,47 +33,47 @@ our $DATA = {
     },
     aa => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     af => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'af-NA' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00"
+            currency => '¤ #,##0.00'
         }
     },
     agq => {
         patterns => {
-            currency => "#,##0.00\x{a4}",
+            currency => '#,##0.00¤',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     ak => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         },
         symbols => {
             decimal => '.',
@@ -82,39 +83,39 @@ our $DATA = {
     am => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ar => {
         patterns => {
             atleast => '+{0}',
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
-            minus => "\x{200e}-",
+            infinity => '∞',
+            minus => "\N{LEFT-TO-RIGHT MARK}-",
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
-            plus => "\x{200e}+"
+            permil => '‰',
+            plus => "\N{LEFT-TO-RIGHT MARK}+"
         }
     },
     'ar-DZ' => {
@@ -154,22 +155,22 @@ our $DATA = {
     },
     'ar-QA' => {
         patterns => {
-            currency => "\x{a4}#0.00"
+            currency => '¤#0.00'
         }
     },
     'ar-SA' => {
         patterns => {
-            currency => "\x{a4}#0.00"
+            currency => '¤#0.00'
         }
     },
     'ar-SY' => {
         patterns => {
-            currency => "\x{a4}#0.00"
+            currency => '¤#0.00'
         }
     },
     'ar-TN' => {
         patterns => {
-            currency => "\x{a4}#0.00"
+            currency => '¤#0.00'
         },
         symbols => {
             decimal => ',',
@@ -178,150 +179,150 @@ our $DATA = {
     },
     'ar-YE' => {
         patterns => {
-            currency => "\x{a4}#0.00"
+            currency => '¤#0.00'
         }
     },
     as => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##,##0.00",
+            currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%'
         }
     },
     asa => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}"
+            currency => '#,##0.00 ¤'
         }
     },
     ast => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     az => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'az-Cyrl' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00"
+            currency => '¤ #,##0.00'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     bas => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%"
+            percent => '#,##0 %'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     be => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     bem => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     bez => {
         patterns => {
-            currency => "#,##0.00\x{a4}"
+            currency => '#,##0.00¤'
         }
     },
     bg => {
         patterns => {
-            atleast => "\x{2a7e} {0}",
-            currency => "#,##0.00\x{a0}\x{a4}",
+            atleast => '⩾ {0}',
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0} \x{2013} {1}"
+            range => '{0} – {1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     bm => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     bn => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##,##0.00\x{a4};(#,##,##0.00\x{a4})",
+            currency => '#,##,##0.00¤;(#,##,##0.00¤)',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     bo => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
@@ -334,23 +335,23 @@ our $DATA = {
     br => {
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     brx => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##,##0.00",
+            currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
@@ -362,30 +363,30 @@ our $DATA = {
     },
     'bs-Cyrl' => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     byn => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     ca => {
         patterns => {
-            atleast => "\x{2265} {0}",
-            currency => "#,##0.00\x{a0}\x{a4}",
+            atleast => '≥ {0}',
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
@@ -393,59 +394,59 @@ our $DATA = {
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     cgg => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     chr => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     cs => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%",
-            range => "{0}\x{2013}{1}"
+            percent => '#,##0 %',
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     cy => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
@@ -453,65 +454,65 @@ our $DATA = {
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     da => {
         patterns => {
             atleast => '{0} eller derover',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%",
+            percent => '#,##0 %',
             range => '{0}-{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     dav => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     de => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%",
-            range => "{0}\x{2013}{1}"
+            percent => '#,##0 %',
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'de-AT' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00"
+            currency => '¤ #,##0.00'
         }
     },
     'de-CH' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00;\x{a4}-#,##0.00"
+            currency => '¤ #,##0.00;¤-#,##0.00'
         },
         symbols => {
             decimal => '.',
@@ -520,7 +521,7 @@ our $DATA = {
     },
     'de-LI' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00"
+            currency => '¤ #,##0.00'
         },
         symbols => {
             decimal => '.',
@@ -529,62 +530,62 @@ our $DATA = {
     },
     dje => {
         patterns => {
-            currency => "#,##0.00\x{a4}",
+            currency => '#,##0.00¤',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => '.',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     dua => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%"
+            percent => '#,##0 %'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     dyo => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     dz => {
         patterns => {
-            currency => "\x{a4}#,##,##0.00",
+            currency => '¤#,##,##0.00',
             decimal => '#,##,##0.###',
-            percent => "#,##,##0\x{a0}%"
+            percent => '#,##,##0 %'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ebu => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     ee => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         },
         symbols => {
             nan => 'mnn'
@@ -592,49 +593,49 @@ our $DATA = {
     },
     el => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "#,##0.00\x{a0}\x{a4}",
+            atleast => '⩾{0}',
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'el-CY' => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     en => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'en-150' => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}"
+            currency => '#,##0.00 ¤'
         },
         symbols => {
             decimal => ',',
@@ -643,12 +644,12 @@ our $DATA = {
     },
     'en-AU' => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     'en-BE' => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}"
+            currency => '#,##0.00 ¤'
         },
         symbols => {
             decimal => ',',
@@ -657,26 +658,26 @@ our $DATA = {
     },
     'en-GB' => {
         patterns => {
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         }
     },
     'en-IN' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##,##0.00",
+            currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%'
         }
     },
     'en-PK' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##,##0.00",
+            currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%'
         }
     },
     'en-US-u-va-posix' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#0.00",
+            currency => '¤ #0.00',
             decimal => '#0.######',
             percent => '#0%'
         },
@@ -688,37 +689,37 @@ our $DATA = {
     'en-ZA' => {
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     eo => {
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     es => {
         patterns => {
-            atleast => "M\x{e1}s de {0}",
-            currency => "#,##0.00\x{a0}\x{a4}",
+            atleast => 'Más de {0}',
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'es-419' => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         },
         symbols => {
             decimal => '.',
@@ -739,7 +740,7 @@ our $DATA = {
     },
     'es-CL' => {
         patterns => {
-            currency => "\x{a4}#,##0.00;\x{a4}-#,##0.00"
+            currency => '¤#,##0.00;¤-#,##0.00'
         },
         symbols => {
             decimal => ',',
@@ -760,7 +761,7 @@ our $DATA = {
     },
     'es-EC' => {
         patterns => {
-            currency => "\x{a4}#,##0.00;\x{a4}-#,##0.00"
+            currency => '¤#,##0.00;¤-#,##0.00'
         },
         symbols => {
             decimal => ',',
@@ -769,13 +770,13 @@ our $DATA = {
     },
     'es-GQ' => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     'es-MX' => {
         patterns => {
-            atleast => "M\x{e1}s de {0}",
-            currency => "\x{a4}#,##0.00",
+            atleast => 'Más de {0}',
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
@@ -783,17 +784,17 @@ our $DATA = {
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'es-PY' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00;\x{a4}\x{a0}-#,##0.00"
+            currency => '¤ #,##0.00;¤ -#,##0.00'
         },
         symbols => {
             decimal => ',',
@@ -802,7 +803,7 @@ our $DATA = {
     },
     'es-UY' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00"
+            currency => '¤ #,##0.00'
         },
         symbols => {
             decimal => ',',
@@ -811,7 +812,7 @@ our $DATA = {
     },
     'es-VE' => {
         patterns => {
-            currency => "\x{a4}#,##0.00;\x{a4}-#,##0.00"
+            currency => '¤#,##0.00;¤-#,##0.00'
         },
         symbols => {
             decimal => ',',
@@ -820,109 +821,109 @@ our $DATA = {
     },
     et => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "#,##0.00\x{a0}\x{a4}",
+            atleast => '⩾{0}',
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2012}{1}"
+            range => '{0}‒{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     eu => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "%\x{a0}#,##0",
-            range => "{0}\x{2013}{1}"
+            percent => '% #,##0',
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ewo => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     fa => {
         patterns => {
-            atleast => "{0}+\x{200e}",
-            currency => "\x{200e}\x{a4}#,##0.00",
+            atleast => "{0}+\N{LEFT-TO-RIGHT MARK}",
+            currency => "\N{LEFT-TO-RIGHT MARK}¤#,##0.00",
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
-            minus => "\x{200e}\x{2212}",
+            infinity => '∞',
+            minus => "\N{LEFT-TO-RIGHT MARK}−",
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
-            plus => "\x{200e}+"
+            permil => '‰',
+            plus => "\N{LEFT-TO-RIGHT MARK}+"
         }
     },
     'fa-AF' => {
         patterns => {
-            percent => "'\x{202a}'#,##0%'\x{202c}'"
+            percent => "'\N{LEFT-TO-RIGHT EMBEDDING}'#,##0%'\N{POP DIRECTIONAL FORMATTING}'"
         }
     },
     ff => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}"
+            currency => '#,##0.00 ¤'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     fi => {
         patterns => {
-            atleast => "v\x{e4}hint\x{e4}\x{e4}n {0}",
-            currency => "#,##0.00\x{a0}\x{a4}",
+            atleast => 'vähintään {0}',
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%",
-            range => "{0}\x{2012}{1}"
+            percent => '#,##0 %',
+            range => '{0}‒{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
-            minus => "\x{2212}",
-            nan => "ep\x{e4}luku",
+            group => ' ',
+            infinity => '∞',
+            minus => '−',
+            nan => 'epäluku',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     fil => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
@@ -930,47 +931,47 @@ our $DATA = {
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     fo => {
         patterns => {
-            currency => "\x{a4}#,##0.00;\x{a4}-#,##0.00",
+            currency => '¤#,##0.00;¤-#,##0.00',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%"
+            percent => '#,##0 %'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
-            minus => "\x{2212}",
-            nan => "\x{a4}\x{a4}\x{a4}",
+            infinity => '∞',
+            minus => '−',
+            nan => '¤¤¤',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     fr => {
         patterns => {
             atleast => 'au moins {0}',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%",
-            range => "de {0} \x{e0} {1}"
+            percent => '#,##0 %',
+            range => 'de {0} à {1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
@@ -981,7 +982,7 @@ our $DATA = {
     },
     'fr-CH' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00;\x{a4}-#,##0.00"
+            currency => '¤ #,##0.00;¤-#,##0.00'
         },
         symbols => {
             decimal => '.',
@@ -995,24 +996,24 @@ our $DATA = {
     },
     fur => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ga => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         },
         symbols => {
             decimal => '.',
@@ -1021,61 +1022,61 @@ our $DATA = {
     },
     gd => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     gl => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "\x{a4}#,##0.00",
+            atleast => '⩾{0}',
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     gsw => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%"
+            percent => '#,##0 %'
         },
         symbols => {
             decimal => '.',
-            group => "\x{2019}",
-            infinity => "\x{221e}",
-            minus => "\x{2212}",
+            group => '’',
+            infinity => '∞',
+            minus => '−',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     gu => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##,##0.00",
+            currency => '¤#,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
             range => '{0}-{1}'
@@ -1083,27 +1084,27 @@ our $DATA = {
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     guz => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     gv => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     ha => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
@@ -1114,13 +1115,13 @@ our $DATA = {
     },
     haw => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     he => {
         patterns => {
-            atleast => "\x{2a7e}{0}+",
-            currency => "#,##0.00\x{a0}\x{a4}",
+            atleast => '⩾{0}+',
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
@@ -1128,75 +1129,75 @@ our $DATA = {
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
-            minus => "\x{200e}-",
+            infinity => '∞',
+            minus => "\N{LEFT-TO-RIGHT MARK}-",
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
-            plus => "\x{200e}+"
+            permil => '‰',
+            plus => "\N{LEFT-TO-RIGHT MARK}+"
         }
     },
     hi => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##,##0.00",
+            currency => '¤#,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     hr => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     hu => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     hy => {
         patterns => {
             atleast => '{0}+',
-            currency => "#0.00\x{a0}\x{a4}",
+            currency => '#0.00 ¤',
             decimal => '#0.###',
             percent => '#0%',
             range => '{0}-{1}'
@@ -1204,11 +1205,11 @@ our $DATA = {
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
@@ -1221,25 +1222,25 @@ our $DATA = {
     id => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ig => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     ii => {
@@ -1251,26 +1252,26 @@ our $DATA = {
     is => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     it => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
@@ -1278,17 +1279,17 @@ our $DATA = {
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'it-CH' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00;\x{a4}-#,##0.00"
+            currency => '¤ #,##0.00;¤-#,##0.00'
         },
         symbols => {
             decimal => '.',
@@ -1297,129 +1298,129 @@ our $DATA = {
     },
     ja => {
         patterns => {
-            atleast => "{0} \x{4ee5}\x{4e0a}",
-            currency => "\x{a4}#,##0.00",
+            atleast => '{0} 以上',
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{ff5e}{1}"
+            range => '{0}～{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     jgo => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     jmc => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     ka => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%",
+            percent => '#,##0 %',
             range => '{0}-{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
-            nan => "\x{10d0}\x{10e0}\x{a0}\x{10d0}\x{10e0}\x{10d8}\x{10e1}\x{a0}\x{10e0}\x{10d8}\x{10ea}\x{10ee}\x{10d5}\x{10d8}",
+            nan => 'არ არის რიცხვი',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     kab => {
         patterns => {
-            currency => "#,##0.00\x{a4}"
+            currency => '#,##0.00¤'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     kam => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     kde => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     kea => {
         patterns => {
-            currency => "#,##0.00\x{a4}",
+            currency => '#,##0.00¤',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     khq => {
         patterns => {
-            currency => "#,##0.00\x{a4}"
+            currency => '#,##0.00¤'
         },
         symbols => {
-            group => "\x{a0}"
+            group => ' '
         }
     },
     ki => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     kk => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
@@ -1431,68 +1432,68 @@ our $DATA = {
     },
     kl => {
         patterns => {
-            currency => "\x{a4}#,##0.00;\x{a4}-#,##0.00",
+            currency => '¤#,##0.00;¤-#,##0.00',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%"
+            percent => '#,##0 %'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
-            minus => "\x{2212}",
-            nan => "\x{a4}\x{a4}\x{a4}",
+            infinity => '∞',
+            minus => '−',
+            nan => '¤¤¤',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     kln => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     km => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     kn => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "\x{a4}#,##0.00",
+            atleast => '⩾{0}',
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ko => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00;(\x{a4}#,##0.00)",
+            currency => '¤#,##0.00;(¤#,##0.00)',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
@@ -1500,24 +1501,24 @@ our $DATA = {
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     kok => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##,##0.00",
+            currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%'
         }
     },
     ks => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##,##0.00",
+            currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%'
         },
@@ -1525,142 +1526,142 @@ our $DATA = {
             decimal => '.',
             group => ',',
             infinity => '?',
-            minus => "\x{200e}-",
+            minus => "\N{LEFT-TO-RIGHT MARK}-",
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
-            plus => "\x{200e}+"
+            permil => '‰',
+            plus => "\N{LEFT-TO-RIGHT MARK}+"
         }
     },
     ksb => {
         patterns => {
-            currency => "#,##0.00\x{a4}"
+            currency => '#,##0.00¤'
         }
     },
     ksf => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     ksh => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%"
+            percent => '#,##0 %'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
-            minus => "\x{2212}",
-            nan => "\x{a4}\x{a4}\x{a4}",
+            group => ' ',
+            infinity => '∞',
+            minus => '−',
+            nan => '¤¤¤',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     kw => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     ky => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "#,##0.00\x{a0}\x{a4}",
+            atleast => '⩾{0}',
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
-            nan => "\x{441}\x{430}\x{43d}\x{a0}\x{44d}\x{43c}\x{435}\x{441}",
+            nan => 'сан эмес',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     lg => {
         patterns => {
-            currency => "#,##0.00\x{a4}"
+            currency => '#,##0.00¤'
         }
     },
     lkt => {
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ln => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     lo => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00;\x{a4}-#,##0.00",
+            currency => '¤#,##0.00;¤-#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
-            nan => "\x{e9a}\x{ecd}\x{ec8}\x{ec1}\x{ea1}\x{ec8}\x{e99}\x{ec2}\x{e95}\x{ec0}\x{ea5}\x{e81}",
+            nan => 'ບໍ່ແມ່ນໂຕເລກ',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     lt => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "#,##0.00\x{a0}\x{a4}",
+            atleast => '⩾{0}',
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%",
-            range => "{0}\x{2013}{1}"
+            percent => '#,##0 %',
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
-            minus => "\x{2212}",
+            group => ' ',
+            infinity => '∞',
+            minus => '−',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     lu => {
         patterns => {
-            currency => "#,##0.00\x{a4}",
+            currency => '#,##0.00¤',
             decimal => '#,##0.###'
         },
         symbols => {
@@ -1670,51 +1671,51 @@ our $DATA = {
     },
     luo => {
         patterns => {
-            currency => "#,##0.00\x{a4}"
+            currency => '#,##0.00¤'
         }
     },
     luy => {
         patterns => {
-            currency => "\x{a4}#,##0.00;\x{a4}-\x{a0}#,##0.00"
+            currency => '¤#,##0.00;¤- #,##0.00'
         }
     },
     lv => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00;(\x{a4}#,##0.00)",
+            currency => '¤#,##0.00;(¤#,##0.00)',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2012}{1}"
+            range => '{0}‒{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
-            nan => "nav\x{a0}skaitlis",
+            nan => 'nav skaitlis',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     mas => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     mer => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     mfe => {
         symbols => {
-            group => "\x{a0}"
+            group => ' '
         }
     },
     mg => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     mgh => {
@@ -1725,44 +1726,44 @@ our $DATA = {
     },
     mgo => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     mk => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ml => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##,##0.00\x{a4}",
+            currency => '#,##,##0.00¤',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
             range => '{0}-{1}'
@@ -1770,74 +1771,74 @@ our $DATA = {
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     mn => {
         patterns => {
-            atleast => "{0}-\x{441} \x{431}\x{430}\x{433}\x{430}\x{433}\x{4af}\x{439}",
-            currency => "\x{a4}\x{a0}#,##0.00",
+            atleast => '{0}-с багагүй',
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     mr => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ms => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'ms-Latn-BN' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00"
+            currency => '¤ #,##0.00'
         },
         symbols => {
             decimal => ',',
@@ -1846,7 +1847,7 @@ our $DATA = {
     },
     mt => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         },
         symbols => {
             decimal => '.',
@@ -1855,7 +1856,7 @@ our $DATA = {
     },
     mua => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
@@ -1866,75 +1867,75 @@ our $DATA = {
     },
     my => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "\x{a4}\x{a0}#,##0.00",
+            atleast => '⩾{0}',
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
-            nan => "\x{1002}\x{100f}\x{1014}\x{103a}\x{1038}\x{1019}\x{101f}\x{102f}\x{1010}\x{103a}\x{101e}\x{1031}\x{102c}",
+            nan => 'ဂဏန်းမဟုတ်သော',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     naq => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     nb => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "\x{a4}\x{a0}#,##0.00",
+            atleast => '⩾{0}',
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%",
-            range => "{0}\x{2012}{1}"
+            percent => '#,##0 %',
+            range => '{0}‒{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
-            minus => "\x{2212}",
+            group => ' ',
+            infinity => '∞',
+            minus => '−',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     nd => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     ne => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     nl => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}\x{a0}#,##0.00;\x{a4}\x{a0}#,##0.00-",
+            currency => '¤ #,##0.00;¤ #,##0.00-',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
@@ -1942,45 +1943,45 @@ our $DATA = {
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'nl-BE' => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}"
+            currency => '#,##0.00 ¤'
         }
     },
     nmg => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     nn => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%",
-            range => "{0}\x{2012}{1}"
+            percent => '#,##0 %',
+            range => '{0}‒{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
-            minus => "\x{2212}",
+            group => ' ',
+            infinity => '∞',
+            minus => '−',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
@@ -1993,29 +1994,29 @@ our $DATA = {
     },
     nr => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     nso => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     nus => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
@@ -2026,17 +2027,17 @@ our $DATA = {
     },
     nyn => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     om => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     or => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##,##0.00",
+            currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%'
         },
@@ -2047,137 +2048,137 @@ our $DATA = {
     },
     os => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
-            nan => "\x{41d}\x{41d}",
+            nan => 'НН',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     pa => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}\x{a0}#,##,##0.00",
+            currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'pa-Arab' => {
         symbols => {
-            minus => "\x{200e}-",
-            plus => "\x{200e}+"
+            minus => "\N{LEFT-TO-RIGHT MARK}-",
+            plus => "\N{LEFT-TO-RIGHT MARK}+"
         }
     },
     pl => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ps => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}"
+            currency => '#,##0.00 ¤'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            minus => "\x{200e}\x{2212}",
+            minus => "\N{LEFT-TO-RIGHT MARK}−",
             percent => '%',
-            plus => "\x{200e}+"
+            plus => "\N{LEFT-TO-RIGHT MARK}+"
         }
     },
     pt => {
         patterns => {
             atleast => '+{0}',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'pt-PT' => {
         patterns => {
             atleast => '+{0}',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0} - {1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     rm => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%"
+            percent => '#,##0 %'
         },
         symbols => {
             decimal => '.',
-            group => "\x{2019}",
-            infinity => "\x{221e}",
-            minus => "\x{2212}",
+            group => '’',
+            infinity => '∞',
+            minus => '−',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     rn => {
         patterns => {
-            currency => "#,##0.00\x{a4}",
+            currency => '#,##0.00¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%"
+            percent => '#,##0 %'
         },
         symbols => {
             decimal => ',',
@@ -2187,43 +2188,43 @@ our $DATA = {
     ro => {
         patterns => {
             atleast => '>{0}',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%",
+            percent => '#,##0 %',
             range => '{0} - {1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     rof => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     ru => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%",
+            percent => '#,##0 %',
             range => '{0}-{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
-            nan => "\x{43d}\x{435}\x{a0}\x{447}\x{438}\x{441}\x{43b}\x{43e}",
+            nan => 'не число',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
@@ -2235,17 +2236,17 @@ our $DATA = {
     },
     rwk => {
         patterns => {
-            currency => "#,##0.00\x{a4}"
+            currency => '#,##0.00¤'
         }
     },
     saq => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     sbp => {
         patterns => {
-            currency => "#,##0.00\x{a4}",
+            currency => '#,##0.00¤',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
@@ -2256,24 +2257,24 @@ our $DATA = {
     },
     se => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%"
+            percent => '#,##0 %'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
-            minus => "\x{2212}",
-            nan => "\x{a4}\x{a4}\x{a4}",
+            group => ' ',
+            infinity => '∞',
+            minus => '−',
+            nan => '¤¤¤',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     seh => {
         patterns => {
-            currency => "#,##0.00\x{a4}"
+            currency => '#,##0.00¤'
         },
         symbols => {
             decimal => ',',
@@ -2282,15 +2283,15 @@ our $DATA = {
     },
     ses => {
         patterns => {
-            currency => "#,##0.00\x{a4}"
+            currency => '#,##0.00¤'
         },
         symbols => {
-            group => "\x{a0}"
+            group => ' '
         }
     },
     sg => {
         patterns => {
-            currency => "\x{a4}#,##0.00;\x{a4}-#,##0.00"
+            currency => '¤#,##0.00;¤-#,##0.00'
         },
         symbols => {
             decimal => ',',
@@ -2299,87 +2300,87 @@ our $DATA = {
     },
     shi => {
         patterns => {
-            currency => "#,##0.00\x{a4}"
+            currency => '#,##0.00¤'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     'shi-Latn' => {
         patterns => {
-            currency => "#,##0.00\x{a4}"
+            currency => '#,##0.00¤'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     si => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     sk => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%",
-            range => "{0}\x{2013}{1}"
+            percent => '#,##0 %',
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     sl => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "\x{a4}#,##0.00;(\x{a4}#,##0.00)",
+            atleast => '⩾{0}',
+            currency => '¤#,##0.00;(¤#,##0.00)',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     sn => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     so => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         },
         symbols => {
             decimal => '.',
@@ -2388,130 +2389,130 @@ our $DATA = {
     },
     sq => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "#,##0.00\x{a0}\x{a4}",
+            atleast => '⩾{0}',
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     sr => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'sr-Latn' => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ss => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     ssy => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     st => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     sv => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "#,##0.00\x{a0}\x{a4}",
+            atleast => '⩾{0}',
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
-            percent => "#,##0\x{a0}%",
-            range => "{0}\x{2012}{1}"
+            percent => '#,##0 %',
+            range => '{0}‒{1}'
         },
         symbols => {
             currency_decimal => ':',
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
-            minus => "\x{2212}",
-            nan => "\x{a4}\x{a4}\x{a4}",
+            group => ' ',
+            infinity => '∞',
+            minus => '−',
+            nan => '¤¤¤',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     sw => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "\x{a4}#,##0.00",
+            atleast => '⩾{0}',
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     swc => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###'
         },
         symbols => {
@@ -2522,32 +2523,32 @@ our $DATA = {
     ta => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}\x{a0}#,##,##0.00",
+            currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'ta-MY' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         }
     },
     'ta-SG' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         }
@@ -2555,31 +2556,31 @@ our $DATA = {
     te => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     teo => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     th => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
@@ -2587,201 +2588,201 @@ our $DATA = {
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ti => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     tig => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     tn => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     to => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2014}{1}"
+            range => '{0}—{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'TF',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     tr => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '%#,##0',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ts => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     twq => {
         patterns => {
-            currency => "#,##0.00\x{a4}",
+            currency => '#,##0.00¤',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => '.',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     tzm => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}"
+            currency => '#,##0.00 ¤'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     uk => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
-            nan => "\x{41d}\x{435}\x{a0}\x{447}\x{438}\x{441}\x{43b}\x{43e}",
+            nan => 'Не число',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     ur => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "\x{a4}#,##0.00\x{200e}",
+            atleast => '⩾{0}',
+            currency => "¤#,##0.00\N{LEFT-TO-RIGHT MARK}",
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
-            minus => "\x{200e}-",
+            infinity => '∞',
+            minus => "\N{LEFT-TO-RIGHT MARK}-",
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
-            plus => "\x{200e}+"
+            permil => '‰',
+            plus => "\N{LEFT-TO-RIGHT MARK}+"
         }
     },
     'ur-IN' => {
         patterns => {
-            currency => "\x{a4}\x{a0}#,##,##0.00",
+            currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%'
         }
     },
     uz => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "\x{a4}\x{a0}#,##0.00",
+            atleast => '⩾{0}',
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'uz-Arab' => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}"
+            currency => '#,##0.00 ¤'
         },
         symbols => {
             decimal => ',',
             group => '.',
-            minus => "\x{200e}\x{2212}",
-            plus => "\x{200e}+"
+            minus => "\N{LEFT-TO-RIGHT MARK}−",
+            plus => "\N{LEFT-TO-RIGHT MARK}+"
         }
     },
     'uz-Cyrl' => {
         patterns => {
-            atleast => "\x{2a7e}{0}",
-            currency => "\x{a4}\x{a0}#,##0.00",
+            atleast => '⩾{0}',
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
-            range => "{0}\x{2013}{1}"
+            range => '{0}–{1}'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}",
-            infinity => "\x{221e}",
+            group => ' ',
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     vai => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###'
         },
         symbols => {
@@ -2791,7 +2792,7 @@ our $DATA = {
     },
     'vai-Latn' => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###'
         },
         symbols => {
@@ -2801,19 +2802,19 @@ our $DATA = {
     },
     ve => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     vi => {
         patterns => {
             atleast => '{0}+',
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
@@ -2821,84 +2822,84 @@ our $DATA = {
         symbols => {
             decimal => ',',
             group => '.',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     vun => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     wae => {
         symbols => {
             decimal => ',',
-            group => "\x{2019}"
+            group => '’'
         }
     },
     wal => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         },
         symbols => {
-            group => "\x{2019}"
+            group => '’'
         }
     },
     xh => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     xog => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}"
+            currency => '#,##0.00 ¤'
         }
     },
     yav => {
         patterns => {
-            currency => "#,##0.00\x{a0}\x{a4}",
+            currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     yo => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     'yo-BJ' => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     zgh => {
         patterns => {
-            currency => "#,##0.00\x{a4}",
-            percent => "#,##0\x{a0}%"
+            currency => '#,##0.00¤',
+            percent => '#,##0 %'
         },
         symbols => {
             decimal => ',',
-            group => "\x{a0}"
+            group => ' '
         }
     },
     zh => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}\x{a0}#,##0.00",
+            currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
@@ -2906,33 +2907,33 @@ our $DATA = {
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'zh-Hans-HK' => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     'zh-Hans-MO' => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     'zh-Hans-SG' => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     'zh-Hant' => {
         patterns => {
             atleast => '{0}+',
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}'
@@ -2940,33 +2941,33 @@ our $DATA = {
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
-            nan => "\x{975e}\x{6578}\x{503c}",
+            nan => '非數值',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
     'zh-Hant-HK' => {
         patterns => {
-            currency => "\x{a4}#,##0.00"
+            currency => '¤#,##0.00'
         }
     },
     zu => {
         patterns => {
-            currency => "\x{a4}#,##0.00",
+            currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%'
         },
         symbols => {
             decimal => '.',
             group => ',',
-            infinity => "\x{221e}",
+            infinity => '∞',
             minus => '-',
             nan => 'I-NaN',
             percent => '%',
-            permil => "\x{2030}",
+            permil => '‰',
             plus => '+'
         }
     },
