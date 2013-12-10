@@ -1,12 +1,12 @@
 package CLDR::Number::Role::Format;
 
 use utf8;
-use Moo::Role;
 use Carp;
 use English qw( -no_match_vars );
 use Scalar::Util qw( looks_like_number );
 use Math::BigFloat;
 use Math::Round;
+use Moo::Role;
 
 # This role does not have a publicly supported interface and may change in
 # backward incompatible ways in the future. Please use one of the documented

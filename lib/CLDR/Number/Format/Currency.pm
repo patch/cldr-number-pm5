@@ -4,6 +4,7 @@ use utf8;
 use Moo;
 use Carp;
 use CLDR::Number::Data::Currency;
+use namespace::clean;
 
 our $VERSION = '0.00_01';
 

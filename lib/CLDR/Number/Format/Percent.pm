@@ -2,7 +2,6 @@ package CLDR::Number::Format::Percent;
 
 use utf8;
 use Moo;
-use Carp;
 
 our $VERSION = '0.00_01';
 

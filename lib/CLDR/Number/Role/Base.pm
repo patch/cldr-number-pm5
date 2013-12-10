@@ -1,9 +1,9 @@
 package CLDR::Number::Role::Base;
 
 use utf8;
-use Moo::Role;
 use Carp;
 use CLDR::Number::Data::Base;
+use Moo::Role;
 
 # This role does not have a publicly supported interface and may change in
 # backward incompatible ways in the future. Please use one of the documented
