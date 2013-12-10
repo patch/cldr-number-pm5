@@ -16,33 +16,18 @@ has nan => (
     is => 'rw',
 );
 
+has _pattern_type => (
+    is      => 'ro',
+    default => 'decimal',
+);
+
 after _trigger_locale => sub {
     my ($self) = @_;
 
-    $self->_build_attributes;
-    $self->_build_pattern;
+    $self->_build_signs(qw{ infinity nan });
 };
 
-sub BUILD {
-    my ($self) = @_;
-
-    $self->_build_attributes;
-    return if $self->has_pattern;
-    $self->_build_pattern;
-}
-
-sub _build_attributes {
-    my ($self) = @_;
-
-    $self->infinity( $self->_get_data( symbols => 'infinity' ) );
-    $self->nan(      $self->_get_data( symbols => 'nan'      ) );
-}
-
-sub _build_pattern {
-    my ($self) = @_;
-
-    $self->pattern( $self->_get_data( patterns => 'decimal' ) );
-}
+sub BUILD {}
 
 sub format {
     my ($self, $num) = @_;

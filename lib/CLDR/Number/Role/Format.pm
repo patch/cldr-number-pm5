@@ -14,7 +14,7 @@ use Math::Round;
 
 our $VERSION = '0.00_01';
 
-requires qw( format );
+requires qw( BUILD format );
 
 with qw( CLDR::Number::Role::Base );
 
@@ -25,8 +25,7 @@ has pattern => (
     isa => sub {
         croak "pattern is not defined" if !defined $_[0];
     },
-    trigger   => 1,
-    predicate => 1,
+    trigger => 1,
 );
 
 has minimum_integer_digits => (
@@ -104,6 +103,28 @@ has rounding_increment => (
     default => 0,
 );
 
+before BUILD => sub {
+    my ($self) = @_;
+
+    return if $self->_has_init_arg('locale');
+
+    $self->_build_pattern;
+};
+
+after _trigger_locale => sub {
+    my ($self) = @_;
+
+    $self->_build_pattern;
+};
+
+sub _build_pattern {
+    my ($self) = @_;
+
+    $self->_set_unless_init_arg(
+        pattern => $self->_get_data(patterns => $self->_pattern_type)
+    );
+}
+
 sub _trigger_pattern {
     my ($self, $pattern) = @_;
 
@@ -146,47 +167,51 @@ sub _trigger_pattern {
                     s{ (?: ^ | \# ) $ }{0}x;  # integer requires at least one minimum digit
                 }
 
-                my ($min_int) = m{ ( [0-9,]+ ) (?= \. | $ ) }x;
-                $self->minimum_integer_digits(length $min_int);
+                if (!$self->_has_init_arg('minimum_integer_digits')) {
+                    my ($min_int) = m{ ( [0-9,]+ ) (?= \. | $ ) }x;
+                    $self->minimum_integer_digits(length $min_int);
+                }
 
                 if ($primary) {
                     s{ (?= .{$primary} (?: \. | $ ) ) }{,}x;  # add primary group
-                    $self->primary_grouping_size($primary);
+                    $self->_set_unless_init_arg(primary_grouping_size => $primary);
 
                     if ($secondary) {
                         s{ (?= .{$secondary} , ) }{,}x;  # add secondary group
-                        $self->secondary_grouping_size($secondary);
+                        $self->_set_unless_init_arg(secondary_grouping_size => $secondary);
                     }
                     else {
-                        $self->clear_secondary_grouping_size;
+                        $self->_clear_unless_init_arg('secondary_grouping_size');
                     }
                 }
                 else {
-                    $self->clear_primary_grouping_size;
-                    $self->secondary_grouping_size($secondary);
+                    $self->_clear_unless_init_arg('primary_grouping_size');
+                    $self->_clear_unless_init_arg('secondary_grouping_size');
                 }
 
                 s{ ^ \#+ (?= [#0-9] ) }{}x;  # no leading multiple #s
                 s{ ^ (?= , ) }{#}x;          # leading # before group
 
                 if (my ($max, $min) = m{ \. ( ( [0-9]* ) \#* ) }x) {
-                    $self->minimum_fraction_digits(length $min);
-                    $self->maximum_fraction_digits(length $max);
+                    $self->_set_unless_init_arg(minimum_fraction_digits => length $min);
+                    $self->_set_unless_init_arg(maximum_fraction_digits => length $max);
                 }
                 else {
-                    $self->minimum_fraction_digits(0);
-                    $self->maximum_fraction_digits(0);
+                    $self->_set_unless_init_arg(minimum_fraction_digits => 0);
+                    $self->_set_unless_init_arg(maximum_fraction_digits => 0);
                 }
 
-                if (my ($round_inc) = $number_pattern =~ m{ (
-                    (?: [1-9] [0-9,]* | 0 )  # integer
-                    (?= \. | $ )
-                    (?: \. [0-9]* [1-9] )?   # fraction
-                ) }x) {
-                    $self->rounding_increment($round_inc);
-                }
-                else {
-                    $self->rounding_increment(0);
+                if (!$self->_has_init_arg('rounding_increment')) {
+                    if (my ($round_inc) = $number_pattern =~ m{ (
+                        (?: [1-9] [0-9,]* | 0 )  # integer
+                        (?= \. | $ )
+                        (?: \. [0-9]* [1-9] )?   # fraction
+                    ) }x) {
+                        $self->rounding_increment($round_inc);
+                    }
+                    else {
+                        $self->rounding_increment(0);
+                    }
                 }
             }
 

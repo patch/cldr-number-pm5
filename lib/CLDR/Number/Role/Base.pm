@@ -11,6 +11,8 @@ use CLDR::Number::Data::Base;
 
 our $VERSION = '0.00_01';
 
+requires qw( BUILD );
+
 has version => (
     is      => 'ro',
     default => $VERSION,
@@ -45,11 +47,6 @@ has default_locale => (
     },
 );
 
-has _locale_inheritance => (
-    is      => 'rw',
-    default => sub { [] },
-);
-
 # TODO: length NYI
 has length => (
     is => 'rw',
@@ -71,16 +68,77 @@ has minus_sign => (
     is => 'rw',
 );
 
-sub BUILD {
+has _locale_inheritance => (
+    is      => 'rw',
+    default => sub { [] },
+);
+
+has _init_args => (
+    is => 'rw',
+);
+
+around BUILDARGS => sub {
+    my ($orig, $class, @args) = @_;
+
+    return $class->$orig(@args) if @args % 2;
+    return $class->$orig(@args, _init_args => {@args});
+};
+
+before BUILD => sub {
     my ($self) = @_;
 
+    return if $self->_has_init_arg('locale');
+
     $self->_trigger_locale;
+};
+
+after BUILD => sub {
+    my ($self) = @_;
+
+    $self->_init_args({});
+};
+
+sub _has_init_arg {
+    my ($self, $arg) = @_;
+
+    return unless $self->_init_args;
+    return exists $self->_init_args->{$arg};
+}
+
+sub _set_unless_init_arg {
+    my ($self, $attribute, $value) = @_;
+
+    return if $self->_has_init_arg($attribute);
+
+    $self->$attribute($value);
+}
+
+sub _clear_unless_init_arg {
+    my ($self, $attribute) = @_;
+
+    return if $self->_has_init_arg($attribute);
+
+    my $clearer = "clear_$attribute";
+    $self->$clearer;
+}
+
+sub _build_signs {
+    my ($self, @signs) = @_;
+
+    for my $sign (@signs) {
+        my $attribute = $sign;
+
+        next if $self->_has_init_arg($attribute);
+
+        $sign =~ s{ _sign $ }{}x;
+
+        $self->$attribute($self->_get_data(symbols => $sign));
+    }
 }
 
 sub _trigger_locale {
-    my ($self) = @_;
-    my ($lang, $script, $region, $ext) = _split_locale($self->locale);
-    my $locale;
+    my ($self, $locale) = @_;
+    my ($lang, $script, $region, $ext) = _split_locale($locale);
 
     if ($lang && exists $CLDR::Number::Data::Base::DATA->{$lang}) {
         $self->_locale_inheritance(
@@ -101,10 +159,7 @@ sub _trigger_locale {
 
     $self->{locale} = $locale;
 
-    $self->decimal_sign( $self->_get_data( symbols => 'decimal' ) );
-    $self->group_sign(   $self->_get_data( symbols => 'group'   ) );
-    $self->plus_sign(    $self->_get_data( symbols => 'plus'    ) );
-    $self->minus_sign(   $self->_get_data( symbols => 'minus'   ) );
+    $self->_build_signs(qw{ decimal_sign group_sign plus_sign minus_sign });
 }
 
 sub _split_locale {

@@ -40,10 +40,13 @@ has cash => (
     default => 0,
 );
 
+has _pattern_type => (
+    is      => 'ro',
+    default => 'currency',
+);
+
 after _trigger_locale => sub {
     my ($self) = @_;
-
-    $self->pattern($self->_get_data(patterns => 'currency'));
 
     if ($self->currency_code) {
         $self->_build_currency_sign;
@@ -54,23 +57,12 @@ after _trigger_locale => sub {
     }
 };
 
-sub BUILD {
-    my ($self) = @_;
-
-    $self->pattern($self->_get_data(patterns => 'currency'));
-
-    if ($self->currency_code) {
-        $self->_trigger_currency_code;
-    }
-}
+sub BUILD {}
 
 sub _trigger_currency_code {
-    my ($self) = @_;
+    my ($self, $currency_code) = @_;
 
-    if ($self->locale) {
-        $self->_build_currency_sign;
-    }
-
+    $self->_build_currency_sign;
     $self->_trigger_cash;
 }
 
@@ -78,6 +70,8 @@ sub _build_currency_sign {
     my ($self) = @_;
     my $data = $CLDR::Number::Data::Currency::LOCALES;
     my $currency_sign;
+
+    return if $self->_has_init_arg('currency_sign');
 
     for my $locale (@{$self->_locale_inheritance}) {
         next if !exists $data->{$locale} || !exists $data->{$locale}{$self->currency_code};

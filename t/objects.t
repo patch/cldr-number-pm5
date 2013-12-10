@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 17;
+use Test::More tests => 18;
 use CLDR::Number;
 
 my $cldr = new_ok 'CLDR::Number' => [locale => 'zh'], 'CLDR::Number';
@@ -47,4 +47,5 @@ $decf = $cldr->decimal_formatter(
     pattern => '00.0#',
 );
 
-is $decf->pattern, '00.0#', 'pattern spared by locale on create';
+is $decf->pattern,   '00.0#', 'pattern spared by locale on create';
+is $decf->format(5), '05.0',  'pattern spared by locale on create';

@@ -8,6 +8,8 @@ our $VERSION = '0.00_01';
 
 with qw( CLDR::Number::Role::Base );
 
+sub BUILD {}
+
 sub decimal_formatter {
     my ($self, %args) = @_;
     
@@ -32,11 +34,7 @@ sub currency_formatter {
 sub _make_args {
     my ($self, %new_args) = @_;
 
-    my %args = ((
-        map { $_ => $self->$_ }
-        qw  { locale decimal_sign group_sign plus_sign minus_sign }
-        ), %new_args,
-    );
+    my %args = (locale => $self->locale, %new_args);
 
     return %args;
 }

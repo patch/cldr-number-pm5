@@ -22,25 +22,18 @@ has permil_sign => (
     is => 'rw',
 );
 
+has _pattern_type => (
+    is      => 'ro',
+    default => 'percent',
+);
+
 after _trigger_locale => sub {
     my ($self) = @_;
 
-    $self->_build_attributes;
+    $self->_build_signs(qw{ percent_sign permil_sign });
 };
 
-sub BUILD {
-    my ($self) = @_;
-
-    $self->_build_attributes;
-}
-
-sub _build_attributes {
-    my ($self) = @_;
-
-    $self->pattern(      $self->_get_data( patterns => 'percent' ) );
-    $self->percent_sign( $self->_get_data( symbols  => 'percent' ) );
-    $self->permil_sign(  $self->_get_data( symbols  => 'permil'  ) );
-}
+sub BUILD {}
 
 sub format {
     my ($self, $num) = @_;
