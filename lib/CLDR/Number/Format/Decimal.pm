@@ -42,12 +42,13 @@ __END__
 
 =head1 NAME
 
-CLDR::Number::Format::Decimal - Localized decimal formatter using Unicode CLDR
+CLDR::Number::Format::Decimal - Localized decimal formatter using the Unicode CLDR
 
 =head1 VERSION
 
-This document describes CLDR::Number::Format::Decimal v0.00_01, built with
-Unicode CLDR v24. This is a development release and functionality may change.
+This document describes CLDR::Number v0.00_01, built with Unicode CLDR v24. This
+is a development release without full documentation and functionality may
+change. See L<CLDR::Number::TODO>.
 
 =head1 SYNOPSIS
 
@@ -90,6 +91,8 @@ Accepts two numbers and returns a formatted range of decimals.
 =back
 
 =head1 ATTRIBUTES
+
+See also the L<common attributes in CLDR::Number|CLDR::Number/"COMMON ATTRIBUTES">.
 
 =over
 

@@ -46,12 +46,13 @@ __END__
 
 =head1 NAME
 
-CLDR::Number - Localized number formatters using Unicode CLDR
+CLDR::Number - Localized number formatters using the Unicode CLDR
 
 =head1 VERSION
 
 This document describes CLDR::Number v0.00_01, built with Unicode CLDR v24. This
-is a development release and functionality may change.
+is a development release without full documentation and functionality may
+change. See L<CLDR::Number::TODO>.
 
 =head1 SYNOPSIS
 
@@ -68,9 +69,9 @@ is a development release and functionality may change.
     say $decf->format(1234.5);  # '1,234.5' (Mexican Spanish)
 
     # percents
-    my $perf = $cldr->percent_formatter(locale => 'eu');
+    my $perf = $cldr->percent_formatter(locale => 'tr');
 
-    say $perf->format(0.05);  # '% 5' (Basque)
+    say $perf->format(0.05);  # '%5' (Turkish)
 
     # currencies
     my $curf = $cldr->currency_formatter(
@@ -110,7 +111,9 @@ well as any attributes passed to this method.
 
 =back
 
-=head1 ATTRIBUTES
+=head1 COMMON ATTRIBUTES
+
+Common attributes among all formatter objects.
 
 =over
 
@@ -148,27 +151,15 @@ Value: C<24>
 
 =back
 
-=head1 TODO
-
-=over
-
-=item * only the Latin (C<latn>) number system currently is supported
-
-=item * only the C<standard> type of formats are currently supported, not C<short>, C<long>, etc.
-
-=item * other numbering systems: C<native>, C<traditional>, C<finance>
-
-=item * accounting currency patterns
-
-=back
-
 =head1 SEE ALSO
 
 =over
 
 =item * L<UTS #35: Unicode LDML, Part 3: Numbers|http://www.unicode.org/reports/tr35/tr35-numbers.html>
 
-=item * L<Perl CLDR|http://perl-cldr.github.io/>
+=item * L<CLDR Translation Guidelines: Number Patterns|http://cldr.unicode.org/translation/number-patterns>
+
+=item * L<CLDR Translation Guidelines: Number Symbols|http://cldr.unicode.org/translation/number-symbols>
 
 =back
 

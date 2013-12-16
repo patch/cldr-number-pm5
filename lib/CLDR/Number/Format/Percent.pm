@@ -61,12 +61,13 @@ __END__
 
 =head1 NAME
 
-CLDR::Number::Format::Percent - Localized percent formatter using Unicode CLDR
+CLDR::Number::Format::Percent - Localized percent formatter using the Unicode CLDR
 
 =head1 VERSION
 
-This document describes CLDR::Number::Format::Percent v0.00_01, built with
-Unicode CLDR v24. This is a development release and functionality may change.
+This document describes CLDR::Number v0.00_01, built with Unicode CLDR v24. This
+is a development release without full documentation and functionality may
+change. See L<CLDR::Number::TODO>.
 
 =head1 SYNOPSIS
 
@@ -76,16 +77,16 @@ Unicode CLDR v24. This is a development release and functionality may change.
 
     # or
     use CLDR::Number;
-    my $cldr = CLDR::Number->new(locale => 'eu');
+    my $cldr = CLDR::Number->new(locale => 'tr');
     my $perf = $cldr->percent_formatter;
 
-    say $perf->format(0.05);  # '% 5' (Basque)
+    say $perf->format(0.05);  # '%5' (Basque percent)
 
     $perf->locale('es');
-    say $perf->format(0.05);  # '5%' (Spanish)
+    say $perf->format(0.05);  # '5 %' (French percent)
 
     $perf->permil(1);
-    say $perf->format(0.05);  # '50‰' (Spanish / per mil)
+    say $perf->format(0.05);  # '50 ‰' (French per mil)
 
 =head1 METHODS
 
@@ -94,24 +95,14 @@ Unicode CLDR v24. This is a development release and functionality may change.
 =item format
 
 Accepts a number and returns a formatted percent, localized with the current
-locale. If the C<permil> attribute is true, returns per mil instead of percent.
-
-=item at_least
-
-Accepts a number and returns a formatted percent for at least the supplied
-number.
-
-    say $perf->at_least(0.05);  # '5%+'
-
-=item range
-
-Accepts two numbers and returns a formatted range of percents.
-
-    say $perf->range(0.05, 0.1);  # '5%–10%'
+locale. If the C<permil> attribute is true, returns I<per mil> instead of
+I<percent>.
 
 =back
 
 =head1 ATTRIBUTES
+
+See also the L<common attributes in CLDR::Number|CLDR::Number/"COMMON ATTRIBUTES">.
 
 =over
 

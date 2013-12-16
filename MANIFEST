@@ -8,6 +8,7 @@ lib/CLDR/Number/Format/Decimal.pm
 lib/CLDR/Number/Format/Percent.pm
 lib/CLDR/Number/Role/Base.pm
 lib/CLDR/Number/Role/Format.pm
+lib/CLDR/Number/TODO.pod
 MANIFEST			This list of files
 META.json
 META.yml

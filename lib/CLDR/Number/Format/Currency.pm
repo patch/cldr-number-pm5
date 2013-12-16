@@ -128,12 +128,13 @@ __END__
 
 =head1 NAME
 
-CLDR::Number::Format::Currency - Localized currency formatter using Unicode CLDR
+CLDR::Number::Format::Currency - Localized currency formatter using the Unicode CLDR
 
 =head1 VERSION
 
-This document describes CLDR::Number::Format::Currency v0.00_01, built with
-Unicode CLDR v24. This is a development release and functionality may change.
+This document describes CLDR::Number v0.00_01, built with Unicode CLDR v24. This
+is a development release without full documentation and functionality may
+change. See L<CLDR::Number::TODO>.
 
 =head1 SYNOPSIS
 
@@ -166,22 +167,11 @@ Unicode CLDR v24. This is a development release and functionality may change.
 Accepts a number and returns a formatted currency value using the currency from
 the C<currency_code> attribute and localized with the current locale.
 
-=item at_least
-
-Accepts a number and returns a formatted currency for at least the supplied
-number.
-
-    say $perf->at_least(0);  # 'au moins 10,00 $US'
-
-=item range
-
-Accepts two numbers and returns a formatted range of currencies.
-
-    say $perf->range(1, 10);  # 'de 1,00 $US à 10,00 $US'
-
 =back
 
 =head1 ATTRIBUTES
+
+See also the L<common attributes in CLDR::Number|CLDR::Number/"COMMON ATTRIBUTES">.
 
 =over
 
@@ -192,12 +182,6 @@ Default: not set
 =item currency_sign
 
 Default: not set
-
-=item accounting
-
-Default: false (C<0>)
-
-This attribute is a no-op because the functionality is not yet implemented.
 
 =item cash
 
@@ -230,6 +214,14 @@ Default: not set when C<root> locale
 =item rounding_increment
 
 Default: C<0> when C<root> locale
+
+=back
+
+=head1 SEE ALSO
+
+=over
+
+=item * L<CLDR Translation Guidelines: Currency Symbols|http://cldr.unicode.org/translation/currency-names>
 
 =back
 
