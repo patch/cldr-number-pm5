@@ -6,7 +6,7 @@ use Carp;
 use CLDR::Number::Data::Currency;
 use namespace::clean;
 
-our $VERSION = '0.00_01';
+our $VERSION = '0.00_02';
 
 with qw( CLDR::Number::Role::Format );
 
@@ -132,7 +132,7 @@ CLDR::Number::Format::Currency - Localized currency formatter using the Unicode 
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.00_01, built with Unicode CLDR v24. This
+This document describes CLDR::Number v0.00_02, built with Unicode CLDR v24. This
 is a development release without full documentation and functionality may
 change. See L<CLDR::Number::TODO>.
 

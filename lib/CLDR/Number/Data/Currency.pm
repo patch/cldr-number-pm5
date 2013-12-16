@@ -9,7 +9,7 @@ use charnames qw( :full );
 # backward incompatible ways in the future. Please use one of the documented
 # classes instead.
 
-our $VERSION = '0.00_01';
+our $VERSION = '0.00_02';
 
 our $LOCALES = {
     root => {

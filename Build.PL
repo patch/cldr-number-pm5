@@ -29,6 +29,13 @@ my $builder = Module::Build->new(
         'Moo::Role'        => 0,
         'Scalar::Util'     => 0,
     },
+    meta_merge => {
+        resources => {
+            repository => 'git://github.com/perl-cldr/cldr-number-perl5.git',
+            homepage   => 'https://github.com/perl-cldr/cldr-number-perl5',
+            bugtracker => 'https://github.com/perl-cldr/cldr-number-perl5/issues',
+        },
+    },
 );
 
 $builder->create_build_script;

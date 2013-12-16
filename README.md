@@ -6,7 +6,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 # VERSION
 
-This document describes CLDR::Number v0.00\_01, built with Unicode CLDR v24. This
+This document describes CLDR::Number v0.00\_02, built with Unicode CLDR v24. This
 is a development release without full documentation and functionality may
 change. See [CLDR::Number::TODO](http://search.cpan.org/perldoc?CLDR::Number::TODO).
 
