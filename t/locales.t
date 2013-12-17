@@ -2,7 +2,8 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 24;
+use Test::More tests => 25;
+use Test::Warn;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new;
@@ -41,8 +42,10 @@ ok !$cldr->default_locale, 'no default for the default locale';
 $cldr->locale('xx');
 is $cldr->locale, 'root', 'locale is root when invalid with no default';
 
-$cldr = CLDR::Number->new(default_locale => 'xx');
-ok !$cldr->default_locale, 'default locale does not fallback like locale';
+warning_is {
+    $cldr = CLDR::Number->new(default_locale => 'xx');
+    ok !$cldr->default_locale, 'default locale does not fallback like locale';
+} q{default_locale 'xx' is unknown};
 
 $cldr = CLDR::Number->new(default_locale => 'en-US');
 is $cldr->default_locale, 'en-US', 'default locale is set';

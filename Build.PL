@@ -13,6 +13,7 @@ my $builder = Module::Build->new(
         'Pod::Man'        => '2.04',
         'Test::Exception' => '0.22',
         'Test::More'      => '0.82',
+        'Test::Warn'      => '0.01',
     },
     requires => {
         'perl'             => '5.8.1',
