@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 19;
+use Test::More tests => 23;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new;
@@ -45,3 +45,11 @@ is $decf->minimum_fraction_digits, 1, 'set min fraction digits on create';
 is $decf->maximum_fraction_digits, 2, 'set max fraction digits on create';
 
 is $decf->format(5), '05.0', 'integer less than min';
+
+my $curf = $cldr->currency_formatter(locale => 'en', currency_code => 'USD');
+
+is $curf->minimum_fraction_digits, 2, 'default currency min fraction digits';
+is $curf->maximum_fraction_digits, 2, 'default currency max fraction digits';
+
+is $curf->format(5),     '$5.00', 'fraction less than min';
+is $curf->format(7.777), '$7.78', 'fraction greater than max';

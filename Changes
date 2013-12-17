@@ -1,5 +1,11 @@
 Revision history for Perl module CLDR::Number
 
+v0.00_03 2013-12-17
+ - Yet another development release
+ - Remove clearer methods for primary_grouping_size/secondary_grouping_size
+ - Currency: fix minimum_fraction_digits/maximum_fraction_digits bug [github #1]
+ - Tests: remove warnings to stderr and test warnings [github #2]
+
 v0.00_02 2013-12-16
  - Yet another development release
  - First public CPAN release

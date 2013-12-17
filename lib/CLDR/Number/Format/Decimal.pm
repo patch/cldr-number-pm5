@@ -3,7 +3,7 @@ package CLDR::Number::Format::Decimal;
 use utf8;
 use Moo;
 
-our $VERSION = '0.00_02';
+our $VERSION = '0.00_03';
 
 with qw( CLDR::Number::Role::Format );
 
@@ -46,7 +46,7 @@ CLDR::Number::Format::Decimal - Localized decimal formatter using the Unicode CL
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.00_02, built with Unicode CLDR v24. This
+This document describes CLDR::Number v0.00_03, built with Unicode CLDR v24. This
 is a development release without full documentation and functionality may
 change. See L<CLDR::Number::TODO>.
 

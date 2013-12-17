@@ -43,3 +43,11 @@ CLDR::Number::TODO - TODO document for CLDR::Number
 =item * parsed pattern caching
 
 =back
+
+=head1 SEE ALSO
+
+=over
+
+=item * L<Issues for CLDR::Number on GitHub|https://github.com/perl-cldr/cldr-number-perl5/issues>
+
+=back

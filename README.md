@@ -6,42 +6,44 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 # VERSION
 
-This document describes CLDR::Number v0.00\_02, built with Unicode CLDR v24. This
+This document describes CLDR::Number v0.00\_03, built with Unicode CLDR v24. This
 is a development release without full documentation and functionality may
 change. See [CLDR::Number::TODO](http://search.cpan.org/perldoc?CLDR::Number::TODO).
 
 # SYNOPSIS
 
-    use CLDR::Number;
+```perl
+use CLDR::Number;
 
-    my $cldr = CLDR::Number->new(locale => 'es');
+my $cldr = CLDR::Number->new(locale => 'es');
 
-    # decimals
-    my $decf = $cldr->decimal_formatter;
+# decimals
+my $decf = $cldr->decimal_formatter;
 
-    say $decf->format(1234.5);  # '1 234,5' (Spanish)
+say $decf->format(1234.5);  # '1 234,5' (Spanish)
 
-    $decf->locale('es-MX');
-    say $decf->format(1234.5);  # '1,234.5' (Mexican Spanish)
+$decf->locale('es-MX');
+say $decf->format(1234.5);  # '1,234.5' (Mexican Spanish)
 
-    # percents
-    my $perf = $cldr->percent_formatter(locale => 'tr');
+# percents
+my $perf = $cldr->percent_formatter(locale => 'tr');
 
-    say $perf->format(0.05);  # '%5' (Turkish)
+say $perf->format(0.05);  # '%5' (Turkish)
 
-    # currencies
-    my $curf = $cldr->currency_formatter(
-        locale        => 'en',
-        currency_code => 'USD',
-    );
+# currencies
+my $curf = $cldr->currency_formatter(
+locale        => 'en',
+currency_code => 'USD',
+);
 
-    say $curf->format(9.99);  # '$9.99' (English / USD)
+say $curf->format(9.99);  # '$9.99' (English / USD)
 
-    $curf->locale('en-CA');
-    say $curf->format(9.99);  # 'US$9.99' (Canadian English / USD)
+$curf->locale('en-CA');
+say $curf->format(9.99);  # 'US$9.99' (Canadian English / USD)
 
-    $curf->locale('fr-CA');
-    say $curf->format(9.99);  # '9,99 $US' (Canadian French / USD)
+$curf->locale('fr-CA');
+say $curf->format(9.99);  # '9,99 $US' (Canadian French / USD)
+```
 
 # METHODS
 

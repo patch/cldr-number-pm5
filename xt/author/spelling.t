@@ -17,6 +17,7 @@ CLDR
 com
 formatter
 formatters
+GitHub
 LDML
 nan
 permil
