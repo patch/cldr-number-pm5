@@ -34,7 +34,6 @@ has minimum_integer_digits => (
         croak "minimum_integer_digits '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
     },
-    default => 1,
 );
 
 has maximum_integer_digits => (
@@ -57,7 +56,6 @@ has minimum_fraction_digits => (
         return if $min <= $self->maximum_fraction_digits;
         $self->{maximum_fraction_digits} = $min;
     },
-    default => 0,
 );
 
 has maximum_fraction_digits => (
@@ -72,7 +70,6 @@ has maximum_fraction_digits => (
         return if $max >= $self->minimum_fraction_digits;
         $self->{minimum_fraction_digits} = $max;
     },
-    default => 3,
 );
 
 has primary_grouping_size => (
@@ -81,7 +78,6 @@ has primary_grouping_size => (
         croak "primary_grouping_size '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
     },
-    default => 3,
     clearer => 1,
 );
 
@@ -100,7 +96,6 @@ has rounding_increment => (
         croak "rounding_increment '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
     },
-    default => 0,
 );
 
 before BUILD => sub {
