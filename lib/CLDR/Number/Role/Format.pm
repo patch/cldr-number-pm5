@@ -78,7 +78,6 @@ has primary_grouping_size => (
         croak "primary_grouping_size '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
     },
-    clearer => 1,
 );
 
 has secondary_grouping_size => (
@@ -87,7 +86,6 @@ has secondary_grouping_size => (
         croak "secondary_grouping_size '$_[0]' is invalid"
             if defined $_[0] && !looks_like_number $_[0];
     },
-    clearer => 1,
 );
 
 has rounding_increment => (
@@ -176,12 +174,12 @@ sub _trigger_pattern {
                         $self->_set_unless_init_arg(secondary_grouping_size => $secondary);
                     }
                     else {
-                        $self->_clear_unless_init_arg('secondary_grouping_size');
+                        $self->_set_unless_init_arg(secondary_grouping_size => 0);
                     }
                 }
                 else {
-                    $self->_clear_unless_init_arg('primary_grouping_size');
-                    $self->_clear_unless_init_arg('secondary_grouping_size');
+                    $self->_set_unless_init_arg(primary_grouping_size   => 0);
+                    $self->_set_unless_init_arg(secondary_grouping_size => 0);
                 }
 
                 s{ ^ \#+ (?= [#0-9] ) }{}x;  # no leading multiple #s

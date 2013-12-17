@@ -113,15 +113,6 @@ sub _set_unless_init_arg {
     $self->$attribute($value);
 }
 
-sub _clear_unless_init_arg {
-    my ($self, $attribute) = @_;
-
-    return if $self->_has_init_arg($attribute);
-
-    my $clearer = "clear_$attribute";
-    $self->$clearer;
-}
-
 sub _build_signs {
     my ($self, @signs) = @_;
 
