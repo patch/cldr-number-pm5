@@ -7,6 +7,7 @@ use Scalar::Util qw( looks_like_number );
 use Math::BigFloat;
 use Math::Round;
 use Moo::Role;
+use CLDR::Number::Data::Base;
 
 # This role does not have a publicly supported interface and may change in
 # backward incompatible ways in the future. Please use one of the documented
@@ -120,6 +121,19 @@ sub _build_pattern {
 
 sub _trigger_pattern {
     my ($self, $pattern) = @_;
+
+    my $cache = $CLDR::Number::Data::Base::CACHE;
+    my $cached = $cache->{decimal}{$pattern}
+              || $cache->{extended}{$pattern}
+              && $cache->{decimal}{$cache->{extended}{$pattern}[0]};
+
+    if ($cached) {
+        while (my ($attribute, $value) = each %$cached) {
+            $self->_set_unless_init_arg($attribute => $value);
+        }
+
+        return;
+    }
 
     PATTERN:
     while ($pattern =~ m{ \G (?:

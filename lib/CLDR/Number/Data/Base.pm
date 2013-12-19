@@ -889,7 +889,7 @@ our $DATA = {
     },
     'fa-AF' => {
         patterns => {
-            percent => "'\N{LEFT-TO-RIGHT EMBEDDING}'#,##0%'\N{POP DIRECTIONAL FORMATTING}'",
+            percent => "\N{LEFT-TO-RIGHT EMBEDDING}#,##0%\N{POP DIRECTIONAL FORMATTING}",
         },
     },
     ff => {
@@ -3016,6 +3016,129 @@ our $DATA = {
         vi-VN vo vo-001 vun-TZ wae-CH wal-ET xh-ZA xog-UG yav-CM yo-NG zgh-MA
         zh-Hans zh-Hans-CN zh-Hant-MO zh-Hant-TW zu-ZA
     )
+};
+
+our $CACHE = {
+    decimal => {
+        '#0' => {
+            minimum_integer_digits  => 1,
+            minimum_fraction_digits => 0,
+            maximum_fraction_digits => 0,
+            primary_grouping_size   => 0,
+            secondary_grouping_size => 0,
+            rounding_increment      => 0,
+        },
+        '#0.00' => {
+            minimum_integer_digits  => 1,
+            minimum_fraction_digits => 2,
+            maximum_fraction_digits => 2,
+            primary_grouping_size   => 0,
+            secondary_grouping_size => 0,
+            rounding_increment      => 0,
+        },
+        '#0.###' => {
+            minimum_integer_digits  => 1,
+            minimum_fraction_digits => 0,
+            maximum_fraction_digits => 3,
+            primary_grouping_size   => 0,
+            secondary_grouping_size => 0,
+            rounding_increment      => 0,
+        },
+        '#0.######' => {
+            minimum_integer_digits  => 1,
+            minimum_fraction_digits => 0,
+            maximum_fraction_digits => 6,
+            primary_grouping_size   => 0,
+            secondary_grouping_size => 0,
+            rounding_increment      => 0,
+        },
+        '#,##0' => {
+            minimum_integer_digits  => 1,
+            minimum_fraction_digits => 0,
+            maximum_fraction_digits => 0,
+            primary_grouping_size   => 3,
+            secondary_grouping_size => 0,
+            rounding_increment      => 0,
+        },
+        '#,##0.00' => {
+            minimum_integer_digits  => 1,
+            minimum_fraction_digits => 2,
+            maximum_fraction_digits => 2,
+            primary_grouping_size   => 3,
+            secondary_grouping_size => 0,
+            rounding_increment      => 0,
+        },
+        '#,##0.###' => {
+            minimum_integer_digits  => 1,
+            minimum_fraction_digits => 0,
+            maximum_fraction_digits => 3,
+            primary_grouping_size   => 3,
+            secondary_grouping_size => 0,
+            rounding_increment      => 0,
+        },
+        '#,##,##0' => {
+            minimum_integer_digits  => 1,
+            minimum_fraction_digits => 0,
+            maximum_fraction_digits => 0,
+            primary_grouping_size   => 3,
+            secondary_grouping_size => 2,
+            rounding_increment      => 0,
+        },
+        '#,##,##0.00' => {
+            minimum_integer_digits  => 1,
+            minimum_fraction_digits => 2,
+            maximum_fraction_digits => 2,
+            primary_grouping_size   => 3,
+            secondary_grouping_size => 2,
+            rounding_increment      => 0,
+        },
+        '#,##,##0.###' => {
+            minimum_integer_digits  => 1,
+            minimum_fraction_digits => 0,
+            maximum_fraction_digits => 3,
+            primary_grouping_size   => 3,
+            secondary_grouping_size => 2,
+            rounding_increment      => 0,
+        },
+    },
+    extended => {
+        '#0%'                         => [ '#0',          '%s%%'          ],
+        '#,##0%'                      => [ '#,##0',       '%s%%'          ],
+        '#,##0 %'                     => [ '#,##0',       '%s %%'         ],
+        '#,##,##0%'                   => [ '#,##,##0',    '%s%%'          ],
+        '#,##,##0 %'                  => [ '#,##,##0',    '%s %%'         ],
+        '%#,##0'                      => [ '#,##0',       '%%%s'          ],
+        '% #,##0'                     => [ '#,##0',       '%% %s'         ],
+        '#0.00 ¤'                     => [ '#0.00',       '%s ¤'          ],
+        '#,##0.00¤'                   => [ '#,##0.00',    '%s¤'           ],
+        '#,##0.00 ¤'                  => [ '#,##0.00',    '%s ¤'          ],
+        '#,##,##0.00¤'                => [ '#,##,##0.00', '%s¤'           ],
+        '#,##,##0.00¤;(#,##,##0.00¤)' => [ '#,##,##0.00', '%s¤',  '(%s¤)' ],
+        '¤#0.00'                      => [ '#0.00',       '¤%s'           ],
+        '¤#,##0.00'                   => [ '#,##0.00',    '¤%s'           ],
+        '¤#,##0.00;¤-#,##0.00'        => [ '#,##0.00',    '¤%s',  '¤-%s'  ],
+        '¤#,##0.00;¤- #,##0.00'       => [ '#,##0.00',    '¤%s',  '¤- %s' ],
+        '¤#,##0.00;(¤#,##0.00)'       => [ '#,##0.00',    '¤%s',  '(¤%s)' ],
+        '¤#,##,##0.00'                => [ '#,##,##0.00', '¤%s'           ],
+        '¤ #0.00'                     => [ '#0.00',       '¤ %s'          ],
+        '¤ #,##0.00'                  => [ '#,##0.00',    '¤ %s'          ],
+        '¤ #,##0.00;¤-#,##0.00'       => [ '#,##0.00',    '¤ %s', '¤-%s'  ],
+        '¤ #,##0.00;¤ -#,##0.00'      => [ '#,##0.00',    '¤ %s', '¤ -%s' ],
+        '¤ #,##0.00;¤ #,##0.00-'      => [ '#,##0.00',    '¤ %s', '¤ %s-' ],
+        '¤ #,##,##0.00'               => [ '#,##,##0.00', '¤ %s'          ],
+        "¤#,##0.00\N{LEFT-TO-RIGHT MARK}" => [
+            '#,##0.00',
+            "¤%s\N{LEFT-TO-RIGHT MARK}"
+        ],
+        "\N{LEFT-TO-RIGHT MARK}¤#,##0.00" => [
+            '#,##0.00',
+            "\N{LEFT-TO-RIGHT MARK}¤%s"
+        ],
+        "\N{LEFT-TO-RIGHT EMBEDDING}#,##0%\N{POP DIRECTIONAL FORMATTING}" => [
+            '#,##0',
+            "\N{LEFT-TO-RIGHT EMBEDDING}%s%%\N{POP DIRECTIONAL FORMATTING}"
+        ],
+    },
 };
 
 1;
