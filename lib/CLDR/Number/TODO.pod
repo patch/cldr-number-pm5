@@ -24,6 +24,8 @@ CLDR::Number::TODO - TODO document for CLDR::Number
 
 =item * C<accounting> currency format in addition to default C<standard>
 
+=item * maximum integer digits
+
 =item * significant digits (and C<@> symbol in patterns)
 
 =item * scientific notation formatter (and C<E> symbol in patterns)
