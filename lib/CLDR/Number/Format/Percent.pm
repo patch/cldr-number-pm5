@@ -47,8 +47,8 @@ sub format {
         $sign   = $self->percent_sign;
     }
 
-    my $format = $self->_format_number($num * $factor, $self->pattern);
-    $format =~ s{%}{$sign};
+    my $format = $self->_format_number($num * $factor);
+    $format =~ s{\x{1F0001}}{$sign};
 
     return $format;
 }

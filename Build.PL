@@ -23,7 +23,6 @@ my $builder = Module::Build->new(
         'utf8'             => 0,
         'warnings'         => 0,
         'Carp'             => 0,
-        'English'          => 0,
         'Math::BigFloat'   => 0,
         'Math::Round'      => 0,
         'Moo'              => '1.000000',

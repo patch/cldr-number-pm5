@@ -2,7 +2,6 @@ package CLDR::Number::Role::Format;
 
 use utf8;
 use Carp;
-use English qw( -no_match_vars );
 use Scalar::Util qw( looks_like_number );
 use Math::BigFloat;
 use Math::Round;
@@ -18,8 +17,6 @@ our $VERSION = '0.00_03';
 requires qw( BUILD format );
 
 with qw( CLDR::Number::Role::Base );
-
-my $number_pattern_re = qr{ (?: \* \X )? [@#0-9,.]+ }x;
 
 has pattern => (
     is  => 'rw',
@@ -97,6 +94,14 @@ has rounding_increment => (
     },
 );
 
+has _positive_pattern => (
+    is => 'rw',
+);
+
+has _negative_pattern => (
+    is => 'rw',
+);
+
 before BUILD => sub {
     my ($self) = @_;
 
@@ -111,6 +116,14 @@ after _trigger_locale => sub {
     $self->_build_pattern;
 };
 
+# using non-Unicode codepoints as placeholders:
+# $N: formatted number
+# $P: percent sign
+# $C: currency sign
+# $M: minus sign
+# $Q: escaped quote sign
+my ($N, $P, $C, $M, $Q) = map { chr } 0x1F0000 .. 0x1F0004;
+
 sub _build_pattern {
     my ($self) = @_;
 
@@ -120,117 +133,82 @@ sub _build_pattern {
 }
 
 sub _trigger_pattern {
-    my ($self, $pattern) = @_;
+    my ($self, $input_pattern) = @_;
 
     my $cache = $CLDR::Number::Data::Base::CACHE;
-    my $cached = $cache->{decimal}{$pattern}
-              || $cache->{extended}{$pattern}
-              && $cache->{decimal}{$cache->{extended}{$pattern}[0]};
+    if (my $attributes
+        =  $cache->{attributes}{$input_pattern}
+        || $cache->{patterns}{$input_pattern}
+        && $cache->{attributes}{ $cache->{patterns}{$input_pattern}[0] }) {
 
-    if ($cached) {
-        while (my ($attribute, $value) = each %$cached) {
+        while (my ($attribute, $value) = each %$attributes) {
             $self->_set_unless_init_arg($attribute => $value);
         }
+
+        my $patterns = $cache->{patterns}{$input_pattern};
+
+        $self->_positive_pattern(
+            $patterns && $patterns->[1] || $N
+        );
+
+        $self->_negative_pattern(
+            $patterns && $patterns->[2] || $M . $self->_positive_pattern
+        );
 
         return;
     }
 
-    PATTERN:
-    while ($pattern =~ m{ \G (?:
-        ( (?: [^'] | '' )+ )           # non-quoted text (incl. escaped quotes)
-    |
-        (?: ^ | (?<! ' ) ) '           # start quote
-            (?: [^'] | '' )+           # quoted text (incl. escaped quotes)
-        (?: ' (?: (?! ' ) | $ ) | $ )  # end quote (optional at end of pattern)
-    ) }xg) {
-        my $subpattern = $1;
-        next PATTERN unless $subpattern;
+    # temporarily replace escaped quotes
+    $input_pattern =~ s{''}{$Q}g;
 
-        my $subpattern_offset = $LAST_MATCH_START[0];
-        my $subpattern_length = $LAST_MATCH_END[0] - $subpattern_offset;
+    my $internal_pattern  = '';
+    my $canonical_pattern = '';
+    my $num_subpattern;
 
-        if (my ($number_pattern) = $subpattern =~ m{ ( $number_pattern_re ) }x) {
-            SUBPATTERN:
-            for ($number_pattern) {
-                s{ \. $ }{}x;                    # no trailing decimal sign
-                s{ (?: ^ | \# ) (?= \. ) }{0}x;  # integer requires at least one minimum digit
+    while ($input_pattern =~ m{
+        \G (?:
+              ( [^']+ )              # non-quoted text
+        |
+            ' ( [^']+ ) (?: ' | $ )  # quoted text (trailing quote optional)
+        )
+    }xg) {
+        my $nonquoted = $1;
+        my $quoted    = $2;
 
-                # calculate grouping sizes
-                my ($secondary, $primary) = map { length } m{ , ( [^,]* ) , ( [^,.]* ) (?: \. | $ ) }x;
-                if (!defined $primary) {
-                    ($primary) = map { length } m{ , ( [^,.]* ) (?: \. | $ ) }x;
-                }
-                elsif ($primary == 0) {
-                    $primary   = $secondary;
-                    $secondary = undef;
-                }
-                elsif ($primary == $secondary) {
-                    $secondary = undef;
-                }
+        if (defined $nonquoted) {
+            if (!defined $num_subpattern && $nonquoted =~ m{
+                ^ ( .*? )                    # pre–number pattern
+                ( (?: \* \X )? [@#0-9,.]+ )  # number pattern
+                ( .* ) $                     # post–number pattern
+            }x) {
+                my $prenum      = $1;
+                $num_subpattern = $2;
+                my $postnum     = $3;
 
-                tr{,}{}d;  # temporarily remove groups
+                $num_subpattern = $self->_process_num_pattern($num_subpattern);
 
-                if (!m{ \. }x) {
-                    s{ (?: ^ | \# ) $ }{0}x;  # integer requires at least one minimum digit
-                }
-
-                if (!$self->_has_init_arg('minimum_integer_digits')) {
-                    my ($min_int) = m{ ( [0-9,]+ ) (?= \. | $ ) }x;
-                    $self->minimum_integer_digits(length $min_int);
-                }
-
-                if ($primary) {
-                    s{ (?= .{$primary} (?: \. | $ ) ) }{,}x;  # add primary group
-                    $self->_set_unless_init_arg(primary_grouping_size => $primary);
-
-                    if ($secondary) {
-                        s{ (?= .{$secondary} , ) }{,}x;  # add secondary group
-                        $self->_set_unless_init_arg(secondary_grouping_size => $secondary);
-                    }
-                    else {
-                        $self->_set_unless_init_arg(secondary_grouping_size => 0);
-                    }
-                }
-                else {
-                    $self->_set_unless_init_arg(primary_grouping_size   => 0);
-                    $self->_set_unless_init_arg(secondary_grouping_size => 0);
-                }
-
-                s{ ^ \#+ (?= [#0-9] ) }{}x;  # no leading multiple #s
-                s{ ^ (?= , ) }{#}x;          # leading # before group
-
-                if (my ($max, $min) = m{ \. ( ( [0-9]* ) \#* ) }x) {
-                    $self->_set_unless_init_arg(minimum_fraction_digits => length $min);
-                    $self->_set_unless_init_arg(maximum_fraction_digits => length $max);
-                }
-                else {
-                    $self->_set_unless_init_arg(minimum_fraction_digits => 0);
-                    $self->_set_unless_init_arg(maximum_fraction_digits => 0);
-                }
-
-                if (!$self->_has_init_arg('rounding_increment')) {
-                    if (my ($round_inc) = $number_pattern =~ m{ (
-                        (?: [1-9] [0-9,]* | 0 )  # integer
-                        (?= \. | $ )
-                        (?: \. [0-9]* [1-9] )?   # fraction
-                    ) }x) {
-                        $self->rounding_increment($round_inc);
-                    }
-                    else {
-                        $self->rounding_increment(0);
-                    }
-                }
+                $internal_pattern  .= _escape_symbols($prenum . $N . $postnum);
+                $canonical_pattern .= $prenum . $num_subpattern . $postnum;
             }
-
-            $subpattern =~ s{$number_pattern_re}{$number_pattern};
-            substr $pattern, $subpattern_offset, $subpattern_length, $subpattern;
-
-            last PATTERN;
+            else {
+                $internal_pattern  .= _escape_symbols($nonquoted);
+                $canonical_pattern .= $nonquoted;
+            }
+        }
+        elsif (defined $quoted) {
+            $internal_pattern  .= $quoted;
+            $canonical_pattern .= "'$quoted'";
         }
     }
 
-    # hashref instead of attribute method so wo don't retrigger this trigger
-    $self->{pattern} = $pattern;
+    $internal_pattern  =~ s{$Q}{'}g;
+    $canonical_pattern =~ s{$Q}{''}g;
+
+    $self->_positive_pattern($internal_pattern);
+    $self->_negative_pattern($M . $internal_pattern);
+
+    # hashref instead of attribute method so wo don’t retrigger this trigger
+    $self->{pattern} = $canonical_pattern;
 }
 
 sub _format_number {
@@ -289,45 +267,117 @@ sub _format_number {
         $num_format .= $self->decimal_sign . $frac;
     }
 
-    my $format = $self->pattern;
-
-    if ($negative) {
-        my $minus_sign = $self->minus_sign;
-
-        if ($format =~ s{ ^ .* ; }{}x) {
-            $format =~ s{-}{$minus_sign};
-        }
-        else {
-            $format = $minus_sign . $format;
-        }
+    my $format = do { if ($negative) {
+        my $pattern = $self->_negative_pattern;
+        $pattern =~ s{$M}{$self->minus_sign}e;
+        $pattern;
     }
     else {
-        $format =~ s{ ; .* $ }{}x;
-    }
+        $self->_positive_pattern;
+    } };
 
-    my $final_format = '';
-    my $formatted;
-    # TODO: remove duplicate regex code shared with _trigger_pattern
-    while ($format =~ m{ \G (?:
-        ( (?: [^'] | '' )+ )           # non-quoted text (incl. escaped quotes)
-    |
-        (?: ^ | (?<! ' ) ) '           # start quote
-            ( (?: [^'] | '' )+ )       # quoted text (incl. escaped quotes)
-        (?: ' (?: (?! ' ) | $ ) | $ )  # end quote (optional at end of pattern)
-    ) }xg) {
-        my $nonquote = $1;
-        my $quote    = $2;
+    $format =~ s{$N}{$num_format};
 
-        if (!$formatted && defined $nonquote && $nonquote =~ s{$number_pattern_re}{$num_format}) {
-            $formatted = 1;
+    return $format;
+}
+
+sub _process_num_pattern {
+    my ($self, $num_pattern) = @_;
+
+    for ($num_pattern) {
+        s{ \. $ }{}x;                    # no trailing decimal sign
+        s{ (?: ^ | \# ) (?= \. ) }{0}x;  # at least one minimum integer digit
+
+        # calculate grouping sizes
+        my ($secondary, $primary) = map { length } m{
+            , ( [^,]*  )  # primary
+            , ( [^,.]* )  # secondary
+            (?: \. | $ )
+        }x;
+
+        if (!defined $primary) {
+            ($primary) = map { length } m{
+                , ( [^,.]* )  # primary only
+                (?: \. | $ )
+            }x;
+        }
+        elsif ($primary == 0) {
+            $primary   = $secondary;
+            $secondary = undef;
+        }
+        elsif ($primary == $secondary) {
+            $secondary = undef;
         }
 
-        $final_format .= defined $nonquote ? $nonquote : $quote;
+        tr{,}{}d;  # temporarily remove groups
+
+        if (!m{ \. }x) {
+            s{ (?: ^ | \# ) $ }{0}x;  # at least one minimum integer digit
+        }
+
+        if (!$self->_has_init_arg('minimum_integer_digits')) {
+            my ($min_int) = m{ ( [0-9,]+ ) (?= \. | $ ) }x;
+            $self->minimum_integer_digits(length $min_int);
+        }
+
+        if ($primary) {
+            s{ (?= .{$primary} (?: \. | $ ) ) }{,}x;  # add primary group
+            $self->_set_unless_init_arg(primary_grouping_size => $primary);
+
+            if ($secondary) {
+                s{ (?= .{$secondary} , ) }{,}x;  # add secondary group
+                $self->_set_unless_init_arg(
+                    secondary_grouping_size => $secondary
+                );
+            }
+            else {
+                $self->_set_unless_init_arg(secondary_grouping_size => 0);
+            }
+        }
+        else {
+            $self->_set_unless_init_arg(primary_grouping_size   => 0);
+            $self->_set_unless_init_arg(secondary_grouping_size => 0);
+        }
+
+        s{ ^ \#+ (?= [#0-9] ) }{}x;  # no leading multiple #s
+        s{ ^ (?= , ) }{#}x;          # leading # before group
+
+        if (my ($max, $min) = m{ \. ( ( [0-9]* ) \#* ) }x) {
+            $self->_set_unless_init_arg(minimum_fraction_digits => length $min);
+            $self->_set_unless_init_arg(maximum_fraction_digits => length $max);
+        }
+        else {
+            $self->_set_unless_init_arg(minimum_fraction_digits => 0);
+            $self->_set_unless_init_arg(maximum_fraction_digits => 0);
+        }
+
+        if (!$self->_has_init_arg('rounding_increment')) {
+            if (my ($round_inc) = m{ (
+                (?: [1-9] [0-9,]* | 0 )  # integer
+                (?= \. | $ )
+                (?: \. [0-9]* [1-9] )?   # fraction
+            ) }x) {
+                $self->rounding_increment($round_inc);
+            }
+            else {
+                $self->rounding_increment(0);
+            }
+        }
     }
 
-    $final_format =~ s{''}{'}g;
+    return $num_pattern;
+}
 
-    return $final_format;
+sub _escape_symbols {
+    my ($pattern) = @_;
+
+    for ($pattern) {
+        s{%}{$P};
+        s{¤}{$C};
+        s{-}{$M};
+    }
+
+    return $pattern;
 }
 
 sub at_least {
