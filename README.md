@@ -6,9 +6,8 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 # VERSION
 
-This document describes CLDR::Number v0.00\_03, built with Unicode CLDR v24. This
-is a development release without full documentation and functionality may
-change. See [CLDR::Number::TODO](http://search.cpan.org/perldoc?CLDR::Number::TODO).
+This document describes CLDR::Number v0.00\_03, built with the Unicode CLDR v24.
+This is an early release without full documentation. See [CLDR::Number::TODO](https://metacpan.org/pod/CLDR::Number::TODO).
 
 # SYNOPSIS
 
@@ -32,8 +31,8 @@ say $perf->format(0.05);  # '%5' (Turkish)
 
 # currencies
 my $curf = $cldr->currency_formatter(
-locale        => 'en',
-currency_code => 'USD',
+    locale        => 'en',
+    currency_code => 'USD',
 );
 
 say $curf->format(9.99);  # '$9.99' (English / USD)
@@ -45,29 +44,45 @@ $curf->locale('fr-CA');
 say $curf->format(9.99);  # '9,99 $US' (Canadian French / USD)
 ```
 
-# METHODS
+# DESCRIPTION
+
+Localization includes much more than just translations. Numbers, prices, and
+even percents should all be localized based the user’s language, script, and
+region. Fortunately the Unicode Common Locale Data Repository (CLDR) provides
+locale data and specifications for formatting numeric data to use with many of
+the world’s locales.
+
+This class provides common attributes shared among different types of formatter
+classes and methods to instantiate decimal, percent, and currency formatter
+objects. The value for any attribute (such as `locale`) will be passed to the
+formatter objects on instantiation but can be overwritten by manually passing
+another value for the attribute or calling a setter method on the formatter
+object.
+
+## Methods
 
 - decimal\_formatter
 
-    Returns a decimal formatter, which is a [CLDR::Number::Format::Decimal](http://search.cpan.org/perldoc?CLDR::Number::Format::Decimal) object
+    Returns a decimal formatter, which is a [CLDR::Number::Format::Decimal](https://metacpan.org/pod/CLDR::Number::Format::Decimal) object
     instantiated with all of the attributes from your CLDR::Number object as well as
     any attributes passed to this method.
 
 - percent\_formatter
 
-    Returns a percent formatter, which is a [CLDR::Number::Format::Percent](http://search.cpan.org/perldoc?CLDR::Number::Format::Percent) object
+    Returns a percent formatter, which is a [CLDR::Number::Format::Percent](https://metacpan.org/pod/CLDR::Number::Format::Percent) object
     instantiated with all of the attributes from your CLDR::Number object as well as
     any attributes passed to this method.
 
 - currency\_formatter
 
-    Returns a currency formatter, which is a [CLDR::Number::Format::Currency](http://search.cpan.org/perldoc?CLDR::Number::Format::Currency)
+    Returns a currency formatter, which is a [CLDR::Number::Format::Currency](https://metacpan.org/pod/CLDR::Number::Format::Currency)
     object instantiated with all of the attributes from your CLDR::Number object as
     well as any attributes passed to this method.
 
-# COMMON ATTRIBUTES
+# Common Attributes
 
-Common attributes among all formatter objects.
+Common attributes among all formatter objects. All string attributes are
+expected to be character strings, not encoded byte strings.
 
 - locale
 
@@ -103,7 +118,7 @@ Common attributes among all formatter objects.
 
 # SEE ALSO
 
-- [UTS \#35: Unicode LDML, Part 3: Numbers](http://www.unicode.org/reports/tr35/tr35-numbers.html)
+- [UTS #35: Unicode LDML, Part 3: Numbers](http://www.unicode.org/reports/tr35/tr35-numbers.html)
 - [CLDR Translation Guidelines: Number Patterns](http://cldr.unicode.org/translation/number-patterns)
 - [CLDR Translation Guidelines: Number Symbols](http://cldr.unicode.org/translation/number-symbols)
 
@@ -118,7 +133,7 @@ from Shutterstock can be found at
 
 # COPYRIGHT AND LICENSE
 
-© 2013 Nick Patch
+© 2013 Shutterstock, Inc.
 
 This library is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.

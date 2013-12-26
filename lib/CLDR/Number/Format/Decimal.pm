@@ -46,9 +46,9 @@ CLDR::Number::Format::Decimal - Localized decimal formatter using the Unicode CL
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.00_03, built with Unicode CLDR v24. This
-is a development release without full documentation and functionality may
-change. See L<CLDR::Number::TODO>.
+This document describes CLDR::Number::Format::Decimal v0.00_03, built with the
+Unicode CLDR v24. This is an early release without full documentation. See
+L<CLDR::Number::TODO>.
 
 =head1 SYNOPSIS
 
@@ -66,7 +66,14 @@ change. See L<CLDR::Number::TODO>.
     $decf->locale('es-MX');
     say $decf->format(1234.5);  # '1,234.5' (Mexican Spanish)
 
-=head1 METHODS
+=head1 DESCRIPTION
+
+Localized decimal formatter using the Unicode Common Locale Data Repository
+(CLDR).
+
+=head2 Methods
+
+All methods return character strings, not encoded byte strings.
 
 =over
 
@@ -90,9 +97,10 @@ Accepts two numbers and returns a formatted range of decimals.
 
 =back
 
-=head1 ATTRIBUTES
+=head2 Attributes
 
-See also the L<common attributes in CLDR::Number|CLDR::Number/"COMMON ATTRIBUTES">.
+All string attributes are expected to be character strings. See also the
+L<common attributes in CLDR::Number|CLDR::Number/"Common Attributes">.
 
 =over
 
@@ -134,6 +142,14 @@ Default: C<0> when C<root> locale
 
 =back
 
+=head1 SEE ALSO
+
+=over
+
+=item * L<CLDR::Number>
+
+=back
+
 =head1 AUTHOR
 
 Nick Patch <patch@cpan.org>
@@ -145,7 +161,7 @@ L<code.shutterstock.com|http://code.shutterstock.com/>.
 
 =head1 COPYRIGHT AND LICENSE
 
-© 2013 Nick Patch
+© 2013 Shutterstock, Inc.
 
 This library is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.

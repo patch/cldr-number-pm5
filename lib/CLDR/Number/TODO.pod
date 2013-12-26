@@ -40,8 +40,6 @@ CLDR::Number::TODO - TODO document for CLDR::Number
 
 =over
 
-=item * preparsed patterns for predefined locales
-
 =item * locale subtag attributes for use without locale attribute parsing
 
 =item * passing prebuilt locales to formatters from CLDR::Number

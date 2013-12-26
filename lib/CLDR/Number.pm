@@ -50,9 +50,8 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.00_03, built with Unicode CLDR v24. This
-is a development release without full documentation and functionality may
-change. See L<CLDR::Number::TODO>.
+This document describes CLDR::Number v0.00_03, built with the Unicode CLDR v24.
+This is an early release without full documentation. See L<CLDR::Number::TODO>.
 
 =head1 SYNOPSIS
 
@@ -87,7 +86,22 @@ change. See L<CLDR::Number::TODO>.
     $curf->locale('fr-CA');
     say $curf->format(9.99);  # '9,99 $US' (Canadian French / USD)
 
-=head1 METHODS
+=head1 DESCRIPTION
+
+Localization includes much more than just translations. Numbers, prices, and
+even percents should all be localized based the user’s language, script, and
+region. Fortunately the Unicode Common Locale Data Repository (CLDR) provides
+locale data and specifications for formatting numeric data to use with many of
+the world’s locales.
+
+This class provides common attributes shared among different types of formatter
+classes and methods to instantiate decimal, percent, and currency formatter
+objects. The value for any attribute (such as C<locale>) will be passed to the
+formatter objects on instantiation but can be overwritten by manually passing
+another value for the attribute or calling a setter method on the formatter
+object.
+
+=head2 Methods
 
 =over
 
@@ -111,9 +125,10 @@ well as any attributes passed to this method.
 
 =back
 
-=head1 COMMON ATTRIBUTES
+=head1 Common Attributes
 
-Common attributes among all formatter objects.
+Common attributes among all formatter objects. All string attributes are
+expected to be character strings, not encoded byte strings.
 
 =over
 
@@ -174,7 +189,7 @@ L<code.shutterstock.com|http://code.shutterstock.com/>.
 
 =head1 COPYRIGHT AND LICENSE
 
-© 2013 Nick Patch
+© 2013 Shutterstock, Inc.
 
 This library is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.

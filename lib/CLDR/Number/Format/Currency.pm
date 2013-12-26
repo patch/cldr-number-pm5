@@ -132,9 +132,9 @@ CLDR::Number::Format::Currency - Localized currency formatter using the Unicode 
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.00_03, built with Unicode CLDR v24. This
-is a development release without full documentation and functionality may
-change. See L<CLDR::Number::TODO>.
+This document describes CLDR::Number::Format::Currency v0.00_03, built with the
+Unicode CLDR v24. This is an early release without full documentation. See
+L<CLDR::Number::TODO>.
 
 =head1 SYNOPSIS
 
@@ -158,20 +158,27 @@ change. See L<CLDR::Number::TODO>.
     $curf->locale('fr-CA');
     say $curf->format(9.99);  # '9,99 $US' (Canadian French / USD)
 
-=head1 METHODS
+=head1 DESCRIPTION
+
+Localized currency formatter using the Unicode Common Locale Data Repository
+(CLDR).
+
+=head2 Methods
 
 =over
 
 =item format
 
-Accepts a number and returns a formatted currency value using the currency from
-the C<currency_code> attribute and localized with the current locale.
+Accepts a number and returns a formatted currency value as a character string,
+using the currency from the C<currency_code> attribute and localized with the
+current locale.
 
 =back
 
-=head1 ATTRIBUTES
+=head2 Attributes
 
-See also the L<common attributes in CLDR::Number|CLDR::Number/"COMMON ATTRIBUTES">.
+All string attributes are expected to be character strings. See also the
+L<common attributes in CLDR::Number|CLDR::Number/"Common Attributes">.
 
 =over
 
@@ -221,6 +228,8 @@ Default: C<0> when C<root> locale
 
 =over
 
+=item * L<CLDR::Number>
+
 =item * L<CLDR Translation Guidelines: Currency Symbols|http://cldr.unicode.org/translation/currency-names>
 
 =back
@@ -236,7 +245,7 @@ L<code.shutterstock.com|http://code.shutterstock.com/>.
 
 =head1 COPYRIGHT AND LICENSE
 
-© 2013 Nick Patch
+© 2013 Shutterstock, Inc.
 
 This library is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.
