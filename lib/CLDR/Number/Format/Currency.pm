@@ -171,7 +171,7 @@ Localized currency formatter using the Unicode Common Locale Data Repository
 
 Accepts a number and returns a formatted currency value as a character string,
 using the currency from the C<currency_code> attribute and localized with the
-current locale.
+current C<locale>.
 
 =back
 
@@ -214,9 +214,13 @@ Default: C<2> when C<root> locale
 
 Default: C<3> when C<root> locale
 
+Not used when value is C<0>.
+
 =item secondary_grouping_size
 
-Default: not set when C<root> locale
+Default: C<0> when C<root> locale
+
+Not used when value is C<0>.
 
 =item rounding_increment
 

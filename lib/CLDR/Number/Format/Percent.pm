@@ -100,8 +100,8 @@ Localized percent formatter using the Unicode Common Locale Data Repository
 =item format
 
 Accepts a number and returns a formatted percent as a character string,
-localized with the current locale. If the C<permil> attribute is true, returns
-I<per mil> instead of I<percent>.
+localized with the current C<locale>. If the C<permil> attribute is true,
+returns I<per mil> instead of I<percent>.
 
 =back
 
@@ -144,9 +144,13 @@ Default: C<0> when C<root> locale
 
 Default: C<3> when C<root> locale
 
+Not used when value is C<0>.
+
 =item secondary_grouping_size
 
-Default: not set when C<root> locale
+Default: C<0> when C<root> locale
+
+Not used when value is C<0>.
 
 =item rounding_increment
 
@@ -156,11 +160,7 @@ Default: C<0> when C<root> locale
 
 =head1 SEE ALSO
 
-=over
-
-=item * L<CLDR::Number>
-
-=back
+L<CLDR::Number>
 
 =head1 AUTHOR
 

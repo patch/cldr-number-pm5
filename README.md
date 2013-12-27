@@ -46,18 +46,18 @@ say $curf->format(9.99);  # '9,99 $US' (Canadian French / USD)
 
 # DESCRIPTION
 
-Localization includes much more than just translations. Numbers, prices, and
-even percents should all be localized based the user’s language, script, and
-region. Fortunately the Unicode Common Locale Data Repository (CLDR) provides
-locale data and specifications for formatting numeric data to use with many of
-the world’s locales.
+Software localization includes much more than just translations. Numbers,
+prices, and even percents should all be localized based the user’s language,
+script, and region. Fortunately, the Unicode Common Locale Data Repository
+(CLDR) provides locale data and specifications for formatting numeric data to
+use with many of the world’s locales.
 
-This class provides common attributes shared among different types of formatter
-classes and methods to instantiate decimal, percent, and currency formatter
-objects. The value for any attribute (such as `locale`) will be passed to the
-formatter objects on instantiation but can be overwritten by manually passing
-another value for the attribute or calling a setter method on the formatter
-object.
+This class provides common attributes shared among the supported formatter
+classes as well as methods to instantiate decimal, percent, and currency
+formatter objects. The value for any attribute (such as `locale`) will be
+passed to the formatter objects on instantiation but can be overwritten by
+manually passing another value for the attribute or calling a setter method on
+the formatter object.
 
 ## Methods
 

@@ -80,7 +80,7 @@ All methods return character strings, not encoded byte strings.
 =item format
 
 Accepts a number and returns a formatted decimal, localized with the current
-locale.
+C<locale>.
 
 =item at_least
 
@@ -104,14 +104,6 @@ L<common attributes in CLDR::Number|CLDR::Number/"Common Attributes">.
 
 =over
 
-=item infinity
-
-Default: C<∞> when C<root> locale
-
-=item nan
-
-Default: C<NaN> when C<root> locale
-
 =item pattern
 
 Default: C<#,##0.###> when C<root> locale
@@ -132,23 +124,31 @@ Default: C<3> when C<root> locale
 
 Default: C<3> when C<root> locale
 
+Not used when value is C<0>.
+
 =item secondary_grouping_size
 
-Default: not set when C<root> locale
+Default: C<0> when C<root> locale
+
+Not used when value is C<0>.
 
 =item rounding_increment
 
 Default: C<0> when C<root> locale
 
+=item infinity
+
+Default: C<∞> when C<root> locale
+
+=item nan
+
+Default: C<NaN> when C<root> locale
+
 =back
 
 =head1 SEE ALSO
 
-=over
-
-=item * L<CLDR::Number>
-
-=back
+L<CLDR::Number>
 
 =head1 AUTHOR
 
