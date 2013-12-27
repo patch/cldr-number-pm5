@@ -6,7 +6,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 # VERSION
 
-This document describes CLDR::Number v0.00\_03, built with the Unicode CLDR v24.
+This document describes CLDR::Number v0.01, built with the Unicode CLDR v24.
 This is an early release without full documentation. See [CLDR::Number::TODO](https://metacpan.org/pod/CLDR::Number::TODO).
 
 # SYNOPSIS
