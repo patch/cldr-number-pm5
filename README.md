@@ -79,7 +79,7 @@ the formatter object.
     object instantiated with all of the attributes from your CLDR::Number object as
     well as any attributes passed to this method.
 
-# Common Attributes
+## Common Attributes
 
 Common attributes among all formatter objects. All string attributes are
 expected to be character strings, not encoded byte strings.

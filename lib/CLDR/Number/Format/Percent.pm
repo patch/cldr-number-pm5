@@ -105,7 +105,7 @@ returns I<per mil> instead of I<percent>.
 
 =back
 
-=head1 Attributes
+=head2 Attributes
 
 All string attributes are expected to be character strings. See also the
 L<common attributes in CLDR::Number|CLDR::Number/"Common Attributes">.

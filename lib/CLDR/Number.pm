@@ -125,7 +125,7 @@ well as any attributes passed to this method.
 
 =back
 
-=head1 Common Attributes
+=head2 Common Attributes
 
 Common attributes among all formatter objects. All string attributes are
 expected to be character strings, not encoded byte strings.
