@@ -88,13 +88,23 @@ expected to be character strings, not encoded byte strings.
 
     Default: value of `default_locale` attribute if exists, otherwise `root`
 
-    Valid: Unicode locale identifier
+    Valid: _Unicode locale identifier_
+
+    Examples: `es` (Spanish), `es-ES` (European Spanish), `es-419` (Latin
+    American Spanish), `zh-Hant` (Traditional Chinese), `zh-Hans` (Simplified
+    Chinese), `chr` (Cherokee)
+
+    The locale is case-insensitive and can use either `-` (hyphen-minus) or `_`
+    (low line) as a separator.
 
 - default\_locale
 
-    Default: none
+    Default: _none_
 
-    Valid: Unicode locale identifier
+    Valid: _Unicode locale identifier_
+
+    Use this if you want a locale other than the generic `root` if the `locale`
+    attribute is not set or not valid.
 
 - decimal\_sign
 
@@ -115,6 +125,9 @@ expected to be character strings, not encoded byte strings.
 - cldr\_version
 
     Value: `24`
+
+    This is a read-only attribute that will always reflect the currently supported
+    Unicode CLDR version.
 
 # SEE ALSO
 

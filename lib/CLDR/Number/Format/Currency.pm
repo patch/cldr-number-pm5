@@ -184,11 +184,11 @@ L<common attributes in CLDR::Number|CLDR::Number/"Common Attributes">.
 
 =item currency_code
 
-Default: not set
+Default: I<none>
 
 =item currency_sign
 
-Default: not set
+Default: I<none>
 
 =item cash
 
@@ -225,6 +225,8 @@ Not used when value is C<0>.
 =item rounding_increment
 
 Default: C<0> when C<root> locale
+
+C<0> and C<1> are treated the same.
 
 =back
 

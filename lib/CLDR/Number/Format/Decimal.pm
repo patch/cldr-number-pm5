@@ -136,6 +136,8 @@ Not used when value is C<0>.
 
 Default: C<0> when C<root> locale
 
+C<0> and C<1> are treated the same.
+
 =item infinity
 
 Default: C<∞> when C<root> locale

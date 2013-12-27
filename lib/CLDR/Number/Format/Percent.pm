@@ -73,16 +73,16 @@ L<CLDR::Number::TODO>.
 
     # either
     use CLDR::Number::Format::Percent;
-    my $perf = CLDR::Number::Format::Percent->new(locale => 'eu');
+    my $perf = CLDR::Number::Format::Percent->new(locale => 'tr');
 
     # or
     use CLDR::Number;
     my $cldr = CLDR::Number->new(locale => 'tr');
     my $perf = $cldr->percent_formatter;
 
-    say $perf->format(0.05);  # '%5' (Basque percent)
+    say $perf->format(0.05);  # '%5' (Turkish percent)
 
-    $perf->locale('es');
+    $perf->locale('fr');
     say $perf->format(0.05);  # '5 %' (French percent)
 
     $perf->permil(1);
@@ -155,6 +155,8 @@ Not used when value is C<0>.
 =item rounding_increment
 
 Default: C<0> when C<root> locale
+
+C<0> and C<1> are treated the same.
 
 =back
 
