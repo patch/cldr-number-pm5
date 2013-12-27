@@ -27,4 +27,6 @@ Shutterstock
 subtag
 superscripting
 TODO
+user’s
 UTS
+world’s

@@ -3,7 +3,7 @@ package CLDR::Number::Format::Percent;
 use utf8;
 use Moo;
 
-our $VERSION = '0.00_03';
+our $VERSION = '0.01';
 
 with qw( CLDR::Number::Role::Format );
 
@@ -65,7 +65,7 @@ CLDR::Number::Format::Percent - Localized percent formatter using the Unicode CL
 
 =head1 VERSION
 
-This document describes CLDR::Number::Format::Percent v0.00_03, built with the
+This document describes CLDR::Number::Format::Percent v0.01, built with the
 Unicode CLDR v24. This is an early release without full documentation. See
 L<CLDR::Number::TODO>.
 

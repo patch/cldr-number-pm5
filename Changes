@@ -1,5 +1,11 @@
 Revision history for Perl module CLDR::Number
 
+v0.01 2013-12-26
+ - First non-development release
+ - Optimization: preparse and cache patterns and attributes from predefined CLDR
+   data [github #3]
+ - Add documentation, but more is needed
+
 v0.00_03 2013-12-17
  - Yet another development release
  - Remove clearer methods for primary_grouping_size/secondary_grouping_size
