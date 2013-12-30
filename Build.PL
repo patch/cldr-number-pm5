@@ -25,7 +25,7 @@ my $builder = Module::Build->new(
         'Carp'             => 0,
         'Math::BigFloat'   => 0,
         'Math::Round'      => 0,
-        'Moo'              => '1.000000',
+        'Moo'              => '1.001000',
         'Moo::Role'        => 0,
         'Scalar::Util'     => 0,
     },
