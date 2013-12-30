@@ -123,6 +123,9 @@ after _trigger_locale => sub {
 # $M: minus sign
 # $Q: escaped quote sign
 my ($N, $P, $C, $M, $Q) = map { chr } 0x1F0000 .. 0x1F0004;
+# TODO: find better solution for this hack around a Perl ≤ v5.8.8 bug with
+# non-Unicode code points in capture buffers
+my $Q_enc = "\xF7\xB0\x80\x84";
 
 sub _build_pattern {
     my ($self) = @_;
@@ -201,8 +204,8 @@ sub _trigger_pattern {
         }
     }
 
-    $internal_pattern  =~ s{$Q}{'}g;
-    $canonical_pattern =~ s{$Q}{''}g;
+    $internal_pattern  =~ s{ $Q | $Q_enc }{'}xg;
+    $canonical_pattern =~ s{ $Q | $Q_enc }{''}xg;
 
     $self->_positive_pattern($internal_pattern);
     $self->_negative_pattern($M . $internal_pattern);
