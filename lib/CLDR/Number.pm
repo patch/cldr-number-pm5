@@ -3,7 +3,7 @@ package CLDR::Number;
 use utf8;
 use Moo;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 with qw( CLDR::Number::Role::Base );
 
@@ -50,7 +50,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.01, built with the Unicode CLDR v24.
+This document describes CLDR::Number v0.02, built with the Unicode CLDR v24.
 This is an early release without full documentation. See L<CLDR::Number::TODO>.
 
 =head1 SYNOPSIS

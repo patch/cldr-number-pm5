@@ -1,5 +1,12 @@
 Revision history for Perl module CLDR::Number
 
+v0.02 2013-12-30
+ - Bugfix: encoding error for escaped quotes ('') within patterns on
+   Perl ≤ v5.8.8 [github #20]
+ - Bugfix: require Moo v1.001000 for support of non-reference default attribute
+   values [github #21]
+ - Docs: minor improvements
+
 v0.01 2013-12-26
  - First non-development release
  - Optimization: preparse and cache patterns and attributes from predefined CLDR
