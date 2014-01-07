@@ -4,10 +4,10 @@ use Module::Build;
 
 my $builder = Module::Build->new(
     module_name   => 'CLDR::Number',
-    license       => 'perl',
+    license       => 'Perl_5',
     create_readme => 1,
     configure_requires => {
-        'Module::Build' => '0.36',
+        'Module::Build' => '0.3622',
     },
     build_requires => {
         'Pod::Man'        => '2.04',
