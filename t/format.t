@@ -2,7 +2,8 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 24;
+use Test::More tests => 36;
+use Test::Warn;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new;
@@ -43,3 +44,29 @@ TODO: {
 $decf->locale('bn');
 is $decf->format(1_23_456),    '1,23,456';
 is $decf->format(1_23_45_678), '1,23,45,678';
+
+warning_is {
+    is $decf->format(undef), undef, 'decimal format when undef';
+} 'Use of uninitialized value in format';
+
+warning_is {
+    is $decf->at_least(undef), undef, 'decimal at_least when undef';
+} 'Use of uninitialized value in at_least';
+
+warning_is {
+    is $decf->range(undef, 1), undef, 'decimal range when A is undef';
+} 'Use of uninitialized value in range';
+
+warning_is {
+    is $decf->range(1, undef), undef, 'decimal range when B is undef';
+} 'Use of uninitialized value in range';
+
+warning_is {
+    my $perf = $cldr->percent_formatter;
+    is $perf->format(undef), undef, 'percent format when undef';
+} 'Use of uninitialized value in format';
+
+warning_is {
+    my $curf = $cldr->currency_formatter(currency_code => 'EUR');
+    is $curf->format(undef), undef, 'currency format when undef';
+} 'Use of uninitialized value in format';

@@ -2,6 +2,8 @@ package CLDR::Number::Format::Decimal;
 
 use utf8;
 use Moo;
+use Carp;
+use namespace::clean;
 
 our $VERSION = '0.02';
 
@@ -30,6 +32,11 @@ sub BUILD {}
 
 sub format {
     my ($self, $num) = @_;
+
+    if (!defined $num) {
+        carp 'Use of uninitialized value in format';
+        return undef;
+    }
 
     return $self->_format_number($num);
 }

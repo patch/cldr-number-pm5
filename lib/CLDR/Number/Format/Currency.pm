@@ -111,6 +111,11 @@ sub _trigger_cash {
 sub format {
     my ($self, $num) = @_;
 
+    if (!defined $num) {
+        carp 'Use of uninitialized value in format';
+        return undef;
+    }
+
     croak 'Missing required attribute: currency_code'
         unless $self->currency_code;
 
