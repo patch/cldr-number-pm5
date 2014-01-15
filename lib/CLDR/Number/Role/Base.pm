@@ -9,7 +9,7 @@ use Moo::Role;
 # backward incompatible ways in the future. Please use one of the documented
 # classes instead.
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 requires qw( BUILD );
 

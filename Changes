@@ -1,5 +1,9 @@
 Revision history for Perl module CLDR::Number
 
+v0.03 2014-01-15
+ - Handle uninitialized values as arguments to the format, at_least, and range
+   methods by warning and returning undef [github #22]
+
 v0.02 2013-12-30
  - Bugfix: encoding error for escaped quotes ('') within patterns on
    Perl ≤ v5.8.8 [github #20]
