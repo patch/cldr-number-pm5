@@ -3018,12 +3018,12 @@ our $DATA = {
     )
 };
 
-# using non-Unicode codepoints as placeholders:
+# using private-use characters as placeholders:
 # $N: formatted number
 # $P: percent sign
 # $C: currency sign
 # $M: minus sign
-my ($N, $P, $C, $M) = map { chr } 0x1F0000 .. 0x1F0003;
+my ($N, $P, $C, $M) = map { chr } 0xF8F0 .. 0xF8F3;
 
 our $CACHE = {
     patterns => {

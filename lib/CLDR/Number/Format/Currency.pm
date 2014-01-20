@@ -120,7 +120,7 @@ sub format {
         unless $self->currency_code;
 
     my $format = $self->_format_number($num);
-    $format =~ s{\x{1F0002}}{$self->currency_sign}e;
+    $format =~ s{\x{F8F2}}{$self->currency_sign}e;
 
     return $format;
 }

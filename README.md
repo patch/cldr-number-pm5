@@ -129,6 +129,11 @@ expected to be character strings, not encoded byte strings.
     This is a read-only attribute that will always reflect the currently supported
     Unicode CLDR version.
 
+# NOTES
+
+The Unicode private-use characters U+F8F0–U+F8F4 are used internally and are
+therefore not supported in custom patterns and signs.
+
 # SEE ALSO
 
 - [UTS #35: Unicode LDML, Part 3: Numbers](http://www.unicode.org/reports/tr35/tr35-numbers.html)

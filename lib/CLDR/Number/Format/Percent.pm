@@ -55,7 +55,7 @@ sub format {
     }
 
     my $format = $self->_format_number($num * $factor);
-    $format =~ s{\x{1F0001}}{$sign};
+    $format =~ s{\x{F8F1}}{$sign};
 
     return $format;
 }
