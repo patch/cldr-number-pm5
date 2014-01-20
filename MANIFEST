@@ -1,6 +1,7 @@
 Build.PL
 Changes
 lib/CLDR/Number.pm
+lib/CLDR/Number/Constant.pm
 lib/CLDR/Number/Data/Base.pm
 lib/CLDR/Number/Data/Currency.pm
 lib/CLDR/Number/Format/Currency.pm
