@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 41;
+use Test::More tests => 49;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new;
@@ -108,3 +108,23 @@ is $decf->format(1.234), '1.30', 'rounding to 0.65';
 $decf = $cldr->decimal_formatter(locale => 'en');
 $decf->pattern("'X '#' Q '");
 is $decf->format(1939), 'X 1939 Q ', 'pattern quoting';
+
+# 4 Currencies
+$curf = $cldr->currency_formatter(currency_code => 'USD');
+$curf->locale('lg');
+is $curf->currency_sign, 'US$',       'expected currency sign';
+is $curf->pattern,       '#,##0.00¤', 'expected pattern';
+TODO: {
+    local $TODO = 'currency spacing NYI';
+    is $curf->format(1), '1.00 US$',  'currency spacing inserted';
+}
+$curf->locale('aa');
+is $curf->currency_sign, 'US$',       'expected currency sign';
+is $curf->pattern,       '¤#,##0.00', 'expected pattern';
+is $curf->format(1),     'US$1.00',   'no currency spacing inserted';
+$curf->currency_code('RUR');
+$curf->locale('ru'); is $curf->format(1234.57), '1 234,57 р.', 'RUR in ru';
+TODO: {
+    local $TODO = 'currency spacing NYI';
+    $curf->locale('en'); is $curf->format(1234.57), 'RUR 1,234.57', 'RUR in en';
+}
