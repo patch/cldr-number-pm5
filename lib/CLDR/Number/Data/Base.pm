@@ -4,6 +4,7 @@ use utf8;
 use strict;
 use warnings;
 use charnames qw( :full );
+use CLDR::Number::Constant qw( $N $M $P $C );
 
 # This module does not have a publicly supported interface and may change in
 # backward incompatible ways in the future. Please use one of the documented
@@ -3017,13 +3018,6 @@ our $DATA = {
         zh-Hans zh-Hans-CN zh-Hant-MO zh-Hant-TW zu-ZA
     )
 };
-
-# using private-use characters as placeholders:
-# $N: formatted number
-# $P: percent sign
-# $C: currency sign
-# $M: minus sign
-my ($N, $P, $C, $M) = map { chr } 0xF8F0 .. 0xF8F3;
 
 our $CACHE = {
     patterns => {

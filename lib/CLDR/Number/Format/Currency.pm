@@ -3,6 +3,7 @@ package CLDR::Number::Format::Currency;
 use utf8;
 use Moo;
 use Carp;
+use CLDR::Number::Constant qw( $C );
 use CLDR::Number::Data::Currency;
 use namespace::clean;
 
@@ -120,7 +121,7 @@ sub format {
         unless $self->currency_code;
 
     my $format = $self->_format_number($num);
-    $format =~ s{\x{F8F2}}{$self->currency_sign}e;
+    $format =~ s{$C}{$self->currency_sign}e;
 
     return $format;
 }

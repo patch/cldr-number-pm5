@@ -6,6 +6,7 @@ use Scalar::Util qw( looks_like_number );
 use Math::BigFloat;
 use Math::Round;
 use Moo::Role;
+use CLDR::Number::Constant qw( $N $M $P $C $Q );
 use CLDR::Number::Data::Base;
 
 # This role does not have a publicly supported interface and may change in
@@ -115,14 +116,6 @@ after _trigger_locale => sub {
 
     $self->_build_pattern;
 };
-
-# using private-use characters as placeholders:
-# $N: formatted number
-# $P: percent sign
-# $C: currency sign
-# $M: minus sign
-# $Q: escaped quote sign
-my ($N, $P, $C, $M, $Q) = map { chr } 0xF8F0 .. 0xF8F4;
 
 sub _build_pattern {
     my ($self) = @_;
