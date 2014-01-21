@@ -120,8 +120,20 @@ sub format {
     croak 'Missing required attribute: currency_code'
         unless $self->currency_code;
 
+    my $sign   = $self->currency_sign;
     my $format = $self->_format_number($num);
-    $format =~ s{$C}{$self->currency_sign}e;
+
+    # spacing before currency sign
+    if ($sign =~ m{ ^ \PS }x && $format =~ m{ \d $C }x) {
+        $sign = ' ' . $sign;
+    }
+
+    # spacing after currency sign
+    if ($sign =~ m{ \PS $ }x && $format =~ m{ $C \d }x) {
+        $sign .= ' ';
+    }
+
+    $format =~ s{$C}{$sign};
 
     return $format;
 }

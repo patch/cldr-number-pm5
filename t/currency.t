@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 12;
+use Test::More tests => 24;
 use Test::Exception;
 use CLDR::Number;
 
@@ -42,10 +42,29 @@ is $curf->pattern,   '¤00', 'pattern spared by locale on create';
 is $curf->format(5), '$05', 'pattern spared by locale on create';
 
 $curf = $cldr->currency_formatter(
-    locale        => 'en',
     currency_code => 'USD',
     currency_sign => '!!!',
+    pattern       => '¤ 0',
 );
 
-is $curf->currency_sign, '!!!', 'sign spared by currency code on create';
-is $curf->format(5), '!!!5.00', 'sign spared by currency code on create';
+is $curf->currency_sign, '!!!',   'sign spared by currency code on create';
+is $curf->format(1),     '!!! 1', 'sign spared by currency code on create';
+
+$curf->currency_sign('X');
+$curf->pattern('0¤'); is $curf->format(1), '1 X', 'space pre-currency (L)';
+$curf->pattern('¤0'); is $curf->format(1), 'X 1', 'space post-currency (L)';
+$curf->currency_sign('€');
+$curf->pattern('0¤'); is $curf->format(1), '1€', 'no space pr-currency (Sc)';
+$curf->pattern('¤0'); is $curf->format(1), '€1', 'no space post-currency (Sc)';
+$curf->currency_sign('±');
+$curf->pattern('0¤'); is $curf->format(1), '1±', 'no space pre-currency (Sm)';
+$curf->pattern('¤0'); is $curf->format(1), '±1', 'no space post-currency (Sm)';
+$curf->currency_sign('.');
+$curf->pattern('0¤'); is $curf->format(1), '1 .', 'space pre-currency (P)';
+$curf->pattern('¤0'); is $curf->format(1), '. 1', 'space post-currency (P)';
+$curf->currency_sign('X$');
+$curf->pattern('0¤'); is $curf->format(1), '1 X$', 'space pre-currency (L)';
+$curf->pattern('¤0'); is $curf->format(1), 'X$1', 'no space post-currency (Sc)';
+$curf->currency_sign('$X');
+$curf->pattern('0¤'); is $curf->format(1), '1$X', 'no space pre-currency (Sc)';
+$curf->pattern('¤0'); is $curf->format(1), '$X 1', 'space post-currency (L)';

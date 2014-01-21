@@ -114,17 +114,11 @@ $curf = $cldr->currency_formatter(currency_code => 'USD');
 $curf->locale('lg');
 is $curf->currency_sign, 'US$',       'expected currency sign';
 is $curf->pattern,       '#,##0.00¤', 'expected pattern';
-TODO: {
-    local $TODO = 'currency spacing NYI';
-    is $curf->format(1), '1.00 US$',  'currency spacing inserted';
-}
+is $curf->format(1),     '1.00 US$',  'currency spacing inserted';
 $curf->locale('aa');
 is $curf->currency_sign, 'US$',       'expected currency sign';
 is $curf->pattern,       '¤#,##0.00', 'expected pattern';
 is $curf->format(1),     'US$1.00',   'no currency spacing inserted';
 $curf->currency_code('RUR');
-$curf->locale('ru'); is $curf->format(1234.57), '1 234,57 р.', 'RUR in ru';
-TODO: {
-    local $TODO = 'currency spacing NYI';
-    $curf->locale('en'); is $curf->format(1234.57), 'RUR 1,234.57', 'RUR in en';
-}
+$curf->locale('ru'); is $curf->format(1234.57), '1 234,57 р.',  'RUR in ru';
+$curf->locale('en'); is $curf->format(1234.57), 'RUR 1,234.57', 'RUR in en';

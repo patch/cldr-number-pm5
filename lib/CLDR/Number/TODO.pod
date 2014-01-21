@@ -10,8 +10,6 @@ CLDR::Number::TODO - TODO document for CLDR::Number
 
 =over
 
-=item * currency spacing rules
-
 =item * non-Latin (C<latn>) numbering systems (C<thai>, C<geor>, C<hant>, etc.)
 
 =item * default numbering systems
