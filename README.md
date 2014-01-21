@@ -6,7 +6,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 # VERSION
 
-This document describes CLDR::Number v0.03, built with the Unicode CLDR v24.
+This document describes CLDR::Number v0.04, built with the Unicode CLDR v24.
 This is an early release without full documentation. See [CLDR::Number::TODO](https://metacpan.org/pod/CLDR::Number::TODO).
 
 # SYNOPSIS
@@ -131,8 +131,8 @@ expected to be character strings, not encoded byte strings.
 
 # NOTES
 
-The Unicode private-use characters U+F8F0–U+F8F4 are used internally and are
-therefore not supported in custom patterns and signs.
+The Unicode private-use characters U+F8F0 through U+F8F4 are used internally and
+are therefore not supported in custom patterns and signs.
 
 # SEE ALSO
 

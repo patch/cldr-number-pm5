@@ -1,5 +1,14 @@
 Revision history for Perl module CLDR::Number
 
+v0.04 2014-01-21
+ - Implement currency spacing rules from CLDR spec: when a non-symbol character
+   in the currency sign would touch a digit, add a space between them,
+   e.g. CHF 1.99 instead of CHF1.99 [github #7]
+ - Use private-use characters U+F8F0–U+F8F4 internally as placeholders,
+   which makes them unavailable for use in patterns and signs [github #24]
+ - Add private module CLDR::Number::Constant to provide internal placeholder
+   variables [github #25]
+
 v0.03 2014-01-15
  - Handle uninitialized values as arguments to the format, at_least, and range
    methods by warning and returning undef [github #22]

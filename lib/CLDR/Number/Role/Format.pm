@@ -13,7 +13,7 @@ use CLDR::Number::Data::Base;
 # backward incompatible ways in the future. Please use one of the documented
 # classes instead.
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 requires qw( BUILD format );
 

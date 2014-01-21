@@ -7,7 +7,7 @@ use CLDR::Number::Constant qw( $C );
 use CLDR::Number::Data::Currency;
 use namespace::clean;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 with qw( CLDR::Number::Role::Format );
 
@@ -150,7 +150,7 @@ CLDR::Number::Format::Currency - Localized currency formatter using the Unicode 
 
 =head1 VERSION
 
-This document describes CLDR::Number::Format::Currency v0.03, built with the
+This document describes CLDR::Number::Format::Currency v0.04, built with the
 Unicode CLDR v24. This is an early release without full documentation. See
 L<CLDR::Number::TODO>.
 

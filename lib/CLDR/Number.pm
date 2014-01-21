@@ -3,7 +3,7 @@ package CLDR::Number;
 use utf8;
 use Moo;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 with qw( CLDR::Number::Role::Base );
 
@@ -50,7 +50,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.03, built with the Unicode CLDR v24.
+This document describes CLDR::Number v0.04, built with the Unicode CLDR v24.
 This is an early release without full documentation. See L<CLDR::Number::TODO>.
 
 =head1 SYNOPSIS
@@ -181,8 +181,8 @@ Unicode CLDR version.
 
 =head1 NOTES
 
-The Unicode private-use characters U+F8F0–U+F8F4 are used internally and are
-therefore not supported in custom patterns and signs.
+The Unicode private-use characters U+F8F0 through U+F8F4 are used internally and
+are therefore not supported in custom patterns and signs.
 
 =head1 SEE ALSO
 

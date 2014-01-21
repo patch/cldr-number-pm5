@@ -10,7 +10,7 @@ use CLDR::Number::Constant qw( $N $M $P $C );
 # backward incompatible ways in the future. Please use one of the documented
 # classes instead.
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 our $DATA = {
     root => {
