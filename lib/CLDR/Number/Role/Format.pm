@@ -378,7 +378,7 @@ sub at_least {
     my $pattern = $self->_get_data(patterns => 'atleast');
 
     if (!defined $num) {
-        carp 'Use of uninitialized value in at_least';
+        carp 'Use of uninitialized value in ', ref $self, '::at_least';
         return undef;
     }
 
@@ -394,7 +394,7 @@ sub range {
 
     for my $i (0, 1) {
         if (!defined $nums[$i]) {
-            carp 'Use of uninitialized value in range';
+            carp 'Use of uninitialized value in ', ref $self, '::range';
             return undef;
         }
 

@@ -42,7 +42,7 @@ sub format {
     my ($factor, $sign);
 
     if (!defined $num) {
-        carp 'Use of uninitialized value in format';
+        carp 'Use of uninitialized value in ', __PACKAGE__, '::format';
         return undef;
     }
 
