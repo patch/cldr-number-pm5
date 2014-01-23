@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 23;
+use Test::More tests => 27;
 use CLDR::Number;
 
 my $cldr = new_ok 'CLDR::Number' => [locale => 'zh'], 'CLDR::Number';
@@ -53,6 +53,10 @@ is $decf->format(5), '05.0',  'pattern spared by locale on create';
 my $perf = $cldr->percent_formatter;
 my $curf = $cldr->currency_formatter;
 
+ok !$cldr->can('has'),   'generator: has should not be inherited';
+ok !$decf->can('has'),   'decimal: has should not be inherited';
+ok !$perf->can('has'),   'percent: has should not be inherited';
+ok !$curf->can('has'),   'currency: has should not be inherited';
 ok !$cldr->can('croak'), 'generator: croak should not be inherited';
 ok !$decf->can('croak'), 'decimal: croak should not be inherited';
 ok !$perf->can('croak'), 'percent: croak should not be inherited';

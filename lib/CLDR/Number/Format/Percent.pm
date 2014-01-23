@@ -1,9 +1,10 @@
 package CLDR::Number::Format::Percent;
 
 use utf8;
-use Moo;
 use Carp;
 use CLDR::Number::Constant qw( $P );
+
+use Moo;
 use namespace::clean;
 
 our $VERSION = '0.04';

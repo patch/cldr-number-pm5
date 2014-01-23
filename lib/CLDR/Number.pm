@@ -1,7 +1,9 @@
 package CLDR::Number;
 
 use utf8;
+
 use Moo;
+use namespace::clean;
 
 our $VERSION = '0.04';
 

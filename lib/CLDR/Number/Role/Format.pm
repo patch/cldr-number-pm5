@@ -5,9 +5,10 @@ use Carp;
 use Scalar::Util qw( looks_like_number );
 use Math::BigFloat;
 use Math::Round;
-use Moo::Role;
 use CLDR::Number::Constant qw( $N $M $P $C $Q );
 use CLDR::Number::Data::Base;
+
+use Moo::Role;
 
 # This role does not have a publicly supported interface and may change in
 # backward incompatible ways in the future. Please use one of the documented

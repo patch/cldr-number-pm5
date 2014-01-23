@@ -1,8 +1,9 @@
 package CLDR::Number::Format::Decimal;
 
 use utf8;
-use Moo;
 use Carp;
+
+use Moo;
 use namespace::clean;
 
 our $VERSION = '0.04';

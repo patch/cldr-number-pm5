@@ -1,10 +1,11 @@
 package CLDR::Number::Format::Currency;
 
 use utf8;
-use Moo;
 use Carp;
 use CLDR::Number::Constant qw( $C );
 use CLDR::Number::Data::Currency;
+
+use Moo;
 use namespace::clean;
 
 our $VERSION = '0.04';
