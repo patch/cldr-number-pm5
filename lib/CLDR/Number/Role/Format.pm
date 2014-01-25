@@ -205,6 +205,23 @@ sub _trigger_pattern {
     $self->{pattern} = $canonical_pattern;
 }
 
+sub _validate_number {
+    my ($self, $method, $num) = @_;
+
+    if (!defined $num) {
+        carp qq[Use of uninitialized value in ${\ref $self}::$method];
+        return undef;
+    }
+
+    if (!looks_like_number $num) {
+        carp qq[Argument "$num" isn't numeric in ${\ref $self}::$method];
+        no warnings;
+        $num += 0;
+    }
+
+    return $num;
+}
+
 sub _format_number {
     my ($self, $num) = @_;
     my $negative = $num < 0;
@@ -378,10 +395,8 @@ sub at_least {
     my ($self, $num) = @_;
     my $pattern = $self->_get_data(patterns => 'atleast');
 
-    if (!defined $num) {
-        carp 'Use of uninitialized value in ', ref $self, '::at_least';
-        return undef;
-    }
+    $num = $self->_validate_number(at_least => $num);
+    return undef unless defined $num;
 
     $num = $self->format($num);
     $pattern =~ s{ \{ 0 \} }{$num}x;
@@ -394,13 +409,11 @@ sub range {
     my $pattern = $self->_get_data(patterns => 'range');
 
     for my $i (0, 1) {
-        if (!defined $nums[$i]) {
-            carp 'Use of uninitialized value in ', ref $self, '::range';
-            return undef;
-        }
+        my $num = $self->_validate_number(range => $nums[$i]);
+        return undef unless defined $num;
 
-        $nums[$i] = $self->format($nums[$i]);
-        $pattern =~ s{ \{ $i \} }{$nums[$i]}x;
+        $num = $self->format($num);
+        $pattern =~ s{ \{ $i \} }{$num}x;
     }
 
     return $pattern;

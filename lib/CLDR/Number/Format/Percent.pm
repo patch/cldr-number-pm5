@@ -42,10 +42,8 @@ sub format {
     my ($self, $num) = @_;
     my ($factor, $sign);
 
-    if (!defined $num) {
-        carp 'Use of uninitialized value in ', __PACKAGE__, '::format';
-        return undef;
-    }
+    $num = $self->_validate_number(format => $num);
+    return undef unless defined $num;
 
     if ($self->permil) {
         $factor = 1_000;

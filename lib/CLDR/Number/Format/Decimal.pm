@@ -34,10 +34,8 @@ sub BUILD {}
 sub format {
     my ($self, $num) = @_;
 
-    if (!defined $num) {
-        carp 'Use of uninitialized value in ', __PACKAGE__, '::format';
-        return undef;
-    }
+    $num = $self->_validate_number(format => $num);
+    return undef unless defined $num;
 
     return $self->_format_number($num);
 }
