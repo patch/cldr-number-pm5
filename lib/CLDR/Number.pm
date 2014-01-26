@@ -5,7 +5,7 @@ use utf8;
 use Moo;
 use namespace::clean;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 with qw( CLDR::Number::Role::Base );
 
@@ -52,8 +52,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.04, built with the Unicode CLDR v24.
-This is an early release without full documentation. See L<CLDR::Number::TODO>.
+This document describes CLDR::Number v0.05, built with Unicode CLDR v24.
 
 =head1 SYNOPSIS
 
@@ -189,6 +188,8 @@ are therefore not supported in custom patterns and signs.
 =head1 SEE ALSO
 
 =over
+
+=item * L<CLDR::Number::TODO>
 
 =item * L<UTS #35: Unicode LDML, Part 3: Numbers|http://www.unicode.org/reports/tr35/tr35-numbers.html>
 

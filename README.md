@@ -6,8 +6,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 # VERSION
 
-This document describes CLDR::Number v0.04, built with the Unicode CLDR v24.
-This is an early release without full documentation. See [CLDR::Number::TODO](https://metacpan.org/pod/CLDR::Number::TODO).
+This document describes CLDR::Number v0.05, built with Unicode CLDR v24.
 
 # SYNOPSIS
 
@@ -136,6 +135,7 @@ are therefore not supported in custom patterns and signs.
 
 # SEE ALSO
 
+- [CLDR::Number::TODO](https://metacpan.org/pod/CLDR::Number::TODO)
 - [UTS #35: Unicode LDML, Part 3: Numbers](http://www.unicode.org/reports/tr35/tr35-numbers.html)
 - [CLDR Translation Guidelines: Number Patterns](http://cldr.unicode.org/translation/number-patterns)
 - [CLDR Translation Guidelines: Number Symbols](http://cldr.unicode.org/translation/number-symbols)
