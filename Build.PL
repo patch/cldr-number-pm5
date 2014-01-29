@@ -11,6 +11,7 @@ my $builder = Module::Build->new(
     },
     build_requires => {
         'open'            => 0,
+        'English'         => 0,
         'Pod::Man'        => '2.04',
         'Test::Exception' => '0.22',
         'Test::More'      => '0.82',
