@@ -1,5 +1,6 @@
 package CLDR::Number::Role::Format;
 
+use v5.8.1;
 use utf8;
 use Carp;
 use Scalar::Util qw( looks_like_number );

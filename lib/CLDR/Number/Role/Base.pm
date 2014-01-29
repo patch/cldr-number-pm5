@@ -1,5 +1,6 @@
 package CLDR::Number::Role::Base;
 
+use v5.8.1;
 use utf8;
 use Carp;
 use CLDR::Number::Data::Base;

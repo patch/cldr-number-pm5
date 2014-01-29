@@ -1,5 +1,6 @@
 package CLDR::Number::Data::Base;
 
+use v5.8.1;
 use utf8;
 use strict;
 use warnings;

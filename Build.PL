@@ -10,6 +10,7 @@ my $builder = Module::Build->new(
         'Module::Build' => '0.3622',
     },
     build_requires => {
+        'open'            => 0,
         'Pod::Man'        => '2.04',
         'Test::Exception' => '0.22',
         'Test::More'      => '0.82',
