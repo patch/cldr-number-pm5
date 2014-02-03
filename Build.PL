@@ -35,9 +35,9 @@ my $builder = Module::Build->new(
     },
     meta_merge => {
         resources => {
-            repository => 'git://github.com/perl-cldr/cldr-number-perl5.git',
-            homepage   => 'https://github.com/perl-cldr/cldr-number-perl5',
-            bugtracker => 'https://github.com/perl-cldr/cldr-number-perl5/issues',
+            repository => 'git://github.com/perl-cldr/cldr-number-pm5.git',
+            homepage   => 'https://github.com/perl-cldr/cldr-number-pm5',
+            bugtracker => 'https://github.com/perl-cldr/cldr-number-pm5/issues',
         },
     },
 );
