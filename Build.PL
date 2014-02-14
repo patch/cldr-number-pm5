@@ -7,7 +7,8 @@ my $builder = Module::Build->new(
     license       => 'Perl_5',
     create_readme => 1,
     configure_requires => {
-        'Module::Build' => '0.3622',
+        'Module::Build'     => '0.3622',
+        'Software::License' => 0,
     },
     build_requires => {
         'open'            => 0,
