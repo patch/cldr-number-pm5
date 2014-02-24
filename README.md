@@ -135,6 +135,7 @@ are therefore not supported in custom patterns and signs.
 
 # SEE ALSO
 
+- [CLDR::Number::FAQ](https://metacpan.org/pod/CLDR::Number::FAQ)
 - [CLDR::Number::TODO](https://metacpan.org/pod/CLDR::Number::TODO)
 - [UTS #35: Unicode LDML, Part 3: Numbers](http://www.unicode.org/reports/tr35/tr35-numbers.html)
 - [CLDR Translation Guidelines: Number Patterns](http://cldr.unicode.org/translation/number-patterns)

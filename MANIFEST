@@ -4,6 +4,7 @@ lib/CLDR/Number.pm
 lib/CLDR/Number/Constant.pm
 lib/CLDR/Number/Data/Base.pm
 lib/CLDR/Number/Data/Currency.pm
+lib/CLDR/Number/FAQ.pod
 lib/CLDR/Number/Format/Currency.pm
 lib/CLDR/Number/Format/Decimal.pm
 lib/CLDR/Number/Format/Percent.pm

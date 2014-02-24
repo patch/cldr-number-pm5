@@ -1,0 +1,23 @@
+=encoding UTF-8
+
+=head1 NAME
+
+CLDR::Number::FAQ - FAQ document for CLDR::Number
+
+=head1 VERSION
+
+This document describes CLDR::Number v0.05, built with Unicode CLDR v24.
+
+=head1 FAQ
+
+=over
+
+=item What’s that status of this project?
+
+=item How do I set precision?
+
+=item How do I remove cents?
+
+=item How do I set a default currency?
+
+=back

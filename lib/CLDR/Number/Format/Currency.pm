@@ -253,6 +253,8 @@ C<0> and C<1> are treated the same.
 
 =item * L<CLDR::Number>
 
+=item * L<CLDR::Number::FAQ>
+
 =item * L<CLDR::Number::TODO>
 
 =item * L<CLDR Translation Guidelines: Currency Symbols|http://cldr.unicode.org/translation/currency-names>
