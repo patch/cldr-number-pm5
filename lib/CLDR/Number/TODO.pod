@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-CLDR::Number::TODO - TODO document for CLDR::Number
+CLDR::Number::TODO - TODO for CLDR::Number
 
 =head1 VERSION
 
@@ -61,6 +61,8 @@ This document describes CLDR::Number v0.05, built with Unicode CLDR v24.
 =head1 SEE ALSO
 
 =over
+
+=item * L<CLDR::Number::FAQ>
 
 =item * L<Issues for CLDR::Number on GitHub|https://github.com/perl-cldr/cldr-number-pm5/issues>
 

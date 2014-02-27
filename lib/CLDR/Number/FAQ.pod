@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-CLDR::Number::FAQ - FAQ document for CLDR::Number
+CLDR::Number::FAQ - FAQ for CLDR::Number
 
 =head1 VERSION
 
@@ -12,12 +12,43 @@ This document describes CLDR::Number v0.05, built with Unicode CLDR v24.
 
 =over
 
-=item What’s that status of this project?
+=item What’s the status of this project?
+
+L<CLDR::Number> is a stable project used in production by Shutterstock on
+L<www.shutterstock.com> for formatting numbers, percents, and prices in twenty
+languages, ten currencies, and myriad countries.
 
 =item How do I set precision?
 
+The attributes C<minimum_fraction_digits> and C<maximum_fraction_digits> can be
+used. If you always want a specific number of fraction digits, also known as
+I<precision>, set both of these attributes to the same number.
+
 =item How do I remove cents?
 
+When displaying whole monetary numbers, it is sometimes desired to leave off the
+fraction digits (e.g. cents) for marketing purposes. To do this, set the
+C<maximum_fraction_digits> attribute to `0`. Beware though that some currencies
+have a number of fraction digits other than two, so it is not safe to set
+C<minimum_fraction_digits> and C<maximum_fraction_digits> to `2` for arbitrary
+currencies.
+
 =item How do I set a default currency?
+
+L<CLDR::Number::Format::Currency> does not provide a default currency for the
+C<currency_code> attribute like we have for the C<locale> attribute nor does it
+provide a I<default_currency_code> attribute like the C<default_locale>
+attribute. This is because a price without a known currency has no known value.
+Setting a default currency is just as inaccurate as setting a default number. If
+your application depends on a default currency, the C<currency_code> attribute
+can be explicitly set.
+
+=back
+
+=head1 SEE ALSO
+
+=over
+
+=item * L<CLDR::Number::TODO>
 
 =back
