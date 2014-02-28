@@ -1,5 +1,9 @@
 Revision history for Perl module CLDR::Number
 
+v0.06 2014-02-28
+ - Improve documentation
+ - Add FAQ
+
 v0.05 2014-01-26
  - Validate numeric arguments to methods in the same way as core Perl functions:
    warn on non-numeric values and use the leading numeric portion when
