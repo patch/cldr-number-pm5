@@ -53,10 +53,10 @@ use with many of the world’s locales.
 
 This class provides common attributes shared among the supported formatter
 classes as well as methods to instantiate decimal, percent, and currency
-formatter objects. The value for any attribute (such as `locale`) will be
-passed to the formatter objects on instantiation but can be overwritten by
-manually passing another value for the attribute or calling a setter method on
-the formatter object.
+formatter objects. The value for any attribute (such as __locale__ or
+__decimal\_sign__) will be passed to the formatter objects on instantiation but
+can be overwritten by manually passing another value for the attribute or
+calling a setter method on the formatter object.
 
 ## Methods
 
@@ -80,14 +80,16 @@ the formatter object.
 
 ## Common Attributes
 
-Common attributes among all formatter objects. All string attributes are
-expected to be character strings, not encoded byte strings.
+These are common attributes among this class and all formatter classes. All
+attributes other than __locale__, __default\_locale__, and __cldr\_version__ have
+defaults that change depending on the current __locale__. All string attributes
+are expected to be character strings, not byte strings.
 
 - locale
 
-    Default: value of `default_locale` attribute if exists, otherwise `root`
+    Default: value of __default\_locale__ attribute if it exists, otherwise `root`
 
-    Valid: _Unicode locale identifier_
+    Valid: Unicode locale identifiers
 
     Examples: `es` (Spanish), `es-ES` (European Spanish), `es-419` (Latin
     American Spanish), `zh-Hant` (Traditional Chinese), `zh-Hans` (Simplified
@@ -98,28 +100,28 @@ expected to be character strings, not encoded byte strings.
 
 - default\_locale
 
-    Default: _none_
+    Default: none
 
-    Valid: _Unicode locale identifier_
+    Valid: Unicode locale identifiers
 
-    Use this if you want a locale other than the generic `root` if the `locale`
+    Use this if you want a locale other than the generic `root` if the __locale__
     attribute is not set or not valid.
 
 - decimal\_sign
 
-    Default: `.` when `root` locale
+    Examples: `.` (full stop) for __root__, __en__; `,` (comma) for __de__, __fr__
 
 - group\_sign
 
-    Default: `,` when `root` locale
+    Examples: `,` (comma) for __root__, __en__; `.` (full stop) for __de__; ` ` (no-break space) for __fr__
 
 - plus\_sign
 
-    Default: `+` when `root` locale
+    Examples: `+` (plus sign) for __root__, __en__, and most locales
 
 - minus\_sign
 
-    Default: `-` when `root` locale
+    Examples: `-` (hyphen-minus) for __root__, __en__, and most locales
 
 - cldr\_version
 

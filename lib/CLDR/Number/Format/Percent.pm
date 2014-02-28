@@ -107,15 +107,19 @@ Localized percent formatter using the Unicode Common Locale Data Repository
 =item format
 
 Accepts a number and returns a formatted percent as a character string,
-localized with the current C<locale>. If the C<permil> attribute is true,
-returns I<per mil> instead of I<percent>.
+localized for the current locale. If the B<permil> attribute is true, formats as
+I<per mil> instead of I<percent>.
 
 =back
 
 =head2 Attributes
 
-All string attributes are expected to be character strings. See also the
-L<common attributes in CLDR::Number|CLDR::Number/"Common Attributes">.
+The common attributes B<locale>, B<default_locale>, B<decimal_sign>,
+B<group_sign>, B<plus_sign>, B<minus_sign>, and B<cldr_version> are described
+under L<common attributes in CLDR::Number|CLDR::Number/"Common Attributes">. All
+attributes described here other than B<permil> have defaults that change
+depending on the current B<locale>. All string attributes are expected to be
+character strings, not byte strings.
 
 =over
 
@@ -125,43 +129,46 @@ Default: false (C<0>)
 
 =item percent_sign
 
-Default: C<%> when C<root> locale
+Examples: C<%> (percent sign) for all locales
 
 =item permil_sign
 
-Default: C<‰> when C<root> locale
+Examples: C<‰> (per mille sign) for B<root> and almost all locales
 
 =item pattern
 
-Default: C<#,##0%> when C<root> locale
+Examples: C<#,##0%> for B<root>, B<en>; C<#,##0 %> for B<de>, B<fr>;
+C<#,##,##0%> for B<hi>, B<bn>, B<en-IN>, and other locales of the Indian
+subcontinent
 
 =item minimum_integer_digits
 
-Default: C<1> when C<root> locale
+Examples: C<1> for all locales
 
 =item minimum_fraction_digits
 
-Default: C<0> when C<root> locale
+Examples: C<0> for all locales
 
 =item maximum_fraction_digits
 
-Default: C<0> when C<root> locale
+Examples: C<0> for all locales
 
 =item primary_grouping_size
 
-Default: C<3> when C<root> locale
+Examples: C<3> for B<root> and almost all locales
 
 Not used when value is C<0>.
 
 =item secondary_grouping_size
 
-Default: C<0> when C<root> locale
+Examples: C<0> for B<root>, B<en>, and most locales; C<2> for B<hi>, B<bn>,
+B<en-IN>, and other locales of the Indian subcontinent
 
 Not used when value is C<0>.
 
 =item rounding_increment
 
-Default: C<0> when C<root> locale
+Examples: C<0> for all locales
 
 C<0> and C<1> are treated the same.
 

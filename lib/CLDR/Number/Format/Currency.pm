@@ -187,61 +187,86 @@ Localized currency formatter using the Unicode Common Locale Data Repository
 =item format
 
 Accepts a number and returns a formatted currency value as a character string,
-using the currency from the C<currency_code> attribute and localized with the
-current C<locale>.
+using the currency from the B<currency_code> attribute and localized for the
+current locale.
 
 =back
 
 =head2 Attributes
 
-All string attributes are expected to be character strings. See also the
-L<common attributes in CLDR::Number|CLDR::Number/"Common Attributes">.
+The common attributes B<locale>, B<default_locale>, B<decimal_sign>,
+B<group_sign>, B<plus_sign>, B<minus_sign>, and B<cldr_version> are described
+under L<common attributes in CLDR::Number|CLDR::Number/"Common Attributes">. All
+attributes described here other than B<currency_code> and B<cash> have defaults
+that change depending on the current B<locale>. The attributes B<currency_sign>,
+B<minimum_fraction_digits>, B<maximum_fraction_digits>, and
+B<rounding_increment> also change depending on the B<currency_code> and B<cash>
+values. All string attributes are expected to be character strings, not byte
+strings.
 
 =over
 
 =item currency_code
 
-Default: I<none>
+Default: none
+
+Valid: ISO 4217 3-letter alphabetic currency codes
+
+Examples: C<EUR> (Euro), C<USD> (US Dollar), C<JPY> (Japanese Yen)
+
+The currency code is case-insensitive and is required in order to call the
+B<format> method, but not required to instantiate this formatter object.
 
 =item currency_sign
 
-Default: I<none>
+Default: based on both B<locale> and B<currency_code>
+
+Examples: C<US$> for B<root>, B<en-CA> with B<USD>; C<$> for B<en>, B<de> with
+B<USD>; C<$US> for B<fr> with B<USD>; C<USD> for B<es-MX> with B<USD>
 
 =item cash
 
 Default: false (C<0>)
 
+Formatting for cash can be different for some currencies. Setting B<cash> to
+true (C<1>) enables cash formatting when different from standard formatting.
+
 =item pattern
 
-Default: C<¤ #,##0.00> when C<root> locale
+Examples: C<¤ #,##0.00> for B<root>; C<¤#,##0.00> for B<en>; C<#,##0.00 ¤> for
+B<de>, B<fr>; C<¤#,##0.00;(¤#,##0.00)> for B<ko>; and many other variations for
+different locales
 
 =item minimum_integer_digits
 
-Default: C<1> when C<root> locale
+Examples: C<1> for all locales
 
 =item minimum_fraction_digits
 
-Default: C<2> when C<root> locale
+Examples: C<2> for most currencies; C<3> for B<BHD>; C<0> for B<JPY> or for
+B<TWD> when B<cash> is true
 
 =item maximum_fraction_digits
 
-Default: C<2> when C<root> locale
+Examples: C<2> for most currencies; C<3> for B<BHD>; C<0> for B<JPY> or for
+B<TWD> when B<cash> is true
 
 =item primary_grouping_size
 
-Default: C<3> when C<root> locale
+Examples: C<3> for B<root> and almost all locales
 
 Not used when value is C<0>.
 
 =item secondary_grouping_size
 
-Default: C<0> when C<root> locale
+Examples: C<0> for B<root>, B<en>, and most locales; C<2> for B<hi>, B<bn>,
+B<en-IN>, and other locales of the Indian subcontinent
 
 Not used when value is C<0>.
 
 =item rounding_increment
 
-Default: C<0> when C<root> locale
+Examples: C<0> for all currencies; C<5> for B<CAD>, B<CHF> when B<cash> is true
 
 C<0> and C<1> are treated the same.
 

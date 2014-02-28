@@ -85,8 +85,8 @@ All methods return character strings, not encoded byte strings.
 
 =item format
 
-Accepts a number and returns a formatted decimal, localized with the current
-C<locale>.
+Accepts a number and returns a formatted decimal, localized for the current
+locale.
 
 =item at_least
 
@@ -105,52 +105,59 @@ Accepts two numbers and returns a formatted range of decimals.
 
 =head2 Attributes
 
-All string attributes are expected to be character strings. See also the
-L<common attributes in CLDR::Number|CLDR::Number/"Common Attributes">.
+The common attributes B<locale>, B<default_locale>, B<decimal_sign>,
+B<group_sign>, B<plus_sign>, B<minus_sign>, and B<cldr_version> are described
+under L<common attributes in CLDR::Number|CLDR::Number/"Common Attributes">. All
+attributes described here have defaults that change depending on the current
+B<locale>. All string attributes are expected to be character strings, not byte
+strings.
 
 =over
 
 =item pattern
 
-Default: C<#,##0.###> when C<root> locale
+Examples: C<#,##0.###> for B<root>, B<en>, and most locales; C<#,##,##0.###> for
+B<hi>, B<bn>, B<en-IN>, and other locales of the Indian subcontinent
 
 =item minimum_integer_digits
 
-Default: C<1> when C<root> locale
+Examples: C<1> for all locales
 
 =item minimum_fraction_digits
 
-Default: C<0> when C<root> locale
+Examples: C<0> for all locales
 
 =item maximum_fraction_digits
 
-Default: C<3> when C<root> locale
+Examples: C<3> for B<root> and almost all locales
 
 =item primary_grouping_size
 
-Default: C<3> when C<root> locale
+Examples: C<3> for B<root> and almost all locales
 
 Not used when value is C<0>.
 
 =item secondary_grouping_size
 
-Default: C<0> when C<root> locale
+Examples: C<0> for B<root>, B<en>, and most locales; C<2> for B<hi>, B<bn>,
+B<en-IN>, and other locales of the Indian subcontinent
 
 Not used when value is C<0>.
 
 =item rounding_increment
 
-Default: C<0> when C<root> locale
+Examples: C<0> for all locales
 
 C<0> and C<1> are treated the same.
 
 =item infinity
 
-Default: C<∞> when C<root> locale
+Examples: C<∞> (infinity) for B<root>, B<en>, and almost all locales
 
 =item nan
 
-Default: C<NaN> when C<root> locale
+Examples: C<NaN> for B<root>, B<en>, and most locales; many other variations for
+individual locales like C<не число> for B<ru> and C<非數值> for B<zh-Hant>
 
 =back
 

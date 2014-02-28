@@ -10,14 +10,6 @@ This document describes CLDR::Number v0.05, built with Unicode CLDR v24.
 
 =head1 TODO
 
-=head2 General
-
-=over
-
-=item * improve documentation
-
-=back
-
 =head2 Specification
 
 =over

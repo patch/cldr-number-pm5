@@ -28,9 +28,9 @@ I<precision>, set both of these attributes to the same number.
 
 When displaying whole monetary numbers, it is sometimes desired to leave off the
 fraction digits (e.g. cents) for marketing purposes. To do this, set the
-C<maximum_fraction_digits> attribute to `0`. Beware though that some currencies
+C<maximum_fraction_digits> attribute to C<0>. Beware though that some currencies
 have a number of fraction digits other than two, so it is not safe to set
-C<minimum_fraction_digits> and C<maximum_fraction_digits> to `2` for arbitrary
+C<minimum_fraction_digits> and C<maximum_fraction_digits> to C<2> for arbitrary
 currencies.
 
 =item How do I set a default currency?
@@ -42,6 +42,14 @@ attribute. This is because a price without a known currency has no known value.
 Setting a default currency is just as inaccurate as setting a default number. If
 your application depends on a default currency, the C<currency_code> attribute
 can be explicitly set.
+
+“B<Note:> I<Currency values should B<never> be interchanged without a known
+currency code. You never want the number 3.5 interpreted as $3.5 by one user and
+¥3.5 by another.> Locale data contains localization information for currencies,
+not a currency value for a country. A currency amount logically consists of a
+numeric value, plus an accompanying currency code (or equivalent).” —L<Unicode
+Technical Standard #35
+|http://www.unicode.org/reports/tr35/tr35-numbers.html#Currencies>
 
 =back
 
