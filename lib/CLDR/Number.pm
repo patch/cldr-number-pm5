@@ -158,6 +158,20 @@ Valid: Unicode locale identifiers
 Use this if you want a locale other than the generic C<root> if the B<locale>
 attribute is not set or not valid.
 
+=item numbering_system
+
+Default: C<latn> (until default numbering systems are supported)
+
+Valid: currently only decimal numbering systems are supported
+
+Examples: C<latn> (Western Digits), C<arab> (Arabic-Indic Digits), C<hanidec>
+(Chinese Decimal Numerals), C<fullwide> (Full Width Digits)
+
+Default numbering systems for locales are not yet supported, so for systems
+other than C<latn>, B<numbering_system> must be explicitly set. In the future,
+algorithmic numbering systems like C<hant> (Traditional Chinese Numerals),
+C<hebr> (Hebrew Numerals), and C<roman> (Roman Numerals) will be supported.
+
 =item decimal_sign
 
 Examples: C<.> (full stop) for B<root>, B<en>; C<,> (comma) for B<de>, B<fr>

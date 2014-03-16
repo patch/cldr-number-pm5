@@ -105,12 +105,12 @@ Accepts two numbers and returns a formatted range of decimals.
 
 =head2 Attributes
 
-The common attributes B<locale>, B<default_locale>, B<decimal_sign>,
-B<group_sign>, B<plus_sign>, B<minus_sign>, and B<cldr_version> are described
-under L<common attributes in CLDR::Number|CLDR::Number/"Common Attributes">. All
-attributes described here have defaults that change depending on the current
-B<locale>. All string attributes are expected to be character strings, not byte
-strings.
+The common attributes B<locale>, B<default_locale>, B<numbering_system>,
+B<decimal_sign>, B<group_sign>, B<plus_sign>, B<minus_sign>, and B<cldr_version>
+are described under L<common attributes in
+CLDR::Number|CLDR::Number/"Common Attributes">. All attributes described here
+have defaults that change depending on the current B<locale>. All string
+attributes are expected to be character strings, not byte strings.
 
 =over
 

@@ -107,6 +107,20 @@ are expected to be character strings, not byte strings.
     Use this if you want a locale other than the generic `root` if the __locale__
     attribute is not set or not valid.
 
+- numbering\_system
+
+    Default: `latn` (until default numbering systems are supported)
+
+    Valid: currently only decimal numbering systems are supported
+
+    Examples: `latn` (Western Digits), `arab` (Arabic-Indic Digits), `hanidec`
+    (Chinese Decimal Numerals), `fullwide` (Full Width Digits)
+
+    Default numbering systems for locales are not yet supported, so for systems
+    other than `latn`, __numbering\_system__ must be explicitly set. In the future,
+    algorithmic numbering systems like `hant` (Traditional Chinese Numerals),
+    `hebr` (Hebrew Numerals), and `roman` (Roman Numerals) will be supported.
+
 - decimal\_sign
 
     Examples: `.` (full stop) for __root__, __en__; `,` (comma) for __de__, __fr__

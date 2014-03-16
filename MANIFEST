@@ -4,6 +4,7 @@ lib/CLDR/Number.pm
 lib/CLDR/Number/Constant.pm
 lib/CLDR/Number/Data/Base.pm
 lib/CLDR/Number/Data/Currency.pm
+lib/CLDR/Number/Data/System.pm
 lib/CLDR/Number/FAQ.pod
 lib/CLDR/Number/Format/Currency.pm
 lib/CLDR/Number/Format/Decimal.pm
@@ -25,6 +26,7 @@ t/from_uts35.t
 t/inheritance.t
 t/locales.t
 t/minmax_digits.t
+t/numbering_system.t
 t/objects.t
 t/pattern_coerce.t
 t/pattern_trigger.t

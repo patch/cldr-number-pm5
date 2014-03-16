@@ -14,9 +14,9 @@ This document describes CLDR::Number v0.06_1, built with Unicode CLDR v24.
 
 =over
 
-=item * non-Latin (C<latn>) numbering systems (C<thai>, C<geor>, C<hant>, etc.)
-
 =item * default numbering systems
+
+=item * algorithmic numbering systems (C<hant>, C<hebr>, C<roman>, etc.)
 
 =item * other numbering systems (C<native>, C<traditional>, C<finance>)
 

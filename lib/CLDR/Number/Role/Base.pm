@@ -4,6 +4,7 @@ use v5.8.1;
 use utf8;
 use Carp;
 use CLDR::Number::Data::Base;
+use CLDR::Number::Data::System;
 
 use Moo::Role;
 
@@ -47,6 +48,26 @@ has default_locale => (
 
         return;
     },
+);
+
+has numbering_system => (
+    is     => 'rw',
+    coerce => sub {
+        my ($system) = @_;
+
+        if (!defined $system) {
+            carp 'numbering_system is not defined';
+        }
+        elsif (!exists $CLDR::Number::Data::System::DATA->{lc $system}) {
+            carp "numbering_system '$system' is unknown";
+        }
+        else {
+            return lc $system;
+        }
+
+        return 'latn';
+    },
+    default => 'latn',
 );
 
 # TODO: length NYI
