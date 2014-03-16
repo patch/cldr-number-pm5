@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 25;
+use Test::More tests => 26;
 use Test::Warn;
 use CLDR::Number;
 
@@ -33,6 +33,13 @@ is $cldr->locale, 'fr', 'allow trailing underscore and remove';
 # BCP 47 conversion
 $cldr->locale('und');
 is $cldr->locale, 'root', 'und → root';
+
+# Unicode locale extensions
+TODO: {
+    local $TODO = 'Unicode locale extensions not currently retained';
+    $cldr->locale('ja-u-nu-fullwide-cu-jpy');
+    is $cldr->locale, 'ja-u-cu-jpy-nu-fullwide', 'sort keywords';
+};
 
 # defaults
 $cldr = CLDR::Number->new;

@@ -2,11 +2,23 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 49;
+use Test::More tests => 50;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new;
 my ($decf, $perf, $scif, $curf);
+
+# Tests adapted from examples in:
+# UTS #35: Unicode LDML, Part 1: Core
+# http://www.unicode.org/reports/tr35/tr35.html
+
+TODO: {
+    local $TODO = 'Unicode locale extensions not currently retained';
+
+    # 3.7 Unicode BCP 47 Extension Data
+    $cldr->locale('th-u-foo-bar-nu-thai-ca-buddhist');
+    is $cldr->locale, 'th-u-bar-foo-ca-buddhist-nu-thai', 'sort attributes & keywords';
+};
 
 # Tests adapted from examples in:
 # UTS #35: Unicode LDML, Part 3: Numbers
