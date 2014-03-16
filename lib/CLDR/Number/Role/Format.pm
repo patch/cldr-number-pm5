@@ -281,11 +281,11 @@ sub _format_number {
     }
 
     if ($self->numbering_system ne 'latn') {
-        my @digits = split //, $CLDR::Number::Data::System::DATA->{
+        my $digits = $CLDR::Number::Data::System::DATA->{
             $self->numbering_system
         };
 
-        $num_format =~ s{ ( [0-9] ) }{$digits[$1]}xg;
+        $num_format =~ s{ ( [0-9] ) }{$digits->[$1]}xg;
     }
 
     my $format = do { if ($negative) {
