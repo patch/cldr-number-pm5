@@ -172,6 +172,11 @@ other than C<latn>, B<numbering_system> must be explicitly set. In the future,
 algorithmic numbering systems like C<hant> (Traditional Chinese Numerals),
 C<hebr> (Hebrew Numerals), and C<roman> (Roman Numerals) will be supported.
 
+The numbering system may alternately be provided as a Unicode locale extension
+subtag. For example, locale C<ja-u-nu-fullwide> for the Japanese language
+(C<ja>) with the numbering system (C<nu>) set to Full Width Digits
+(C<fullwide>).
+
 =item decimal_sign
 
 Examples: C<.> (full stop) for B<root>, B<en>; C<,> (comma) for B<de>, B<fr>

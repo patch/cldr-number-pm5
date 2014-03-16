@@ -121,6 +121,11 @@ are expected to be character strings, not byte strings.
     algorithmic numbering systems like `hant` (Traditional Chinese Numerals),
     `hebr` (Hebrew Numerals), and `roman` (Roman Numerals) will be supported.
 
+    The numbering system may alternately be provided as a Unicode locale extension
+    subtag. For example, locale `ja-u-nu-fullwide` for the Japanese language
+    (`ja`) with the numbering system (`nu`) set to Full Width Digits
+    (`fullwide`).
+
 - decimal\_sign
 
     Examples: `.` (full stop) for __root__, __en__; `,` (comma) for __de__, __fr__

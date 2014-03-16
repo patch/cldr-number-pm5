@@ -162,13 +162,18 @@ sub _trigger_locale {
     }
     elsif ($self->default_locale) {
         $locale = $self->default_locale;
+        ($lang, $script, $region, $ext) = _split_locale($locale);
         $self->_locale_inheritance(
-            _build_inheritance( _split_locale($locale) )
+            _build_inheritance($lang, $script, $region, $ext)
         );
     }
     else {
         $locale = 'root';
         $self->_locale_inheritance( [$locale] );
+    }
+
+    if ($ext && $ext =~ m{ -nu- ( [^-]+ ) }x) {
+        $self->numbering_system($1);
     }
 
     $self->{locale} = $locale;

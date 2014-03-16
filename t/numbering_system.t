@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 15;
+use Test::More tests => 17;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new(locale => 'en');
@@ -33,3 +33,8 @@ is $curf->numbering_system, 'thai', 'set numbering system to thai (currency)';
 is $decf->format(1234.09), '๑,๒๓๔.๐๙',  'format in thai (decimal)';
 is $perf->format(1234.09), '๑๒๓,๔๐๙%',  'format in thai (percent)';
 is $curf->format(1234.09), '$๑,๒๓๔.๐๙', 'format in thai (currency)';
+
+$cldr->locale('en-u-nu-latn');
+is $cldr->numbering_system, 'latn', 'set numbering system to latn via locale';
+$cldr->locale('en-u-nu-thai');
+is $cldr->numbering_system, 'thai', 'set numbering system to thai via locale';
