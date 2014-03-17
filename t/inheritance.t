@@ -11,7 +11,7 @@ $cldr->locale('ar-DZ');
 is $cldr->decimal_sign, ',', 'decimal directly from ar-DZ';
 
 $cldr->locale('ar-EG');
-is $cldr->decimal_sign, '.', 'decimal inherited from ar';
+is $cldr->decimal_sign, '٫', 'decimal inherited from ar';
 
 $cldr->locale('lu');
 is $cldr->decimal_sign, ',', 'decimal directly from lu';

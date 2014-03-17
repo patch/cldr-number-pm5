@@ -1,6 +1,7 @@
 use utf8;
 use strict;
 use warnings;
+use charnames qw( :full );
 use open qw( :encoding(UTF-8) :std );
 use Test::More tests => 60;
 use Test::Warn;
@@ -33,15 +34,11 @@ is $decf->format(5_000_000.05),     '5 000 000,05';
 is $decf->format(5_000_000_000.05), '5 000 000 000,05';
 is $decf->format(-50_000.05),       '-50 000,05';
 
-TODO: {
-    local $TODO = 'non-Latin scripts NYI';
-
-    $decf->locale('ar');
-    is $decf->format(-50.0),   '50-';
-    is $decf->format(-50_000), '50,000-';
-    is $decf->format(-50.05),  '50.05-';
-    is $decf->format(-.05),    '0.05-';
-}
+$decf->locale('ar');
+is $decf->format(-50.0),   "\N{RIGHT-TO-LEFT MARK}-٥٠";
+is $decf->format(-50_000), "\N{RIGHT-TO-LEFT MARK}-٥٠٬٠٠٠";
+is $decf->format(-50.05),  "\N{RIGHT-TO-LEFT MARK}-٥٠٫٠٥";
+is $decf->format(-.05),    "\N{RIGHT-TO-LEFT MARK}-٠٫٠٥";
 
 $decf->locale('en-IN');
 is $decf->format(1_23_456),    '1,23,456';

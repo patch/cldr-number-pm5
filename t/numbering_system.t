@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 21;
+use Test::More tests => 25;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new(locale => 'en');
@@ -39,11 +39,18 @@ is $cldr->numbering_system, 'latn', 'set numbering system to latn via locale';
 $cldr->locale('en-u-nu-thai');
 is $cldr->numbering_system, 'thai', 'set numbering system to thai via locale';
 
-$cldr->locale('ar');
-is $cldr->numbering_system, 'arab', 'default numbering system (ar)';
-$cldr->locale('ar-DZ');
-is $cldr->numbering_system, 'latn', 'default numbering system (ar-DZ)';
-$cldr->locale('uz');
-is $cldr->numbering_system, 'latn', 'default numbering system (uz)';
-$cldr->locale('uz-Arab');
-is $cldr->numbering_system, 'arabext', 'default numbering system (uz-Arab)';
+$decf->locale('ar');
+is $decf->numbering_system, 'arab',     'default numbering system (ar)';
+is $decf->format(1234.09),  '١٬٢٣٤٫٠٩', 'format in arab (ar)';
+
+$decf->locale('ar-DZ');
+is $decf->numbering_system, 'latn',     'default numbering system (ar-DZ)';
+is $decf->format(1234.09),  '1.234,09', 'format in latn (ar-DZ)';
+
+$decf->locale('uz');
+is $decf->numbering_system, 'latn',     'default numbering system (uz)';
+is $decf->format(1234.09),  '1 234,09', 'format in latn (uz)';
+
+$decf->locale('uz-Arab');
+is $decf->numbering_system, 'arabext',  'default numbering system (uz-Arab)';
+is $decf->format(1234.09),  '۱٬۲۳۴٫۰۹', 'format in arabext (uz-Arab)';
