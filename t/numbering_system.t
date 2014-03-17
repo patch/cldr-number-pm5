@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 17;
+use Test::More tests => 21;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new(locale => 'en');
@@ -38,3 +38,12 @@ $cldr->locale('en-u-nu-latn');
 is $cldr->numbering_system, 'latn', 'set numbering system to latn via locale';
 $cldr->locale('en-u-nu-thai');
 is $cldr->numbering_system, 'thai', 'set numbering system to thai via locale';
+
+$cldr->locale('ar');
+is $cldr->numbering_system, 'arab', 'default numbering system (ar)';
+$cldr->locale('ar-DZ');
+is $cldr->numbering_system, 'latn', 'default numbering system (ar-DZ)';
+$cldr->locale('uz');
+is $cldr->numbering_system, 'latn', 'default numbering system (uz)';
+$cldr->locale('uz-Arab');
+is $cldr->numbering_system, 'arabext', 'default numbering system (uz-Arab)';

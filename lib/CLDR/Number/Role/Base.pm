@@ -175,6 +175,11 @@ sub _trigger_locale {
     if ($ext && $ext =~ m{ -nu- ( [^-]+ ) }x) {
         $self->numbering_system($1);
     }
+    else {
+        $self->numbering_system(
+            $self->_get_data(system => 'default')
+        );
+    }
 
     $self->{locale} = $locale;
 

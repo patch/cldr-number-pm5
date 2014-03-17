@@ -160,17 +160,14 @@ attribute is not set or not valid.
 
 =item numbering_system
 
-Default: C<latn> (until default numbering systems are supported)
-
 Valid: currently only decimal numbering systems are supported
 
 Examples: C<latn> (Western Digits), C<arab> (Arabic-Indic Digits), C<hanidec>
 (Chinese Decimal Numerals), C<fullwide> (Full Width Digits)
 
-Default numbering systems for locales are not yet supported, so for systems
-other than C<latn>, B<numbering_system> must be explicitly set. In the future,
-algorithmic numbering systems like C<hant> (Traditional Chinese Numerals),
-C<hebr> (Hebrew Numerals), and C<roman> (Roman Numerals) will be supported.
+In the future, algorithmic numbering systems like C<hant> (Traditional Chinese
+Numerals), C<hebr> (Hebrew Numerals), and C<roman> (Roman Numerals) will be
+supported.
 
 The numbering system may alternately be provided as a Unicode locale extension
 subtag. For example, locale C<ja-u-nu-fullwide> for the Japanese language

@@ -109,17 +109,14 @@ are expected to be character strings, not byte strings.
 
 - numbering\_system
 
-    Default: `latn` (until default numbering systems are supported)
-
     Valid: currently only decimal numbering systems are supported
 
     Examples: `latn` (Western Digits), `arab` (Arabic-Indic Digits), `hanidec`
     (Chinese Decimal Numerals), `fullwide` (Full Width Digits)
 
-    Default numbering systems for locales are not yet supported, so for systems
-    other than `latn`, __numbering\_system__ must be explicitly set. In the future,
-    algorithmic numbering systems like `hant` (Traditional Chinese Numerals),
-    `hebr` (Hebrew Numerals), and `roman` (Roman Numerals) will be supported.
+    In the future, algorithmic numbering systems like `hant` (Traditional Chinese
+    Numerals), `hebr` (Hebrew Numerals), and `roman` (Roman Numerals) will be
+    supported.
 
     The numbering system may alternately be provided as a Unicode locale extension
     subtag. For example, locale `ja-u-nu-fullwide` for the Japanese language

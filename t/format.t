@@ -43,7 +43,7 @@ TODO: {
     is $decf->format(-.05),    '0.05-';
 }
 
-$decf->locale('bn');
+$decf->locale('en-IN');
 is $decf->format(1_23_456),    '1,23,456';
 is $decf->format(1_23_45_678), '1,23,45,678';
 
