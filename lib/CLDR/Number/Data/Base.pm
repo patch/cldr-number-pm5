@@ -15,14 +15,14 @@ our $VERSION = '0.06_1';
 
 our $DATA = {
     root => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -34,19 +34,19 @@ our $DATA = {
         },
     },
     aa => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     af => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -58,39 +58,39 @@ our $DATA = {
         },
     },
     'af-NA' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
         },
     },
     agq => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     ak => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
         },
     },
     am => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -102,14 +102,14 @@ our $DATA = {
         },
     },
     ar => {
-        patterns => {
-            atleast => '+{0}',
+        pattern => {
+            at_least => '+{0}',
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -121,88 +121,88 @@ our $DATA = {
         },
     },
     'ar-DZ' => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'ar-EG' => {
-        symbols => {
+        symbol => {
             nan => 'NaN',
         },
     },
     'ar-LB' => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'ar-LY' => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'ar-MA' => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'ar-MR' => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'ar-QA' => {
-        patterns => {
+        pattern => {
             currency => '¤#0.00',
         },
     },
     'ar-SA' => {
-        patterns => {
+        pattern => {
             currency => '¤#0.00',
         },
     },
     'ar-SY' => {
-        patterns => {
+        pattern => {
             currency => '¤#0.00',
         },
     },
     'ar-TN' => {
-        patterns => {
+        pattern => {
             currency => '¤#0.00',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'ar-YE' => {
-        patterns => {
+        pattern => {
             currency => '¤#0.00',
         },
     },
     as => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
         },
     },
     asa => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
         },
     },
     ast => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -214,14 +214,14 @@ our $DATA = {
         },
     },
     az => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -233,10 +233,10 @@ our $DATA = {
         },
     },
     'az-Cyrl' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -248,46 +248,46 @@ our $DATA = {
         },
     },
     bas => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     be => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     bem => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     bez => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
         },
     },
     bg => {
-        patterns => {
-            atleast => '⩾ {0}',
+        pattern => {
+            at_least => '⩾ {0}',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0} – {1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -299,19 +299,19 @@ our $DATA = {
         },
     },
     bm => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     bn => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##,##0.00¤;(#,##,##0.00¤)',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -323,30 +323,30 @@ our $DATA = {
         },
     },
     bo => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             nan => 'NaN',
         },
     },
     br => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     brx => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -358,18 +358,18 @@ our $DATA = {
         },
     },
     bs => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'bs-Cyrl' => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -381,19 +381,19 @@ our $DATA = {
         },
     },
     byn => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     ca => {
-        patterns => {
-            atleast => '≥ {0}',
+        pattern => {
+            at_least => '≥ {0}',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -405,17 +405,17 @@ our $DATA = {
         },
     },
     cgg => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     chr => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -427,14 +427,14 @@ our $DATA = {
         },
     },
     cs => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -446,14 +446,14 @@ our $DATA = {
         },
     },
     cy => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -465,14 +465,14 @@ our $DATA = {
         },
     },
     da => {
-        patterns => {
-            atleast => '{0} eller derover',
+        pattern => {
+            at_least => '{0} eller derover',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -484,19 +484,19 @@ our $DATA = {
         },
     },
     dav => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     de => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -508,68 +508,68 @@ our $DATA = {
         },
     },
     'de-AT' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
         },
     },
     'de-CH' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00;¤-#,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => q['],
         },
     },
     'de-LI' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => q['],
         },
     },
     dje => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ' ',
         },
     },
     dua => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     dyo => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     dz => {
-        patterns => {
+        pattern => {
             currency => '¤#,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0 %',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -581,27 +581,27 @@ our $DATA = {
         },
     },
     ebu => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     ee => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
-        symbols => {
+        symbol => {
             nan => 'mnn',
         },
     },
     el => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -613,18 +613,18 @@ our $DATA = {
         },
     },
     'el-CY' => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     en => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -636,79 +636,79 @@ our $DATA = {
         },
     },
     'en-150' => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'en-AU' => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     'en-BE' => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'en-GB' => {
-        patterns => {
+        pattern => {
             range => '{0}–{1}',
         },
     },
     'en-IN' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
         },
     },
     'en-PK' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
         },
     },
     'en-US-u-va-posix' => {
-        patterns => {
+        pattern => {
             currency => '¤ #0.00',
             decimal => '#0.######',
             percent => '#0%',
         },
-        symbols => {
+        symbol => {
             infinity => 'INF',
             permil => '0/00',
         },
     },
     'en-ZA' => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     eo => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     es => {
-        patterns => {
-            atleast => 'Más de {0}',
+        pattern => {
+            at_least => 'Más de {0}',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -720,70 +720,70 @@ our $DATA = {
         },
     },
     'es-419' => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
         },
     },
     'es-AR' => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'es-BO' => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'es-CL' => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00;¤-#,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'es-CO' => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'es-CR' => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'es-EC' => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00;¤-#,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'es-GQ' => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     'es-MX' => {
-        patterns => {
-            atleast => 'Más de {0}',
+        pattern => {
+            at_least => 'Más de {0}',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -795,41 +795,41 @@ our $DATA = {
         },
     },
     'es-PY' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00;¤ -#,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'es-UY' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     'es-VE' => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00;¤-#,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     et => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}‒{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -841,14 +841,14 @@ our $DATA = {
         },
     },
     eu => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '% #,##0',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -860,25 +860,25 @@ our $DATA = {
         },
     },
     ewo => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     fa => {
-        patterns => {
-            atleast => "{0}+\N{LEFT-TO-RIGHT MARK}",
+        pattern => {
+            at_least => "{0}+\N{LEFT-TO-RIGHT MARK}",
             currency => "\N{LEFT-TO-RIGHT MARK}¤#,##0.00",
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -890,28 +890,28 @@ our $DATA = {
         },
     },
     'fa-AF' => {
-        patterns => {
+        pattern => {
             percent => "\N{LEFT-TO-RIGHT EMBEDDING}#,##0%\N{POP DIRECTIONAL FORMATTING}",
         },
     },
     ff => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     fi => {
-        patterns => {
-            atleast => 'vähintään {0}',
+        pattern => {
+            at_least => 'vähintään {0}',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
             range => '{0}‒{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -923,14 +923,14 @@ our $DATA = {
         },
     },
     fil => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -942,12 +942,12 @@ our $DATA = {
         },
     },
     fo => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00;¤-#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0 %',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -959,14 +959,14 @@ our $DATA = {
         },
     },
     fr => {
-        patterns => {
-            atleast => 'au moins {0}',
+        pattern => {
+            at_least => 'au moins {0}',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
             range => 'de {0} à {1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -978,31 +978,31 @@ our $DATA = {
         },
     },
     'fr-BE' => {
-        symbols => {
+        symbol => {
             group => '.',
         },
     },
     'fr-CH' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00;¤-#,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => q['],
         },
     },
     'fr-LU' => {
-        symbols => {
+        symbol => {
             group => '.',
         },
     },
     fur => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1014,21 +1014,21 @@ our $DATA = {
         },
     },
     ga => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
         },
     },
     gd => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1040,14 +1040,14 @@ our $DATA = {
         },
     },
     gl => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1059,12 +1059,12 @@ our $DATA = {
         },
     },
     gsw => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => '’',
             infinity => '∞',
@@ -1076,14 +1076,14 @@ our $DATA = {
         },
     },
     gu => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1095,40 +1095,40 @@ our $DATA = {
         },
     },
     guz => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     gv => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     ha => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
         },
     },
     haw => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     he => {
-        patterns => {
-            atleast => '⩾{0}+',
+        pattern => {
+            at_least => '⩾{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1140,14 +1140,14 @@ our $DATA = {
         },
     },
     hi => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1159,14 +1159,14 @@ our $DATA = {
         },
     },
     hr => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1178,14 +1178,14 @@ our $DATA = {
         },
     },
     hu => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -1197,14 +1197,14 @@ our $DATA = {
         },
     },
     hy => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#0.00 ¤',
             decimal => '#0.###',
             percent => '#0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1216,20 +1216,20 @@ our $DATA = {
         },
     },
     ia => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     id => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1241,25 +1241,25 @@ our $DATA = {
         },
     },
     ig => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     ii => {
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
         },
     },
     is => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1271,14 +1271,14 @@ our $DATA = {
         },
     },
     it => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1290,23 +1290,23 @@ our $DATA = {
         },
     },
     'it-CH' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00;¤-#,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => q['],
         },
     },
     ja => {
-        patterns => {
-            atleast => '{0} 以上',
+        pattern => {
+            at_least => '{0} 以上',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}～{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1318,12 +1318,12 @@ our $DATA = {
         },
     },
     jgo => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1335,19 +1335,19 @@ our $DATA = {
         },
     },
     jmc => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     ka => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -1359,31 +1359,31 @@ our $DATA = {
         },
     },
     kab => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     kam => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     kde => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     kea => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1395,27 +1395,27 @@ our $DATA = {
         },
     },
     khq => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
         },
-        symbols => {
+        symbol => {
             group => ' ',
         },
     },
     ki => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     kk => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -1427,18 +1427,18 @@ our $DATA = {
         },
     },
     kkj => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     kl => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00;¤-#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0 %',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1450,19 +1450,19 @@ our $DATA = {
         },
     },
     kln => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     km => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1474,14 +1474,14 @@ our $DATA = {
         },
     },
     kn => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1493,14 +1493,14 @@ our $DATA = {
         },
     },
     ko => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00;(¤#,##0.00)',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1512,19 +1512,19 @@ our $DATA = {
         },
     },
     kok => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
         },
     },
     ks => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '?',
@@ -1536,27 +1536,27 @@ our $DATA = {
         },
     },
     ksb => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
         },
     },
     ksf => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     ksh => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -1568,19 +1568,19 @@ our $DATA = {
         },
     },
     kw => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     ky => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -1592,12 +1592,12 @@ our $DATA = {
         },
     },
     lg => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
         },
     },
     lkt => {
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1609,11 +1609,11 @@ our $DATA = {
         },
     },
     ln => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1624,14 +1624,14 @@ our $DATA = {
         },
     },
     lo => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00;¤-#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1643,14 +1643,14 @@ our $DATA = {
         },
     },
     lt => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -1662,34 +1662,34 @@ our $DATA = {
         },
     },
     lu => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
             decimal => '#,##0.###',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     luo => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
         },
     },
     luy => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00;¤- #,##0.00',
         },
     },
     lv => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00;(¤#,##0.00)',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}‒{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -1701,38 +1701,38 @@ our $DATA = {
         },
     },
     mas => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     mer => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     mfe => {
-        symbols => {
+        symbol => {
             group => ' ',
         },
     },
     mg => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     mgh => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     mgo => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1744,14 +1744,14 @@ our $DATA = {
         },
     },
     mk => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1763,14 +1763,14 @@ our $DATA = {
         },
     },
     ml => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##,##0.00¤',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1782,14 +1782,14 @@ our $DATA = {
         },
     },
     mn => {
-        patterns => {
-            atleast => '{0}-с багагүй',
+        pattern => {
+            at_least => '{0}-с багагүй',
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1801,14 +1801,14 @@ our $DATA = {
         },
     },
     mr => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1820,14 +1820,14 @@ our $DATA = {
         },
     },
     ms => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1839,43 +1839,43 @@ our $DATA = {
         },
     },
     'ms-Latn-BN' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     mt => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
         },
     },
     mua => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     my => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1887,19 +1887,19 @@ our $DATA = {
         },
     },
     naq => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     nb => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0 %',
             range => '{0}‒{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -1911,19 +1911,19 @@ our $DATA = {
         },
     },
     nd => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     ne => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -1935,14 +1935,14 @@ our $DATA = {
         },
     },
     nl => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤ #,##0.00;¤ #,##0.00-',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -1954,29 +1954,29 @@ our $DATA = {
         },
     },
     'nl-BE' => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
         },
     },
     nmg => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     nn => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
             range => '{0}‒{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -1988,73 +1988,73 @@ our $DATA = {
         },
     },
     nnh => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             percent => '%',
         },
     },
     nr => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     nso => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     nus => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
         },
     },
     nyn => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     om => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     or => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
         },
     },
     os => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -2066,14 +2066,14 @@ our $DATA = {
         },
     },
     pa => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -2085,20 +2085,20 @@ our $DATA = {
         },
     },
     'pa-Arab' => {
-        symbols => {
+        symbol => {
             minus => "\N{LEFT-TO-RIGHT MARK}-",
             plus => "\N{LEFT-TO-RIGHT MARK}+",
         },
     },
     pl => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -2110,10 +2110,10 @@ our $DATA = {
         },
     },
     ps => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             minus => "\N{LEFT-TO-RIGHT MARK}−",
@@ -2122,14 +2122,14 @@ our $DATA = {
         },
     },
     pt => {
-        patterns => {
-            atleast => '+{0}',
+        pattern => {
+            at_least => '+{0}',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -2141,14 +2141,14 @@ our $DATA = {
         },
     },
     'pt-PT' => {
-        patterns => {
-            atleast => '+{0}',
+        pattern => {
+            at_least => '+{0}',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0} - {1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -2160,12 +2160,12 @@ our $DATA = {
         },
     },
     rm => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => '’',
             infinity => '∞',
@@ -2177,25 +2177,25 @@ our $DATA = {
         },
     },
     rn => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     ro => {
-        patterns => {
-            atleast => '>{0}',
+        pattern => {
+            at_least => '>{0}',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
             range => '{0} - {1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -2207,19 +2207,19 @@ our $DATA = {
         },
     },
     rof => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     ru => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -2231,39 +2231,39 @@ our $DATA = {
         },
     },
     rw => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     rwk => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
         },
     },
     saq => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     sbp => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
         },
     },
     se => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -2275,58 +2275,58 @@ our $DATA = {
         },
     },
     seh => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     ses => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
         },
-        symbols => {
+        symbol => {
             group => ' ',
         },
     },
     sg => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00;¤-#,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     shi => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     'shi-Latn' => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     si => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -2338,14 +2338,14 @@ our $DATA = {
         },
     },
     sk => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -2357,14 +2357,14 @@ our $DATA = {
         },
     },
     sl => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '¤#,##0.00;(¤#,##0.00)',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -2376,28 +2376,28 @@ our $DATA = {
         },
     },
     sn => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     so => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
         },
     },
     sq => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -2409,14 +2409,14 @@ our $DATA = {
         },
     },
     sr => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -2428,14 +2428,14 @@ our $DATA = {
         },
     },
     'sr-Latn' => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -2447,41 +2447,41 @@ our $DATA = {
         },
     },
     ss => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     ssy => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     st => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     sv => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0 %',
             range => '{0}‒{1}',
         },
-        symbols => {
+        symbol => {
             currency_decimal => ':',
             decimal => ',',
             group => ' ',
@@ -2494,14 +2494,14 @@ our $DATA = {
         },
     },
     sw => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -2513,24 +2513,24 @@ our $DATA = {
         },
     },
     swc => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
         },
     },
     ta => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -2542,28 +2542,28 @@ our $DATA = {
         },
     },
     'ta-MY' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
     },
     'ta-SG' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
     },
     te => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -2575,19 +2575,19 @@ our $DATA = {
         },
     },
     teo => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     th => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -2599,35 +2599,35 @@ our $DATA = {
         },
     },
     ti => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     tig => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     tn => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     to => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}—{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -2639,14 +2639,14 @@ our $DATA = {
         },
     },
     tr => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '%#,##0',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -2658,45 +2658,45 @@ our $DATA = {
         },
     },
     ts => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     twq => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ' ',
         },
     },
     tzm => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     uk => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -2708,14 +2708,14 @@ our $DATA = {
         },
     },
     ur => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => "¤#,##0.00\N{LEFT-TO-RIGHT MARK}",
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -2727,21 +2727,21 @@ our $DATA = {
         },
     },
     'ur-IN' => {
-        patterns => {
+        pattern => {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
         },
     },
     uz => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -2753,10 +2753,10 @@ our $DATA = {
         },
     },
     'uz-Arab' => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             minus => "\N{LEFT-TO-RIGHT MARK}−",
@@ -2764,14 +2764,14 @@ our $DATA = {
         },
     },
     'uz-Cyrl' => {
-        patterns => {
-            atleast => '⩾{0}',
+        pattern => {
+            at_least => '⩾{0}',
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}–{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
             infinity => '∞',
@@ -2783,45 +2783,45 @@ our $DATA = {
         },
     },
     vai => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
         },
     },
     'vai-Latn' => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
         },
     },
     ve => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     vi => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '.',
             infinity => '∞',
@@ -2833,80 +2833,80 @@ our $DATA = {
         },
     },
     vun => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     wae => {
-        symbols => {
+        symbol => {
             decimal => ',',
             group => '’',
         },
     },
     wal => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
-        symbols => {
+        symbol => {
             group => '’',
         },
     },
     xh => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     xog => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
         },
     },
     yav => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00 ¤',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     yo => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     'yo-BJ' => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     zgh => {
-        patterns => {
+        pattern => {
             currency => '#,##0.00¤',
             percent => '#,##0 %',
         },
-        symbols => {
+        symbol => {
             decimal => ',',
             group => ' ',
         },
     },
     zh => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -2918,29 +2918,29 @@ our $DATA = {
         },
     },
     'zh-Hans-HK' => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     'zh-Hans-MO' => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     'zh-Hans-SG' => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     'zh-Hant' => {
-        patterns => {
-            atleast => '{0}+',
+        pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
             range => '{0}-{1}',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -2952,17 +2952,17 @@ our $DATA = {
         },
     },
     'zh-Hant-HK' => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
         },
     },
     zu => {
-        patterns => {
+        pattern => {
             currency => '¤#,##0.00',
             decimal => '#,##0.###',
             percent => '#,##0%',
         },
-        symbols => {
+        symbol => {
             decimal => '.',
             group => ',',
             infinity => '∞',
@@ -3021,7 +3021,7 @@ our $DATA = {
 };
 
 our $CACHE = {
-    patterns => {
+    pattern => {
         '#0%'                         => [ '#0',          "$N$P"             ],
         '#,##0%'                      => [ '#,##0',       "$N$P"             ],
         '#,##0 %'                     => [ '#,##0',       "$N $P"            ],
@@ -3059,7 +3059,7 @@ our $CACHE = {
             "\N{LEFT-TO-RIGHT MARK}$C$N"
         ],
     },
-    attributes => {
+    attribute => {
         '#0' => {
             minimum_integer_digits  => 1,
             minimum_fraction_digits => 0,

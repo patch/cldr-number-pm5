@@ -146,7 +146,7 @@ sub _build_signs {
 
         $sign =~ s{ _sign $ }{}x;
 
-        $self->$attribute($self->_get_data(symbols => $sign));
+        $self->$attribute($self->_get_data(symbol => $sign));
     }
 }
 
