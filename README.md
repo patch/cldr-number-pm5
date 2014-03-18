@@ -46,7 +46,7 @@ say $curf->format(9.99);  # '9,99 $US' (Canadian French / USD)
 # DESCRIPTION
 
 Software localization includes much more than just translations. Numbers,
-prices, and even percents should all be localized based the user’s language,
+prices, and even percents should all be localized based on the user’s language,
 script, and region. Fortunately, the Unicode Common Locale Data Repository
 (CLDR) provides locale data and specifications for formatting numeric data to
 use with many of the world’s locales.
