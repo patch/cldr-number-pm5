@@ -1,5 +1,7 @@
 ![Perl CLDR](https://www.gravatar.com/avatar/656f15a25eff4437f5a82e7c929f41dd?s=96)
 
+[![Build Status](https://travis-ci.org/perl-cldr/cldr-number-pm5.png?branch=master)](https://travis-ci.org/perl-cldr/cldr-number-pm5)
+
 # NAME
 
 CLDR::Number - Localized number formatters using the Unicode CLDR
