@@ -51,23 +51,15 @@ has default_locale => (
 );
 
 has numbering_system => (
-    is     => 'rw',
-    coerce => sub {
-        my ($system) = @_;
-
-        if (!defined $system) {
-            carp 'numbering_system is not defined';
-        }
-        elsif (!exists $CLDR::Number::Data::System::DATA->{lc $system}) {
-            carp "numbering_system '$system' is unknown";
-        }
-        else {
-            return lc $system;
-        }
-
-        return 'latn';
+    is  => 'rw',
+    isa => sub {
+        carp 'numbering_system is not defined'
+            unless defined $_[0];
+        carp "numbering_system '$_[0]' is unknown"
+            unless exists $CLDR::Number::Data::System::DATA->{$_[0]};
     },
-    default => 'latn',
+    coerce  => sub { defined $_[0] ? lc $_[0] : $_[0] },
+    trigger => 1,
 );
 
 # TODO: length NYI
@@ -176,14 +168,21 @@ sub _trigger_locale {
         $self->numbering_system($1);
     }
     else {
-        $self->numbering_system(
-            $self->_get_data(system => 'default')
-        );
+        $self->_trigger_numbering_system;
     }
 
     $self->{locale} = $locale;
 
     $self->_build_signs(qw{ decimal_sign group_sign plus_sign minus_sign });
+}
+
+sub _trigger_numbering_system {
+    my ($self, $system) = @_;
+
+    return if defined $system
+           && exists $CLDR::Number::Data::System::DATA->{$system};
+
+    $self->{numbering_system} = $self->_get_data(system => 'default');
 }
 
 sub _split_locale {

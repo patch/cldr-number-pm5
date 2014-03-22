@@ -2,7 +2,8 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 25;
+use Test::More tests => 29;
+use Test::Warn;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new(locale => 'en');
@@ -54,3 +55,14 @@ is $decf->format(1234.09),  '1 234,09', 'format in latn (uz)';
 $decf->locale('uz-Arab');
 is $decf->numbering_system, 'arabext',  'default numbering system (uz-Arab)';
 is $decf->format(1234.09),  '۱٬۲۳۴٫۰۹', 'format in arabext (uz-Arab)';
+
+$cldr = CLDR::Number->new(locale => 'bn');
+is $cldr->numbering_system, 'beng', 'num sytem on generator instantiation';
+
+$decf = $cldr->decimal_formatter(locale => 'ar');
+is $decf->numbering_system, 'arab', 'num system on formatter instantiation';
+
+warning_is {
+    $cldr = CLDR::Number->new(locale => 'ar', numbering_system => 'xxxx');
+    is $cldr->numbering_system, 'arab', 'never set unknown numbering system';
+} q{numbering_system 'xxxx' is unknown};
