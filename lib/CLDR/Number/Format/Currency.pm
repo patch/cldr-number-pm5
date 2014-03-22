@@ -167,13 +167,17 @@ CLDR v24.
     my $cldr = CLDR::Number->new(locale => 'en');
     my $curf = $cldr->currency_formatter(currency_code => 'USD');
 
-    say $curf->format(9.99);  # '$9.99' (English / USD)
+    say $curf->format(9.99);  # '$9.99' (English / US dollars)
 
     $curf->locale('en-CA');
-    say $curf->format(9.99);  # 'US$9.99' (Canadian English / USD)
+    say $curf->format(9.99);  # 'US$9.99' (Canadian English / US dollars)
 
     $curf->locale('fr-CA');
-    say $curf->format(9.99);  # '9,99 $US' (Canadian French / USD)
+    say $curf->format(9.99);  # '9,99 $US' (Canadian French / US dollars)
+
+    $curf->locale('bn');
+    $curf->currency_code('INR');
+    say $curf->format(123456);  # '১,২৩,৪৫৬.০০₹' (Bengali / Indian rupees)
 
 =head1 DESCRIPTION
 

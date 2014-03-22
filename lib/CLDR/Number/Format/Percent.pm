@@ -89,6 +89,9 @@ CLDR v24.
 
     say $perf->format(0.05);  # '%5' (Turkish percent)
 
+    $perf->locale('ar');
+    say $perf->format(0.05);  # '٥٪' (Arabic percent)
+
     $perf->locale('fr');
     say $perf->format(0.05);  # '5 %' (French percent)
 

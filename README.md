@@ -26,6 +26,9 @@ say $decf->format(1234.5);  # '1 234,5' (Spanish)
 $decf->locale('es-MX');
 say $decf->format(1234.5);  # '1,234.5' (Mexican Spanish)
 
+$decf->locale('ar');
+say $decf->format(1234.5);  # '١٬٢٣٤٫٥' (Arabic)
+
 # percents
 my $perf = $cldr->percent_formatter(locale => 'tr');
 

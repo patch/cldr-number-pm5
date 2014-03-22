@@ -69,6 +69,9 @@ This document describes CLDR::Number v0.06_1, built with Unicode CLDR v24.
     $decf->locale('es-MX');
     say $decf->format(1234.5);  # '1,234.5' (Mexican Spanish)
 
+    $decf->locale('ar');
+    say $decf->format(1234.5);  # '١٬٢٣٤٫٥' (Arabic)
+
     # percents
     my $perf = $cldr->percent_formatter(locale => 'tr');
 

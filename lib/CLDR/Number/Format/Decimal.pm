@@ -72,6 +72,12 @@ CLDR v24.
     $decf->locale('es-MX');
     say $decf->format(1234.5);  # '1,234.5' (Mexican Spanish)
 
+    $decf->locale('ar');
+    say $decf->format(1234.5);  # '١٬٢٣٤٫٥' (Arabic)
+
+    $curf->locale('bn');
+    say $curf->format(123456);  # '১,২৩,৪৫৬' (Bengali)
+
 =head1 DESCRIPTION
 
 Localized decimal formatter using the Unicode Common Locale Data Repository
