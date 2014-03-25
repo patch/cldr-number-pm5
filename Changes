@@ -1,16 +1,23 @@
 Revision history for Perl module CLDR::Number
 
-v0.06 2014-02-28
+0.07 2014-03-25
+ - Add numbering_system attribute and support non-Latin decimal numbering
+   systems [github #8]
+ - Use default numbering system for locale [github #9]
+ - Use numbering system from Unicode extension of locale when provided
+ - Integrate Travis CI, Devel::Cover, and Coveralls with GitHub repo
+
+0.06 2014-02-28
  - Improve documentation
  - Add FAQ
 
-v0.05 2014-01-26
+0.05 2014-01-26
  - Validate numeric arguments to methods in the same way as core Perl functions:
    warn on non-numeric values and use the leading numeric portion when
    available, otherwise 0 [github #23]
  - Add class name to uninitialized value warnings [github #22]
 
-v0.04 2014-01-21
+0.04 2014-01-21
  - Implement currency spacing rules from CLDR spec: when a non-symbol character
    in the currency sign would touch a digit, add a space between them,
    e.g. CHF 1.99 instead of CHF1.99 [github #7]
@@ -19,32 +26,32 @@ v0.04 2014-01-21
  - Add private module CLDR::Number::Constant to provide internal placeholder
    variables [github #25]
 
-v0.03 2014-01-15
+0.03 2014-01-15
  - Handle uninitialized values as arguments to the format, at_least, and range
    methods by warning and returning undef [github #22]
 
-v0.02 2013-12-30
+0.02 2013-12-30
  - Bugfix: encoding error for escaped quotes ('') within patterns on
    Perl ≤ v5.8.8 [github #20]
  - Bugfix: require Moo v1.001000 for support of non-reference default attribute
    values [github #21]
  - Docs: minor improvements
 
-v0.01 2013-12-26
+0.01 2013-12-26
  - First non-development release
  - Optimization: preparse and cache patterns and attributes from predefined CLDR
    data [github #3]
  - Add documentation, but more is needed
 
-v0.00_03 2013-12-17
+0.00_03 2013-12-17
  - Yet another development release
  - Remove clearer methods for primary_grouping_size/secondary_grouping_size
  - Currency: fix minimum_fraction_digits/maximum_fraction_digits bug [github #1]
  - Tests: remove warnings to stderr and test warnings [github #2]
 
-v0.00_02 2013-12-16
+0.00_02 2013-12-16
  - Yet another development release
  - First public CPAN release
 
-v0.00_01 2013-12-02
+0.00_01 2013-12-02
  - Development release

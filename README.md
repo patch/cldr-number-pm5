@@ -9,7 +9,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 # VERSION
 
-This document describes CLDR::Number v0.06\_1, built with Unicode CLDR v24.
+This document describes CLDR::Number v0.07, built with Unicode CLDR v24.
 
 # SYNOPSIS
 

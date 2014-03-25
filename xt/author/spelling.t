@@ -23,6 +23,7 @@ formatter
 formatters
 GitHub
 Hant
+Indic
 JPY
 ko
 LDML
