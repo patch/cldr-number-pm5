@@ -11,7 +11,7 @@ use warnings;
 # backward incompatible ways in the future. Please use one of the documented
 # classes instead.
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 our $DATA = {
     arab     => [qw( ٠ ١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩ )],
