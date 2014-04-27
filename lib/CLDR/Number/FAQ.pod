@@ -51,6 +51,13 @@ numeric value, plus an accompanying currency code (or equivalent).” —L<Unico
 Technical Standard #35
 |http://www.unicode.org/reports/tr35/tr35-numbers.html#Currencies>
 
+=item How do I format years?
+
+Years are a type of date, and dates have very different formatting rules than
+regular numbers. Resources for localized date/time formatting include
+L<DateTime>, L<DateTime::Locale>, and L<UTS #35: Unicode LDML, Part 4:
+Dates|http://unicode.org/reports/tr35/tr35-dates.html>.
+
 =back
 
 =head1 SEE ALSO
