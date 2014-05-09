@@ -12,7 +12,12 @@ This document describes CLDR::Number v0.08, built with Unicode CLDR v24.
 
 =head2 Specification
 
+In descending order of priority.
+
 =over
+
+=item * upgrade from CLDR v24 to v25
+I<L<#33|https://github.com/perl-cldr/cldr-number-pm5/issues/33>>
 
 =item * algorithmic numbering systems (C<hant>, C<hebr>, C<roman>, etc.)
 I<L<#32|https://github.com/perl-cldr/cldr-number-pm5/issues/32>>
@@ -25,6 +30,9 @@ I<L<#11|https://github.com/perl-cldr/cldr-number-pm5/issues/11>>
 
 =item * currency symbol lengths
 I<L<#12|https://github.com/perl-cldr/cldr-number-pm5/issues/12>>
+
+=item * currency unit patterns with currency display names
+I<L<#35|https://github.com/perl-cldr/cldr-number-pm5/issues/35>>
 
 =item * C<accounting> currency format in addition to default C<standard>
 I<L<#13|https://github.com/perl-cldr/cldr-number-pm5/issues/13>>
