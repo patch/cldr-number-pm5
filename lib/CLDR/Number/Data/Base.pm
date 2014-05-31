@@ -11,7 +11,7 @@ use CLDR::Number::Constant qw( $N $M $P $C );
 # backward incompatible ways in the future. Please use one of the documented
 # classes instead.
 
-our $VERSION = '0.08';
+our $VERSION = '0.08_1';
 
 our $DATA = {
     root => {
