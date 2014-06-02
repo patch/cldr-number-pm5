@@ -10,7 +10,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 # VERSION
 
-This document describes CLDR::Number v0.08, built with Unicode CLDR v24.
+This document describes CLDR::Number v0.08_1, built with Unicode CLDR v24.
 
 # SYNOPSIS
 
@@ -152,11 +152,6 @@ are expected to be character strings, not byte strings.
 
     This is a read-only attribute that will always reflect the currently supported
     Unicode CLDR version.
-
-# NOTES
-
-The Unicode private-use characters U+F8F0 through U+F8F4 are used internally and
-are therefore not supported in custom patterns and signs.
 
 # SEE ALSO
 

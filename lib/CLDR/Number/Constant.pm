@@ -20,6 +20,6 @@ our @EXPORT_OK = qw( $N $M $P $C $Q );
 # $C: currency sign
 # $Q: escaped single quote
 
-our ($N, $M, $P, $C, $Q) = map { chr } 0xF8F0 .. 0xF8F4;
+our ($N, $M, $P, $C, $Q) = map { chr } 0xFDD0 .. 0xFDD4;
 
 1;
