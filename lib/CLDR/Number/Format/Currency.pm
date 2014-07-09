@@ -3,7 +3,7 @@ package CLDR::Number::Format::Currency;
 use v5.8.1;
 use utf8;
 use Carp;
-use CLDR::Number::Constant qw( $C );
+use CLDR::Number::Constant qw( $𝖈 );
 use CLDR::Number::Data::Currency;
 
 use Moo;
@@ -124,16 +124,16 @@ sub format {
     my $format = $self->_format_number($num);
 
     # spacing before currency sign
-    if ($sign =~ m{ ^ \PS }x && $format =~ m{ \d $C }x) {
+    if ($sign =~ m{ ^ \PS }x && $format =~ m{ \d $𝖈 }x) {
         $sign = ' ' . $sign;
     }
 
     # spacing after currency sign
-    if ($sign =~ m{ \PS $ }x && $format =~ m{ $C \d }x) {
+    if ($sign =~ m{ \PS $ }x && $format =~ m{ $𝖈 \d }x) {
         $sign .= ' ';
     }
 
-    $format =~ s{$C}{$sign};
+    $format =~ s{$𝖈}{$sign};
 
     return $format;
 }

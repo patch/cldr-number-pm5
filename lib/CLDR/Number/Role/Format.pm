@@ -6,7 +6,7 @@ use Carp;
 use Scalar::Util qw( looks_like_number );
 use Math::BigFloat;
 use Math::Round;
-use CLDR::Number::Constant qw( $N $M $P $C $Q );
+use CLDR::Number::Constant qw( $𝖓 $𝖒 $𝖕 $𝖈 $𝖖 );
 use CLDR::Number::Data::Base;
 use CLDR::Number::Data::System;
 
@@ -144,18 +144,18 @@ sub _trigger_pattern {
         my $pattern = $cache->{pattern}{$input_pattern};
 
         $self->_positive_pattern(
-            $pattern && $pattern->[1] || $N
+            $pattern && $pattern->[1] || $𝖓
         );
 
         $self->_negative_pattern(
-            $pattern && $pattern->[2] || $M . $self->_positive_pattern
+            $pattern && $pattern->[2] || $𝖒 . $self->_positive_pattern
         );
 
         return;
     }
 
     # temporarily replace escaped quotes
-    $input_pattern =~ s{''}{$Q}g;
+    $input_pattern =~ s{''}{$𝖖}g;
 
     my $internal_pattern  = '';
     my $canonical_pattern = '';
@@ -183,7 +183,7 @@ sub _trigger_pattern {
 
                 $num_subpattern = $self->_process_num_pattern($num_subpattern);
 
-                $internal_pattern  .= _escape_symbols($prenum . $N . $postnum);
+                $internal_pattern  .= _escape_symbols($prenum . $𝖓 . $postnum);
                 $canonical_pattern .= $prenum . $num_subpattern . $postnum;
             }
             else {
@@ -197,11 +197,11 @@ sub _trigger_pattern {
         }
     }
 
-    $internal_pattern  =~ s{$Q}{'}g;
-    $canonical_pattern =~ s{$Q}{''}g;
+    $internal_pattern  =~ s{$𝖖}{'}g;
+    $canonical_pattern =~ s{$𝖖}{''}g;
 
     $self->_positive_pattern($internal_pattern);
-    $self->_negative_pattern($M . $internal_pattern);
+    $self->_negative_pattern($𝖒 . $internal_pattern);
 
     # hashref instead of attribute method so wo don’t retrigger this trigger
     $self->{pattern} = $canonical_pattern;
@@ -290,14 +290,14 @@ sub _format_number {
 
     my $format = do { if ($negative) {
         my $pattern = $self->_negative_pattern;
-        $pattern =~ s{$M}{$self->minus_sign}e;
+        $pattern =~ s{$𝖒}{$self->minus_sign}e;
         $pattern;
     }
     else {
         $self->_positive_pattern;
     } };
 
-    $format =~ s{$N}{$num_format};
+    $format =~ s{$𝖓}{$num_format};
 
     return $format;
 }
@@ -393,9 +393,9 @@ sub _escape_symbols {
     my ($pattern) = @_;
 
     for ($pattern) {
-        s{%}{$P};
-        s{¤}{$C};
-        s{-}{$M};
+        s{%}{$𝖕};
+        s{¤}{$𝖈};
+        s{-}{$𝖒};
     }
 
     return $pattern;

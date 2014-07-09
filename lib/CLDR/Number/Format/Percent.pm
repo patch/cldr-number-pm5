@@ -3,7 +3,7 @@ package CLDR::Number::Format::Percent;
 use v5.8.1;
 use utf8;
 use Carp;
-use CLDR::Number::Constant qw( $P );
+use CLDR::Number::Constant qw( $𝖕 );
 
 use Moo;
 use namespace::clean;
@@ -56,7 +56,7 @@ sub format {
     }
 
     my $format = $self->_format_number($num * $factor);
-    $format =~ s{$P}{$sign};
+    $format =~ s{$𝖕}{$sign};
 
     return $format;
 }
