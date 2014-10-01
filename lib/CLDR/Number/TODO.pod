@@ -16,8 +16,11 @@ In descending order of priority.
 
 =over
 
-=item * upgrade from CLDR v24 to v25
+=item * upgrade from CLDR v24 to v26
 I<L<#33|https://github.com/perl-cldr/cldr-number-pm5/issues/33>>
+
+=item * minimum grouping digits
+I<L<#36|https://github.com/perl-cldr/cldr-number-pm5/issues/36>>
 
 =item * algorithmic numbering systems (C<hant>, C<hebr>, C<roman>, etc.)
 I<L<#32|https://github.com/perl-cldr/cldr-number-pm5/issues/32>>
