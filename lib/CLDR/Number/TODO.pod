@@ -61,6 +61,9 @@ I<L<#19|https://github.com/perl-cldr/cldr-number-pm5/issues/19>>
 
 =over
 
+=item * deprecate mutable locales
+I<L<#38|https://github.com/perl-cldr/cldr-number-pm5/issues/38>>
+
 =item * locale subtag attributes for use without locale attribute parsing
 I<L<#4|https://github.com/perl-cldr/cldr-number-pm5/issues/4>>
 
