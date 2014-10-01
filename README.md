@@ -15,7 +15,8 @@ This document describes CLDR::Number v0.08_1, built with Unicode CLDR v24.
 # DEPRECATION NOTICE
 
 Using the `locale` method as a setter is planned to be deprecated in the next
-release, making an object’s locale immutable. Please see issue #38 for details
+release, making an object’s locale immutable. Please see
+[issue #38](https://github.com/perl-cldr/cldr-number-pm5/issues/38) for details
 and to submit comments or concerns.
 
 # SYNOPSIS
