@@ -19,8 +19,10 @@ CHF
 CLDR
 com
 de
+en
 formatter
 formatters
+fr
 GitHub
 Hant
 Indic
