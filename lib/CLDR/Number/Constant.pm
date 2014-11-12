@@ -9,7 +9,7 @@ use parent 'Exporter';
 # This module does not have a publicly supported interface and may change in
 # backward incompatible ways in the future.
 
-our $VERSION = '0.08_1';
+our $VERSION = '0.09';
 
 our @EXPORT_OK = qw( $N $M $P $C $Q );
 
