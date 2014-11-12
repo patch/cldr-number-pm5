@@ -76,27 +76,35 @@ CLDR::Number::Format::Percent - Localized percent formatter using the Unicode CL
 This document describes CLDR::Number::Format::Percent v0.08_1, built with Unicode
 CLDR v24.
 
+=head1 DEPRECATION
+
+Using the C<locale> method as a setter is deprecated. In the future the object’s
+locale will become immutable. Please see
+L<issue #38|https://github.com/perl-cldr/cldr-number-pm5/issues/38> for details
+and to submit comments or concerns.
+
 =head1 SYNOPSIS
 
     # either
     use CLDR::Number::Format::Percent;
-    my $perf = CLDR::Number::Format::Percent->new(locale => 'tr');
+    $perf = CLDR::Number::Format::Percent->new(locale => 'tr');
 
     # or
     use CLDR::Number;
-    my $cldr = CLDR::Number->new(locale => 'tr');
-    my $perf = $cldr->percent_formatter;
+    $cldr = CLDR::Number->new(locale => 'tr');
+    $perf = $cldr->percent_formatter;
 
-    say $perf->format(0.05);  # '%5' (Turkish percent)
+    # when locale is 'tr' (Turkish)
+    say $perf->format(0.05);  # '%5'
 
-    $perf->locale('ar');
-    say $perf->format(0.05);  # '٥٪' (Arabic percent)
+    # when locale is 'ar' (Arabic)
+    say $perf->format(0.05);  # '٥٪'
 
-    $perf->locale('fr');
-    say $perf->format(0.05);  # '5 %' (French percent)
+    # when locale is 'fr' (French)
+    say $perf->format(0.05);  # '5 %'
 
-    $perf->permil(1);
-    say $perf->format(0.05);  # '50 ‰' (French per mil)
+    $perf->permil(1);         # per mil
+    say $perf->format(0.05);  # '50 ‰'
 
 =head1 DESCRIPTION
 

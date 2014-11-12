@@ -10,12 +10,12 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 # VERSION
 
-This document describes CLDR::Number v0.08_1, built with Unicode CLDR v24.
+This document describes CLDR::Number v0.08\_1, built with Unicode CLDR v24.
 
-# DEPRECATION NOTICE
+# DEPRECATION
 
-Using the `locale` method as a setter is planned to be deprecated in the next
-release, making an object’s locale immutable. Please see
+Using the `locale` method as a setter is deprecated. In the future the object’s
+locale will become immutable. Please see
 [issue #38](https://github.com/perl-cldr/cldr-number-pm5/issues/38) for details
 and to submit comments or concerns.
 
@@ -24,37 +24,38 @@ and to submit comments or concerns.
 ```perl
 use CLDR::Number;
 
-my $cldr = CLDR::Number->new(locale => 'es');
+# new oject with 'es' (Spanish) locale
+$cldr = CLDR::Number->new(locale => 'es');
 
 # decimals
-my $decf = $cldr->decimal_formatter;
+$decf = $cldr->decimal_formatter;
 
-say $decf->format(1234.5);  # '1 234,5' (Spanish)
+# when locale is 'es' (Spanish)
+say $decf->format(1234.5);  # '1 234,5'
 
-$decf->locale('es-MX');
-say $decf->format(1234.5);  # '1,234.5' (Mexican Spanish)
+# when locale is 'es-MX' (Mexican Spanish)
+say $decf->format(1234.5);  # '1,234.5'
 
-$decf->locale('ar');
-say $decf->format(1234.5);  # '١٬٢٣٤٫٥' (Arabic)
+# when locale is 'ar' (Arabic)
+say $decf->format(1234.5);  # '١٬٢٣٤٫٥'
 
 # percents
-my $perf = $cldr->percent_formatter(locale => 'tr');
+$perf = $cldr->percent_formatter;
 
-say $perf->format(0.05);  # '%5' (Turkish)
+# when locale is 'tr' (Turkish)
+say $perf->format(0.05);  # '%5'
 
 # currencies
-my $curf = $cldr->currency_formatter(
-    locale        => 'en',
-    currency_code => 'USD',
-);
+$curf = $cldr->currency_formatter(currency_code => 'USD');
 
-say $curf->format(9.99);  # '$9.99' (English / USD)
+# when locale is 'en' (English) and currency is USD (US dollars)
+say $curf->format(9.99);  # '$9.99'
 
-$curf->locale('en-CA');
-say $curf->format(9.99);  # 'US$9.99' (Canadian English / USD)
+# when locale is 'en-CA' (Canadian English) and currency is USD
+say $curf->format(9.99);  # 'US$9.99'
 
-$curf->locale('fr-CA');
-say $curf->format(9.99);  # '9,99 $US' (Canadian French / USD)
+# when locale is 'fr-CA' (Canadian French) and currency is USD
+say $curf->format(9.99);  # '9,99 $US'
 ```
 
 # DESCRIPTION
@@ -67,8 +68,8 @@ use with many of the world’s locales.
 
 This class provides common attributes shared among the supported formatter
 classes as well as methods to instantiate decimal, percent, and currency
-formatter objects. The value for any attribute (such as __locale__ or
-__decimal\_sign__) will be passed to the formatter objects on instantiation but
+formatter objects. The value for any attribute (such as **locale** or
+**decimal\_sign**) will be passed to the formatter objects on instantiation but
 can be overwritten by manually passing another value for the attribute or
 calling a setter method on the formatter object.
 
@@ -95,13 +96,13 @@ calling a setter method on the formatter object.
 ## Common Attributes
 
 These are common attributes among this class and all formatter classes. All
-attributes other than __locale__, __default\_locale__, and __cldr\_version__ have
-defaults that change depending on the current __locale__. All string attributes
+attributes other than **locale**, **default\_locale**, and **cldr\_version** have
+defaults that change depending on the current **locale**. All string attributes
 are expected to be character strings, not byte strings.
 
 - locale
 
-    Default: value of __default\_locale__ attribute if it exists, otherwise `root`
+    Default: value of **default\_locale** attribute if it exists, otherwise `root`
 
     Valid: Unicode locale identifiers
 
@@ -118,7 +119,7 @@ are expected to be character strings, not byte strings.
 
     Valid: Unicode locale identifiers
 
-    Use this if you want a locale other than the generic `root` if the __locale__
+    Use this if you want a locale other than the generic `root` if the **locale**
     attribute is not set or not valid.
 
 - numbering\_system
@@ -139,19 +140,19 @@ are expected to be character strings, not byte strings.
 
 - decimal\_sign
 
-    Examples: `.` (full stop) for __root__, __en__; `,` (comma) for __de__, __fr__
+    Examples: `.` (full stop) for **root**, **en**; `,` (comma) for **de**, **fr**
 
 - group\_sign
 
-    Examples: `,` (comma) for __root__, __en__; `.` (full stop) for __de__; ` ` (no-break space) for __fr__
+    Examples: `,` (comma) for **root**, **en**; `.` (full stop) for **de**; ` ` (no-break space) for **fr**
 
 - plus\_sign
 
-    Examples: `+` (plus sign) for __root__, __en__, and most locales
+    Examples: `+` (plus sign) for **root**, **en**, and most locales
 
 - minus\_sign
 
-    Examples: `-` (hyphen-minus) for __root__, __en__, and most locales
+    Examples: `-` (hyphen-minus) for **root**, **en**, and most locales
 
 - cldr\_version
 

@@ -56,27 +56,35 @@ CLDR::Number::Format::Decimal - Localized decimal formatter using the Unicode CL
 This document describes CLDR::Number::Format::Decimal v0.08_1, built with Unicode
 CLDR v24.
 
+=head1 DEPRECATION
+
+Using the C<locale> method as a setter is deprecated. In the future the object’s
+locale will become immutable. Please see
+L<issue #38|https://github.com/perl-cldr/cldr-number-pm5/issues/38> for details
+and to submit comments or concerns.
+
 =head1 SYNOPSIS
 
     # either
     use CLDR::Number::Format::Decimal;
-    my $decf = CLDR::Number::Format::Decimal->new(locale => 'es');
+    $decf = CLDR::Number::Format::Decimal->new(locale => 'es');
 
     # or
     use CLDR::Number;
-    my $cldr = CLDR::Number->new(locale => 'es');
-    my $decf = $cldr->decimal_formatter;
+    $cldr = CLDR::Number->new(locale => 'es');
+    $decf = $cldr->decimal_formatter;
 
-    say $decf->format(1234.5);  # '1 234,5' (Spanish)
+    # when locale is 'es' (Spanish)
+    say $decf->format(1234.5);  # '1 234,5'
 
-    $decf->locale('es-MX');
-    say $decf->format(1234.5);  # '1,234.5' (Mexican Spanish)
+    # when locale is 'es-MX' (Mexican Spanish)
+    say $decf->format(1234.5);  # '1,234.5'
 
-    $decf->locale('ar');
-    say $decf->format(1234.5);  # '١٬٢٣٤٫٥' (Arabic)
+    # when locale is 'ar' (Arabic)
+    say $decf->format(1234.5);  # '١٬٢٣٤٫٥'
 
-    $curf->locale('bn');
-    say $curf->format(123456);  # '১,২৩,৪৫৬' (Bengali)
+    # when locale is 'bn' (Bengali)
+    say $curf->format(123456);  # '১,২৩,৪৫৬'
 
 =head1 DESCRIPTION
 

@@ -153,31 +153,38 @@ CLDR::Number::Format::Currency - Localized currency formatter using the Unicode 
 This document describes CLDR::Number::Format::Currency v0.08_1, built with Unicode
 CLDR v24.
 
+=head1 DEPRECATION
+
+Using the C<locale> method as a setter is deprecated. In the future the object’s
+locale will become immutable. Please see
+L<issue #38|https://github.com/perl-cldr/cldr-number-pm5/issues/38> for details
+and to submit comments or concerns.
+
 =head1 SYNOPSIS
 
     # either
     use CLDR::Number::Format::Currency;
-    my $curf = CLDR::Number::Format::Currency->new(
+    $curf = CLDR::Number::Format::Currency->new(
         locale   => 'en',
         currency => 'USD',
     );
 
     # or
     use CLDR::Number;
-    my $cldr = CLDR::Number->new(locale => 'en');
-    my $curf = $cldr->currency_formatter(currency_code => 'USD');
+    $cldr = CLDR::Number->new(locale => 'en');
+    $curf = $cldr->currency_formatter(currency_code => 'USD');
 
-    say $curf->format(9.99);  # '$9.99' (English / US dollars)
+    # when locale is 'en' (English) and currency is USD (US dollars)
+    say $curf->format(9.99);  # '$9.99'
 
-    $curf->locale('en-CA');
-    say $curf->format(9.99);  # 'US$9.99' (Canadian English / US dollars)
+    # when locale is 'en-CA' (Canadian English) and currency is USD
+    say $curf->format(9.99);  # 'US$9.99'
 
-    $curf->locale('fr-CA');
-    say $curf->format(9.99);  # '9,99 $US' (Canadian French / US dollars)
+    # when locale is 'fr-CA' (Canadian French) and currency is USD
+    say $curf->format(9.99);  # '9,99 $US'
 
-    $curf->locale('bn');
-    $curf->currency_code('INR');
-    say $curf->format(123456);  # '১,২৩,৪৫৬.০০₹' (Bengali / Indian rupees)
+    # when locale is 'bn' (Bengali) and currency is INR (Indian rupees)
+    say $curf->format(123456);  # '১,২৩,৪৫৬.০০₹'
 
 =head1 DESCRIPTION
 

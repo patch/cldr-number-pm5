@@ -55,41 +55,49 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 This document describes CLDR::Number v0.08_1, built with Unicode CLDR v24.
 
+=head1 DEPRECATION
+
+Using the C<locale> method as a setter is deprecated. In the future the object’s
+locale will become immutable. Please see
+L<issue #38|https://github.com/perl-cldr/cldr-number-pm5/issues/38> for details
+and to submit comments or concerns.
+
 =head1 SYNOPSIS
 
     use CLDR::Number;
 
-    my $cldr = CLDR::Number->new(locale => 'es');
+    # new oject with 'es' (Spanish) locale
+    $cldr = CLDR::Number->new(locale => 'es');
 
     # decimals
-    my $decf = $cldr->decimal_formatter;
+    $decf = $cldr->decimal_formatter;
 
-    say $decf->format(1234.5);  # '1 234,5' (Spanish)
+    # when locale is 'es' (Spanish)
+    say $decf->format(1234.5);  # '1 234,5'
 
-    $decf->locale('es-MX');
-    say $decf->format(1234.5);  # '1,234.5' (Mexican Spanish)
+    # when locale is 'es-MX' (Mexican Spanish)
+    say $decf->format(1234.5);  # '1,234.5'
 
-    $decf->locale('ar');
-    say $decf->format(1234.5);  # '١٬٢٣٤٫٥' (Arabic)
+    # when locale is 'ar' (Arabic)
+    say $decf->format(1234.5);  # '١٬٢٣٤٫٥'
 
     # percents
-    my $perf = $cldr->percent_formatter(locale => 'tr');
+    $perf = $cldr->percent_formatter;
 
-    say $perf->format(0.05);  # '%5' (Turkish)
+    # when locale is 'tr' (Turkish)
+    say $perf->format(0.05);  # '%5'
 
     # currencies
-    my $curf = $cldr->currency_formatter(
-        locale        => 'en',
-        currency_code => 'USD',
-    );
+    $curf = $cldr->currency_formatter(currency_code => 'USD');
 
-    say $curf->format(9.99);  # '$9.99' (English / USD)
+    # when locale is 'en' (English) and currency is USD (US dollars)
+    say $curf->format(9.99);  # '$9.99'
 
-    $curf->locale('en-CA');
-    say $curf->format(9.99);  # 'US$9.99' (Canadian English / USD)
+    # when locale is 'en-CA' (Canadian English) and currency is USD
+    say $curf->format(9.99);  # 'US$9.99'
 
-    $curf->locale('fr-CA');
-    say $curf->format(9.99);  # '9,99 $US' (Canadian French / USD)
+    # when locale is 'fr-CA' (Canadian French) and currency is USD
+    say $curf->format(9.99);  # '9,99 $US'
 
 =head1 DESCRIPTION
 
