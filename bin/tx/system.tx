@@ -1,0 +1,23 @@
+package CLDR::Number::Data::System;
+
+use v5.8.1;
+use utf8;
+use strict;
+use warnings;
+
+# Supplemental Data: Numbering Systems
+
+# This module does not have a publicly supported interface and may change in
+# backward incompatible ways in the future. Please use one of the documented
+# classes instead.
+
+our $VERSION      = '<: $version      :>';
+our $CLDR_VERSION = '<: $cldr_version :>';
+
+our $DATA = {
+: for $systems -> $system {
+    <: $system.name :> => [qw( <: $system.numbers :> )],
+: }
+};
+
+1;
