@@ -162,17 +162,12 @@ and to submit comments or concerns.
 
 =head1 SYNOPSIS
 
-    # either
-    use CLDR::Number::Format::Currency;
-    $curf = CLDR::Number::Format::Currency->new(
-        locale   => 'en',
-        currency => 'USD',
-    );
-
-    # or
     use CLDR::Number;
-    $cldr = CLDR::Number->new(locale => 'en');
-    $curf = $cldr->currency_formatter(currency_code => 'USD');
+
+    $curf = CLDR::Number->currency_formatter(
+        locale        => 'en',
+        currency_code => 'USD',
+    );
 
     # when locale is 'en' (English) and currency is USD (US dollars)
     say $curf->format(9.99);  # '$9.99'

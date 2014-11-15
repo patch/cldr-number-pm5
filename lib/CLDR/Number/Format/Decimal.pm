@@ -65,14 +65,9 @@ and to submit comments or concerns.
 
 =head1 SYNOPSIS
 
-    # either
-    use CLDR::Number::Format::Decimal;
-    $decf = CLDR::Number::Format::Decimal->new(locale => 'es');
-
-    # or
     use CLDR::Number;
-    $cldr = CLDR::Number->new(locale => 'es');
-    $decf = $cldr->decimal_formatter;
+
+    $cldr = CLDR::Number->decimal_formatter(locale => 'es');
 
     # when locale is 'es' (Spanish)
     say $decf->format(1234.5);  # '1 234,5'

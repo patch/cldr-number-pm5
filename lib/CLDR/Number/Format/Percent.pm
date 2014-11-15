@@ -85,14 +85,9 @@ and to submit comments or concerns.
 
 =head1 SYNOPSIS
 
-    # either
-    use CLDR::Number::Format::Percent;
-    $perf = CLDR::Number::Format::Percent->new(locale => 'tr');
-
-    # or
     use CLDR::Number;
-    $cldr = CLDR::Number->new(locale => 'tr');
-    $perf = $cldr->percent_formatter;
+
+    $perf = CLDR::Number->percent_formatter(locale => 'tr');
 
     # when locale is 'tr' (Turkish)
     say $perf->format(0.05);  # '%5'

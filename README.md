@@ -75,23 +75,25 @@ calling a setter method on the formatter object.
 
 ## Methods
 
+These can either be called as class methods or object methods.
+
 - decimal\_formatter
 
     Returns a decimal formatter, which is a [CLDR::Number::Format::Decimal](https://metacpan.org/pod/CLDR::Number::Format::Decimal) object
-    instantiated with all of the attributes from your CLDR::Number object as well as
-    any attributes passed to this method.
+    instantiated with the atttributes passed to this method. If called as an object
+    method, the attributes from your CLDR::Number object will also be passed.
 
 - percent\_formatter
 
     Returns a percent formatter, which is a [CLDR::Number::Format::Percent](https://metacpan.org/pod/CLDR::Number::Format::Percent) object
-    instantiated with all of the attributes from your CLDR::Number object as well as
-    any attributes passed to this method.
+    instantiated with the atttributes passed to this method. If called as an object
+    method, the attributes from your CLDR::Number object will also be passed.
 
 - currency\_formatter
 
     Returns a currency formatter, which is a [CLDR::Number::Format::Currency](https://metacpan.org/pod/CLDR::Number::Format::Currency)
-    object instantiated with all of the attributes from your CLDR::Number object as
-    well as any attributes passed to this method.
+    object instantiated with the atttributes passed to this method. If called as
+    an object method, the attributes from your CLDR::Number object will also be passed.
 
 ## Common Attributes
 

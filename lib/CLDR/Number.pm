@@ -14,31 +14,31 @@ sub BUILD {}
 
 sub decimal_formatter {
     my ($self, %args) = @_;
-
     require CLDR::Number::Format::Decimal;
-    CLDR::Number::Format::Decimal->new($self->_make_args(%args));
+    return CLDR::Number::Format::Decimal->new(
+        ref $self ? $self->_make_args(%args) : %args
+    );
 }
 
 sub percent_formatter {
     my ($self, %args) = @_;
-
     require CLDR::Number::Format::Percent;
-    CLDR::Number::Format::Percent->new($self->_make_args(%args));
+    return CLDR::Number::Format::Percent->new(
+        ref $self ? $self->_make_args(%args) : %args
+    );
 }
 
 sub currency_formatter {
     my ($self, %args) = @_;
-
     require CLDR::Number::Format::Currency;
-    CLDR::Number::Format::Currency->new($self->_make_args(%args));
+    return CLDR::Number::Format::Currency->new(
+        ref $self ? $self->_make_args(%args) : %args
+    );
 }
 
 sub _make_args {
     my ($self, %new_args) = @_;
-
-    my %args = (locale => $self->locale, %new_args);
-
-    return %args;
+    return locale => $self->locale, %new_args;
 }
 
 1;
@@ -116,25 +116,27 @@ calling a setter method on the formatter object.
 
 =head2 Methods
 
+These can either be called as class methods or object methods.
+
 =over
 
 =item decimal_formatter
 
 Returns a decimal formatter, which is a L<CLDR::Number::Format::Decimal> object
-instantiated with all of the attributes from your CLDR::Number object as well as
-any attributes passed to this method.
+instantiated with the atttributes passed to this method. If called as an object
+method, the attributes from your CLDR::Number object will also be passed.
 
 =item percent_formatter
 
 Returns a percent formatter, which is a L<CLDR::Number::Format::Percent> object
-instantiated with all of the attributes from your CLDR::Number object as well as
-any attributes passed to this method.
+instantiated with the atttributes passed to this method. If called as an object
+method, the attributes from your CLDR::Number object will also be passed.
 
 =item currency_formatter
 
 Returns a currency formatter, which is a L<CLDR::Number::Format::Currency>
-object instantiated with all of the attributes from your CLDR::Number object as
-well as any attributes passed to this method.
+object instantiated with the atttributes passed to this method. If called as an
+object method, the attributes from your CLDR::Number object will also be passed.
 
 =back
 

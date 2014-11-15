@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 27;
+use Test::More tests => 33;
 use CLDR::Number;
 
 my $cldr = new_ok 'CLDR::Number' => [locale => 'zh'], 'CLDR::Number';
@@ -62,3 +62,13 @@ ok !$decf->can('croak'), 'decimal: croak should not be inherited';
 ok !$perf->can('croak'), 'percent: croak should not be inherited';
 ok !$curf->can('croak'), 'currency: croak should not be inherited';
 ok !$decf->can('looks_like_number'), 'looks_like_number should not be inherited';
+
+$decf = CLDR::Number->decimal_formatter(  locale => 'de' );
+$perf = CLDR::Number->percent_formatter(  locale => 'en' );
+$curf = CLDR::Number->currency_formatter( locale => 'fr' );
+isa_ok $decf, 'CLDR::Number::Format::Decimal';
+isa_ok $perf, 'CLDR::Number::Format::Percent';
+isa_ok $curf, 'CLDR::Number::Format::Currency';
+is $decf->locale, 'de', 'locale of decimal factory class method';
+is $perf->locale, 'en', 'locale of percent factory class method';
+is $curf->locale, 'fr', 'locale of currency factory class method';
