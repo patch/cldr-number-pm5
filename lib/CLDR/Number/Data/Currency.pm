@@ -10,8 +10,10 @@ use charnames qw( :full );
 # backward incompatible ways in the future. Please use one of the documented
 # classes instead.
 
-our $VERSION = '0.09_01';
+our $VERSION      = '0.09_01';
+our $CLDR_VERSION = '26';
 
+# Numbers: Currencies
 our $LOCALES = {
     root => {
         AUD => 'A$',
@@ -2797,6 +2799,7 @@ our $LOCALES = {
     },
 };
 
+# Supplemental: Currency Fractions
 our $CURRENCIES = {
     DEFAULT => {
         digits => 2,
@@ -2841,7 +2844,7 @@ our $CURRENCIES = {
         cash_rounding => 5,
     },
     CLF => {
-        digits => 0,
+        digits => 4,
         rounding => 0,
     },
     CLP => {
@@ -2855,6 +2858,12 @@ our $CURRENCIES = {
     CRC => {
         digits => 0,
         rounding => 0,
+    },
+    CZK => {
+        digits => 2,
+        rounding => 0,
+        cash_digits => 0,
+        cash_rounding => 0,
     },
     DJF => {
         digits => 0,
@@ -2873,8 +2882,10 @@ our $CURRENCIES = {
         rounding => 0,
     },
     HUF => {
-        digits => 0,
+        digits => 2,
         rounding => 0,
+        cash_digits => 0,
+        cash_rounding => 0,
     },
     IDR => {
         digits => 0,
@@ -3008,17 +3019,21 @@ our $CURRENCIES = {
         digits => 0,
         rounding => 0,
     },
-    TZS => {
-        digits => 0,
-        rounding => 0,
-    },
     TWD => {
         digits => 2,
         rounding => 0,
         cash_digits => 0,
         cash_rounding => 0,
     },
+    TZS => {
+        digits => 0,
+        rounding => 0,
+    },
     UGX => {
+        digits => 0,
+        rounding => 0,
+    },
+    UYI => {
         digits => 0,
         rounding => 0,
     },

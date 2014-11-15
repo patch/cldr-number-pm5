@@ -1,11 +1,15 @@
-package CLDR::Number::Data::System;
+package CLDR::Number::Data::<: $name :>;
 
 use v5.8.1;
 use utf8;
 use strict;
 use warnings;
-
-# Supplemental Data: Numbering Systems
+: if $use_charnames {
+use charnames qw( :full );
+: }
+: if $use_constants {
+use CLDR::Number::Constant qw( $N $M $P $C );
+: }
 
 # This module does not have a publicly supported interface and may change in
 # backward incompatible ways in the future. Please use one of the documented
@@ -14,10 +18,6 @@ use warnings;
 our $VERSION      = '<: $version      :>';
 our $CLDR_VERSION = '<: $cldr_version :>';
 
-our $DATA = {
-: for $systems -> $system {
-    <: $system.name :> => [qw( <: $system.numbers :> )],
-: }
-};
+: block body -> { }
 
 1;

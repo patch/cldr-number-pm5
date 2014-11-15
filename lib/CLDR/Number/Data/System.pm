@@ -5,8 +5,6 @@ use utf8;
 use strict;
 use warnings;
 
-# Supplemental Data: Numbering Systems
-
 # This module does not have a publicly supported interface and may change in
 # backward incompatible ways in the future. Please use one of the documented
 # classes instead.
@@ -14,6 +12,7 @@ use warnings;
 our $VERSION      = '0.09_01';
 our $CLDR_VERSION = '26';
 
+# Supplemental: Numbering Systems
 our $DATA = {
     arab     => [qw( ٠ ١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩ )],
     arabext  => [qw( ۰ ۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ )],

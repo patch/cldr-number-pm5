@@ -1,0 +1,24 @@
+: cascade module
+: around body -> {
+# Numbers: Currencies
+our $LOCALES = {
+: for $locales -> $locale {
+    <: $locale.code :> => {
+    : for $locale.currencies -> $currency {
+        <: $currency.code :> => '<: $currency.sign :>',
+    : }
+    },
+: }
+};
+
+# Supplemental: Currency Fractions
+our $CURRENCIES = {
+: for $currencies -> $currency {
+    <: $currency.code :> => {
+    : for $currency.attributes -> $attribute {
+        <: $attribute.name :> => <: $attribute.value :>,
+    : }
+    },
+: }
+};
+: }

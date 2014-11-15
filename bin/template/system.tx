@@ -1,0 +1,9 @@
+: cascade module
+: around body -> {
+# Supplemental: Numbering Systems
+our $DATA = {
+: for $systems -> $system {
+    <: $system.name :> => [qw( <: $system.numbers :> )],
+: }
+};
+: }

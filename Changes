@@ -1,5 +1,17 @@
 Revision history for Perl module CLDR::Number
 
+0.09_01 XXX
+ - Upgrade CLDR data from v24 to v26
+ - Add bin/generate-cldr-data.pl script to update Perl data from CLDR JSON
+ - Change CLF (Chilean Unit of Account (UF)) currency fraction digits
+   from 0 to 4
+ - Change CZK (Czech Republic Koruna) currency cash fraction digits from 2 to 0
+   with default fraction digits remaining 2
+ - Change HUF (Hungarian Forint) currency fraction digits from 0 to 2 with
+   cash fraction digits remaining 0
+ - Change UYI (Uruguayan Peso (Indexed Units)) currency fraction digits
+   from 2 to 0
+
 0.09 2014-11-12
  - Deprecate use of the the `locale` method as a setter. In the future the
    formatter objects’ locale will become immutable. Please see [issue #38] for
