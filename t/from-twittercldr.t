@@ -41,10 +41,10 @@ is $curf->format(-12), '(US$12.00)', 'handles negative numbers';
 $curf->locale('ms');
 $curf->currency_sign('S/.');       is $curf->format(12), 'S/. 12.00',  'use the specified currency symbol when specified';
 $curf->currency_code('XYZ');       is $curf->format(12), 'XYZ 12.00',  'use the currency code as the symbol if the currency code cannot be identified';
-$curf->currency_code('THB');       is $curf->format(12), '฿12.00',    'use the currency symbol for the corresponding currency code';
+$curf->currency_code('THB');       is $curf->format(12), '฿12.00',     'use the currency symbol for the corresponding currency code';
 $curf->currency_code('TND');       is $curf->format(12), 'TND 12.000', 'use the currency-specific default minimum fraction digits';
-$curf->currency_code('CAD');       is $curf->format(12), 'CA$12.00',  'use the currency-specific default minimum fraction digits';
-$curf->minimum_fraction_digits(3); is $curf->format(12), 'CA$12.000', 'overrides the default minimum fraction digits';
+$curf->currency_code('CAD');       is $curf->format(12), 'CAD 12.00',  'use the currency-specific default minimum fraction digits';
+$curf->minimum_fraction_digits(3); is $curf->format(12), 'CAD 12.000', 'overrides the default minimum fraction digits';
 
 $curf->currency_code('CHF');
 $curf->rounding_increment(0.05);  # TODO: should this be 5?

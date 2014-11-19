@@ -16,7 +16,7 @@ In descending order of priority.
 
 =over
 
-=item * upgrade from CLDR v24 to v26
+=item * upgrade from CLDR v24 to v26 (in progress)
 I<L<#33|https://github.com/perl-cldr/cldr-number-pm5/issues/33>>
 
 =item * minimum grouping digits

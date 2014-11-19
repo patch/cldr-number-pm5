@@ -3,9 +3,9 @@
 # Numbers: Currencies
 our $LOCALES = {
 : for $locales -> $locale {
-    <: $locale.code :> => {
+    <: $locale.code | raw :> => {
     : for $locale.currencies -> $currency {
-        <: $currency.code :> => '<: $currency.sign :>',
+        <: $currency.code :> => <: $currency.sign | raw :>,
     : }
     },
 : }

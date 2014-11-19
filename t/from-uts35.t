@@ -61,7 +61,7 @@ $decf->pattern('###0.0000#'); is $decf->format(1_234.567), '1234,5670';
 $decf->pattern('00000.0000'); is $decf->format(1_234.567), '01234,5670';
 $curf = $cldr->currency_formatter(locale => 'fr', pattern => '#,##0.00 ¤');
 $curf->currency_code('EUR'); is $curf->format(1_234.567), '1 234,57 €';
-$curf->currency_code('JPY'); is $curf->format(1_234.567), '1 235 ¥JP';
+$curf->currency_code('JPY'); is $curf->format(1_234.567), '1 235 JPY';
 
 # 3.2 Special Pattern Characters
 $decf = $cldr->decimal_formatter(locale => 'en');

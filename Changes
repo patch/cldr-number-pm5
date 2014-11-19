@@ -11,6 +11,11 @@ Revision history for Perl module CLDR::Number
    cash fraction digits remaining 0
  - Change UYI (Uruguayan Peso (Indexed Units)) currency fraction digits
    from 2 to 0
+ - Change THB (Thai Baht) symbol from `฿` to `THB` for most locales including
+   root and th (Thai)
+ - Change many other currency symbols for many locales, including
+   DKK (Danish Krone) in da (Danish) from `kr` to `kr.` and USD (US Dollar) in
+   fr-CA (Canadian French) from `$US` to `$ US`
 
 0.09 2014-11-12
  - Deprecate use of the the `locale` method as a setter. In the future the

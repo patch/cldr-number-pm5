@@ -53,7 +53,8 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.09_01, built with Unicode CLDR v24.
+This document describes CLDR::Number v0.09_01, built with Unicode CLDR v24 and
+v26 (in transition).
 
 =head1 DEPRECATION
 
