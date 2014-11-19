@@ -21,6 +21,7 @@ t/00-load.t
 t/currency.t
 t/format.t
 t/from-icu4c.t
+t/from-shutterstock.t
 t/from-twittercldr.t
 t/from-uts35.t
 t/inheritance.t
