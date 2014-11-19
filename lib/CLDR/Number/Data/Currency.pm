@@ -298,6 +298,9 @@ our $LOCALES = {
     'en-AI' => {
         XCD => '$',
     },
+    'en-AU' => {
+        AUD => '$',
+    },
     'en-BB' => {
         BBD => '$',
     },

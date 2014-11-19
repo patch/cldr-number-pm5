@@ -25,9 +25,9 @@ is $cldr->group_sign,   ',', 'group inherited from es-419, not es';
 my $curf = $cldr->currency_formatter(locale => 'sv-FI');
 is $curf->decimal_sign, ':', 'currency decimal inherited from sv';
 
-$curf->locale('en-AU');
-$curf->currency_code('AUD');
-is $curf->currency_sign, '$', 'currency sign directly from en-AU';
+$curf->locale('en-CA');
+$curf->currency_code('CAD');
+is $curf->currency_sign, '$', 'currency sign directly from en-CA';
 $curf->currency_code('JPY');
 is $curf->currency_sign, '¥', 'currency sign inherited from en';
 

@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 24;
+use Test::More tests => 25;
 use Test::Exception;
 use CLDR::Number;
 
@@ -22,6 +22,13 @@ is $decf->format(1.99), '1,99', 'formatted Swedish decimal';
 $curf = $cldr->currency_formatter(currency_code => 'SEK');
 is $curf->decimal_sign, ':', 'Swedish currency decimal from currency formatter';
 is $curf->format(1.99), '1:99 kr', 'formatted Swedish currency';
+
+$curf = $cldr->currency_formatter(
+    locale        => 'en-AU',
+    currency_code => 'AUD',
+);
+
+is $curf->format(10), '$10.00', 'en-AU with AUD uses currency sign $ instead of A$';
 
 $curf = $cldr->currency_formatter(
     locale                  => 'en',

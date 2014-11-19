@@ -1,7 +1,7 @@
 Revision history for Perl module CLDR::Number
 
 0.09_01 XXX
- - Upgrade CLDR data from v24 to v26
+ - Upgrade CLDR data from v24 to v26 [issue #33]
  - Add bin/generate-cldr-data.pl script to update Perl data from CLDR JSON
  - Change CLF (Chilean Unit of Account (UF)) currency fraction digits
    from 0 to 4
@@ -16,6 +16,9 @@ Revision history for Perl module CLDR::Number
  - Change many other currency symbols for many locales, including
    DKK (Danish Krone) in da (Danish) from `kr` to `kr.` and USD (US Dollar) in
    fr-CA (Canadian French) from `$US` to `$ US`
+ - Fix CLDR v26 data regression by keeping currency symbol for
+   AUD (Australian Dollar) in en-AU (Australian English) as `$` instead of `A$`
+   [http://unicode.org/cldr/trac/ticket/7964]
 
 0.09 2014-11-12
  - Deprecate use of the the `locale` method as a setter. In the future the

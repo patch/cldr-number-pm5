@@ -149,6 +149,10 @@ my %parent_of = (
     'zh-Hant-MO' => 'zh-Hant-HK',
 );
 
+my %currency_override = (
+    'en-AU' => { AUD => '$' },
+);
+
 my $tx = Text::Xslate->new(path => ['bin/template']);
 
 my %locales;
@@ -213,14 +217,16 @@ printf {$currency_pm_fh} $tx->render('currency.tx', {
             code       => /-/ ? "'$locale'" : $locale,
             currencies => [ map { {
                 code => $_,
-                sign => escape_control($locales{currencies}{$locale}{$_}),
+                sign => escape_control($currency_override{$locale}{$_}
+                                       || $locales{currencies}{$locale}{$_}),
             } } sort grep {
-                $locale eq 'root' && $_ ne $locales{currencies}{root}{$_}
+                exists $currency_override{$locale}{$_}
+                || $locale eq 'root' && $_ ne $locales{currencies}{root}{$_}
                 || $locale ne 'root' && (
                     parent_of($locale) eq 'root'
-                        && !defined $locales{currencies}{root}{$_}
+                        && !exists $locales{currencies}{root}{$_}
                         && $_ ne $locales{currencies}{$locale}{$_}
-                    || defined $locales{currencies}{parent_of($locale)}{$_}
+                    || exists $locales{currencies}{parent_of($locale)}{$_}
                         && $locales{currencies}{$locale}{$_}
                             ne $locales{currencies}{parent_of($locale)}{$_}
                 )
