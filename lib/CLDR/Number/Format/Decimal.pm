@@ -54,7 +54,7 @@ CLDR::Number::Format::Decimal - Localized decimal formatter using the Unicode CL
 =head1 VERSION
 
 This document describes CLDR::Number::Format::Decimal v0.09_01, built with Unicode
-CLDR v24.
+CLDR v24 and v26 (in transition).
 
 =head1 DEPRECATION
 
