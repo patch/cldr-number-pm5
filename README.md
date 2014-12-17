@@ -189,3 +189,6 @@ from Shutterstock can be found at
 
 This library is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.
+
+Unicode is a registered trademark of Unicode, Inc., in the United States and
+other countries.

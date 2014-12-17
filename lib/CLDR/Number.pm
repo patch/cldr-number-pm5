@@ -246,3 +246,6 @@ L<code.shutterstock.com|http://code.shutterstock.com/>.
 
 This library is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.
+
+Unicode is a registered trademark of Unicode, Inc., in the United States and
+other countries.
