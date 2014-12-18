@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 55;
+use Test::More tests => 59;
 use CLDR::Number::Format::Currency;
 
 # Tests using locales and currencies supported by Shutterstock
@@ -21,6 +21,8 @@ __DATA__
 AUD	en-AU	$1,000.00
 BRL	en-BR	R$1,000.00
 BRL	pt-BR	R$1.000,00
+CAD	en-CA	$1,000.00
+CAD	fr-CA	1 000,00 $
 CHF	de-CH	CHF 1'000.00
 CHF	en-CH	CHF 1,000.00
 CHF	fr-CH	CHF 1'000.00
@@ -52,6 +54,8 @@ EUR	sv-FI	1 000:00 €
 GBP	en-GB	£1,000.00
 JPY	en-JP	¥1,000.00
 JPY	ja-JP	￥1,000.00
+KRW	en-KR	₩1,000.00
+KRW	ko-KR	₩1,000.00
 NOK	en-NO	NOK 1,000.00
 NOK	nb-NO	kr 1 000,00
 SEK	en-SE	SEK 1,000.00
