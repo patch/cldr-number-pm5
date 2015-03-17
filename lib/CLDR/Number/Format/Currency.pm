@@ -165,8 +165,8 @@ and to submit comments or concerns.
     # either
     use CLDR::Number::Format::Currency;
     $curf = CLDR::Number::Format::Currency->new(
-        locale   => 'en',
-        currency => 'USD',
+        locale        => 'en',
+        currency_code => 'USD',
     );
 
     # or
