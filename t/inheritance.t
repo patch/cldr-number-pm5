@@ -25,11 +25,11 @@ is $cldr->group_sign,   ',', 'group inherited from es-419, not es';
 my $curf = $cldr->currency_formatter(locale => 'sv-FI');
 is $curf->decimal_sign, ':', 'currency decimal inherited from sv';
 
-$curf->locale('en-CA');
-$curf->currency_code('CAD');
-is $curf->currency_sign, '$', 'currency sign directly from en-CA';
+$curf->locale('en-AU');
+$curf->currency_code('AUD');
+is $curf->currency_sign, '$', 'currency sign directly from en-AU';
 $curf->currency_code('JPY');
-is $curf->currency_sign, '¥', 'currency sign inherited from en';
+is $curf->currency_sign, 'JP¥', 'currency sign inherited from en-001';
 
 $cldr->locale('shi-Tfng-MA');
 eq_or_diff(

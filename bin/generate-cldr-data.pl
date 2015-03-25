@@ -37,13 +37,14 @@ my %parent_of = %{decode_json(
 close $parent_cldr_fh
     or die "Can't close $parent_cldr_file: $!";
 
+# Use to override CLDR data if an official error is discovered, for example:
+#    'en-AU' => { AUD => '$' },
 my %currency_override = (
-    'en-AU' => { AUD => '$' },
 );
 
 my $tx = Text::Xslate->new(path => ['bin/template']);
 
-my %locales;
+my ($cldr_version, %locales);
 for my $file (glob $currency1_cldr_file) {
     open my $fh, '<', $file
         or die "Can't open $file: $!";
@@ -52,6 +53,7 @@ for my $file (glob $currency1_cldr_file) {
         do { local $/; <$fh> }
     )->{main};
     my ($locale, $data) = %$main;
+    $cldr_version //= $data->{identity}{version}{_cldrVersion};
     $data = $data->{numbers}{currencies};
     $locales{currencies}{$locale} = {
         map  { $_ =>  $data->{$_}{symbol} }
@@ -80,11 +82,9 @@ my $system_cldr_data = decode_json(
 close $system_cldr_fh
     or die "Can't close $system_cldr_file: $!";
 
-my $cldr_version = $system_cldr_data->{version}{_cldrVersion};
-
 open my $base_pm_fh, '>', $base_pm_file
     or die "Can't open $base_pm_file: $!";
-printf {$base_pm_fh} $tx->render('base.tx', {
+print {$base_pm_fh} $tx->render('base.tx', {
     name          => 'Base',
     version       => $version,
     cldr_version  => $cldr_version,
@@ -113,7 +113,7 @@ my @currencies = map {
 
 open my $currency_pm_fh, '>', $currency_pm_file
     or die "Can't open $currency_pm_file: $!";
-printf {$currency_pm_fh} $tx->render('currency.tx', {
+print {$currency_pm_fh} $tx->render('currency.tx', {
     name          => 'Currency',
     version       => $version,
     cldr_version  => $cldr_version,
@@ -155,7 +155,7 @@ my @systems = map  { { name    => sprintf('% -8s', $_),
 
 open my $system_pm_fh, '>', $system_pm_file
     or die "Can't open $system_pm_file: $!";
-printf {$system_pm_fh} $tx->render('system.tx', {
+print {$system_pm_fh} $tx->render('system.tx', {
     name          => 'System',
     version       => $version,
     cldr_version  => $cldr_version,

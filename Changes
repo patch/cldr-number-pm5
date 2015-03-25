@@ -1,7 +1,13 @@
 Revision history for Perl module CLDR::Number
 
 0.09_01 XXX
- - Upgrade CLDR data from v24 to v26 [issue #33]
+ - Upgrade CLDR data from v24 to v27 [issue #33]
+ - Remove CLDR data with draft status of 'provisional' or 'unconfirmed' and
+   only include 'contributed' or 'approved', which is the same threshhold as the
+   ICU Project as well as the CLDR JSON data as of v27
+ - Remove 'provisional' draft numbering systems until they become at least
+   'contributed': brah (Brahmi), cakm (Chakma), osma (Osmanya), shrd (Sharada),
+   sora (Sora Sompeng), takr (Takri)
  - Add bin/generate-cldr-data.pl script to update Perl data from CLDR JSON
  - Change CLF (Chilean Unit of Account (UF)) currency fraction digits
    from 0 to 4
@@ -11,14 +17,11 @@ Revision history for Perl module CLDR::Number
    cash fraction digits remaining 0
  - Change UYI (Uruguayan Peso (Indexed Units)) currency fraction digits
    from 2 to 0
- - Change THB (Thai Baht) symbol from `฿` to `THB` for most locales including
+ - Change THB (Thai Baht) symbol from '฿' to 'THB' for most locales including
    root and th (Thai)
  - Change many other currency symbols for many locales, including
-   DKK (Danish Krone) in da (Danish) from `kr` to `kr.` and USD (US Dollar) in
-   fr-CA (Canadian French) from `$US` to `$ US`
- - Fix CLDR v26 data regression by keeping currency symbol for
-   AUD (Australian Dollar) in en-AU (Australian English) as `$` instead of `A$`
-   [http://unicode.org/cldr/trac/ticket/7964]
+   DKK (Danish Krone) in da (Danish) from 'kr' to 'kr.' and USD (US Dollar) in
+   fr-CA (Canadian French) from '$US' to '$ US'
 
 0.09 2014-11-12
  - Deprecate use of the the `locale` method as a setter. In the future the

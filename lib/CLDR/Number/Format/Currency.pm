@@ -151,7 +151,7 @@ CLDR::Number::Format::Currency - Localized currency formatter using the Unicode 
 =head1 VERSION
 
 This document describes CLDR::Number::Format::Currency v0.09_01, built with Unicode
-CLDR v24 and v26 (in transition).
+CLDR v24 and v27 (in transition).
 
 =head1 DEPRECATION
 

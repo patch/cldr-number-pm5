@@ -11,7 +11,7 @@ use charnames qw( :full );
 # classes instead.
 
 our $VERSION      = '0.09_01';
-our $CLDR_VERSION = '26';
+our $CLDR_VERSION = '27';
 
 # Numbers: Currencies
 our $LOCALES = {
@@ -36,15 +36,6 @@ our $LOCALES = {
         XCD => 'EC$',
         XOF => 'CFA',
         XPF => 'CFPF',
-    },
-    aa => {
-        ETB => 'Br',
-    },
-    'aa-DJ' => {
-        DJF => 'Fdj',
-    },
-    'aa-ER' => {
-        ERN => 'Nfk',
     },
     af => {
         MXN => 'MXN',
@@ -276,9 +267,7 @@ our $LOCALES = {
         KES => 'Ksh',
     },
     ee => {
-        AUD => 'AU$',
         GHS => 'GH₵',
-        THB => '฿',
     },
     el => {
         GRD => 'Δρχ',
@@ -290,6 +279,7 @@ our $LOCALES = {
         USD => '$',
     },
     'en-001' => {
+        JPY => 'JP¥',
         USD => 'US$',
     },
     'en-AG' => {
@@ -318,7 +308,6 @@ our $LOCALES = {
     },
     'en-CA' => {
         CAD => '$',
-        USD => 'US$',
     },
     'en-CC' => {
         AUD => '$',
@@ -341,9 +330,6 @@ our $LOCALES = {
     'en-FK' => {
         FKP => '£',
         GBP => 'GB£',
-    },
-    'en-GB' => {
-        THB => '฿',
     },
     'en-GD' => {
         XCD => '$',
@@ -498,11 +484,6 @@ our $LOCALES = {
     'en-ZM' => {
         ZMW => 'K',
     },
-    eo => {
-        AUD => 'AU$',
-        THB => '฿',
-        TRY => '₺',
-    },
     es => {
         AUD => 'AUD',
         BRL => 'BRL',
@@ -529,7 +510,6 @@ our $LOCALES = {
         THB => 'THB',
         USD => 'USD',
         VND => 'VND',
-        ZMW => 'ZMK',
     },
     'es-AR' => {
         ARS => '$',
@@ -694,9 +674,6 @@ our $LOCALES = {
         ITL => '₤IT',
         JPY => 'JPY',
         LBP => '£LB',
-        LSL => 'lLS',
-        MAF => 'fMA',
-        MGF => 'Fmg',
         MTP => '£MT',
         MXN => '$MX',
         NAD => '$NA',
@@ -712,7 +689,6 @@ our $LOCALES = {
         UYU => '$UY',
         WST => 'WS$',
         XCD => 'XCD',
-        XDR => 'DTS',
         XPF => 'FCFP',
     },
     'fr-BI' => {
@@ -744,13 +720,11 @@ our $LOCALES = {
         NZD => '$ NZ',
         SBD => 'SBD',
         SGD => '$ SG',
-        SRD => 'SRD',
         THB => 'THB',
         TTD => 'TTD',
         USD => '$ US',
         UYU => 'UYU',
         VND => 'VND',
-        WST => 'WST',
         XAF => 'XAF',
         XOF => 'XOF',
         XPF => 'XPF',
@@ -918,7 +892,6 @@ our $LOCALES = {
         IDR => 'Rp',
         INR => 'Rs',
         THB => '฿',
-        UYU => '$U',
     },
     ig => {
         NGN => '₦',
@@ -998,8 +971,6 @@ our $LOCALES = {
     },
     kl => {
         DKK => 'kr.',
-        NOK => 'Nkr',
-        SEK => 'Skr',
     },
     kln => {
         KES => 'Ksh',
@@ -1068,7 +1039,6 @@ our $LOCALES = {
         BRL => 'BRL',
         CAD => 'CAD',
         CNY => 'CNY',
-        EUR => 'EUR',
         GBP => 'GBP',
         HKD => 'HKD',
         ILS => 'ILS',
@@ -1078,7 +1048,7 @@ our $LOCALES = {
         MXN => 'MXN',
         NZD => 'NZD',
         TWD => 'TWD',
-        USD => 'USD',
+        USD => 'dol.',
         VND => 'VND',
         XAF => 'XAF',
         XCD => 'XCD',
@@ -1217,12 +1187,6 @@ our $LOCALES = {
     nn => {
         NOK => 'kr',
     },
-    nr => {
-        ZAR => 'R',
-    },
-    nso => {
-        ZAR => 'R',
-    },
     nyn => {
         UGX => 'USh',
     },
@@ -1297,9 +1261,6 @@ our $LOCALES = {
     },
     'qu-EC' => {
         PEN => 'PEN',
-        USD => '$',
-    },
-    rm => {
         USD => '$',
     },
     rn => {
@@ -1447,13 +1408,6 @@ our $LOCALES = {
         NZD => 'NZD',
         VND => 'VND',
     },
-    ss => {
-        SZL => 'E',
-        ZAR => 'R',
-    },
-    ssy => {
-        ERN => 'Nfk',
-    },
     sv => {
         AUD => 'AUD',
         BBD => 'Bds$',
@@ -1485,11 +1439,11 @@ our $LOCALES = {
         THB => '฿',
         TZS => 'TSh',
     },
+    'sw-CD' => {
+        CDF => 'FC',
+    },
     'sw-UG' => {
         UGX => 'USh',
-    },
-    swc => {
-        CDF => 'FC',
     },
     ta => {
         JPY => '¥',
@@ -1528,12 +1482,6 @@ our $LOCALES = {
     'ti-ER' => {
         ERN => 'Nfk',
     },
-    tn => {
-        ZAR => 'R',
-    },
-    'tn-BW' => {
-        BWP => 'P',
-    },
     to => {
         AUD => 'AUD$',
         NZD => 'NZD$',
@@ -1545,9 +1493,6 @@ our $LOCALES = {
         THB => '฿',
         TRY => '₺',
         USD => '$',
-    },
-    ts => {
-        ZAR => 'R',
     },
     ug => {
         CNY => '￥',
@@ -1598,9 +1543,6 @@ our $LOCALES = {
     },
     'vai-Latn' => {
         LRD => '$',
-    },
-    ve => {
-        ZAR => 'R',
     },
     vi => {
         AUD => 'AU$',
