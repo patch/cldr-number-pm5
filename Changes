@@ -1,5 +1,10 @@
 Revision history for Perl module CLDR::Number
 
+0.10 2015-03-26
+ - Improve documentation and unit tests (no functional changes)
+ - Docs: Fix attribute name in CLDR::Number::Format::Currency synopsis
+   [issue #40] (by Olaf Alders @oalders++)
+
 0.09 2014-11-12
  - Deprecate use of the the `locale` method as a setter. In the future the
    formatter objects’ locale will become immutable. Please see [issue #38] for

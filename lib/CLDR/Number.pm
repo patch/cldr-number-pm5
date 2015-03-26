@@ -6,7 +6,7 @@ use utf8;
 use Moo;
 use namespace::clean;
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 with qw( CLDR::Number::Role::Base );
 
@@ -53,7 +53,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.09, built with Unicode CLDR v24.
+This document describes CLDR::Number v0.10, built with Unicode CLDR v24.
 
 =head1 DEPRECATION
 
