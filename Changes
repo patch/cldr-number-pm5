@@ -1,6 +1,6 @@
 Revision history for Perl module CLDR::Number
 
-0.09_01 XXX
+0.10_01 XXX
  - Upgrade CLDR data from v24 to v27 [issue #33]
  - Remove CLDR data with draft status of 'provisional' or 'unconfirmed' and
    only include 'contributed' or 'approved', which is the same threshhold as the
@@ -22,6 +22,11 @@ Revision history for Perl module CLDR::Number
  - Change many other currency symbols for many locales, including
    DKK (Danish Krone) in da (Danish) from 'kr' to 'kr.' and USD (US Dollar) in
    fr-CA (Canadian French) from '$US' to '$ US'
+
+0.10 2015-03-26
+ - Improve documentation and unit tests (no functional changes)
+ - Docs: Fix attribute name in CLDR::Number::Format::Currency synopsis
+   [issue #40] (by Olaf Alders @oalders++)
 
 0.09 2014-11-12
  - Deprecate use of the the `locale` method as a setter. In the future the
