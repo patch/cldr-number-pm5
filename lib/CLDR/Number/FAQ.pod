@@ -15,9 +15,11 @@ v27 (in transition).
 
 =item What’s the status of this project?
 
-L<CLDR::Number> is a stable project used in production by Shutterstock on
-L<www.shutterstock.com> for formatting numbers, percents, and prices in twenty
-languages, ten currencies, and myriad countries.
+L<CLDR::Number> is a stable project used for over a year in production by
+Shutterstock on L<www.shutterstock.com> for formatting numbers, percents, and
+prices in twenty languages, ten currencies, and myriad countries. It is also
+used by L<other projects on the
+CPAN|https://metacpan.org/requires/distribution/CLDR-Number?sort=[[2,1]]>.
 
 =item How do I set precision?
 
