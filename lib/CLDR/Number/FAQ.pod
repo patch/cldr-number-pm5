@@ -47,12 +47,12 @@ your application depends on a default currency, the C<currency_code> attribute
 can be explicitly set.
 
 “B<Note:> I<Currency values should B<never> be interchanged without a known
-currency code. You never want the number 3.5 interpreted as $3.5 by one user and
-¥3.5 by another.> Locale data contains localization information for currencies,
-not a currency value for a country. A currency amount logically consists of a
-numeric value, plus an accompanying currency code (or equivalent).” —L<Unicode
-Technical Standard #35
-|http://www.unicode.org/reports/tr35/tr35-numbers.html#Currencies>
+currency code. You never want the number 3.5 interpreted as $3.50 by one user
+and €3.50 by another.> Locale data contains localization information for
+currencies, not a currency value for a country. A currency amount logically
+consists of a numeric value, plus an accompanying currency code (or
+equivalent).” —L<Unicode Technical Standard
+#35|http://www.unicode.org/reports/tr35/tr35-numbers.html#Currencies>
 
 =item How do I format years?
 
