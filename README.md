@@ -177,7 +177,7 @@ are therefore not supported in custom patterns and signs.
 
 # AUTHOR
 
-Nick Patch <patch@cpan.org>
+Nova Patch <patch@cpan.org>
 
 This project is brought to you by [Perl CLDR](http://perl-cldr.github.io/) and
 [Shutterstock](http://www.shutterstock.com/). Additional open source projects

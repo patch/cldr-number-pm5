@@ -234,7 +234,7 @@ are therefore not supported in custom patterns and signs.
 
 =head1 AUTHOR
 
-Nick Patch <patch@cpan.org>
+Nova Patch <patch@cpan.org>
 
 This project is brought to you by L<Perl CLDR|http://perl-cldr.github.io/> and
 L<Shutterstock|http://www.shutterstock.com/>. Additional open source projects
