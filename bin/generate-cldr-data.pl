@@ -5,14 +5,16 @@ use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
 use Unicode::UCD qw( charinfo );
+use List::MoreUtils qw( part );
 use JSON qw( decode_json );
 use Text::Xslate;
 
 my $cldr_dir = shift || '';
 
-my $version             = '0.09_01';
+my $version             = '0.10_01';
 my $parent_cldr_file    = 'supplemental/parentLocales.json';
 my $system_cldr_file    = 'supplemental/numberingSystems.json';
+my $number_cldr_file    = 'main/*/numbers.json';
 my $currency1_cldr_file = 'main/*/currencies.json';
 my $currency2_cldr_file = 'supplemental/currencyData.json';
 my $base_pm_file        = 'lib/CLDR/Number/Data/Base.pm';
@@ -22,6 +24,7 @@ my $currency_pm_file    = 'lib/CLDR/Number/Data/Currency.pm';
 for my $path (
     $parent_cldr_file,
     $system_cldr_file,
+    $number_cldr_file,
     $currency1_cldr_file,
     $currency2_cldr_file,
 ) {
@@ -45,7 +48,7 @@ my %currency_override = (
 my $tx = Text::Xslate->new(path => ['bin/template']);
 
 my ($cldr_version, %locales);
-for my $file (glob $currency1_cldr_file) {
+for my $file (glob $number_cldr_file) {
     open my $fh, '<', $file
         or die "Can't open $file: $!";
     binmode $fh, ':bytes';
@@ -54,6 +57,42 @@ for my $file (glob $currency1_cldr_file) {
     )->{main};
     my ($locale, $data) = %$main;
     $cldr_version //= $data->{identity}{version}{_cldrVersion};
+    $data = $data->{numbers};
+    my $system = $data->{defaultNumberingSystem};
+    $locales{numbers}{$locale} = {
+        pattern => {
+            at_least => $data->{"miscPatterns-numberSystem-$system"}{atLeast},
+            currency => $data->{"currencyFormats-numberSystem-$system"}{standard},
+            decimal  => $data->{"decimalFormats-numberSystem-$system"}{standard},
+            percent  => $data->{"percentFormats-numberSystem-$system"}{standard},
+            range    => $data->{"miscPatterns-numberSystem-$system"}{range},
+        },
+        symbol => {
+            decimal  => $data->{"symbols-numberSystem-$system"}{decimal},
+            group    => $data->{"symbols-numberSystem-$system"}{group},
+            infinity => $data->{"symbols-numberSystem-$system"}{infinity},
+            minus    => $data->{"symbols-numberSystem-$system"}{minusSign},
+            nan      => $data->{"symbols-numberSystem-$system"}{nan},
+            permil   => $data->{"symbols-numberSystem-$system"}{perMille},
+            percent  => $data->{"symbols-numberSystem-$system"}{percentSign},
+            plus     => $data->{"symbols-numberSystem-$system"}{plusSign},
+        },
+        system => {
+            default => $system,
+        },
+    };
+    close $fh
+        or die "Can't close $file: $!";
+}
+
+for my $file (glob $currency1_cldr_file) {
+    open my $fh, '<', $file
+        or die "Can't open $file: $!";
+    binmode $fh, ':bytes';
+    my $main = decode_json(
+        do { local $/; <$fh> }
+    )->{main};
+    my ($locale, $data) = %$main;
     $data = $data->{numbers}{currencies};
     $locales{currencies}{$locale} = {
         map  { $_ =>  $data->{$_}{symbol} }
@@ -82,6 +121,45 @@ my $system_cldr_data = decode_json(
 close $system_cldr_fh
     or die "Can't close $system_cldr_file: $!";
 
+my @categories = (
+    [ pattern => [qw( at_least currency decimal percent range )] ],
+    [ symbol  => [qw( decimal group infinity minus nan percent permil plus )] ],
+    [ system  => [qw( default )] ],
+);
+
+my @locale_parts =
+    part { @{$_->{categories}} ? 1 : 0 }
+    map  { my $locale = $_; {
+        code       => $locale,
+        categories => [
+            grep { @{$_->{subcategories}} > 0 }
+            map  { my $category = $_; {
+                name          => $category->[0],
+                subcategories => [map { {
+                    name  => $_,
+                    value => escape_control($locales{numbers}{$locale}{$category->[0]}{$_}),
+                } } grep {
+                    $locale eq 'root'
+                        || exists $locales{numbers}{parent_of($locale)}{$category->[0]}{$_}
+                            && $locales{numbers}{$locale}{$category->[0]}{$_}
+                                ne $locales{numbers}{parent_of($locale)}{$category->[0]}{$_}
+                } @{$category->[1]}],
+            } } @categories
+        ],
+    } } sort {
+        $a eq 'root' && -1 || $b eq 'root' || $a cmp $b
+    } keys %{$locales{numbers}};
+
+my @unused_lines;
+for my $locale (map { $_->{code} } @{$locale_parts[0]}) {
+    if (!@unused_lines || length(join ' ', @{$unused_lines[-1]}, $locale) > 72) {
+        push @unused_lines, [ $locale ];
+    }
+    else {
+        push @{$unused_lines[-1]}, $locale;
+    }
+}
+
 open my $base_pm_fh, '>', $base_pm_file
     or die "Can't open $base_pm_file: $!";
 print {$base_pm_fh} $tx->render('base.tx', {
@@ -90,6 +168,8 @@ print {$base_pm_fh} $tx->render('base.tx', {
     cldr_version  => $cldr_version,
     use_charnames => 1,
     use_constants => 1,
+    locales       => [ map { $_->{code} = quote_key($_->{code}); $_ } @{$locale_parts[1]} ],
+    unused        => [ map { join ' ', @$_ } @unused_lines ],
     parents       => [
         map  { [ $_, $parent_of{$_} ] }
         sort { $parent_of{$a} eq 'root' && $parent_of{$b} ne 'root' && -1
@@ -122,7 +202,7 @@ print {$currency_pm_fh} $tx->render('currency.tx', {
     locales       => [
         grep { @{$_->{currencies}} }
         map  { my $locale = $_; {
-            code       => /-/ ? "'$locale'" : $locale,
+            code       => quote_key($locale),
             currencies => [ map { {
                 code => $_,
                 sign => escape_control($currency_override{$locale}{$_}
@@ -164,14 +244,21 @@ print {$system_pm_fh} $tx->render('system.tx', {
 close $system_pm_fh
     or die "Can't close $system_pm_file: $!";
 
+sub quote_key {
+    my ($key) = @_;
+
+    return $key =~ /-/ ? "'$key'" : $key;
+}
+
 sub escape_control {
     my ($str) = @_;
 
-    return qq{'$str'} if $str !~ s{ ( \p{Cf} ) }{
-        '\\N{' . charinfo(ord $1)->{name} . '}'
-    }xe;
+    return $str =~ /"/ ? qq{qq[$str]} : qq{"$str"}
+        if $str =~ s{ ( \p{Cf} ) }{
+            '\\N{' . charinfo(ord $1)->{name} . '}'
+        }xeg;
 
-    return qq{"$str"};
+    return $str =~ /'/ ? qq{q[$str]} : qq{'$str'};
 }
 
 sub parent_of {
