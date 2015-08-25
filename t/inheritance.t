@@ -22,10 +22,16 @@ $cldr->locale('es-US');
 is $cldr->decimal_sign, '.', 'decimal inherited from es-419, not es';
 is $cldr->group_sign,   ',', 'group inherited from es-419, not es';
 
-my $curf = $cldr->currency_formatter(locale => 'sv-FI');
-is $curf->decimal_sign, ':', 'currency decimal inherited from sv';
+{
+    # currency decimal is no longer used by any locale, so we manually add it here
+    # to test the feature in case it’s reintroduced in the future
+    local $CLDR::Number::Data::Base::DATA->{sv}{symbol}{currency_decimal} = ':';
 
-$curf->locale('en-AU');
+    my $curf = $cldr->currency_formatter(locale => 'sv-FI');
+    is $curf->decimal_sign, ':', 'currency decimal inherited from sv';
+}
+
+my $curf = $cldr->currency_formatter(locale => 'en-AU');
 $curf->currency_code('AUD');
 is $curf->currency_sign, '$', 'currency sign directly from en-AU';
 $curf->currency_code('JPY');
