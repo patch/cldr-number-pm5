@@ -5,9 +5,11 @@ use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
 use Unicode::UCD qw( charinfo );
+use List::Util qw( any none first );
 use List::MoreUtils qw( part );
 use JSON qw( decode_json );
 use Text::Xslate;
+use CLDR::Number;
 
 my $cldr_dir = shift || '';
 
@@ -85,6 +87,14 @@ for my $file (glob $number_cldr_file) {
         or die "Can't close $file: $!";
 }
 
+$CLDR::Number::Data::Base::PARENT = \%parent_of;
+$CLDR::Number::Data::Base::DATA = { map { $_ => 1 } keys %{$locales{numbers}} };
+for my $locale (keys %{$locales{numbers}}) {
+    $locales{inheritance}{$locale} = CLDR::Number::_build_inheritance(
+        CLDR::Number::_split_locale($locale)
+    );
+}
+
 for my $file (glob $currency1_cldr_file) {
     open my $fh, '<', $file
         or die "Can't open $file: $!";
@@ -138,11 +148,13 @@ my @locale_parts =
                 subcategories => [map { {
                     name  => $_,
                     value => escape_control($locales{numbers}{$locale}{$category->[0]}{$_}),
-                } } grep {
+                } } grep { my $subcat = $_;
                     $locale eq 'root'
-                        || exists $locales{numbers}{parent_of($locale)}{$category->[0]}{$_}
-                            && $locales{numbers}{$locale}{$category->[0]}{$_}
-                                ne $locales{numbers}{parent_of($locale)}{$category->[0]}{$_}
+                        || defined $locales{numbers}{$locale}{$category->[0]}{$subcat}
+                            && $locales{numbers}{$locale}{$category->[0]}{$subcat}
+                                ne first { defined }
+                                   map   { $locales{numbers}{$_}{$category->[0]}{$subcat} }
+                                         parents($locale)
                 } @{$category->[1]}],
             } } @categories
         ],
@@ -205,18 +217,27 @@ print {$currency_pm_fh} $tx->render('currency.tx', {
             code       => quote_key($locale),
             currencies => [ map { {
                 code => $_,
-                sign => escape_control($currency_override{$locale}{$_}
-                                       || $locales{currencies}{$locale}{$_}),
-            } } sort grep {
-                exists $currency_override{$locale}{$_}
-                || $locale eq 'root' && $_ ne $locales{currencies}{root}{$_}
+                sign => escape_control(
+                    $currency_override{$locale}{$_}
+                    || $locales{currencies}{$locale}{$_}
+                ),
+            } } sort grep { my $currency = $_;
+                exists $currency_override{$locale}{$currency}
+                || $locale eq 'root' && $currency ne $locales{currencies}{root}{$currency}
                 || $locale ne 'root' && (
-                    parent_of($locale) eq 'root'
-                        && !exists $locales{currencies}{root}{$_}
-                        && $_ ne $locales{currencies}{$locale}{$_}
-                    || exists $locales{currencies}{parent_of($locale)}{$_}
-                        && $locales{currencies}{$locale}{$_}
-                            ne $locales{currencies}{parent_of($locale)}{$_}
+                    (
+                        (none { defined }
+                         map  { $locales{currencies}{$_}{$currency} }
+                              parents($locale))
+                        || $locales{currencies}{$locale}{$currency}
+                            ne first { defined }
+                               map   { $locales{currencies}{$_}{$currency} }
+                                     parents($locale)
+                    )
+                    && any { $currency ne $_ }
+                       grep   { defined }
+                       map    { $locales{currencies}{$_}{$currency} }
+                              $locale, parents($locale)
                 )
             } keys %{$locales{currencies}{$locale}} ]
         } } sort {
@@ -261,17 +282,8 @@ sub escape_control {
     return $str =~ /'/ ? qq{q[$str]} : qq{'$str'};
 }
 
-sub parent_of {
+sub parents {
     my ($locale) = @_;
 
-    return $parent_of{$locale}
-        if exists $parent_of{$locale};
-
-    return $1
-        if $locale =~ /^(.+)-/;
-
-    return 'root'
-        if $locale ne 'root';
-
-    return '';
+    return @{$locales{inheritance}{$locale}}[1..$#{$locales{inheritance}{$locale}}];
 }

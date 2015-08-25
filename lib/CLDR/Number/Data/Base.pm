@@ -299,6 +299,28 @@ our $DATA = {
             group => '.',
         },
     },
+    'ca-ES-VALENCIA' => {
+        pattern => {
+            at_least => '≥ {0}',
+            currency => '#,##0.00 ¤',
+            decimal => '#,##0.###',
+            percent => '#,##0%',
+            range => '{0}-{1}',
+        },
+        symbol => {
+            decimal => ',',
+            group => '.',
+            infinity => '∞',
+            minus => '-',
+            nan => 'NaN',
+            percent => '%',
+            permil => '‰',
+            plus => '+',
+        },
+        system => {
+            default => 'latn',
+        },
+    },
     cgg => {
         pattern => {
             currency => '¤#,##0.00',
@@ -482,6 +504,28 @@ our $DATA = {
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
+        },
+    },
+    'en-US-POSIX' => {
+        pattern => {
+            at_least => '{0}+',
+            currency => '¤ #0.00',
+            decimal => '#0.######',
+            percent => '#0%',
+            range => '{0}–{1}',
+        },
+        symbol => {
+            decimal => '.',
+            group => ',',
+            infinity => 'INF',
+            minus => '-',
+            nan => 'NaN',
+            percent => '%',
+            permil => '0/00',
+            plus => '+',
+        },
+        system => {
+            default => 'latn',
         },
     },
     'en-ZA' => {
@@ -1910,28 +1954,28 @@ our $DATA = {
     map { $_ => undef } qw(
         af-NA ar-AE ar-BH ar-DJ ar-EG ar-ER ar-IL ar-IQ ar-JO ar-KM ar-KW ar-LB
         ar-MR ar-OM ar-PS ar-QA ar-SA ar-SD ar-SO ar-SS ar-SY ar-TD ar-YE
-        az-Latn bm-Latn bn-IN bo bo-IN bs-Latn ca-AD ca-ES-VALENCIA ca-FR ca-IT
-        da-GL de-BE de-LU ee-TG el-CY en-001 en-AG en-AI en-AS en-AU en-BB en-BM
-        en-BS en-BW en-BZ en-CA en-CC en-CK en-CM en-CX en-DG en-DM en-ER en-FJ
-        en-FK en-FM en-GB en-GD en-GG en-GH en-GI en-GM en-GU en-GY en-HK en-IE
-        en-IM en-IO en-JE en-JM en-KE en-KI en-KN en-KY en-LC en-LR en-LS en-MG
-        en-MH en-MO en-MP en-MS en-MT en-MU en-MW en-MY en-NA en-NF en-NG en-NR
-        en-NU en-NZ en-PG en-PH en-PK en-PN en-PR en-PW en-RW en-SB en-SC en-SD
-        en-SG en-SH en-SL en-SS en-SX en-SZ en-TC en-TK en-TO en-TT en-TV en-TZ
-        en-UG en-UM en-US-POSIX en-VC en-VG en-VI en-VU en-WS en-ZM en-ZW es-CU
-        es-DO es-EA es-GT es-HN es-IC es-NI es-PA es-PE es-PH es-PR es-SV es-US
-        fa-AF ff-CM ff-GN ff-MR fr-BF fr-BI fr-BJ fr-BL fr-CA fr-CD fr-CF fr-CG
-        fr-CI fr-CM fr-DJ fr-DZ fr-GA fr-GF fr-GN fr-GP fr-GQ fr-HT fr-KM fr-MA
-        fr-MC fr-MF fr-MG fr-ML fr-MQ fr-MR fr-MU fr-NC fr-NE fr-PF fr-PM fr-RE
-        fr-RW fr-SC fr-SN fr-SY fr-TD fr-TG fr-TN fr-VU fr-WF fr-YT gsw-FR
-        gsw-LI ha ha-Latn ha-Latn-GH ha-Latn-NE hr-BA ii it-SM kk-Cyrl ko-KP
-        ks-Arab ky-Cyrl lag lkt ln-AO ln-CF ln-CG mas-TZ mgo mn-Cyrl ms-Latn
-        ms-Latn-SG nb-SJ ne-IN nl-AW nl-BQ nl-CW nl-SR nl-SX om-KE os-RU pa-Guru
-        pt-AO pt-CV pt-GW pt-MO pt-MZ pt-ST pt-TL qu-EC ro-MD ru-BY ru-KG ru-KZ
-        ru-MD ru-UA sah se-FI se-SE shi-Tfng so-DJ so-ET so-KE sq-MK sq-XK
-        sr-Cyrl sr-Cyrl-BA sr-Cyrl-ME sr-Cyrl-XK sr-Latn-BA sr-Latn-ME
-        sr-Latn-XK sv-AX sv-FI sw-KE sw-UG ta-LK teo-KE ti-ER tr-CY tzm-Latn
-        ug-Arab uz-Latn vai-Vaii yi yo-BJ zh-Hans zh-Hant-HK zh-Hant-MO
+        az-Latn bm-Latn bn-IN bo bo-IN bs-Latn ca-AD ca-FR ca-IT da-GL de-BE
+        de-LU ee-TG el-CY en-001 en-AG en-AI en-AS en-AU en-BB en-BM en-BS en-BW
+        en-BZ en-CA en-CC en-CK en-CM en-CX en-DG en-DM en-ER en-FJ en-FK en-FM
+        en-GB en-GD en-GG en-GH en-GI en-GM en-GU en-GY en-HK en-IE en-IM en-IO
+        en-JE en-JM en-KE en-KI en-KN en-KY en-LC en-LR en-LS en-MG en-MH en-MO
+        en-MP en-MS en-MT en-MU en-MW en-MY en-NA en-NF en-NG en-NR en-NU en-NZ
+        en-PG en-PH en-PK en-PN en-PR en-PW en-RW en-SB en-SC en-SD en-SG en-SH
+        en-SL en-SS en-SX en-SZ en-TC en-TK en-TO en-TT en-TV en-TZ en-UG en-UM
+        en-VC en-VG en-VI en-VU en-WS en-ZM en-ZW es-CU es-DO es-EA es-GT es-HN
+        es-IC es-NI es-PA es-PE es-PH es-PR es-SV es-US fa-AF ff-CM ff-GN ff-MR
+        fr-BF fr-BI fr-BJ fr-BL fr-CA fr-CD fr-CF fr-CG fr-CI fr-CM fr-DJ fr-DZ
+        fr-GA fr-GF fr-GN fr-GP fr-GQ fr-HT fr-KM fr-MA fr-MC fr-MF fr-MG fr-ML
+        fr-MQ fr-MR fr-MU fr-NC fr-NE fr-PF fr-PM fr-RE fr-RW fr-SC fr-SN fr-SY
+        fr-TD fr-TG fr-TN fr-VU fr-WF fr-YT gsw-FR gsw-LI ha ha-Latn ha-Latn-GH
+        ha-Latn-NE hr-BA ii it-SM kk-Cyrl ko-KP ks-Arab ky-Cyrl lag lkt ln-AO
+        ln-CF ln-CG mas-TZ mgo mn-Cyrl ms-Latn ms-Latn-SG nb-SJ ne-IN nl-AW
+        nl-BQ nl-CW nl-SR nl-SX om-KE os-RU pa-Guru pt-AO pt-CV pt-GW pt-MO
+        pt-MZ pt-ST pt-TL qu-EC ro-MD ru-BY ru-KG ru-KZ ru-MD ru-UA sah se-FI
+        se-SE shi-Tfng so-DJ so-ET so-KE sq-MK sq-XK sr-Cyrl sr-Cyrl-BA
+        sr-Cyrl-ME sr-Cyrl-XK sr-Latn-BA sr-Latn-ME sr-Latn-XK sv-AX sv-FI sw-KE
+        sw-UG ta-LK teo-KE ti-ER tr-CY tzm-Latn ug-Arab uz-Latn vai-Vaii yi
+        yo-BJ zh-Hans zh-Hant-HK zh-Hant-MO
     )
 };
 
