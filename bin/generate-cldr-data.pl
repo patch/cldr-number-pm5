@@ -5,14 +5,18 @@ use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
 use Unicode::UCD qw( charinfo );
+use List::Util qw( any none first );
+use List::MoreUtils qw( part );
 use JSON qw( decode_json );
 use Text::Xslate;
+use CLDR::Number;
 
 my $cldr_dir = shift || '';
 
-my $version             = '0.09_01';
+my $version             = '0.10_01';
 my $parent_cldr_file    = 'supplemental/parentLocales.json';
 my $system_cldr_file    = 'supplemental/numberingSystems.json';
+my $number_cldr_file    = 'main/*/numbers.json';
 my $currency1_cldr_file = 'main/*/currencies.json';
 my $currency2_cldr_file = 'supplemental/currencyData.json';
 my $base_pm_file        = 'lib/CLDR/Number/Data/Base.pm';
@@ -22,6 +26,7 @@ my $currency_pm_file    = 'lib/CLDR/Number/Data/Currency.pm';
 for my $path (
     $parent_cldr_file,
     $system_cldr_file,
+    $number_cldr_file,
     $currency1_cldr_file,
     $currency2_cldr_file,
 ) {
@@ -37,6 +42,11 @@ my %parent_of = %{decode_json(
 close $parent_cldr_fh
     or die "Can't close $parent_cldr_file: $!";
 
+my %local_alias = (
+    'ca-ES-VALENCIA' => 'ca-ES-u-va-valencia',
+    'en-US-POSIX'    => 'en-US-u-va-posix',
+);
+
 # Use to override CLDR data if an official error is discovered, for example:
 #    'en-AU' => { AUD => '$' },
 my %currency_override = (
@@ -45,6 +55,53 @@ my %currency_override = (
 my $tx = Text::Xslate->new(path => ['bin/template']);
 
 my ($cldr_version, %locales);
+for my $file (glob $number_cldr_file) {
+    open my $fh, '<', $file
+        or die "Can't open $file: $!";
+    binmode $fh, ':bytes';
+    my $main = decode_json(
+        do { local $/; <$fh> }
+    )->{main};
+    my ($locale, $data) = %$main;
+    $locale = normalize($locale);
+    $cldr_version //= $data->{identity}{version}{_cldrVersion};
+    $data = $data->{numbers};
+    my $system = $data->{defaultNumberingSystem};
+    $locales{numbers}{$locale} = {
+        pattern => {
+            at_least => $data->{"miscPatterns-numberSystem-$system"}{atLeast},
+            currency => $data->{"currencyFormats-numberSystem-$system"}{standard},
+            decimal  => $data->{"decimalFormats-numberSystem-$system"}{standard},
+            percent  => $data->{"percentFormats-numberSystem-$system"}{standard},
+            range    => $data->{"miscPatterns-numberSystem-$system"}{range},
+        },
+        symbol => {
+            currency_decimal => $data->{"symbols-numberSystem-$system"}{currencyDecimal},
+            decimal          => $data->{"symbols-numberSystem-$system"}{decimal},
+            group            => $data->{"symbols-numberSystem-$system"}{group},
+            infinity         => $data->{"symbols-numberSystem-$system"}{infinity},
+            minus            => $data->{"symbols-numberSystem-$system"}{minusSign},
+            nan              => $data->{"symbols-numberSystem-$system"}{nan},
+            permil           => $data->{"symbols-numberSystem-$system"}{perMille},
+            percent          => $data->{"symbols-numberSystem-$system"}{percentSign},
+            plus             => $data->{"symbols-numberSystem-$system"}{plusSign},
+        },
+        system => {
+            default => $system,
+        },
+    };
+    close $fh
+        or die "Can't close $file: $!";
+}
+
+$CLDR::Number::Data::Base::PARENT = \%parent_of;
+$CLDR::Number::Data::Base::DATA = { map { $_ => 1 } keys %{$locales{numbers}} };
+for my $locale (keys %{$locales{numbers}}) {
+    $locales{inheritance}{$locale} = CLDR::Number::_build_inheritance(
+        CLDR::Number::_split_locale($locale)
+    );
+}
+
 for my $file (glob $currency1_cldr_file) {
     open my $fh, '<', $file
         or die "Can't open $file: $!";
@@ -53,7 +110,7 @@ for my $file (glob $currency1_cldr_file) {
         do { local $/; <$fh> }
     )->{main};
     my ($locale, $data) = %$main;
-    $cldr_version //= $data->{identity}{version}{_cldrVersion};
+    $locale = normalize($locale);
     $data = $data->{numbers}{currencies};
     $locales{currencies}{$locale} = {
         map  { $_ =>  $data->{$_}{symbol} }
@@ -82,6 +139,49 @@ my $system_cldr_data = decode_json(
 close $system_cldr_fh
     or die "Can't close $system_cldr_file: $!";
 
+my @categories = (
+    [ pattern => [qw( at_least currency decimal percent range )] ],
+    [ symbol  => [qw( currency_decimal decimal group infinity minus nan percent permil plus )] ],
+    [ system  => [qw( default )] ],
+);
+
+my @locale_parts =
+    part { @{$_->{categories}} ? 1 : 0 }
+    map  { my $locale = $_; {
+        code       => $locale,
+        categories => [
+            grep { @{$_->{subcategories}} > 0 }
+            map  { my $category = $_; {
+                name          => $category->[0],
+                subcategories => [map { {
+                    name  => $_,
+                    value => escape_control($locales{numbers}{$locale}{$category->[0]}{$_}),
+                } } grep { my $subcat = $_;
+                    defined $locales{numbers}{$locale}{$category->[0]}{$subcat}
+                    && (
+                        $locale eq 'root'
+                        || $locales{numbers}{$locale}{$category->[0]}{$subcat}
+                            ne first { defined }
+                               map   { $locales{numbers}{$_}{$category->[0]}{$subcat} }
+                                     parents($locale)
+                    )
+                } @{$category->[1]}],
+            } } @categories
+        ],
+    } } sort {
+        $a eq 'root' && -1 || $b eq 'root' || $a cmp $b
+    } keys %{$locales{numbers}};
+
+my @unused_lines;
+for my $locale (map { $_->{code} } @{$locale_parts[0]}) {
+    if (!@unused_lines || length(join ' ', @{$unused_lines[-1]}, $locale) > 72) {
+        push @unused_lines, [ $locale ];
+    }
+    else {
+        push @{$unused_lines[-1]}, $locale;
+    }
+}
+
 open my $base_pm_fh, '>', $base_pm_file
     or die "Can't open $base_pm_file: $!";
 print {$base_pm_fh} $tx->render('base.tx', {
@@ -90,6 +190,8 @@ print {$base_pm_fh} $tx->render('base.tx', {
     cldr_version  => $cldr_version,
     use_charnames => 1,
     use_constants => 1,
+    locales       => [ map { $_->{code} = quote_key($_->{code}); $_ } @{$locale_parts[1]} ],
+    unused        => [ map { join ' ', @$_ } @unused_lines ],
     parents       => [
         map  { [ $_, $parent_of{$_} ] }
         sort { $parent_of{$a} eq 'root' && $parent_of{$b} ne 'root' && -1
@@ -122,21 +224,30 @@ print {$currency_pm_fh} $tx->render('currency.tx', {
     locales       => [
         grep { @{$_->{currencies}} }
         map  { my $locale = $_; {
-            code       => /-/ ? "'$locale'" : $locale,
+            code       => quote_key($locale),
             currencies => [ map { {
                 code => $_,
-                sign => escape_control($currency_override{$locale}{$_}
-                                       || $locales{currencies}{$locale}{$_}),
-            } } sort grep {
-                exists $currency_override{$locale}{$_}
-                || $locale eq 'root' && $_ ne $locales{currencies}{root}{$_}
+                sign => escape_control(
+                    $currency_override{$locale}{$_}
+                    || $locales{currencies}{$locale}{$_}
+                ),
+            } } sort grep { my $currency = $_;
+                exists $currency_override{$locale}{$currency}
+                || $locale eq 'root' && $currency ne $locales{currencies}{root}{$currency}
                 || $locale ne 'root' && (
-                    parent_of($locale) eq 'root'
-                        && !exists $locales{currencies}{root}{$_}
-                        && $_ ne $locales{currencies}{$locale}{$_}
-                    || exists $locales{currencies}{parent_of($locale)}{$_}
-                        && $locales{currencies}{$locale}{$_}
-                            ne $locales{currencies}{parent_of($locale)}{$_}
+                    (
+                        (none { defined }
+                         map  { $locales{currencies}{$_}{$currency} }
+                              parents($locale))
+                        || $locales{currencies}{$locale}{$currency}
+                            ne first { defined }
+                               map   { $locales{currencies}{$_}{$currency} }
+                                     parents($locale)
+                    )
+                    && any { $currency ne $_ }
+                       grep   { defined }
+                       map    { $locales{currencies}{$_}{$currency} }
+                              $locale, parents($locale)
                 )
             } keys %{$locales{currencies}{$locale}} ]
         } } sort {
@@ -164,27 +275,31 @@ print {$system_pm_fh} $tx->render('system.tx', {
 close $system_pm_fh
     or die "Can't close $system_pm_file: $!";
 
+sub quote_key {
+    my ($key) = @_;
+
+    return $key =~ /-/ ? "'$key'" : $key;
+}
+
 sub escape_control {
     my ($str) = @_;
 
-    return qq{'$str'} if $str !~ s{ ( \p{Cf} ) }{
-        '\\N{' . charinfo(ord $1)->{name} . '}'
-    }xe;
+    return $str =~ /"/ ? qq{qq[$str]} : qq{"$str"}
+        if $str =~ s{ ( \p{Cf} ) }{
+            '\\N{' . charinfo(ord $1)->{name} . '}'
+        }xeg;
 
-    return qq{"$str"};
+    return $str =~ /'/ ? qq{q[$str]} : qq{'$str'};
 }
 
-sub parent_of {
+sub parents {
     my ($locale) = @_;
 
-    return $parent_of{$locale}
-        if exists $parent_of{$locale};
+    return @{$locales{inheritance}{$locale}}[1..$#{$locales{inheritance}{$locale}}];
+}
 
-    return $1
-        if $locale =~ /^(.+)-/;
+sub normalize {
+    my ($locale) = @_;
 
-    return 'root'
-        if $locale ne 'root';
-
-    return '';
+    return $local_alias{$locale} || $locale;
 }

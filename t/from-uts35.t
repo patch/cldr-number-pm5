@@ -108,8 +108,8 @@ TODO: {
     $curf = $cldr->currency_formatter(locale => 'en', currency_code => 'USD');
     $curf->pattern('¤*x#,##0.00');
     is $curf->format(123),  '$xx123.00', 'padding (applied)';
-    is $curf->format(1234), '$1,234.00', 'padding (not applied)';
 }
+is $curf->format(1234), '$1,234.00', 'padding (not applied)';
 
 # Rounding
 $decf = $cldr->decimal_formatter(locale => 'en');
@@ -127,7 +127,7 @@ $curf->locale('lg');
 is $curf->currency_sign, 'US$',       'expected currency sign';
 is $curf->pattern,       '#,##0.00¤', 'expected pattern';
 is $curf->format(1),     '1.00 US$',  'currency spacing inserted';
-$curf->locale('aa');
+$curf->locale('ak');
 is $curf->currency_sign, 'US$',       'expected currency sign';
 is $curf->pattern,       '¤#,##0.00', 'expected pattern';
 is $curf->format(1),     'US$1.00',   'no currency spacing inserted';

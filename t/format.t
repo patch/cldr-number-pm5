@@ -83,11 +83,11 @@ warning_is {
 } q{Argument "1.5X" isn't numeric in CLDR::Number::Format::Decimal::format};
 
 warning_is {
-    is $decf->at_least('X'), '0+', 'decimal at_least when not num';
+    is $decf->at_least('X'), '⩾0', 'decimal at_least when not num';
 } q{Argument "X" isn't numeric in CLDR::Number::Format::Decimal::at_least};
 
 warning_is {
-    is $decf->at_least('1.5X'), '1,5+', 'decimal at_least when not all num';
+    is $decf->at_least('1.5X'), '⩾1,5', 'decimal at_least when not all num';
 } q{Argument "1.5X" isn't numeric in CLDR::Number::Format::Decimal::at_least};
 
 warning_is {
