@@ -76,14 +76,15 @@ for my $file (glob $number_cldr_file) {
             range    => $data->{"miscPatterns-numberSystem-$system"}{range},
         },
         symbol => {
-            decimal  => $data->{"symbols-numberSystem-$system"}{decimal},
-            group    => $data->{"symbols-numberSystem-$system"}{group},
-            infinity => $data->{"symbols-numberSystem-$system"}{infinity},
-            minus    => $data->{"symbols-numberSystem-$system"}{minusSign},
-            nan      => $data->{"symbols-numberSystem-$system"}{nan},
-            permil   => $data->{"symbols-numberSystem-$system"}{perMille},
-            percent  => $data->{"symbols-numberSystem-$system"}{percentSign},
-            plus     => $data->{"symbols-numberSystem-$system"}{plusSign},
+            currency_decimal => $data->{"symbols-numberSystem-$system"}{currencyDecimal},
+            decimal          => $data->{"symbols-numberSystem-$system"}{decimal},
+            group            => $data->{"symbols-numberSystem-$system"}{group},
+            infinity         => $data->{"symbols-numberSystem-$system"}{infinity},
+            minus            => $data->{"symbols-numberSystem-$system"}{minusSign},
+            nan              => $data->{"symbols-numberSystem-$system"}{nan},
+            permil           => $data->{"symbols-numberSystem-$system"}{perMille},
+            percent          => $data->{"symbols-numberSystem-$system"}{percentSign},
+            plus             => $data->{"symbols-numberSystem-$system"}{plusSign},
         },
         system => {
             default => $system,
@@ -140,7 +141,7 @@ close $system_cldr_fh
 
 my @categories = (
     [ pattern => [qw( at_least currency decimal percent range )] ],
-    [ symbol  => [qw( decimal group infinity minus nan percent permil plus )] ],
+    [ symbol  => [qw( currency_decimal decimal group infinity minus nan percent permil plus )] ],
     [ system  => [qw( default )] ],
 );
 
@@ -156,12 +157,14 @@ my @locale_parts =
                     name  => $_,
                     value => escape_control($locales{numbers}{$locale}{$category->[0]}{$_}),
                 } } grep { my $subcat = $_;
-                    $locale eq 'root'
-                        || defined $locales{numbers}{$locale}{$category->[0]}{$subcat}
-                            && $locales{numbers}{$locale}{$category->[0]}{$subcat}
-                                ne first { defined }
-                                   map   { $locales{numbers}{$_}{$category->[0]}{$subcat} }
-                                         parents($locale)
+                    defined $locales{numbers}{$locale}{$category->[0]}{$subcat}
+                    && (
+                        $locale eq 'root'
+                        || $locales{numbers}{$locale}{$category->[0]}{$subcat}
+                            ne first { defined }
+                               map   { $locales{numbers}{$_}{$category->[0]}{$subcat} }
+                                     parents($locale)
+                    )
                 } @{$category->[1]}],
             } } @categories
         ],
