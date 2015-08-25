@@ -37,10 +37,10 @@ is $curf->currency_sign, '$', 'currency sign directly from en-AU';
 $curf->currency_code('JPY');
 is $curf->currency_sign, 'JP¥', 'currency sign inherited from en-001';
 
-$cldr->locale('shi-Tfng-MA');
+$cldr->locale('ms-Latn-SG');
 eq_or_diff(
     $cldr->_locale_inheritance,
-    [qw( shi-Tfng-MA shi-Tfng shi root )],
+    [qw( ms-Latn-SG ms-Latn ms root )],
     'locale inheritance'
 );
 
@@ -75,6 +75,6 @@ eq_or_diff(
 $cldr->locale('en-US-u-va-posix');
 eq_or_diff(
     $cldr->_locale_inheritance,
-    [qw( en-US-u-va-posix en-US en root )],
+    [qw( en-US-u-va-posix en root )],
     'locale inheritance with Unicode extension'
 );

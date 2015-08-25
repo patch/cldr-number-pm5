@@ -54,12 +54,12 @@ warning_is {
     ok !$cldr->default_locale, 'default locale does not fallback like locale';
 } q{default_locale 'xx' is unknown};
 
-$cldr = CLDR::Number->new(default_locale => 'en-US');
-is $cldr->default_locale, 'en-US', 'default locale is set';
-is $cldr->locale, 'en-US', 'locale is default when undefined with default';
+$cldr = CLDR::Number->new(default_locale => 'en-GB');
+is $cldr->default_locale, 'en-GB', 'default locale is set';
+is $cldr->locale, 'en-GB', 'locale is default when undefined with default';
 
 $cldr->locale('xx');
-is $cldr->locale, 'en-US', 'locale is default when invalid with default';
+is $cldr->locale, 'en-GB', 'locale is default when invalid with default';
 
 # fallbacks
 $cldr = CLDR::Number->new;
@@ -75,11 +75,11 @@ is $cldr->locale, 'en', 'locale is language when invalid script';
 $cldr->locale('zh-Latn');
 is $cldr->locale, 'zh', 'locale is language when unavailable script';
 
-$cldr->locale('zh-Hant-US');
+$cldr->locale('zh-Hant-GB');
 is $cldr->locale, 'zh-Hant', 'locale is language-script when unavailable country';
 
-$cldr->locale('en-Hant-US');
-is $cldr->locale, 'en-US', 'locale is language-country when unavailable script';
+$cldr->locale('en-Hant-GB');
+is $cldr->locale, 'en-GB', 'locale is language-country when unavailable script';
 
 $cldr->locale('es-419');
 is $cldr->locale, 'es-419', 'numeric regions are supported';
