@@ -42,6 +42,11 @@ my %parent_of = %{decode_json(
 close $parent_cldr_fh
     or die "Can't close $parent_cldr_file: $!";
 
+my %local_alias = (
+    'ca-ES-VALENCIA' => 'ca-ES-u-va-valencia',
+    'en-US-POSIX'    => 'en-US-u-va-posix',
+);
+
 # Use to override CLDR data if an official error is discovered, for example:
 #    'en-AU' => { AUD => '$' },
 my %currency_override = (
@@ -58,6 +63,7 @@ for my $file (glob $number_cldr_file) {
         do { local $/; <$fh> }
     )->{main};
     my ($locale, $data) = %$main;
+    $locale = normalize($locale);
     $cldr_version //= $data->{identity}{version}{_cldrVersion};
     $data = $data->{numbers};
     my $system = $data->{defaultNumberingSystem};
@@ -103,6 +109,7 @@ for my $file (glob $currency1_cldr_file) {
         do { local $/; <$fh> }
     )->{main};
     my ($locale, $data) = %$main;
+    $locale = normalize($locale);
     $data = $data->{numbers}{currencies};
     $locales{currencies}{$locale} = {
         map  { $_ =>  $data->{$_}{symbol} }
@@ -286,4 +293,10 @@ sub parents {
     my ($locale) = @_;
 
     return @{$locales{inheritance}{$locale}}[1..$#{$locales{inheritance}{$locale}}];
+}
+
+sub normalize {
+    my ($locale) = @_;
+
+    return $local_alias{$locale} || $locale;
 }
