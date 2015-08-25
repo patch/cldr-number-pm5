@@ -11,7 +11,7 @@ use charnames qw( :full );
 # classes instead.
 
 our $VERSION      = '0.10_01';
-our $CLDR_VERSION = '27';
+our $CLDR_VERSION = '27.0.1';
 
 # Numbers: Currencies
 our $LOCALES = {

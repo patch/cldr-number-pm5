@@ -12,7 +12,7 @@ use CLDR::Number::Constant qw( $N $M $P $C );
 # classes instead.
 
 our $VERSION      = '0.10_01';
-our $CLDR_VERSION = '27';
+our $CLDR_VERSION = '27.0.1';
 
 our $DATA = {
     root => {

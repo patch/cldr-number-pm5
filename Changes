@@ -1,10 +1,10 @@
 Revision history for Perl module CLDR::Number
 
 0.10_01 XXX
- - Upgrade CLDR data from v24 to v27 [issue #33]
+ - Upgrade CLDR data from v24 to v27.0.1 [issue #33]
  - Remove CLDR data with draft status of 'provisional' or 'unconfirmed' and
    only include 'contributed' or 'approved', which is the same threshhold as the
-   ICU Project as well as the CLDR JSON data as of v27
+   ICU Project as well as the CLDR JSON data as of v27.0.1
  - Remove 'provisional' draft numbering systems until they become at least
    'contributed': brah (Brahmi), cakm (Chakma), osma (Osmanya), shrd (Sharada),
    sora (Sora Sompeng), takr (Takri)
