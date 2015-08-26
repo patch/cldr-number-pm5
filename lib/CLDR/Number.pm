@@ -223,11 +223,21 @@ are therefore not supported in custom patterns and signs.
 
 =item * L<CLDR::Number::TODO>
 
-=item * L<UTS #35: Unicode LDML, Part 3: Numbers|http://www.unicode.org/reports/tr35/tr35-numbers.html>
+=item * L<Unicode beyond just characters: Localization with the
+CLDR|http://patch.codes/talks/localization-with-the-unicode-cldr/> (video and
+slides)
 
-=item * L<CLDR Translation Guidelines: Number Patterns|http://cldr.unicode.org/translation/number-patterns>
+=item * L<Perl Advent Calendar:
+CLDR TL;DR|http://perladvent.org/2014/2014-12-23.html>
 
-=item * L<CLDR Translation Guidelines: Number Symbols|http://cldr.unicode.org/translation/number-symbols>
+=item * L<UTS #35: Unicode LDML, Part 3:
+Numbers|http://www.unicode.org/reports/tr35/tr35-numbers.html>
+
+=item * L<CLDR Translation Guidelines: Number
+Patterns|http://cldr.unicode.org/translation/number-patterns>
+
+=item * L<CLDR Translation Guidelines: Number
+Symbols|http://cldr.unicode.org/translation/number-symbols>
 
 =back
 

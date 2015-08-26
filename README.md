@@ -12,13 +12,6 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 This document describes CLDR::Number v0.11, built with Unicode CLDR v27.0.1.
 
-# DEPRECATION
-
-Using the `locale` method as a setter is deprecated. In the future the object’s
-locale will become immutable. Please see
-[issue #38](https://github.com/perl-cldr/cldr-number-pm5/issues/38) for details
-and to submit comments or concerns.
-
 # SYNOPSIS
 
 ```perl
@@ -57,6 +50,13 @@ say $curf->format(9.99);  # 'US$9.99'
 # when locale is 'fr-CA' (Canadian French) and currency is USD
 say $curf->format(9.99);  # '9,99 $US'
 ```
+
+# DEPRECATION
+
+Using the `locale` method as a setter is deprecated. In the future the object’s
+locale will become immutable. Please see
+[issue #38](https://github.com/perl-cldr/cldr-number-pm5/issues/38) for details
+and to submit comments or concerns.
 
 # DESCRIPTION
 
@@ -170,13 +170,21 @@ are therefore not supported in custom patterns and signs.
 
 - [CLDR::Number::FAQ](https://metacpan.org/pod/CLDR::Number::FAQ)
 - [CLDR::Number::TODO](https://metacpan.org/pod/CLDR::Number::TODO)
-- [UTS #35: Unicode LDML, Part 3: Numbers](http://www.unicode.org/reports/tr35/tr35-numbers.html)
-- [CLDR Translation Guidelines: Number Patterns](http://cldr.unicode.org/translation/number-patterns)
-- [CLDR Translation Guidelines: Number Symbols](http://cldr.unicode.org/translation/number-symbols)
+- [Unicode beyond just characters: Localization with the
+CLDR](http://patch.codes/talks/localization-with-the-unicode-cldr/) (video and
+slides)
+- [Perl Advent Calendar:
+CLDR TL;DR](http://perladvent.org/2014/2014-12-23.html)
+- [UTS #35: Unicode LDML, Part 3:
+Numbers](http://www.unicode.org/reports/tr35/tr35-numbers.html)
+- [CLDR Translation Guidelines: Number
+Patterns](http://cldr.unicode.org/translation/number-patterns)
+- [CLDR Translation Guidelines: Number
+Symbols](http://cldr.unicode.org/translation/number-symbols)
 
 # AUTHOR
 
-Nova Patch <patch@cpan.org>
+Nova Patch &lt;patch@cpan.org>
 
 This project is brought to you by [Perl CLDR](http://perl-cldr.github.io/) and
 [Shutterstock](http://www.shutterstock.com/). Additional open source projects
