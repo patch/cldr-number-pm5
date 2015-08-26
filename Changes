@@ -1,14 +1,32 @@
 Revision history for Perl module CLDR::Number
 
-0.10_01 XXX
- - Upgrade CLDR data from v24 to v27.0.1 [issue #33]
- - Remove CLDR data with draft status of 'provisional' or 'unconfirmed' and
-   only include 'contributed' or 'approved', which is the same threshhold as the
+0.11 2015-08-25
+ - Upgrade CLDR data from v24 (2013-09-18) to v27.0.1 (2015-03-30) [issue #33]
+ - Add bin/generate-cldr-data.pl script to update Perl data from CLDR JSON
+ - Add new locales including dsb (Lower Sorbian), fy (West Frisian),
+   hsb (Upper Sorbian), lb (Luxembourgish), qu (Quechua), smn (Inari Sami),
+   and ug (Uyghur)
+ - Remove CLDR data with draft status of 'provisional' or 'unconfirmed', only
+   including 'contributed' or 'approved', which is the same threshold as the
    ICU Project as well as the CLDR JSON data as of v27.0.1
  - Remove 'provisional' draft numbering systems until they become at least
    'contributed': brah (Brahmi), cakm (Chakma), osma (Osmanya), shrd (Sharada),
    sora (Sora Sompeng), takr (Takri)
- - Add bin/generate-cldr-data.pl script to update Perl data from CLDR JSON
+ - Change various symbols for several locales, including grouping symbol in
+   es (Spanish, not including Latin American Spanish locales) from
+   ' ' (no-break space) to '.' (full stop) and fr-SH (Swiss French) from
+   "'" (apostrophe) to ' ' (no-break space)
+ - Change negative number format for any locales using formats with parentheses
+   like '(N)', including ko (Korean), to using the minus sign like '-N', except
+   for accounting format which is not yet supported
+ - Change currency decimal symbol for sv (Swedish) from ':' to ',' now matching
+   the regular (non-currency) decimal symbol and common usage, resulting in no
+   locale having a different decimal symbol for currencies
+ - Change THB (Thai Baht) symbol from '฿' to 'THB' for most locales including
+   root and th (Thai), due to its general obscurity
+ - Change many other currency symbols for many locales, but generally minor
+   changes, for example DKK (Danish Krone) in da (Danish) from 'kr' to 'kr.' and
+   USD (US Dollar) in fr-CA (Canadian French) from '$US' to '$ US'
  - Change CLF (Chilean Unit of Account (UF)) currency fraction digits
    from 0 to 4
  - Change CZK (Czech Republic Koruna) currency cash fraction digits from 2 to 0
@@ -17,11 +35,6 @@ Revision history for Perl module CLDR::Number
    cash fraction digits remaining 0
  - Change UYI (Uruguayan Peso (Indexed Units)) currency fraction digits
    from 2 to 0
- - Change THB (Thai Baht) symbol from '฿' to 'THB' for most locales including
-   root and th (Thai)
- - Change many other currency symbols for many locales, including
-   DKK (Danish Krone) in da (Danish) from 'kr' to 'kr.' and USD (US Dollar) in
-   fr-CA (Canadian French) from '$US' to '$ US'
 
 0.10 2015-03-26
  - Improve documentation and unit tests (no functional changes)

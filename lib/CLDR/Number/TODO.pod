@@ -6,7 +6,7 @@ CLDR::Number::TODO - TODO for CLDR::Number
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.10_01, built with Unicode CLDR v27.0.1.
+This document describes CLDR::Number v0.11, built with Unicode CLDR v27.0.1.
 
 =head1 TODO
 
@@ -15,9 +15,6 @@ This document describes CLDR::Number v0.10_01, built with Unicode CLDR v27.0.1.
 In descending order of priority.
 
 =over
-
-=item * upgrade from CLDR v24 to v27.0.1 (in progress)
-I<L<#33|https://github.com/perl-cldr/cldr-number-pm5/issues/33>>
 
 =item * minimum grouping digits
 I<L<#36|https://github.com/perl-cldr/cldr-number-pm5/issues/36>>

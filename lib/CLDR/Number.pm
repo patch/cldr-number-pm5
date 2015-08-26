@@ -6,7 +6,7 @@ use utf8;
 use Moo;
 use namespace::clean;
 
-our $VERSION = '0.10_01';
+our $VERSION = '0.11';
 
 with qw( CLDR::Number::Role::Base );
 
@@ -53,14 +53,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.10_01, built with Unicode CLDR v27.0.1.
-
-=head1 DEPRECATION
-
-Using the C<locale> method as a setter is deprecated. In the future the object’s
-locale will become immutable. Please see
-L<issue #38|https://github.com/perl-cldr/cldr-number-pm5/issues/38> for details
-and to submit comments or concerns.
+This document describes CLDR::Number v0.11, built with Unicode CLDR v27.0.1.
 
 =head1 SYNOPSIS
 
@@ -98,6 +91,13 @@ and to submit comments or concerns.
 
     # when locale is 'fr-CA' (Canadian French) and currency is USD
     say $curf->format(9.99);  # '9,99 $US'
+
+=head1 DEPRECATION
+
+Using the C<locale> method as a setter is deprecated. In the future the object’s
+locale will become immutable. Please see
+L<issue #38|https://github.com/perl-cldr/cldr-number-pm5/issues/38> for details
+and to submit comments or concerns.
 
 =head1 DESCRIPTION
 

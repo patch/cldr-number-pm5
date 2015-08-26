@@ -26,6 +26,7 @@ fr
 GitHub
 Hant
 Indic
+instantiation
 JPY
 ko
 LDML

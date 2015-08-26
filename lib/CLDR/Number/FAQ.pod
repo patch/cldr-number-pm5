@@ -6,7 +6,7 @@ CLDR::Number::FAQ - FAQ for CLDR::Number
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.10_01, built with Unicode CLDR v27.0.1.
+This document describes CLDR::Number v0.11, built with Unicode CLDR v27.0.1.
 
 =head1 FAQ
 

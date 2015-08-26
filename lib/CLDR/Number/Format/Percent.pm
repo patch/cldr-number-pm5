@@ -8,7 +8,7 @@ use CLDR::Number::Constant qw( $P );
 use Moo;
 use namespace::clean;
 
-our $VERSION = '0.10_01';
+our $VERSION = '0.11';
 
 with qw( CLDR::Number::Role::Format );
 
@@ -73,15 +73,8 @@ CLDR::Number::Format::Percent - Localized percent formatter using the Unicode CL
 
 =head1 VERSION
 
-This document describes CLDR::Number::Format::Percent v0.10_01, built with Unicode
+This document describes CLDR::Number::Format::Percent v0.11, built with Unicode
 CLDR v27.0.1.
-
-=head1 DEPRECATION
-
-Using the C<locale> method as a setter is deprecated. In the future the object’s
-locale will become immutable. Please see
-L<issue #38|https://github.com/perl-cldr/cldr-number-pm5/issues/38> for details
-and to submit comments or concerns.
 
 =head1 SYNOPSIS
 
@@ -105,6 +98,13 @@ and to submit comments or concerns.
 
     $perf->permil(1);         # per mil
     say $perf->format(0.05);  # '50 ‰'
+
+=head1 DEPRECATION
+
+Using the C<locale> method as a setter is deprecated. In the future the object’s
+locale will become immutable. Please see
+L<issue #38|https://github.com/perl-cldr/cldr-number-pm5/issues/38> for details
+and to submit comments or concerns.
 
 =head1 DESCRIPTION
 
