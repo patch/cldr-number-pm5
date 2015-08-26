@@ -66,7 +66,7 @@ This document describes CLDR::Number v0.11, built with Unicode CLDR v27.0.1.
     $decf = $cldr->decimal_formatter;
 
     # when locale is 'es' (Spanish)
-    say $decf->format(1234.5);  # '1 234,5'
+    say $decf->format(1234.5);  # '1.234,5'
 
     # when locale is 'es-MX' (Mexican Spanish)
     say $decf->format(1234.5);  # '1,234.5'
@@ -90,14 +90,14 @@ This document describes CLDR::Number v0.11, built with Unicode CLDR v27.0.1.
     say $curf->format(9.99);  # 'US$9.99'
 
     # when locale is 'fr-CA' (Canadian French) and currency is USD
-    say $curf->format(9.99);  # '9,99 $US'
+    say $curf->format(9.99);  # '9,99 $ US'
 
 =head1 DEPRECATION
 
 Using the C<locale> method as a setter is deprecated. In the future the object’s
 locale will become immutable. Please see
-L<issue #38|https://github.com/perl-cldr/cldr-number-pm5/issues/38> for details
-and to submit comments or concerns.
+L<issue #38|https://github.com/patch/cldr-number-pm5/issues/38> for details and
+to submit comments or concerns.
 
 =head1 DESCRIPTION
 
@@ -203,7 +203,7 @@ Examples: C<-> (hyphen-minus) for B<root>, B<en>, and most locales
 
 =item cldr_version
 
-Value: C<24>
+Value: C<27.0.1>
 
 This is a read-only attribute that will always reflect the currently supported
 Unicode CLDR version.
@@ -245,9 +245,8 @@ Symbols|http://cldr.unicode.org/translation/number-symbols>
 
 Nova Patch <patch@cpan.org>
 
-This project is brought to you by L<Perl CLDR|http://perl-cldr.github.io/> and
-L<Shutterstock|http://www.shutterstock.com/>. Additional open source projects
-from Shutterstock can be found at
+This project is brought to you by L<Shutterstock|http://www.shutterstock.com/>.
+Additional open source projects from Shutterstock can be found at
 L<code.shutterstock.com|http://code.shutterstock.com/>.
 
 =head1 COPYRIGHT AND LICENSE

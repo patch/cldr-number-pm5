@@ -23,7 +23,7 @@ has version => (
 
 has cldr_version => (
     is      => 'ro',
-    default => 24,
+    default => $CLDR::Number::Data::Base::CLDR_VERSION,
 );
 
 has locale => (

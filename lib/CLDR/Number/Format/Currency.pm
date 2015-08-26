@@ -174,7 +174,7 @@ CLDR v27.0.1.
     say $curf->format(9.99);  # 'US$9.99'
 
     # when locale is 'fr-CA' (Canadian French) and currency is USD
-    say $curf->format(9.99);  # '9,99 $US'
+    say $curf->format(9.99);  # '9,99 $ US'
 
     # when locale is 'bn' (Bengali) and currency is INR (Indian rupees)
     say $curf->format(123456);  # '১,২৩,৪৫৬.০০₹'
@@ -183,8 +183,8 @@ CLDR v27.0.1.
 
 Using the C<locale> method as a setter is deprecated. In the future the object’s
 locale will become immutable. Please see
-L<issue #38|https://github.com/perl-cldr/cldr-number-pm5/issues/38> for details
-and to submit comments or concerns.
+L<issue #38|https://github.com/patch/cldr-number-pm5/issues/38> for details and
+to submit comments or concerns.
 
 =head1 DESCRIPTION
 
@@ -246,7 +246,7 @@ true (C<1>) enables cash formatting when different from standard formatting.
 =item pattern
 
 Examples: C<¤ #,##0.00> for B<root>; C<¤#,##0.00> for B<en>; C<#,##0.00 ¤> for
-B<de>, B<fr>; C<¤#,##0.00;(¤#,##0.00)> for B<ko>; and many other variations for
+B<de>, B<fr>; C<¤ #,##0.00;¤ -#,##0.00> for B<nl>; and many other variations for
 different locales
 
 =item minimum_integer_digits
@@ -290,11 +290,8 @@ C<0> and C<1> are treated the same.
 
 =item * L<CLDR::Number>
 
-=item * L<CLDR::Number::FAQ>
-
-=item * L<CLDR::Number::TODO>
-
-=item * L<CLDR Translation Guidelines: Currency Symbols|http://cldr.unicode.org/translation/currency-names>
+=item * L<CLDR Translation Guidelines: Currency
+Symbols|http://cldr.unicode.org/translation/currency-names>
 
 =back
 
@@ -302,9 +299,8 @@ C<0> and C<1> are treated the same.
 
 Nova Patch <patch@cpan.org>
 
-This project is brought to you by L<Perl CLDR|http://perl-cldr.github.io/> and
-L<Shutterstock|http://www.shutterstock.com/>. Additional open source projects
-from Shutterstock can be found at
+This project is brought to you by L<Shutterstock|http://www.shutterstock.com/>.
+Additional open source projects from Shutterstock can be found at
 L<code.shutterstock.com|http://code.shutterstock.com/>.
 
 =head1 COPYRIGHT AND LICENSE

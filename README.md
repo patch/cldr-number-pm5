@@ -1,7 +1,7 @@
 ![Perl CLDR](https://www.gravatar.com/avatar/656f15a25eff4437f5a82e7c929f41dd?s=96)
 
-[![Build status](https://travis-ci.org/perl-cldr/cldr-number-pm5.png)](https://travis-ci.org/perl-cldr/cldr-number-pm5)
-[![Coverage status](https://coveralls.io/repos/perl-cldr/cldr-number-pm5/badge.png)](https://coveralls.io/r/perl-cldr/cldr-number-pm5)
+[![Build status](https://travis-ci.org/patch/cldr-number-pm5.png)](https://travis-ci.org/patch/cldr-number-pm5)
+[![Coverage status](https://coveralls.io/repos/patch/cldr-number-pm5/badge.png)](https://coveralls.io/r/patch/cldr-number-pm5)
 [![CPAN version](https://badge.fury.io/pl/CLDR-Number.png)](http://badge.fury.io/pl/CLDR-Number)
 
 # NAME
@@ -24,7 +24,7 @@ $cldr = CLDR::Number->new(locale => 'es');
 $decf = $cldr->decimal_formatter;
 
 # when locale is 'es' (Spanish)
-say $decf->format(1234.5);  # '1 234,5'
+say $decf->format(1234.5);  # '1.234,5'
 
 # when locale is 'es-MX' (Mexican Spanish)
 say $decf->format(1234.5);  # '1,234.5'
@@ -48,15 +48,15 @@ say $curf->format(9.99);  # '$9.99'
 say $curf->format(9.99);  # 'US$9.99'
 
 # when locale is 'fr-CA' (Canadian French) and currency is USD
-say $curf->format(9.99);  # '9,99 $US'
+say $curf->format(9.99);  # '9,99 $ US'
 ```
 
 # DEPRECATION
 
 Using the `locale` method as a setter is deprecated. In the future the object’s
 locale will become immutable. Please see
-[issue #38](https://github.com/perl-cldr/cldr-number-pm5/issues/38) for details
-and to submit comments or concerns.
+[issue #38](https://github.com/patch/cldr-number-pm5/issues/38) for details and
+to submit comments or concerns.
 
 # DESCRIPTION
 
@@ -156,7 +156,7 @@ are expected to be character strings, not byte strings.
 
 - cldr\_version
 
-    Value: `24`
+    Value: `27.0.1`
 
     This is a read-only attribute that will always reflect the currently supported
     Unicode CLDR version.
@@ -186,9 +186,8 @@ Symbols](http://cldr.unicode.org/translation/number-symbols)
 
 Nova Patch &lt;patch@cpan.org>
 
-This project is brought to you by [Perl CLDR](http://perl-cldr.github.io/) and
-[Shutterstock](http://www.shutterstock.com/). Additional open source projects
-from Shutterstock can be found at
+This project is brought to you by [Shutterstock](http://www.shutterstock.com/).
+Additional open source projects from Shutterstock can be found at
 [code.shutterstock.com](http://code.shutterstock.com/).
 
 # COPYRIGHT AND LICENSE

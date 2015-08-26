@@ -45,7 +45,7 @@ Revision history for Perl module CLDR::Number
  - Deprecate use of the the `locale` method as a setter. In the future the
    formatter objects’ locale will become immutable. Please see [issue #38] for
    details and to submit comments or concerns:
-   https://github.com/perl-cldr/cldr-number-pm5/issues/38
+   https://github.com/patch/cldr-number-pm5/issues/38
  - Add items to the FAQ and TODO docs
 
 0.08 2014-03-28

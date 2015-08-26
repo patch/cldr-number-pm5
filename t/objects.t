@@ -2,14 +2,22 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 27;
+use Test::More tests => 30;
 use CLDR::Number;
+use CLDR::Number::Data::Base;
 
 my $cldr = new_ok 'CLDR::Number' => [locale => 'zh'], 'CLDR::Number';
 is $cldr->locale, 'zh', 'generator locale set on instantiation';
 
 $cldr->locale('ja');
 is $cldr->locale, 'ja', 'generator locale updated';
+
+is $cldr->version, $CLDR::Number::VERSION,
+    'version attribute matches $VERSION';
+is $cldr->version, $CLDR::Number::Data::Base::VERSION,
+    'version attribute matches data $VERSION';
+is $cldr->cldr_version, $CLDR::Number::Data::Base::CLDR_VERSION,
+    'cldr_version attribute matches data $CLDR_VERSION';
 
 my $decf = $cldr->decimal_formatter;
 isa_ok $decf, 'CLDR::Number::Format::Decimal';
