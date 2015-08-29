@@ -5,6 +5,7 @@ Revision history for Perl module CLDR::Number
    formatting methods (format, at_least, range) on all formatting classes
    (decimal, percent, currency), because those are valid numeric values in Perl,
    which are now all localized even though it doesn’t always make sense
+   [issue #26]
  - Add `infinity` and `nan` attributes to all classes in addition to the decimal
    formatter
 
