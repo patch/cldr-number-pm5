@@ -24,6 +24,7 @@ t/from-icu4c.t
 t/from-shutterstock.t
 t/from-twittercldr.t
 t/from-uts35.t
+t/inf-nan.t
 t/inheritance.t
 t/locales.t
 t/minmax-digits.t

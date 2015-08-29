@@ -11,24 +11,10 @@ our $VERSION = '0.11';
 
 with qw( CLDR::Number::Role::Format );
 
-has infinity => (
-    is => 'rw',
-);
-
-has nan => (
-    is => 'rw',
-);
-
 has _pattern_type => (
     is      => 'ro',
     default => 'decimal',
 );
-
-after _trigger_locale => sub {
-    my ($self) = @_;
-
-    $self->_build_signs(qw{ infinity nan });
-};
 
 sub BUILD {}
 
@@ -93,7 +79,9 @@ Localized decimal formatter using the Unicode Common Locale Data Repository
 
 =head2 Methods
 
-All methods return character strings, not encoded byte strings.
+Any argument that Perl can treat as a number is supported, including infinity,
+negative infinity, and NaN, which are all localized appropriately. All methods
+return character strings, not encoded byte strings.
 
 =over
 
@@ -163,15 +151,6 @@ Not used when value is C<0>.
 Examples: C<0> for all locales
 
 C<0> and C<1> are treated the same.
-
-=item infinity
-
-Examples: C<∞> (infinity) for B<root>, B<en>, and almost all locales
-
-=item nan
-
-Examples: C<NaN> for B<root>, B<en>, and most locales; many other variations for
-individual locales like C<не число> for B<ru> and C<非數值> for B<zh-Hant>
 
 =back
 

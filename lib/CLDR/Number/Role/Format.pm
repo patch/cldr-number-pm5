@@ -224,78 +224,88 @@ sub _validate_number {
     return $num;
 }
 
+my $INF = 9**9**9;
+
 sub _format_number {
     my ($self, $num) = @_;
-    my $negative = $num < 0;
+    my ($format, $num_format);
 
-    if ($self->rounding_increment) {
-        # TODO: round half to even
-        $num = Math::Round::nearest($self->rounding_increment, $num);
-    }
-    else {
-        # round half to even
-        my $bf = Math::BigFloat->new(abs $num);
-        $bf->round_mode('even');
-        $bf->ffround(-$self->maximum_fraction_digits);
-        $num = $bf->bstr;
-    }
-
-    my ($int, $frac) = split /\./, $num;
-    if (!defined $frac) {
-        $frac = '';
-    }
-
-    if (my $primary_group = $self->primary_grouping_size) {
-        my $group_sign   = $self->group_sign;
-        my $other_groups = $self->secondary_grouping_size || $primary_group;
-
-        $int =~ s{ (?<! ^ ) (?= .{$primary_group} $ ) }{$group_sign}x;
-
-        while (1) {
-            last if $int !~ s{
-                (?<! ^ )
-                (?<! \Q$group_sign\E )
-                (?= .{$other_groups} \Q$group_sign\E )
-            }{$group_sign}x;
-        }
-    }
-
-    my $int_pad = $self->minimum_integer_digits - (length $int || 0);
-    if ($int_pad > 0) {
-        $int = 0 x $int_pad . $int;
-    }
-
-    my $frac_pad = $self->minimum_fraction_digits - (length $frac || 0);
-    if ($frac_pad > 0) {
-        $frac .= 0 x $frac_pad;
-    }
-    elsif ($frac_pad < 0) {
-        my $truncate_size = abs $frac_pad;
-        $frac =~ s{ 0{1,$truncate_size} $ }{}x;
-    }
-
-    my $num_format = $int;
-
-    if (length $frac) {
-        $num_format .= $self->decimal_sign . $frac;
-    }
-
-    if ($self->numbering_system ne 'latn') {
-        my $digits = $CLDR::Number::Data::System::DATA->{
-            $self->numbering_system
-        };
-
-        $num_format =~ s{ ( [0-9] ) }{$digits->[$1]}xg;
-    }
-
-    my $format = do { if ($negative) {
+    if ($num < 0) {
         my $pattern = $self->_negative_pattern;
         $pattern =~ s{$M}{$self->minus_sign}e;
-        $pattern;
+        $format = $pattern;
     }
     else {
-        $self->_positive_pattern;
-    } };
+        $format = $self->_positive_pattern;
+    }
+
+    if ($num == $INF || $num == -$INF) {
+        $num_format = $self->infinity;
+    }
+    elsif (!defined($num <=> $INF)) {
+        $num_format = $self->nan;
+    }
+    else {
+        if ($self->rounding_increment) {
+            # TODO: round half to even
+            $num = Math::Round::nearest($self->rounding_increment, $num);
+        }
+        else {
+            # round half to even
+            my $bf = Math::BigFloat->new(abs $num);
+            $bf->round_mode('even');
+            $bf->ffround(-$self->maximum_fraction_digits);
+            $num = $bf->bstr;
+        }
+
+        my ($int, $frac) = split /\./, $num;
+        if (!defined $frac) {
+            $frac = '';
+        }
+
+        if (my $primary_group = $self->primary_grouping_size) {
+            my $group_sign   = $self->group_sign;
+            my $other_groups = $self->secondary_grouping_size || $primary_group;
+
+            $int =~ s{ (?<! ^ ) (?= .{$primary_group} $ ) }{$group_sign}x;
+
+            while (1) {
+                last if $int !~ s{
+                    (?<! ^ )
+                    (?<! \Q$group_sign\E )
+                    (?= .{$other_groups} \Q$group_sign\E )
+                }{$group_sign}x;
+            }
+        }
+
+        my $int_pad = $self->minimum_integer_digits - (length $int || 0);
+        if ($int_pad > 0) {
+            $int = 0 x $int_pad . $int;
+        }
+
+        my $frac_pad = $self->minimum_fraction_digits - (length $frac || 0);
+        if ($frac_pad > 0) {
+            $frac .= 0 x $frac_pad;
+        }
+        elsif ($frac_pad < 0) {
+            my $truncate_size = abs $frac_pad;
+            $frac =~ s{ 0{1,$truncate_size} $ }{}x;
+        }
+
+        $num_format = $int;
+
+        if (length $frac) {
+            $num_format .= $self->decimal_sign . $frac;
+        }
+
+        if ($self->numbering_system ne 'latn') {
+            my $digits = $CLDR::Number::Data::System::DATA->{
+                $self->numbering_system
+            };
+
+            $num_format =~ s{ ( [0-9] ) }{$digits->[$1]}xg;
+        }
+    }
 
     $format =~ s{$N}{$num_format};
 

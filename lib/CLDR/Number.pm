@@ -201,6 +201,15 @@ Examples: C<+> (plus sign) for B<root>, B<en>, and most locales
 
 Examples: C<-> (hyphen-minus) for B<root>, B<en>, and most locales
 
+=item infinity
+
+Examples: C<∞> (infinity) for B<root>, B<en>, and almost all locales
+
+=item nan
+
+Examples: C<NaN> for B<root>, B<en>, and most locales; many other variations for
+individual locales like C<не число> for B<ru> and C<非數值> for B<zh-Hant>
+
 =item cldr_version
 
 Value: C<27.0.1>

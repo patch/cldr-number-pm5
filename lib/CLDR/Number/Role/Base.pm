@@ -83,6 +83,14 @@ has minus_sign => (
     is => 'rw',
 );
 
+has infinity => (
+    is => 'rw',
+);
+
+has nan => (
+    is => 'rw',
+);
+
 has _locale_inheritance => (
     is      => 'rw',
     default => sub { [] },
@@ -173,7 +181,9 @@ sub _trigger_locale {
 
     $self->{locale} = $locale;
 
-    $self->_build_signs(qw{ decimal_sign group_sign plus_sign minus_sign });
+    $self->_build_signs(qw{
+        decimal_sign group_sign plus_sign minus_sign infinity nan
+    });
 }
 
 sub _trigger_numbering_system {

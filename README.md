@@ -154,6 +154,15 @@ are expected to be character strings, not byte strings.
 
     Examples: `-` (hyphen-minus) for **root**, **en**, and most locales
 
+- infinity
+
+    Examples: `∞` (infinity) for **root**, **en**, and almost all locales
+
+- nan
+
+    Examples: `NaN` for **root**, **en**, and most locales; many other variations for
+    individual locales like `не число` for **ru** and `非數值` for **zh-Hant**
+
 - cldr\_version
 
     Value: `27.0.1`
