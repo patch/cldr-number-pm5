@@ -1,5 +1,13 @@
 Revision history for Perl module CLDR::Number
 
+0.12 2015-08-29
+ - Add support for passing infinity, negative infinity, and NaN arguments to all
+   formatting methods (format, at_least, range) on all formatting classes
+   (decimal, percent, currency), because those are valid numeric values in Perl,
+   which are now all localized even though it doesn’t always make sense
+ - Add `infinity` and `nan` attributes to all classes in addition to the decimal
+   formatter
+
 0.11 2015-08-25
  - Upgrade CLDR data from v24 (2013-09-18) to v27.0.1 (2015-03-30) [issue #33]
  - Add bin/generate-cldr-data.pl script to update Perl data from CLDR JSON

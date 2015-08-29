@@ -33,6 +33,7 @@ LDML
 mille
 MX
 nan
+nl
 permil
 preparsed
 ru
