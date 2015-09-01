@@ -1,10 +1,8 @@
 use utf8;
 use strict;
 use warnings;
-use charnames qw( :full );
 use open qw( :encoding(UTF-8) :std );
 use Test::More tests => 25;
-use Test::Warn;
 use CLDR::Number;
 
 my $inf = 9**9**9;
