@@ -31,16 +31,16 @@ is $cldr->group_sign,   ',', 'group inherited from es-419, not es';
     is $curf->decimal_sign, ':', 'currency decimal inherited from sv';
 }
 
-my $curf = $cldr->currency_formatter(locale => 'en-AU');
-$curf->currency_code('AUD');
-is $curf->currency_sign, '$', 'currency sign directly from en-AU';
+my $curf = $cldr->currency_formatter(locale => 'en-NZ');
+$curf->currency_code('NZD');
+is $curf->currency_sign, '$', 'currency sign directly from en-NZ';
 $curf->currency_code('JPY');
 is $curf->currency_sign, 'JP¥', 'currency sign inherited from en-001';
 
-$cldr->locale('ms-Latn-SG');
+$cldr->locale('sr-Cyrl-XK');
 eq_or_diff(
     $cldr->_locale_inheritance,
-    [qw( ms-Latn-SG ms-Latn ms root )],
+    [qw( sr-Cyrl-XK sr-Cyrl sr root )],
     'locale inheritance'
 );
 
