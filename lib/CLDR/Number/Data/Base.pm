@@ -622,7 +622,7 @@ our $DATA = {
         pattern => {
             currency => '¤ #,##0.00',
             percent => '#,##0%',
-            range => q['de' {0} 'a' {1}],
+            range => 'de {0} a {1}',
         },
         symbol => {
             decimal => ',',
@@ -656,7 +656,7 @@ our $DATA = {
     },
     'es-GT' => {
         pattern => {
-            range => q[{0} 'al' {1}],
+            range => '{0} al {1}',
         },
     },
     'es-MX' => {
