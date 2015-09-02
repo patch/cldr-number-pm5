@@ -4,8 +4,8 @@ Revision history for Perl module CLDR::Number
  - Add support for passing infinity, negative infinity, and NaN arguments to all
    formatting methods (format, at_least, range) on all formatting classes
    (decimal, percent, currency), because those are valid numeric values in Perl,
-   which are now all localized even though it doesn’t always make sense
-   [issue #26]
+   which are now all localized even though it doesn’t always make
+   sense [issue #26]
  - Add `infinity` and `nan` attributes to all classes in addition to the decimal
    formatter
 
@@ -47,8 +47,8 @@ Revision history for Perl module CLDR::Number
 
 0.10 2015-03-26
  - Improve documentation and unit tests (no functional changes)
- - Docs: Fix attribute name in CLDR::Number::Format::Currency synopsis
-   [issue #40] (by Olaf Alders @oalders++)
+ - Docs: Fix attribute name in CLDR::Number::Format::Currency
+   synopsis [issue #40] (by Olaf Alders @oalders++)
 
 0.09 2014-11-12
  - Deprecate use of the the `locale` method as a setter. In the future the
