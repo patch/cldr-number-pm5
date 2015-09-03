@@ -284,14 +284,7 @@ sub quote_key {
 sub escape_control {
     my ($str) = @_;
 
-    for ($str) {
-        if ($str ne q[']) {
-            s{ (?<! ' ) ' (?! ' ) }{}xg;
-        }
-
-        s{''}{'}g;
-        s{ ( \p{Cf} ) }{ '\\N{' . charinfo(ord $1)->{name} . '}' }xeg;
-    }
+    $str =~ s{ ( \p{Cf} ) }{ '\\N{' . charinfo(ord $1)->{name} . '}' }xeg;
 
     return qq["$str"] if $str =~ /\\/;
     return "q[$str]"  if $str =~ /'/;
