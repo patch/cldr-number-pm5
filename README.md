@@ -17,7 +17,7 @@ This document describes CLDR::Number v0.12, built with Unicode CLDR v27.0.1.
 ```perl
 use CLDR::Number;
 
-# new oject with 'es' (Spanish) locale
+# new object with 'es' (Spanish) locale
 $cldr = CLDR::Number->new(locale => 'es');
 
 # decimals
