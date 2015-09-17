@@ -284,12 +284,11 @@ sub quote_key {
 sub escape_control {
     my ($str) = @_;
 
-    return $str =~ /"/ ? qq{qq[$str]} : qq{"$str"}
-        if $str =~ s{ ( \p{Cf} ) }{
-            '\\N{' . charinfo(ord $1)->{name} . '}'
-        }xeg;
+    $str =~ s{ ( \p{Cf} ) }{ '\\N{' . charinfo(ord $1)->{name} . '}' }xeg;
 
-    return $str =~ /'/ ? qq{q[$str]} : qq{'$str'};
+    return qq["$str"] if $str =~ /\\/;
+    return "q[$str]"  if $str =~ /'/;
+    return "'$str'";
 }
 
 sub parents {
