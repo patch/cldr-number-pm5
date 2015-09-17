@@ -17,6 +17,7 @@ our $CLDR_VERSION = '27.0.1';
 our $DATA = {
     root => {
         pattern => {
+            accounting => '¤ #,##0.00',
             at_least => '⩾{0}',
             currency => '¤ #,##0.00',
             decimal => '#,##0.###',
@@ -39,6 +40,7 @@ our $DATA = {
     },
     af => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
         },
@@ -49,6 +51,7 @@ our $DATA = {
     },
     agq => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
         symbol => {
@@ -58,17 +61,20 @@ our $DATA = {
     },
     ak => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
     am => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
         },
     },
     ar => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '+{0}',
         },
         symbol => {
@@ -156,6 +162,7 @@ our $DATA = {
     },
     as => {
         pattern => {
+            accounting => '¤ #,##,##0.00',
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
@@ -166,11 +173,13 @@ our $DATA = {
     },
     asa => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
         },
     },
     ast => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
         },
         symbol => {
@@ -195,6 +204,7 @@ our $DATA = {
     },
     bas => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
         },
@@ -205,6 +215,7 @@ our $DATA = {
     },
     be => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
         symbol => {
@@ -214,16 +225,19 @@ our $DATA = {
     },
     bem => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     bez => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
     },
     bg => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             at_least => '⩾ {0}',
             currency => '#,##0.00 ¤',
             range => '{0} – {1}',
@@ -235,11 +249,13 @@ our $DATA = {
     },
     bm => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     bn => {
         pattern => {
+            accounting => '#,##,##0.00¤;(#,##,##0.00¤)',
             at_least => '{0}+',
             currency => '#,##,##0.00¤',
             decimal => '#,##,##0.###',
@@ -254,6 +270,7 @@ our $DATA = {
     },
     br => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
         },
@@ -264,6 +281,7 @@ our $DATA = {
     },
     brx => {
         pattern => {
+            accounting => '¤ #,##,##0.00',
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
@@ -271,6 +289,7 @@ our $DATA = {
     },
     bs => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
         },
@@ -281,6 +300,7 @@ our $DATA = {
     },
     'bs-Cyrl' => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
         },
         symbol => {
@@ -290,6 +310,7 @@ our $DATA = {
     },
     ca => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             at_least => '≥ {0}',
             currency => '#,##0.00 ¤',
             range => '{0}-{1}',
@@ -301,16 +322,19 @@ our $DATA = {
     },
     cgg => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
     chr => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     cs => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
@@ -322,6 +346,7 @@ our $DATA = {
     },
     cy => {
         pattern => {
+            accounting => '¤#,##0.00',
             at_least => '{0}+',
             currency => '¤#,##0.00',
             range => '{0}-{1}',
@@ -329,6 +354,7 @@ our $DATA = {
     },
     da => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0} eller derover',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
@@ -341,11 +367,13 @@ our $DATA = {
     },
     dav => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     de => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
@@ -380,6 +408,7 @@ our $DATA = {
     },
     dje => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
         symbol => {
@@ -388,6 +417,7 @@ our $DATA = {
     },
     dsb => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
@@ -399,6 +429,7 @@ our $DATA = {
     },
     dua => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
         },
@@ -409,6 +440,7 @@ our $DATA = {
     },
     dyo => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
         },
         symbol => {
@@ -418,6 +450,7 @@ our $DATA = {
     },
     dz => {
         pattern => {
+            accounting => '¤#,##,##0.00',
             currency => '¤#,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0 %',
@@ -432,11 +465,13 @@ our $DATA = {
     },
     ebu => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     ee => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
         symbol => {
@@ -445,6 +480,7 @@ our $DATA = {
     },
     el => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
         },
@@ -455,6 +491,7 @@ our $DATA = {
     },
     en => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
         },
@@ -509,6 +546,7 @@ our $DATA = {
     },
     es => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => 'Más de {0}',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
@@ -521,6 +559,7 @@ our $DATA = {
     },
     'es-419' => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
         symbol => {
@@ -591,6 +630,7 @@ our $DATA = {
     },
     'es-UY' => {
         pattern => {
+            accounting => '¤ #,##0.00;(¤ #,##0.00)',
             currency => '¤ #,##0.00',
         },
         symbol => {
@@ -609,6 +649,7 @@ our $DATA = {
     },
     et => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             currency => '#,##0.00 ¤',
             range => '{0}‒{1}',
         },
@@ -619,6 +660,7 @@ our $DATA = {
     },
     eu => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
             percent => '% #,##0',
@@ -630,6 +672,7 @@ our $DATA = {
     },
     ewo => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
         },
         symbol => {
@@ -639,6 +682,7 @@ our $DATA = {
     },
     fa => {
         pattern => {
+            accounting => "\N{LEFT-TO-RIGHT MARK}¤#,##0.00;\N{LEFT-TO-RIGHT MARK}(¤#,##0.00)",
             at_least => "\N{LEFT-TO-RIGHT MARK}{0}+\N{LEFT-TO-RIGHT MARK}",
             currency => "\N{LEFT-TO-RIGHT MARK}¤#,##0.00",
             range => '{0} تا {1}',
@@ -658,6 +702,7 @@ our $DATA = {
     },
     ff => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
         },
         symbol => {
@@ -667,6 +712,7 @@ our $DATA = {
     },
     fi => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => 'vähintään {0}',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
@@ -681,6 +727,7 @@ our $DATA = {
     },
     fil => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
             range => '{0}-{1}',
@@ -688,6 +735,7 @@ our $DATA = {
     },
     fo => {
         pattern => {
+            accounting => '¤#,##0.00;¤-#,##0.00',
             currency => '¤#,##0.00;¤-#,##0.00',
             percent => '#,##0 %',
         },
@@ -700,6 +748,7 @@ our $DATA = {
     },
     fr => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             at_least => 'au moins {0}',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
@@ -735,6 +784,7 @@ our $DATA = {
     },
     fy => {
         pattern => {
+            accounting => '¤ #,##0.00;(¤ #,##0.00)',
             at_least => '{0}+',
             currency => '¤ #,##0.00;¤ #,##0.00-',
             range => '{0}-{1}',
@@ -746,18 +796,21 @@ our $DATA = {
     },
     ga => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
         },
     },
     gd => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
         },
     },
     gl => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
         symbol => {
@@ -767,6 +820,7 @@ our $DATA = {
     },
     gsw => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
         },
@@ -777,6 +831,7 @@ our $DATA = {
     },
     gu => {
         pattern => {
+            accounting => '¤#,##,##0.00;(¤#,##,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##,##0.00',
             decimal => '#,##,##0.###',
@@ -786,21 +841,25 @@ our $DATA = {
     },
     guz => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     gv => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
     haw => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     he => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '⩾{0}+',
             currency => '#,##0.00 ¤',
         },
@@ -811,6 +870,7 @@ our $DATA = {
     },
     hi => {
         pattern => {
+            accounting => '¤#,##,##0.00',
             at_least => '{0}+',
             currency => '¤#,##,##0.00',
             decimal => '#,##,##0.###',
@@ -819,6 +879,7 @@ our $DATA = {
     },
     hr => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
         },
@@ -829,6 +890,7 @@ our $DATA = {
     },
     hsb => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
@@ -840,6 +902,7 @@ our $DATA = {
     },
     hu => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
         },
@@ -850,6 +913,7 @@ our $DATA = {
     },
     hy => {
         pattern => {
+            accounting => '#0.00 ¤',
             at_least => '{0}+',
             currency => '#0.00 ¤',
             decimal => '#0.###',
@@ -863,6 +927,7 @@ our $DATA = {
     },
     id => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
         symbol => {
@@ -872,11 +937,13 @@ our $DATA = {
     },
     ig => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     is => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
         },
@@ -887,6 +954,7 @@ our $DATA = {
     },
     it => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
             range => '{0}-{1}',
         },
@@ -906,6 +974,7 @@ our $DATA = {
     },
     ja => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0} 以上',
             currency => '¤#,##0.00',
             range => '{0}～{1}',
@@ -919,11 +988,13 @@ our $DATA = {
     },
     jmc => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
     ka => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
@@ -937,6 +1008,7 @@ our $DATA = {
     },
     kab => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
         symbol => {
@@ -946,16 +1018,19 @@ our $DATA = {
     },
     kam => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     kde => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     kea => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             at_least => '+{0}',
             currency => '#,##0.00 ¤',
         },
@@ -966,6 +1041,7 @@ our $DATA = {
     },
     khq => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
         symbol => {
@@ -974,11 +1050,13 @@ our $DATA = {
     },
     ki => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     kk => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
         },
@@ -995,6 +1073,7 @@ our $DATA = {
     },
     kl => {
         pattern => {
+            accounting => '¤#,##0.00;¤-#,##0.00',
             currency => '¤#,##0.00;¤-#,##0.00',
             percent => '#,##0 %',
         },
@@ -1005,11 +1084,13 @@ our $DATA = {
     },
     kln => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     km => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
         },
@@ -1020,12 +1101,14 @@ our $DATA = {
     },
     kn => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
         },
     },
     ko => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
             range => '{0}-{1}',
@@ -1033,6 +1116,7 @@ our $DATA = {
     },
     kok => {
         pattern => {
+            accounting => '¤ #,##,##0.00',
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
@@ -1040,6 +1124,7 @@ our $DATA = {
     },
     ks => {
         pattern => {
+            accounting => '¤ #,##,##0.00',
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
@@ -1058,11 +1143,13 @@ our $DATA = {
     },
     ksb => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
     },
     ksf => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
         },
         symbol => {
@@ -1072,6 +1159,7 @@ our $DATA = {
     },
     ksh => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
         },
@@ -1084,11 +1172,13 @@ our $DATA = {
     },
     kw => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
     ky => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
         },
@@ -1100,6 +1190,7 @@ our $DATA = {
     },
     lb => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '⩾ {0}',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
@@ -1111,11 +1202,13 @@ our $DATA = {
     },
     lg => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
     },
     ln => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
         },
         symbol => {
@@ -1125,6 +1218,7 @@ our $DATA = {
     },
     lo => {
         pattern => {
+            accounting => '¤#,##0.00;¤-#,##0.00',
             at_least => '{0}+',
             currency => '¤#,##0.00;¤-#,##0.00',
         },
@@ -1136,6 +1230,7 @@ our $DATA = {
     },
     lt => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
         },
@@ -1147,6 +1242,7 @@ our $DATA = {
     },
     lu => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
         symbol => {
@@ -1156,16 +1252,19 @@ our $DATA = {
     },
     luo => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
     },
     luy => {
         pattern => {
+            accounting => '¤#,##0.00;¤- #,##0.00',
             currency => '¤#,##0.00;¤- #,##0.00',
         },
     },
     lv => {
         pattern => {
+            accounting => '¤#0.00',
             at_least => 'vismaz {0}',
             currency => '¤#0.00',
         },
@@ -1177,11 +1276,13 @@ our $DATA = {
     },
     mas => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     mer => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
@@ -1192,6 +1293,7 @@ our $DATA = {
     },
     mg => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
@@ -1212,6 +1314,7 @@ our $DATA = {
     },
     ml => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##,##0.###',
@@ -1225,6 +1328,7 @@ our $DATA = {
     },
     mr => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
             decimal => '#,##,##0.###',
@@ -1235,6 +1339,7 @@ our $DATA = {
     },
     ms => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
         },
@@ -1250,11 +1355,13 @@ our $DATA = {
     },
     mt => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
     mua => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
         symbol => {
@@ -1272,6 +1379,7 @@ our $DATA = {
     },
     naq => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
@@ -1288,6 +1396,7 @@ our $DATA = {
     },
     nd => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
@@ -1301,6 +1410,7 @@ our $DATA = {
     },
     nl => {
         pattern => {
+            accounting => '¤ #,##0.00;(¤ #,##0.00)',
             at_least => '{0}+',
             currency => '¤ #,##0.00;¤ -#,##0.00',
             range => '{0}-{1}',
@@ -1317,6 +1427,7 @@ our $DATA = {
     },
     nmg => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
         },
         symbol => {
@@ -1326,6 +1437,7 @@ our $DATA = {
     },
     nn => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
         },
@@ -1343,21 +1455,25 @@ our $DATA = {
     },
     nus => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     nyn => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
     om => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
     or => {
         pattern => {
+            accounting => '¤ #,##,##0.00',
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
@@ -1393,6 +1509,7 @@ our $DATA = {
     },
     pl => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
         },
@@ -1403,6 +1520,7 @@ our $DATA = {
     },
     ps => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
         },
         symbol => {
@@ -1419,6 +1537,7 @@ our $DATA = {
     },
     pt => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '+{0}',
             currency => '¤#,##0.00',
         },
@@ -1429,6 +1548,7 @@ our $DATA = {
     },
     'pt-PT' => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             currency => '#,##0.00 ¤',
             range => '{0} - {1}',
         },
@@ -1449,6 +1569,7 @@ our $DATA = {
     },
     rm => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
         },
@@ -1459,6 +1580,7 @@ our $DATA = {
     },
     rn => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
             percent => '#,##0 %',
         },
@@ -1469,6 +1591,7 @@ our $DATA = {
     },
     ro => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             at_least => '>{0}',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
@@ -1481,11 +1604,13 @@ our $DATA = {
     },
     rof => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
     ru => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
@@ -1505,21 +1630,25 @@ our $DATA = {
     },
     rwk => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
     },
     saq => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     sbp => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
     },
     se => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
         },
@@ -1532,6 +1661,7 @@ our $DATA = {
     },
     seh => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
         symbol => {
@@ -1541,6 +1671,7 @@ our $DATA = {
     },
     ses => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
         symbol => {
@@ -1549,6 +1680,7 @@ our $DATA = {
     },
     sg => {
         pattern => {
+            accounting => '¤#,##0.00;¤-#,##0.00',
             currency => '¤#,##0.00;¤-#,##0.00',
         },
         symbol => {
@@ -1558,6 +1690,7 @@ our $DATA = {
     },
     shi => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
         symbol => {
@@ -1567,6 +1700,7 @@ our $DATA = {
     },
     'shi-Latn' => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
         symbol => {
@@ -1576,12 +1710,14 @@ our $DATA = {
     },
     si => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
         },
     },
     sk => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
@@ -1593,6 +1729,7 @@ our $DATA = {
     },
     sl => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             currency => '#,##0.00 ¤',
         },
         symbol => {
@@ -1610,16 +1747,19 @@ our $DATA = {
     },
     sn => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     so => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
     sq => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             at_least => '>{0}',
             currency => '#,##0.00 ¤',
             range => '{0}-{1}',
@@ -1631,6 +1771,7 @@ our $DATA = {
     },
     sr => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
         },
@@ -1641,6 +1782,7 @@ our $DATA = {
     },
     'sr-Latn' => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
         },
@@ -1651,6 +1793,7 @@ our $DATA = {
     },
     sv => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
             range => '{0}‒{1}',
@@ -1664,6 +1807,7 @@ our $DATA = {
     },
     sw => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
@@ -1675,6 +1819,7 @@ our $DATA = {
     },
     ta => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤ #,##,##0.00',
             decimal => '#,##,##0.###',
@@ -1697,6 +1842,7 @@ our $DATA = {
     },
     te => {
         pattern => {
+            accounting => '¤#,##,##0.00;(¤#,##,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##,##0.00',
             decimal => '#,##,##0.###',
@@ -1704,11 +1850,13 @@ our $DATA = {
     },
     teo => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     th => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
             range => '{0}-{1}',
@@ -1716,6 +1864,7 @@ our $DATA = {
     },
     ti => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
@@ -1730,6 +1879,7 @@ our $DATA = {
     },
     tr => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
             percent => '%#,##0',
@@ -1741,6 +1891,7 @@ our $DATA = {
     },
     twq => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
         },
         symbol => {
@@ -1749,6 +1900,7 @@ our $DATA = {
     },
     tzm => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
         },
         symbol => {
@@ -1758,12 +1910,14 @@ our $DATA = {
     },
     ug => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
         },
     },
     uk => {
         pattern => {
+            accounting => '#,##0.00¤;(#,##0.00¤)',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
         },
@@ -1775,6 +1929,7 @@ our $DATA = {
     },
     ur => {
         pattern => {
+            accounting => '¤ #,##,##0.00',
             currency => '¤ #,##,##0.00',
             percent => '#,##,##0%',
         },
@@ -1819,16 +1974,19 @@ our $DATA = {
     },
     vai => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     'vai-Latn' => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     vi => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
             range => '{0}-{1}',
@@ -1840,6 +1998,7 @@ our $DATA = {
     },
     vun => {
         pattern => {
+            accounting => '¤#,##0.00',
             currency => '¤#,##0.00',
         },
     },
@@ -1851,11 +2010,13 @@ our $DATA = {
     },
     xog => {
         pattern => {
+            accounting => '#,##0.00 ¤',
             currency => '#,##0.00 ¤',
         },
     },
     yav => {
         pattern => {
+            accounting => '#,##0.00 ¤;(#,##0.00 ¤)',
             currency => '#,##0.00 ¤',
         },
         symbol => {
@@ -1865,11 +2026,13 @@ our $DATA = {
     },
     yo => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             currency => '¤#,##0.00',
         },
     },
     zgh => {
         pattern => {
+            accounting => '#,##0.00¤',
             currency => '#,##0.00¤',
             percent => '#,##0 %',
         },
@@ -1880,6 +2043,7 @@ our $DATA = {
     },
     zh => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             range => '{0}-{1}',
         },
@@ -1901,6 +2065,7 @@ our $DATA = {
     },
     'zh-Hant' => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
             range => '{0}-{1}',
@@ -1911,6 +2076,7 @@ our $DATA = {
     },
     zu => {
         pattern => {
+            accounting => '¤#,##0.00;(¤#,##0.00)',
             at_least => '{0}+',
             currency => '¤#,##0.00',
         },

@@ -6,7 +6,7 @@ use Carp;
 use Scalar::Util qw( looks_like_number );
 use Math::BigFloat;
 use Math::Round;
-use CLDR::Number::Constant qw( $N $M $P $C $Q );
+use CLDR::Number::Constant qw( $N $M $P $C $S $Q );
 use CLDR::Number::Data::Base;
 use CLDR::Number::Data::System;
 
@@ -200,8 +200,14 @@ sub _trigger_pattern {
     $internal_pattern  =~ s{$Q}{'}g;
     $canonical_pattern =~ s{$Q}{''}g;
 
-    $self->_positive_pattern($internal_pattern);
-    $self->_negative_pattern($M . $internal_pattern);
+    if ($internal_pattern =~ m{ ^ ( .*? ) $S ( .* ) $ }x) {
+        $self->_positive_pattern($1);
+        $self->_negative_pattern($2);
+    }
+    else {
+        $self->_positive_pattern($internal_pattern);
+        $self->_negative_pattern($M . $internal_pattern);
+    }
 
     # hashref instead of attribute method so wo don’t retrigger this trigger
     $self->{pattern} = $canonical_pattern;
@@ -232,7 +238,7 @@ sub _format_number {
 
     if ($num < 0) {
         my $pattern = $self->_negative_pattern;
-        $pattern =~ s{$M}{$self->minus_sign}e;
+        $pattern =~ s{$M}{$self->minus_sign}eg;
         $format = $pattern;
     }
     else {
@@ -403,9 +409,10 @@ sub _escape_symbols {
     my ($pattern) = @_;
 
     for ($pattern) {
-        s{%}{$P};
-        s{¤}{$C};
-        s{-}{$M};
+        tr{-}{$M};
+        tr{%}{$P};
+        tr{¤}{$C};
+        tr{;}{$S};
     }
 
     return $pattern;

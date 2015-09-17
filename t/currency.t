@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 25;
+use Test::More tests => 29;
 use Test::Exception;
 use CLDR::Number;
 
@@ -11,6 +11,23 @@ my ($cldr, $curf, $decf);
 $cldr = CLDR::Number->new;
 $curf = $cldr->currency_formatter;
 throws_ok { $curf->format(1.99) } qr{Missing required attribute: currency_code};
+
+$curf = $cldr->currency_formatter(
+    locale        => 'en',
+    currency_code => 'EUR',
+);
+
+is $curf->format(10),  '€10.00',  'positive currency formatting';
+is $curf->format(-10), '-€10.00', 'negative currency formatting';
+
+$curf = $cldr->currency_formatter(
+    locale        => 'en',
+    currency_code => 'EUR',
+    accounting    => 1,
+);
+
+is $curf->format(10),  '€10.00',   'accounting positive currency formatting';
+is $curf->format(-10), '(€10.00)', 'accounting negative currency formatting';
 
 {
     # currency decimal is no longer used by any locale, so we manually add it here

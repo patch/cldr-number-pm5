@@ -34,9 +34,6 @@ I<L<#12|https://github.com/patch/cldr-number-pm5/issues/12>>
 =item * currency unit patterns with currency display names
 I<L<#35|https://github.com/patch/cldr-number-pm5/issues/35>>
 
-=item * C<accounting> currency format in addition to default C<standard>
-I<L<#13|https://github.com/patch/cldr-number-pm5/issues/13>>
-
 =item * maximum integer digits
 I<L<#17|https://github.com/patch/cldr-number-pm5/issues/17>>
 

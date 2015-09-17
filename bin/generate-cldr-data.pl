@@ -69,11 +69,12 @@ for my $file (glob $number_cldr_file) {
     my $system = $data->{defaultNumberingSystem};
     $locales{numbers}{$locale} = {
         pattern => {
-            at_least => $data->{"miscPatterns-numberSystem-$system"}{atLeast},
-            currency => $data->{"currencyFormats-numberSystem-$system"}{standard},
-            decimal  => $data->{"decimalFormats-numberSystem-$system"}{standard},
-            percent  => $data->{"percentFormats-numberSystem-$system"}{standard},
-            range    => $data->{"miscPatterns-numberSystem-$system"}{range},
+            decimal    => $data->{"decimalFormats-numberSystem-$system"}{standard},
+            percent    => $data->{"percentFormats-numberSystem-$system"}{standard},
+            currency   => $data->{"currencyFormats-numberSystem-$system"}{standard},
+            accounting => $data->{"currencyFormats-numberSystem-$system"}{accounting},
+            at_least   => $data->{"miscPatterns-numberSystem-$system"}{atLeast},
+            range      => $data->{"miscPatterns-numberSystem-$system"}{range},
         },
         symbol => {
             currency_decimal => $data->{"symbols-numberSystem-$system"}{currencyDecimal},
@@ -140,7 +141,7 @@ close $system_cldr_fh
     or die "Can't close $system_cldr_file: $!";
 
 my @categories = (
-    [ pattern => [qw( at_least currency decimal percent range )] ],
+    [ pattern => [qw( accounting at_least currency decimal percent range )] ],
     [ symbol  => [qw( currency_decimal decimal group infinity minus nan percent permil plus )] ],
     [ system  => [qw( default )] ],
 );

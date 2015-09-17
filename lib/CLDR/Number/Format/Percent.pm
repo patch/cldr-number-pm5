@@ -56,7 +56,7 @@ sub format {
     }
 
     my $format = $self->_format_number($num * $factor);
-    $format =~ s{$P}{$sign};
+    $format =~ tr{$P}{$sign};
 
     return $format;
 }

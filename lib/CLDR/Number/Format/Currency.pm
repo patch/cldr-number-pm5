@@ -30,10 +30,10 @@ has currency_sign => (
     },
 );
 
-# TODO: accounting NYI
 has accounting => (
     is      => 'rw',
     coerce  => sub { $_[0] ? 1 : 0 },
+    trigger => 1,
     default => 0,
 );
 
@@ -45,7 +45,7 @@ has cash => (
 );
 
 has _pattern_type => (
-    is      => 'ro',
+    is      => 'rw',
     default => 'currency',
 );
 
@@ -67,6 +67,7 @@ sub _trigger_currency_code {
     my ($self, $currency_code) = @_;
 
     $self->_build_currency_sign;
+    $self->_trigger_accounting;
     $self->_trigger_cash;
 }
 
@@ -84,6 +85,12 @@ sub _build_currency_sign {
     }
 
     $self->currency_sign($currency_sign || $self->currency_code);
+}
+
+sub _trigger_accounting {
+    my ($self) = @_;
+
+    $self->_pattern_type($self->accounting ? 'accounting' : 'currency');
 }
 
 sub _trigger_cash {
