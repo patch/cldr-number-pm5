@@ -7,7 +7,7 @@ use Carp;
 use Moo;
 use namespace::clean;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 with qw( CLDR::Number::Role::Format );
 
@@ -39,8 +39,8 @@ CLDR::Number::Format::Decimal - Localized decimal formatter using the Unicode CL
 
 =head1 VERSION
 
-This document describes CLDR::Number::Format::Decimal v0.12, built with Unicode
-CLDR v27.0.1.
+This document describes CLDR::Number::Format::Decimal v0.13, built with Unicode
+CLDR v28.
 
 =head1 SYNOPSIS
 

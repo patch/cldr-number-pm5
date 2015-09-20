@@ -1,5 +1,56 @@
 Revision history for Perl module CLDR::Number
 
+0.13 2015-09-20
+ [ New CLDR version ]
+ - Upgrade CLDR data from v27.0.1 (2015-03-30) to v28 (2015-09-17)
+ - “Added several English locales for Europe and W Asia”
+ - “Major review of and improvement to Spanish locales for Latin America”
+ - See also: http://cldr.unicode.org/index/downloads/cldr-28
+
+ [ New languages ]
+ - ce (Chechen)
+ - ckb (Central Kurdish)
+ - cu (Church Slavic)
+ - lrc (Northern Luri)
+ - mzn (Mazanderani)
+ - tk (Turkmen)
+
+ [ New locales for existing languages ]
+ - en-AT (English in Austria)
+ - en-BI (English in Burundi)
+ - en-CH (English in Switzerland)
+ - en-DE (English in Germany)
+ - en-DK (English in Denmark)
+ - en-FI (English in Finland)
+ - en-NL (English in Netherlands)
+ - en-SE (English in Sweden)
+ - es-DO (Spanish in Dominican Republic)
+ - es-GT (Spanish in Guatemala)
+ - fo-DK (Faroese in Denmark)
+ - fr-MA (French in Morocco)
+
+ [ New numbering systems ]
+ - ahom (Ahom Digits)
+ - brah (Brahmi Digits)
+ - cakm (Chakma Digits)
+ - hmng (Pahawh Hmong Digits)
+ - mathbold (Mathematical Bold Digits)
+ - mathdbl (Mathematical Double-Struck Digits)
+ - mathmono (Mathematical Monospace Digits)
+ - mathsanb (Mathematical Sans-Serif Bold Digits)
+ - mathsans (Mathematical Sans-Serif Digits)
+ - modi (Modi Digits)
+ - mroo (Mro Digits)
+ - mymrtlng (Myanmar Tai Laing Digits)
+ - osma (Osmanya Digits)
+ - shrd (Sharada Digits)
+ - sind (Khudawadi Digits)
+ - sinh (Sinhala Lith Digits)
+ - sora (Sora Sompeng Digits)
+ - takr (Takri Digits)
+ - tirh (Tirhuta Digits)
+ - wara (Warang Citi Digits)
+
 0.12 2015-08-29
  - Add support for passing infinity, negative infinity, and NaN arguments to all
    formatting methods (format, at_least, range) on all formatting classes
