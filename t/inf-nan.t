@@ -21,14 +21,9 @@ is $decf->format($inf), '∞',   'format infinity';
 is $decf->format($neg), '-∞',  'format negative infinity';
 is $decf->format($nan), 'NaN', 'format NaN';
 
-SKIP: {
-    skip 'infinity and NaN strings not supported on this system', 3
-        if 'inf' != $inf;
-
-    is $decf->format('inf'),  '∞',   'format infinity string';
-    is $decf->format('-inf'), '-∞',  'format negative infinity string';
-    is $decf->format('nan'),  'NaN', 'format NaN string';
-}
+is $decf->format('inf'),  '∞',   'format infinity string';
+is $decf->format('-inf'), '-∞',  'format negative infinity string';
+is $decf->format('nan'),  'NaN', 'format NaN string';
 
 is $perf->format($inf), '∞%',   'format infinity percent';
 is $perf->format($neg), '-∞%',  'format negative infinity percent';
