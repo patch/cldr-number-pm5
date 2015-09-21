@@ -224,43 +224,42 @@ sub _validate_number {
     return $num;
 }
 
-my $INF = 9**9**9;
-
 sub _format_number {
     my ($self, $num) = @_;
     my ($format, $num_format);
+    my $bnum = Math::BigFloat->new($num);
 
-    if ($num < 0) {
+    if ($bnum->is_neg) {
         my $pattern = $self->_negative_pattern;
         $pattern =~ s{$M}{$self->minus_sign}e;
         $format = $pattern;
+        $bnum->babs(); # set absolute value
     }
     else {
         $format = $self->_positive_pattern;
     }
 
-    if ($num == $INF || $num == -$INF) {
+    if ($bnum->is_inf) {
         $num_format = $self->infinity;
     }
-    elsif (!defined($num <=> $INF)) {
+    elsif ($bnum->is_nan) {
         $num_format = $self->nan;
     }
     else {
-        $num = abs $num;
+        my $abs;
 
         if ($self->rounding_increment) {
             # TODO: round half to even
-            $num = Math::Round::nearest($self->rounding_increment, $num);
+            $abs = Math::Round::nearest($self->rounding_increment, $bnum->bstr);
         }
         else {
             # round half to even
-            my $bf = Math::BigFloat->new($num);
-            $bf->round_mode('even');
-            $bf->ffround(-$self->maximum_fraction_digits);
-            $num = $bf->bstr;
+            $bnum->round_mode('even');
+            $bnum->ffround(-$self->maximum_fraction_digits);
+            $abs = $bnum->bstr;
         }
 
-        my ($int, $frac) = split /\./, $num;
+        my ($int, $frac) = split /\./, $abs;
         if (!defined $frac) {
             $frac = '';
         }
