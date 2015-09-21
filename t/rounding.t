@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 35;
+use Test::More tests => 37;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new;
@@ -42,11 +42,13 @@ is $decf->format(0.075), '0,1';
 is $decf->format(0.08),  '0,1';
 is $decf->format(0.09),  '0,1';
 is $decf->format(0.10),  '0,1';
+is $decf->format(-0.10), '-0,1';
 
 $decf->rounding_increment(10);
-is $decf->format(4),  '0';
-is $decf->format(5),  '10';
-is $decf->format(10), '10';
+is $decf->format(4),   '0';
+is $decf->format(5),   '10';
+is $decf->format(10),  '10';
+is $decf->format(-10), '-10';
 
 $decf = $cldr->decimal_formatter(rounding_increment => 5);
 is $decf->rounding_increment, 5, 'set rounding increment on create';
