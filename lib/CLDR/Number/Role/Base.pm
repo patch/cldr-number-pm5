@@ -192,7 +192,7 @@ sub _trigger_numbering_system {
     return if defined $system
            && exists $CLDR::Number::Data::System::DATA->{$system};
 
-    $self->{numbering_system} = $self->_get_data(system => 'default');
+    $self->{numbering_system} = $self->_get_data(attr => 'system');
 }
 
 sub _split_locale {

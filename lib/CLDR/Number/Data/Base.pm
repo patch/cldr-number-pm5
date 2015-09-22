@@ -33,8 +33,8 @@ our $DATA = {
             permil => '‰',
             plus => '+',
         },
-        system => {
-            default => 'latn',
+        attr => {
+            system => 'latn',
         },
     },
     af => {
@@ -80,8 +80,8 @@ our $DATA = {
             permil => '؉',
             plus => "\N{RIGHT-TO-LEFT MARK}+",
         },
-        system => {
-            default => 'arab',
+        attr => {
+            system => 'arab',
         },
     },
     'ar-DZ' => {
@@ -93,8 +93,8 @@ our $DATA = {
             permil => '‰',
             plus => "\N{LEFT-TO-RIGHT MARK}+",
         },
-        system => {
-            default => 'latn',
+        attr => {
+            system => 'latn',
         },
     },
     'ar-EH' => {
@@ -106,8 +106,8 @@ our $DATA = {
             permil => '‰',
             plus => "\N{LEFT-TO-RIGHT MARK}+",
         },
-        system => {
-            default => 'latn',
+        attr => {
+            system => 'latn',
         },
     },
     'ar-LY' => {
@@ -119,8 +119,8 @@ our $DATA = {
             permil => '‰',
             plus => "\N{LEFT-TO-RIGHT MARK}+",
         },
-        system => {
-            default => 'latn',
+        attr => {
+            system => 'latn',
         },
     },
     'ar-MA' => {
@@ -132,8 +132,8 @@ our $DATA = {
             permil => '‰',
             plus => "\N{LEFT-TO-RIGHT MARK}+",
         },
-        system => {
-            default => 'latn',
+        attr => {
+            system => 'latn',
         },
     },
     'ar-TN' => {
@@ -145,8 +145,8 @@ our $DATA = {
             permil => '‰',
             plus => "\N{LEFT-TO-RIGHT MARK}+",
         },
-        system => {
-            default => 'latn',
+        attr => {
+            system => 'latn',
         },
     },
     as => {
@@ -155,8 +155,8 @@ our $DATA = {
             decimal => '#,##,##0.###',
             percent => '#,##,##0%',
         },
-        system => {
-            default => 'beng',
+        attr => {
+            system => 'beng',
         },
     },
     asa => {
@@ -246,8 +246,8 @@ our $DATA = {
         symbol => {
             nan => 'সংখ্যা না',
         },
-        system => {
-            default => 'beng',
+        attr => {
+            system => 'beng',
         },
     },
     br => {
@@ -325,8 +325,8 @@ our $DATA = {
             permil => '؉',
             plus => "\N{RIGHT-TO-LEFT MARK}+",
         },
-        system => {
-            default => 'arab',
+        attr => {
+            system => 'arab',
         },
     },
     cs => {
@@ -450,8 +450,8 @@ our $DATA = {
             infinity => 'གྲངས་མེད',
             nan => 'ཨང་མད',
         },
-        system => {
-            default => 'tibt',
+        attr => {
+            system => 'tibt',
         },
     },
     ebu => {
@@ -737,8 +737,8 @@ our $DATA = {
             permil => '؉',
             plus => "\N{LEFT-TO-RIGHT MARK}+\N{LEFT-TO-RIGHT MARK}",
         },
-        system => {
-            default => 'arabext',
+        attr => {
+            system => 'arabext',
         },
     },
     ff => {
@@ -1141,8 +1141,8 @@ our $DATA = {
             permil => '؉',
             plus => "\N{LEFT-TO-RIGHT MARK}+\N{LEFT-TO-RIGHT MARK}",
         },
-        system => {
-            default => 'arabext',
+        attr => {
+            system => 'arabext',
         },
     },
     ksb => {
@@ -1232,8 +1232,8 @@ our $DATA = {
             permil => '؉',
             plus => "\N{LEFT-TO-RIGHT MARK}+\N{LEFT-TO-RIGHT MARK}",
         },
-        system => {
-            default => 'arabext',
+        attr => {
+            system => 'arabext',
         },
     },
     lt => {
@@ -1331,8 +1331,8 @@ our $DATA = {
             currency => '¤#,##0.00',
             decimal => '#,##,##0.###',
         },
-        system => {
-            default => 'deva',
+        attr => {
+            system => 'deva',
         },
     },
     ms => {
@@ -1368,8 +1368,8 @@ our $DATA = {
         symbol => {
             nan => 'ဂဏန်းမဟုတ်သော',
         },
-        system => {
-            default => 'mymr',
+        attr => {
+            system => 'mymr',
         },
     },
     mzn => {
@@ -1381,8 +1381,8 @@ our $DATA = {
             permil => '؉',
             plus => "\N{LEFT-TO-RIGHT MARK}+\N{LEFT-TO-RIGHT MARK}",
         },
-        system => {
-            default => 'arabext',
+        attr => {
+            system => 'arabext',
         },
     },
     naq => {
@@ -1409,8 +1409,8 @@ our $DATA = {
         pattern => {
             at_least => '{0}+',
         },
-        system => {
-            default => 'deva',
+        attr => {
+            system => 'deva',
         },
     },
     nl => {
@@ -1501,8 +1501,8 @@ our $DATA = {
             permil => '؉',
             plus => "\N{LEFT-TO-RIGHT MARK}+\N{LEFT-TO-RIGHT MARK}",
         },
-        system => {
-            default => 'arabext',
+        attr => {
+            system => 'arabext',
         },
     },
     pl => {
@@ -1527,8 +1527,8 @@ our $DATA = {
             permil => '؉',
             plus => "\N{LEFT-TO-RIGHT MARK}+\N{LEFT-TO-RIGHT MARK}",
         },
-        system => {
-            default => 'arabext',
+        attr => {
+            system => 'arabext',
         },
     },
     pt => {
@@ -1914,8 +1914,8 @@ our $DATA = {
             minus => "\N{LEFT-TO-RIGHT MARK}-\N{LEFT-TO-RIGHT MARK}",
             plus => "\N{LEFT-TO-RIGHT MARK}+\N{LEFT-TO-RIGHT MARK}",
         },
-        system => {
-            default => 'arabext',
+        attr => {
+            system => 'arabext',
         },
     },
     uz => {
@@ -1938,8 +1938,8 @@ our $DATA = {
             permil => '؉',
             plus => "\N{LEFT-TO-RIGHT MARK}+\N{LEFT-TO-RIGHT MARK}",
         },
-        system => {
-            default => 'arabext',
+        attr => {
+            system => 'arabext',
         },
     },
     'uz-Cyrl' => {

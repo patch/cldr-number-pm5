@@ -86,9 +86,9 @@ for my $file (glob $number_cldr_file) {
             percent          => $data->{"symbols-numberSystem-$system"}{percentSign},
             plus             => $data->{"symbols-numberSystem-$system"}{plusSign},
         },
-        system => {
-            default => $system,
-        },
+        attr => {
+            system => $system,
+        }
     };
     close $fh
         or die "Can't close $file: $!";
@@ -142,7 +142,7 @@ close $system_cldr_fh
 my @categories = (
     [ pattern => [qw( at_least currency decimal percent range )] ],
     [ symbol  => [qw( currency_decimal decimal group infinity minus nan percent permil plus )] ],
-    [ system  => [qw( default )] ],
+    [ attr    => [qw( system )] ],
 );
 
 my @locale_parts =
