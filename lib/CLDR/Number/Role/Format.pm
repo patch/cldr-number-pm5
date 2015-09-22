@@ -16,7 +16,7 @@ use Moo::Role;
 # backward incompatible ways in the future. Please use one of the documented
 # classes instead.
 
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 
 requires qw( BUILD format );
 
@@ -246,20 +246,23 @@ sub _format_number {
         $num_format = $self->nan;
     }
     else {
-        my $abs;
+        my $rounded;
 
         if ($self->rounding_increment) {
             # TODO: round half to even
-            $abs = Math::Round::nearest($self->rounding_increment, $bnum->bstr);
+            $rounded = Math::Round::nearest(
+                $self->rounding_increment,
+                $bnum->bstr
+            );
         }
         else {
             # round half to even
             $bnum->round_mode('even');
             $bnum->ffround(-$self->maximum_fraction_digits);
-            $abs = $bnum->bstr;
+            $rounded = $bnum->bstr;
         }
 
-        my ($int, $frac) = split /\./, $abs;
+        my ($int, $frac) = split /\./, $rounded;
         if (!defined $frac) {
             $frac = '';
         }

@@ -1,5 +1,13 @@
 Revision history for Perl module CLDR::Number
 
+0.14 2015-09-21
+ - Bugfix: fix formatting negative numbers along with a custom
+   rounding_increment value, which had caused double negative signs
+ - Bugfix: fix formatting of string values `inf` and `nan` which weren’t treated
+   as numeric on combinations of some operating systems with some older versions
+   of Perl [#44, #45]
+ - Docs: typo fix by Fred Moyer @redhotpenguin++ [#43]
+
 0.13 2015-09-20
  [ New CLDR version ]
  - Upgrade CLDR data from v27.0.1 (2015-03-30) to v28 (2015-09-17)
