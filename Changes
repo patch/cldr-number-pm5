@@ -1,5 +1,9 @@
 Revision history for Perl module CLDR::Number
 
+0.15 2015-09-22
+ - Bugfix: fix support for formatting `Inf` and `NaN` in Perl v5.22, which has
+   changed from the previous values `inf` and `nan` [#46]
+
 0.14 2015-09-21
  - Bugfix: fix formatting negative numbers along with a custom
    rounding_increment value, which had caused double negative signs
