@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 50;
+use Test::More tests => 62;
 use CLDR::Number;
 
 my $cldr = CLDR::Number->new;
@@ -67,6 +67,25 @@ $curf->currency_code('JPY'); is $curf->format(1_234.567), '1 235 JPY';
 $decf = $cldr->decimal_formatter(locale => 'en');
 $decf->pattern("'#'#");       is $decf->format(123), '#123',      'quote special characters';
 $decf->pattern("# o''clock"); is $decf->format(1),   "1 o'clock", 'single quote itself';
+# minimumGroupingDigits
+$decf = $cldr->decimal_formatter(locale => 'pl');
+is $decf->minimum_grouping_digits, 2, 'pl: default min group';
+is $decf->primary_grouping_size,   3, 'pl: default primary_grouping_size';
+is $decf->format(9_999),      '9999', 'pl: under min group';
+is $decf->format(10_000),   '10 000', 'pl: at min group';
+$decf = $cldr->decimal_formatter(locale => 'en');
+is $decf->minimum_grouping_digits, 1, 'en: default min group';
+is $decf->primary_grouping_size,   3, 'en: default primary_grouping_size';
+is $decf->format(1_000),     '1,000', 'en: at min group';
+is $decf->format(10_000),   '10,000', 'en: over min group';
+$decf->minimum_grouping_digits(2);
+is $decf->format(1_000),      '1000', 'under custom min group';
+is $decf->format(10_000),   '10,000', 'at custom min group';
+$decf->minimum_grouping_digits(1);
+$decf->primary_grouping_size(4);
+is $decf->format(10_000),   '1,0000', 'at min group w/ custom grouping size';
+$decf->minimum_grouping_digits(2);
+is $decf->format(10_000),    '10000', 'under min group w/ custom grouping size';
 
 # 3.3 Formatting
 $decf = $cldr->decimal_formatter(locale => 'en');

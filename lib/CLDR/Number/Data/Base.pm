@@ -34,6 +34,7 @@ our $DATA = {
             plus => '+',
         },
         attr => {
+            min_group => 1,
             system => 'latn',
         },
     },
@@ -209,6 +210,9 @@ our $DATA = {
             decimal => ',',
             group => ' ',
         },
+        attr => {
+            min_group => 2,
+        },
     },
     bem => {
         pattern => {
@@ -229,6 +233,9 @@ our $DATA = {
         symbol => {
             decimal => ',',
             group => ' ',
+        },
+        attr => {
+            min_group => 2,
         },
     },
     bm => {
@@ -584,6 +591,9 @@ our $DATA = {
             decimal => ',',
             group => '.',
         },
+        attr => {
+            min_group => 2,
+        },
     },
     'es-419' => {
         pattern => {
@@ -592,6 +602,9 @@ our $DATA = {
         symbol => {
             decimal => '.',
             group => ',',
+        },
+        attr => {
+            min_group => 1,
         },
     },
     'es-AR' => {
@@ -700,6 +713,9 @@ our $DATA = {
             decimal => ',',
             group => ' ',
             minus => '−',
+        },
+        attr => {
+            min_group => 2,
         },
     },
     eu => {
@@ -1023,6 +1039,9 @@ our $DATA = {
             group => ' ',
             nan => 'არ არის რიცხვი',
         },
+        attr => {
+            min_group => 2,
+        },
     },
     kab => {
         pattern => {
@@ -1276,6 +1295,9 @@ our $DATA = {
             group => ' ',
             nan => 'nav skaitlis',
         },
+        attr => {
+            min_group => 3,
+        },
     },
     mas => {
         pattern => {
@@ -1369,6 +1391,7 @@ our $DATA = {
             nan => 'ဂဏန်းမဟုတ်သော',
         },
         attr => {
+            min_group => 3,
             system => 'mymr',
         },
     },
@@ -1514,6 +1537,9 @@ our $DATA = {
             decimal => ',',
             group => ' ',
         },
+        attr => {
+            min_group => 2,
+        },
     },
     ps => {
         pattern => {
@@ -1548,6 +1574,9 @@ our $DATA = {
         },
         symbol => {
             group => ' ',
+        },
+        attr => {
+            min_group => 2,
         },
     },
     qu => {

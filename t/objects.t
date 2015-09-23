@@ -2,7 +2,7 @@ use utf8;
 use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 30;
+use Test::More tests => 31;
 use CLDR::Number;
 use CLDR::Number::Data::Base;
 
@@ -39,6 +39,7 @@ $decf = $cldr->decimal_formatter(
     maximum_fraction_digits => 2,
     primary_grouping_size   => 2,
     secondary_grouping_size => 1,
+    minimum_grouping_digits => 2,
     rounding_increment      => 2,
 );
 
@@ -48,6 +49,7 @@ is $decf->minimum_fraction_digits, 1, 'min frac spared by locale on create';
 is $decf->maximum_fraction_digits, 2, 'max frac spared by locale on create';
 is $decf->primary_grouping_size,   2, '1st group spared by locale on create';
 is $decf->secondary_grouping_size, 1, '2nd group spared by locale on create';
+is $decf->minimum_grouping_digits, 2, 'min group spared by locale on create';
 is $decf->rounding_increment,      2, 'rounding spared by locale on create';
 
 $decf = $cldr->decimal_formatter(

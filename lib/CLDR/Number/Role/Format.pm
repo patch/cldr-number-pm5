@@ -268,7 +268,11 @@ sub _format_number {
             $frac = '';
         }
 
-        if (my $primary_group = $self->primary_grouping_size) {
+        my $primary_group = $self->primary_grouping_size;
+        if (
+            $primary_group &&
+            $primary_group + $self->minimum_grouping_digits <= length $int
+        ) {
             my $group_sign   = $self->group_sign;
             my $other_groups = $self->secondary_grouping_size || $primary_group;
 

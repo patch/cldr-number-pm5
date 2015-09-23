@@ -3,6 +3,7 @@ package CLDR::Number::Role::Base;
 use v5.8.1;
 use utf8;
 use Carp;
+use Scalar::Util qw( looks_like_number );
 use CLDR::Number::Data::Base;
 use CLDR::Number::Data::System;
 
@@ -60,6 +61,14 @@ has numbering_system => (
     },
     coerce  => sub { defined $_[0] ? lc $_[0] : $_[0] },
     trigger => 1,
+);
+
+has minimum_grouping_digits => (
+    is => 'rw',
+    isa => sub {
+        croak "minimum_grouping_digits '$_[0]' is invalid"
+            if defined $_[0] && !looks_like_number $_[0];
+    },
 );
 
 # TODO: length NYI
@@ -184,6 +193,10 @@ sub _trigger_locale {
     $self->_build_signs(qw{
         decimal_sign group_sign plus_sign minus_sign infinity nan
     });
+
+    $self->_set_unless_init_arg(
+        minimum_grouping_digits => $self->_get_data(attr => 'min_group')
+    );
 }
 
 sub _trigger_numbering_system {

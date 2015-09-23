@@ -138,6 +138,10 @@ are expected to be character strings, not byte strings.
     (`ja`) with the numbering system (`nu`) set to Full Width Digits
     (`fullwide`).
 
+- minimum\_grouping\_digits
+
+    TODO
+
 - decimal\_sign
 
     Examples: `.` (full stop) for **root**, **en**; `,` (comma) for **de**, **fr**

@@ -16,9 +16,6 @@ In descending order of priority.
 
 =over
 
-=item * minimum grouping digits
-I<L<#36|https://github.com/patch/cldr-number-pm5/issues/36>>
-
 =item * algorithmic numbering systems (C<hant>, C<hebr>, C<roman>, etc.)
 I<L<#32|https://github.com/patch/cldr-number-pm5/issues/32>>
 
