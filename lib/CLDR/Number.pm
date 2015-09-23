@@ -185,10 +185,6 @@ subtag. For example, locale C<ja-u-nu-fullwide> for the Japanese language
 (C<ja>) with the numbering system (C<nu>) set to Full Width Digits
 (C<fullwide>).
 
-=item minimum_grouping_digits
-
-TODO
-
 =item decimal_sign
 
 Examples: C<.> (full stop) for B<root>, B<en>; C<,> (comma) for B<de>, B<fr>

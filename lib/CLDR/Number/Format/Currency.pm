@@ -276,6 +276,11 @@ B<en-IN>, and other locales of the Indian subcontinent
 
 Not used when value is C<0>.
 
+=item minimum_grouping_digits
+
+Examples: C<1> for B<root>, B<en>, and most locales; C<2> for C<es> (excluding
+C<es-419>), C<pt-PT>, C<pl>, and several others; C<3> for C<lv> and C<my>
+
 =item rounding_increment
 
 Examples: C<0> for all currencies; C<5> for B<CAD>, B<CHF> when B<cash> is true
