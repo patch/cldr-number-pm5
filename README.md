@@ -10,7 +10,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 # VERSION
 
-This document describes CLDR::Number v0.15, built with Unicode CLDR v28.
+This document describes CLDR::Number v0.16, built with Unicode CLDR v28.
 
 # SYNOPSIS
 
@@ -144,7 +144,8 @@ are expected to be character strings, not byte strings.
 
 - group\_sign
 
-    Examples: `,` (comma) for **root**, **en**; `.` (full stop) for **de**; ` ` (no-break space) for **fr**
+    Examples: `,` (comma) for **root**, **en**; `.` (full stop) for **de**; ` `
+    (no-break space) for **fr**
 
 - plus\_sign
 

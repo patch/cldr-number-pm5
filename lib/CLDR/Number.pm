@@ -6,7 +6,7 @@ use utf8;
 use Moo;
 use namespace::clean;
 
-our $VERSION = '0.15';
+our $VERSION = '0.16';
 
 with qw( CLDR::Number::Role::Base );
 
@@ -53,7 +53,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.15, built with Unicode CLDR v28.
+This document describes CLDR::Number v0.16, built with Unicode CLDR v28.
 
 =head1 SYNOPSIS
 
@@ -191,7 +191,8 @@ Examples: C<.> (full stop) for B<root>, B<en>; C<,> (comma) for B<de>, B<fr>
 
 =item group_sign
 
-Examples: C<,> (comma) for B<root>, B<en>; C<.> (full stop) for B<de>; C< > (no-break space) for B<fr>
+Examples: C<,> (comma) for B<root>, B<en>; C<.> (full stop) for B<de>; C< >
+(no-break space) for B<fr>
 
 =item plus_sign
 

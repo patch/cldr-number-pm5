@@ -6,7 +6,7 @@ CLDR::Number::TODO - TODO for CLDR::Number
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.15, built with Unicode CLDR v28.
+This document describes CLDR::Number v0.16, built with Unicode CLDR v28.
 
 =head1 TODO
 

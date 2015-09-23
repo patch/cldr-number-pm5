@@ -1,5 +1,21 @@
 Revision history for Perl module CLDR::Number
 
+0.16 2015-09-23
+ [ Minimum grouping digits ]
+ - Add support for minimum grouping digits, introduced in the CLDR v26 spec and
+   data [#36]
+ - Add minimum_grouping_digits attribute with default value `1` (which has no
+   effect on formatting) to all classes
+ - Locales with value `1`: root (Root), es-419 (Latin American Spanish)
+ - Locales with value `2`: be (Belarusian), bg (Bulgarian), es (Spanish),
+   et (Estonian), ka (Georgian), pl (Polish), pt-PT (European Portuguese)
+ - Locales with value `3`: lv (Latvian), my (Burmese)
+
+ [ Examples ]
+ - en (1): 100 | 1,000 | 10,000 | 100,000 | 1,000,000
+ - pl (2): 100 |  1000 | 10 000 | 100 000 | 1 000 000
+ - my (3): ၁၀၀ |  ၁၀၀၀ |  ၁၀၀၀၀ | ၁၀၀,၀၀၀ | ၁,၀၀၀,၀၀၀
+
 0.15 2015-09-22
  - Bugfix: fix support for formatting `Inf` and `NaN` in Perl v5.22, which has
    changed from the previous values `inf` and `nan` [#46]
