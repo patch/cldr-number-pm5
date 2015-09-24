@@ -66,7 +66,7 @@ This document describes CLDR::Number v0.16, built with Unicode CLDR v28.
     $decf = $cldr->decimal_formatter;
 
     # when locale is 'es' (Spanish)
-    say $decf->format(1234.5);  # '1.234,5'
+    say $decf->format(1234.5);  # '1234,5'
 
     # when locale is 'es-MX' (Mexican Spanish)
     say $decf->format(1234.5);  # '1,234.5'
