@@ -1,10 +1,8 @@
 use utf8;
 use strict;
 use warnings;
-use charnames qw( :full );
 use open qw( :encoding(UTF-8) :std );
-use Test::More tests => 25;
-use Test::Warn;
+use Test::More tests => 28;
 use CLDR::Number;
 
 my $inf = 9**9**9;
@@ -23,9 +21,18 @@ is $decf->format($inf), '∞',   'format infinity';
 is $decf->format($neg), '-∞',  'format negative infinity';
 is $decf->format($nan), 'NaN', 'format NaN';
 
-is $decf->format('inf'),  '∞',   'format infinity string';
-is $decf->format('-inf'), '-∞',  'format negative infinity string';
-is $decf->format('nan'),  'NaN', 'format NaN string';
+SKIP: {
+    skip 'infinity and NaN strings not supported on this system', 6
+        if 'inf' != $inf;
+
+    is $decf->format('inf'),  '∞',   'format lowercase "inf" string';
+    is $decf->format('-inf'), '-∞',  'format lowercase "-inf" string';
+    is $decf->format('nan'),  'NaN', 'format lowercase "nan" string';
+
+    is $decf->format('Inf'),  '∞',   'format titlecase "Inf" string';
+    is $decf->format('-Inf'), '-∞',  'format titlecase "-Inf" string';
+    is $decf->format('NaN'),  'NaN', 'format titlecase "NaN" string';
+}
 
 is $perf->format($inf), '∞%',   'format infinity percent';
 is $perf->format($neg), '-∞%',  'format negative infinity percent';

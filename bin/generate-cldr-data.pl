@@ -5,6 +5,7 @@ use strict;
 use warnings;
 use open qw( :encoding(UTF-8) :std );
 use Unicode::UCD qw( charinfo );
+use Scalar::Util qw( looks_like_number );
 use List::Util qw( any none first );
 use List::MoreUtils qw( part );
 use JSON qw( decode_json );
@@ -13,7 +14,7 @@ use CLDR::Number;
 
 my $cldr_dir = shift || '';
 
-my $version             = '0.12';
+my $version             = '0.15';
 my $parent_cldr_file    = 'supplemental/parentLocales.json';
 my $system_cldr_file    = 'supplemental/numberingSystems.json';
 my $number_cldr_file    = 'main/*/numbers.json';
@@ -87,9 +88,10 @@ for my $file (glob $number_cldr_file) {
             percent          => $data->{"symbols-numberSystem-$system"}{percentSign},
             plus             => $data->{"symbols-numberSystem-$system"}{plusSign},
         },
-        system => {
-            default => $system,
-        },
+        attr => {
+            system    => $system,
+            min_group => $data->{minimumGroupingDigits},
+        }
     };
     close $fh
         or die "Can't close $file: $!";
@@ -143,7 +145,7 @@ close $system_cldr_fh
 my @categories = (
     [ pattern => [qw( accounting at_least currency decimal percent range )] ],
     [ symbol  => [qw( currency_decimal decimal group infinity minus nan percent permil plus )] ],
-    [ system  => [qw( default )] ],
+    [ attr    => [qw( min_group system )] ],
 );
 
 my @locale_parts =
@@ -157,14 +159,17 @@ my @locale_parts =
                 subcategories => [map { {
                     name  => $_,
                     value => escape_control($locales{numbers}{$locale}{$category->[0]}{$_}),
-                } } grep { my $subcat = $_;
-                    defined $locales{numbers}{$locale}{$category->[0]}{$subcat}
-                    && (
-                        $locale eq 'root'
-                        || $locales{numbers}{$locale}{$category->[0]}{$subcat}
-                            ne first { defined }
-                               map   { $locales{numbers}{$_}{$category->[0]}{$subcat} }
-                                     parents($locale)
+                } } grep {
+                    my $subcat = $_;
+                    my $value  = $locales{numbers}{$locale}{$category->[0]}{$subcat};
+                    defined $value && (
+                        $locale eq 'root' ||
+                        $value ne first { defined }
+                                    map { $locales{numbers}{$_}{$category->[0]}{$subcat} }
+                                        parents($locale)
+                    ) && (
+                        # TODO: remove when fixed http://unicode.org/cldr/trac/ticket/8967
+                        $subcat ne 'min_group' || looks_like_number($value)
                     )
                 } @{$category->[1]}],
             } } @categories
@@ -285,12 +290,12 @@ sub quote_key {
 sub escape_control {
     my ($str) = @_;
 
-    return $str =~ /"/ ? qq{qq[$str]} : qq{"$str"}
-        if $str =~ s{ ( \p{Cf} ) }{
-            '\\N{' . charinfo(ord $1)->{name} . '}'
-        }xeg;
+    $str =~ s{ ( \p{Cf} ) }{ '\\N{' . charinfo(ord $1)->{name} . '}' }xeg;
 
-    return $str =~ /'/ ? qq{q[$str]} : qq{'$str'};
+    return $str       if $str =~ /^[0-9]+$/;
+    return qq["$str"] if $str =~ /\\/;
+    return "q[$str]"  if $str =~ /'/;
+    return "'$str'";
 }
 
 sub parents {

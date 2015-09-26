@@ -6,7 +6,7 @@ use utf8;
 use Moo;
 use namespace::clean;
 
-our $VERSION = '0.12';
+our $VERSION = '0.16';
 
 with qw( CLDR::Number::Role::Base );
 
@@ -53,20 +53,20 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.12, built with Unicode CLDR v27.0.1.
+This document describes CLDR::Number v0.16, built with Unicode CLDR v28.
 
 =head1 SYNOPSIS
 
     use CLDR::Number;
 
-    # new oject with 'es' (Spanish) locale
+    # new object with 'es' (Spanish) locale
     $cldr = CLDR::Number->new(locale => 'es');
 
     # decimals
     $decf = $cldr->decimal_formatter;
 
     # when locale is 'es' (Spanish)
-    say $decf->format(1234.5);  # '1.234,5'
+    say $decf->format(1234.5);  # '1234,5'
 
     # when locale is 'es-MX' (Mexican Spanish)
     say $decf->format(1234.5);  # '1,234.5'
@@ -191,7 +191,8 @@ Examples: C<.> (full stop) for B<root>, B<en>; C<,> (comma) for B<de>, B<fr>
 
 =item group_sign
 
-Examples: C<,> (comma) for B<root>, B<en>; C<.> (full stop) for B<de>; C< > (no-break space) for B<fr>
+Examples: C<,> (comma) for B<root>, B<en>; C<.> (full stop) for B<de>; C< >
+(no-break space) for B<fr>
 
 =item plus_sign
 
@@ -212,7 +213,7 @@ individual locales like C<не число> for B<ru> and C<非數值> for B<zh-
 
 =item cldr_version
 
-Value: C<27.0.1>
+Value: C<28>
 
 This is a read-only attribute that will always reflect the currently supported
 Unicode CLDR version.

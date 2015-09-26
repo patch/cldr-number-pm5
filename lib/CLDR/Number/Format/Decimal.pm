@@ -7,7 +7,7 @@ use Carp;
 use Moo;
 use namespace::clean;
 
-our $VERSION = '0.12';
+our $VERSION = '0.16';
 
 with qw( CLDR::Number::Role::Format );
 
@@ -39,8 +39,8 @@ CLDR::Number::Format::Decimal - Localized decimal formatter using the Unicode CL
 
 =head1 VERSION
 
-This document describes CLDR::Number::Format::Decimal v0.12, built with Unicode
-CLDR v27.0.1.
+This document describes CLDR::Number::Format::Decimal v0.16, built with Unicode
+CLDR v28.
 
 =head1 SYNOPSIS
 
@@ -54,7 +54,7 @@ CLDR v27.0.1.
     $decf = $cldr->decimal_formatter;
 
     # when locale is 'es' (Spanish)
-    say $decf->format(1234.5);  # '1.234,5'
+    say $decf->format(1234.5);  # '1234,5'
 
     # when locale is 'es-MX' (Mexican Spanish)
     say $decf->format(1234.5);  # '1,234.5'
@@ -145,6 +145,11 @@ Examples: C<0> for B<root>, B<en>, and most locales; C<2> for B<hi>, B<bn>,
 B<en-IN>, and other locales of the Indian subcontinent
 
 Not used when value is C<0>.
+
+=item minimum_grouping_digits
+
+Examples: C<1> for B<root>, B<en>, and most locales; C<2> for C<es> (excluding
+C<es-419>), C<pt-PT>, C<pl>, and several others; C<3> for C<lv> and C<my>
 
 =item rounding_increment
 

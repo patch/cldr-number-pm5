@@ -16,7 +16,7 @@ use Moo::Role;
 # backward incompatible ways in the future. Please use one of the documented
 # classes instead.
 
-our $VERSION = '0.12';
+our $VERSION = '0.16';
 
 requires qw( BUILD format );
 
@@ -252,24 +252,33 @@ sub _format_number {
         $num_format = $self->nan;
     }
     else {
+        my $rounded;
+
         if ($self->rounding_increment) {
             # TODO: round half to even
-            $num = Math::Round::nearest($self->rounding_increment, $num);
+            $rounded = Math::Round::nearest(
+                $self->rounding_increment,
+                abs $num
+            );
         }
         else {
             # round half to even
-            my $bf = Math::BigFloat->new(abs $num);
-            $bf->round_mode('even');
-            $bf->ffround(-$self->maximum_fraction_digits);
-            $num = $bf->bstr;
+            $rounded = Math::BigFloat->new($num)->ffround(
+                -$self->maximum_fraction_digits,
+                'even'
+            )->babs->bstr;
         }
 
-        my ($int, $frac) = split /\./, $num;
+        my ($int, $frac) = split /\./, $rounded;
         if (!defined $frac) {
             $frac = '';
         }
 
-        if (my $primary_group = $self->primary_grouping_size) {
+        my $primary_group = $self->primary_grouping_size;
+        if (
+            $primary_group &&
+            $primary_group + $self->minimum_grouping_digits <= length $int
+        ) {
             my $group_sign   = $self->group_sign;
             my $other_groups = $self->secondary_grouping_size || $primary_group;
 

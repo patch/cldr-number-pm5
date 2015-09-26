@@ -33,4 +33,5 @@ t/objects.t
 t/pattern-coerce.t
 t/pattern-trigger.t
 t/quoting.t
+t/range.t
 t/rounding.t
