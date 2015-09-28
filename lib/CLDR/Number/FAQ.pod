@@ -60,6 +60,16 @@ regular numbers. Resources for localized date/time formatting include
 L<DateTime>, L<DateTime::Locale>, and L<UTS #35: Unicode LDML, Part 4:
 Dates|http://unicode.org/reports/tr35/tr35-dates.html>.
 
+=item Why is the format different than expected?
+
+Users occasionally report incorrect formatting for several non-existant
+locales. This is most often the result of specifying an unrecognized
+combination of base language code and script/territory subtag. This will cause
+the formatting to default to the base language.
+
+Two common examples of this are en-MX (Mexican English) and es-BR (Brazilian
+Spanish), which would default to en (English) and es (Spanish), respectively.
+
 =back
 
 =head1 SEE ALSO
