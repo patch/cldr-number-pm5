@@ -10,7 +10,7 @@ use warnings;
 # classes instead.
 
 our $VERSION      = '0.16';
-our $CLDR_VERSION = '28';
+our $CLDR_VERSION = '29';
 
 # Supplemental: Numbering Systems
 our $DATA = {

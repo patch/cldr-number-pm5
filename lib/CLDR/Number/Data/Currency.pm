@@ -11,7 +11,7 @@ use charnames qw( :full );
 # classes instead.
 
 our $VERSION      = '0.16';
-our $CLDR_VERSION = '28';
+our $CLDR_VERSION = '29';
 
 # Numbers: Currencies
 our $LOCALES = {
@@ -569,6 +569,9 @@ our $LOCALES = {
     'es-BO' => {
         BOB => 'Bs',
     },
+    'es-BR' => {
+        BRL => 'R$',
+    },
     'es-CL' => {
         CLP => '$',
         USD => 'US$',
@@ -988,6 +991,7 @@ our $LOCALES = {
     ka => {
         AUD => 'AUD',
         CNY => 'CNY',
+        GEL => '₾',
         HKD => 'HKD',
         ILS => 'ILS',
         INR => 'INR',
@@ -1256,9 +1260,11 @@ our $LOCALES = {
         KES => 'Ksh',
     },
     os => {
+        GEL => '₾',
         USD => '$',
     },
     'os-RU' => {
+        GEL => 'GEL',
         RUB => '₽',
     },
     pa => {
@@ -1298,6 +1304,9 @@ our $LOCALES = {
     'pt-CV' => {
         CVE => "\N{ZERO WIDTH SPACE}",
         PTE => "\N{ZERO WIDTH SPACE}PTE",
+    },
+    'pt-LU' => {
+        LUF => 'F',
     },
     'pt-MO' => {
         MOP => 'MOP$',
@@ -1621,6 +1630,12 @@ our $LOCALES = {
     },
     yo => {
         NGN => '₦',
+    },
+    yue => {
+        AUD => 'AU$',
+        JPY => '¥',
+        KRW => '￦',
+        TWD => '$',
     },
     zh => {
         AUD => 'AU$',
