@@ -31,7 +31,7 @@ my $builder = Module::Build->new(
         'Exporter'         => 0,
         'Math::BigFloat'   => 0,
         'Math::Round'      => 0,
-        'Moo'              => '1.001000',
+        'Moo'              => '>= 1.001000, != 2.001000',
         'Moo::Role'        => 0,
         'Scalar::Util'     => 0,
     },
