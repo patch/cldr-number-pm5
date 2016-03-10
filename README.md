@@ -10,7 +10,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 # VERSION
 
-This document describes CLDR::Number v0.16, built with Unicode CLDR v28.
+This document describes CLDR::Number v0.17, built with Unicode CLDR v28.
 
 # SYNOPSIS
 
@@ -202,7 +202,7 @@ Additional open source projects from Shutterstock can be found at
 
 # COPYRIGHT AND LICENSE
 
-© 2013–2015 Shutterstock, Inc.
+© 2013–2016 Shutterstock, Inc.
 
 This library is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.

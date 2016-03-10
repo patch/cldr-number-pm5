@@ -9,7 +9,7 @@ use warnings;
 # backward incompatible ways in the future. Please use one of the documented
 # classes instead.
 
-our $VERSION      = '0.16';
+our $VERSION      = '0.17';
 our $CLDR_VERSION = '28';
 
 # Supplemental: Numbering Systems

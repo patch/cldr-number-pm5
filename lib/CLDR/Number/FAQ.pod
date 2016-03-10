@@ -6,7 +6,7 @@ CLDR::Number::FAQ - FAQ for CLDR::Number
 
 =head1 VERSION
 
-This document describes CLDR::Number v0.16, built with Unicode CLDR v28.
+This document describes CLDR::Number v0.17, built with Unicode CLDR v28.
 
 =head1 FAQ
 
@@ -62,13 +62,12 @@ Dates|http://unicode.org/reports/tr35/tr35-dates.html>.
 
 =item Why is the format different than expected?
 
-Users occasionally report incorrect formatting for several non-existant
-locales. This is most often the result of specifying an unrecognized
-combination of base language code and script/territory subtag. This will cause
-the formatting to default to the base language.
-
-Two common examples of this are en-MX (Mexican English) and es-BR (Brazilian
-Spanish), which would default to en (English) and es (Spanish), respectively.
+Users occasionally report incorrect formatting for several non-existant locales.
+This is most often the result of specifying a locale composed of an unrecognized
+combination of language and country, which will cause the formatting to default
+to the base language. Two common examples of this are C<en-MX> (Mexican English)
+and C<es-BR> (Brazilian Spanish), which would default to C<en> (English) and
+C<es> (Spanish), respectively.
 
 =back
 

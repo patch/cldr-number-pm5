@@ -1,5 +1,14 @@
 Revision history for Perl module CLDR::Number
 
+0.17 2016-03-10
+ - Bugfix: prohibit Moo v2.001000 because it introduced a bug that breaks this
+   module, which was fixed in v2.001001, as tested and reported by Slaven Rezić
+   @eserte++ and fixed by Graham Knop @haarg++ in
+   https://rt.cpan.org/Public/Bug/Display.html?id=112677 [#48]
+ - Docs: new FAQ entry on fallback for non-existant locales by Michael LaGrasta
+   @mnlagrasta++ [#41]
+ - Docs: update example output for CLDR v28
+
 0.16 2015-09-23
  [ Minimum grouping digits ]
  - Add support for minimum grouping digits, introduced in the CLDR v26 spec and
