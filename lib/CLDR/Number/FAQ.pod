@@ -62,7 +62,7 @@ Dates|http://unicode.org/reports/tr35/tr35-dates.html>.
 
 =item Why is the format different than expected?
 
-Users occasionally report incorrect formatting for several non-existant locales.
+Users occasionally report incorrect formatting for several non-existent locales.
 This is most often the result of specifying a locale composed of an unrecognized
 combination of language and country, which will cause the formatting to default
 to the base language. Two common examples of this are C<en-MX> (Mexican English)
