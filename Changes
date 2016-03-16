@@ -1,5 +1,19 @@
 Revision history for Perl module CLDR::Number
 
+0.17_01 XXX
+ [ New CLDR version ]
+ - Upgrade CLDR data from v28 (2015-09-17) to v29 (2016-03-16)
+ - See also: http://cldr.unicode.org/index/downloads/cldr-29
+
+ [ New languages ]
+ - yue (Cantonese)
+
+ [ New locales for existing languages ]
+ - es-BR (Spanish in Brazil)
+ - pt-CH (Portuguese in Switzerland)
+ - pt-GQ (Portuguese in Equatorial Guinea)
+ - pt-LU (Portuguese in Luxembourg)
+
 0.17 2016-03-10
  - Bugfix: prohibit Moo v2.001000 because it introduced a bug that breaks this
    module, which was fixed in v2.001001, as tested and reported by Slaven Rezić

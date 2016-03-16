@@ -10,7 +10,7 @@ CLDR::Number - Localized number formatters using the Unicode CLDR
 
 # VERSION
 
-This document describes CLDR::Number v0.17, built with Unicode CLDR v28.
+This document describes CLDR::Number v0.17\_01, built with Unicode CLDR v29.
 
 # SYNOPSIS
 
@@ -166,7 +166,7 @@ are expected to be character strings, not byte strings.
 
 - cldr\_version
 
-    Value: `28`
+    Value: `29`
 
     This is a read-only attribute that will always reflect the currently supported
     Unicode CLDR version.
