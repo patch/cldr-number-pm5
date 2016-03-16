@@ -12,7 +12,7 @@ use CLDR::Number::Constant qw( $N $M $P $C );
 # classes instead.
 
 our $VERSION      = '0.17';
-our $CLDR_VERSION = '28';
+our $CLDR_VERSION = '29';
 
 our $DATA = {
     root => {
@@ -355,7 +355,7 @@ our $DATA = {
     },
     da => {
         pattern => {
-            at_least => '{0} eller derover',
+            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
             range => '{0}-{1}',
@@ -865,7 +865,7 @@ our $DATA = {
     },
     gl => {
         pattern => {
-            currency => '¤#,##0.00',
+            currency => '#,##0.00 ¤',
         },
         symbol => {
             decimal => ',',
@@ -2027,6 +2027,16 @@ our $DATA = {
             currency => '¤#,##0.00',
         },
     },
+    yue => {
+        pattern => {
+            at_least => '{0}+',
+            currency => '¤#,##0.00',
+            range => '{0}-{1}',
+        },
+        symbol => {
+            nan => '非數值',
+        },
+    },
     zgh => {
         pattern => {
             currency => '#,##0.00¤',
@@ -2072,19 +2082,19 @@ our $DATA = {
         en-MY en-NA en-NF en-NG en-NR en-NU en-NZ en-PG en-PH en-PK en-PN en-PR
         en-PW en-RW en-SB en-SC en-SD en-SG en-SH en-SI en-SL en-SS en-SX en-SZ
         en-TC en-TK en-TO en-TT en-TV en-TZ en-UG en-UM en-VC en-VG en-VI en-VU
-        en-WS en-ZM en-ZW es-CU es-EA es-HN es-IC es-NI es-PA es-PE es-PH es-PR
-        es-SV es-US fa-AF ff-CM ff-GN ff-MR fo-DK fr-BF fr-BI fr-BJ fr-BL fr-CA
-        fr-CD fr-CF fr-CG fr-CI fr-CM fr-DJ fr-DZ fr-GA fr-GF fr-GN fr-GP fr-GQ
-        fr-HT fr-KM fr-MC fr-MF fr-MG fr-ML fr-MQ fr-MR fr-MU fr-NC fr-NE fr-PF
-        fr-PM fr-RE fr-RW fr-SC fr-SN fr-SY fr-TD fr-TG fr-TN fr-VU fr-WF fr-YT
-        gsw-FR gsw-LI ha ha-GH ha-NE hr-BA ii it-SM ko-KP lag lkt ln-AO ln-CF
-        ln-CG lrc-IQ mas-TZ mgo ms-SG nb-SJ ne-IN nl-AW nl-BQ nl-CW nl-SR nl-SX
-        om-KE os-RU pa-Guru prg pt-AO pt-CV pt-GW pt-MO pt-MZ pt-ST pt-TL qu-EC
-        ro-MD ru-BY ru-KG ru-KZ ru-MD ru-UA sah se-FI se-SE shi-Tfng so-DJ so-ET
-        so-KE sq-MK sq-XK sr-Cyrl sr-Cyrl-BA sr-Cyrl-ME sr-Cyrl-XK sr-Latn-BA
-        sr-Latn-ME sr-Latn-XK sv-AX sv-FI sw-KE sw-UG ta-LK teo-KE ti-ER tr-CY
-        uz-Latn vai-Vaii vo yi yo-BJ zh-Hans zh-Hans-HK zh-Hans-MO zh-Hans-SG
-        zh-Hant-HK zh-Hant-MO
+        en-WS en-ZM en-ZW es-BR es-CU es-EA es-HN es-IC es-NI es-PA es-PE es-PH
+        es-PR es-SV es-US fa-AF ff-CM ff-GN ff-MR fo-DK fr-BF fr-BI fr-BJ fr-BL
+        fr-CA fr-CD fr-CF fr-CG fr-CI fr-CM fr-DJ fr-DZ fr-GA fr-GF fr-GN fr-GP
+        fr-GQ fr-HT fr-KM fr-MC fr-MF fr-MG fr-ML fr-MQ fr-MR fr-MU fr-NC fr-NE
+        fr-PF fr-PM fr-RE fr-RW fr-SC fr-SN fr-SY fr-TD fr-TG fr-TN fr-VU fr-WF
+        fr-YT gsw-FR gsw-LI ha ha-GH ha-NE hr-BA ii it-SM ko-KP lag lkt ln-AO
+        ln-CF ln-CG lrc-IQ mas-TZ mgo ms-SG nb-SJ ne-IN nl-AW nl-BQ nl-CW nl-SR
+        nl-SX om-KE os-RU pa-Guru prg pt-AO pt-CH pt-CV pt-GQ pt-GW pt-LU pt-MO
+        pt-MZ pt-ST pt-TL qu-EC ro-MD ru-BY ru-KG ru-KZ ru-MD ru-UA sah se-FI
+        se-SE shi-Tfng so-DJ so-ET so-KE sq-MK sq-XK sr-Cyrl sr-Cyrl-BA
+        sr-Cyrl-ME sr-Cyrl-XK sr-Latn-BA sr-Latn-ME sr-Latn-XK sv-AX sv-FI sw-KE
+        sw-UG ta-LK teo-KE ti-ER tr-CY uz-Latn vai-Vaii vo yi yo-BJ zh-Hans
+        zh-Hans-HK zh-Hans-MO zh-Hans-SG zh-Hant-HK zh-Hant-MO
     )
 };
 
@@ -2105,6 +2115,7 @@ our $PARENT = {
     'uz-Arab' => 'root',
     'uz-Cyrl' => 'root',
     'vai-Latn' => 'root',
+    'yue-Hans' => 'root',
     'zh-Hant' => 'root',
     'en-150' => 'en-001',
     'en-AG' => 'en-001',
@@ -2202,6 +2213,7 @@ our $PARENT = {
     'en-SI' => 'en-150',
     'es-AR' => 'es-419',
     'es-BO' => 'es-419',
+    'es-BR' => 'es-419',
     'es-CL' => 'es-419',
     'es-CO' => 'es-419',
     'es-CR' => 'es-419',
@@ -2221,8 +2233,11 @@ our $PARENT = {
     'es-UY' => 'es-419',
     'es-VE' => 'es-419',
     'pt-AO' => 'pt-PT',
+    'pt-CH' => 'pt-PT',
     'pt-CV' => 'pt-PT',
+    'pt-GQ' => 'pt-PT',
     'pt-GW' => 'pt-PT',
+    'pt-LU' => 'pt-PT',
     'pt-MO' => 'pt-PT',
     'pt-MZ' => 'pt-PT',
     'pt-ST' => 'pt-PT',
