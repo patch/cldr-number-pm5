@@ -8,7 +8,7 @@ use CLDR::Number::Constant qw( $P );
 use Moo;
 use namespace::clean;
 
-our $VERSION = '0.17_01';
+our $VERSION = '0.18';
 
 with qw( CLDR::Number::Role::Format );
 
@@ -73,7 +73,7 @@ CLDR::Number::Format::Percent - Localized percent formatter using the Unicode CL
 
 =head1 VERSION
 
-This document describes CLDR::Number::Format::Percent v0.17_01, built with Unicode
+This document describes CLDR::Number::Format::Percent v0.18, built with Unicode
 CLDR v29.
 
 =head1 SYNOPSIS

@@ -1,9 +1,9 @@
 Revision history for Perl module CLDR::Number
 
-0.17_01 XXX
+0.18 2016-03-17
  [ New CLDR version ]
  - Upgrade CLDR data from v28 (2015-09-17) to v29 (2016-03-16)
- - See also: http://cldr.unicode.org/index/downloads/cldr-29
+ - Release notes: http://cldr.unicode.org/index/downloads/cldr-29
 
  [ New languages ]
  - yue (Cantonese)
@@ -13,6 +13,12 @@ Revision history for Perl module CLDR::Number
  - pt-CH (Portuguese in Switzerland)
  - pt-GQ (Portuguese in Equatorial Guinea)
  - pt-LU (Portuguese in Luxembourg)
+
+ [ Updated locales ]
+ - da (Danish):   at_least pattern
+ - gl (Galician): currency pattern
+ - ka (Georgian): GEL (Georgian Lari) currency symbol
+ - os (Ossetic):  GEL (Georgian Lari) currency symbol
 
 0.17 2016-03-10
  - Bugfix: prohibit Moo v2.001000 because it introduced a bug that breaks this

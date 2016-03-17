@@ -10,7 +10,7 @@ use charnames qw( :full );
 # backward incompatible ways in the future. Please use one of the documented
 # classes instead.
 
-our $VERSION      = '0.17_01';
+our $VERSION      = '0.18';
 our $CLDR_VERSION = '29';
 
 # Numbers: Currencies
