@@ -34,6 +34,7 @@ mille
 MX
 nan
 nl
+object’s
 permil
 preparsed
 ru
@@ -46,5 +47,6 @@ TWD
 USD
 user’s
 UTS
+What’s
 world’s
 zh
