@@ -1,5 +1,9 @@
 Revision history for Perl module CLDR::Number
 
+0.19 2016-04-06
+ - Bugfix: require Class::Method::Modifiers because it’s a requirement of using
+   Moo::Role method modifiers but not a requirement of Moo::Role itself
+
 0.18 2016-03-17
  [ New CLDR version ]
  - Upgrade CLDR data from v28 (2015-09-17) to v29 (2016-03-16)

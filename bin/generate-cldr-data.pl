@@ -14,7 +14,7 @@ use CLDR::Number;
 
 my $cldr_dir = shift || '';
 
-my $version             = '0.18';
+my $version             = '0.19';
 my $parent_cldr_file    = 'supplemental/parentLocales.json';
 my $system_cldr_file    = 'supplemental/numberingSystems.json';
 my $number_cldr_file    = 'main/*/numbers.json';
