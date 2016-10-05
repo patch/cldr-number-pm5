@@ -34,11 +34,12 @@ is $decf->format(5_000_000.05),     '5 000 000,05';
 is $decf->format(5_000_000_000.05), '5 000 000 000,05';
 is $decf->format(-50_000.05),       '-50 000,05';
 
+# U+061C: ARABIC LETTER MARK
 $decf->locale('ar');
-is $decf->format(-50.0),   "\N{RIGHT-TO-LEFT MARK}-٥٠";
-is $decf->format(-50_000), "\N{RIGHT-TO-LEFT MARK}-٥٠٬٠٠٠";
-is $decf->format(-50.05),  "\N{RIGHT-TO-LEFT MARK}-٥٠٫٠٥";
-is $decf->format(-.05),    "\N{RIGHT-TO-LEFT MARK}-٠٫٠٥";
+is $decf->format(-50.0),   "\x{061C}-٥٠";
+is $decf->format(-50_000), "\x{061C}-٥٠٬٠٠٠";
+is $decf->format(-50.05),  "\x{061C}-٥٠٫٠٥";
+is $decf->format(-.05),    "\x{061C}-٠٫٠٥";
 
 $decf->locale('en-IN');
 is $decf->format(1_23_456),    '1,23,456';
