@@ -11,7 +11,7 @@ use charnames qw( :full );
 # classes instead.
 
 our $VERSION      = '0.19';
-our $CLDR_VERSION = '29';
+our $CLDR_VERSION = '30';
 
 # Numbers: Currencies
 our $LOCALES = {
@@ -59,7 +59,6 @@ our $LOCALES = {
         BHD => "د.ب.\N{RIGHT-TO-LEFT MARK}",
         DZD => "د.ج.\N{RIGHT-TO-LEFT MARK}",
         EGP => "ج.م.\N{RIGHT-TO-LEFT MARK}",
-        IDR => 'ر.إن.',
         IQD => "د.ع.\N{RIGHT-TO-LEFT MARK}",
         IRR => 'ر.إ.',
         JOD => "د.أ.\N{RIGHT-TO-LEFT MARK}",
@@ -70,16 +69,13 @@ our $LOCALES = {
         MAD => "د.م.\N{RIGHT-TO-LEFT MARK}",
         MRO => "أ.م.\N{RIGHT-TO-LEFT MARK}",
         OMR => "ر.ع.\N{RIGHT-TO-LEFT MARK}",
-        PKR => 'ر.ب.',
         QAR => "ر.ق.\N{RIGHT-TO-LEFT MARK}",
         SAR => "ر.س.\N{RIGHT-TO-LEFT MARK}",
         SDD => "د.س.\N{RIGHT-TO-LEFT MARK}",
         SDG => 'ج.س.',
-        SSP => 'ج.ج.س.',
         SYP => "ل.س.\N{RIGHT-TO-LEFT MARK}",
         THB => '฿',
         TND => "د.ت.\N{RIGHT-TO-LEFT MARK}",
-        TRY => 'ل.ت.',
         XXX => '***',
         YER => "ر.ي.\N{RIGHT-TO-LEFT MARK}",
     },
@@ -116,7 +112,7 @@ our $LOCALES = {
     },
     be => {
         BRL => 'BRL',
-        BYR => 'р.',
+        BYN => 'Br',
         CAD => 'CAD',
         JPY => '¥',
         NZD => 'NZD',
@@ -258,9 +254,6 @@ our $LOCALES = {
         JPY => '¥',
         THB => '฿',
         USD => '$',
-    },
-    'de-CH' => {
-        EUR => 'EUR',
     },
     'de-LI' => {
         EUR => 'EUR',
@@ -621,7 +614,7 @@ our $LOCALES = {
         PAB => 'B/.',
     },
     'es-PE' => {
-        PEN => 'S/.',
+        PEN => 'S/',
     },
     'es-PH' => {
         PHP => '₱',
@@ -767,6 +760,7 @@ our $LOCALES = {
         GIP => 'GIP',
         HKD => '$ HK',
         ILS => 'ILS',
+        INR => 'INR',
         JPY => '¥',
         KRW => 'KRW',
         LBP => 'LBP',
@@ -852,11 +846,8 @@ our $LOCALES = {
         BRL => '$R',
         CAD => '$CA',
         ESP => '₧',
-        HKD => '$HK',
-        JPY => '¥JP',
         MXN => '$MX',
         THB => '฿',
-        TWD => '$NT',
         USD => '$',
     },
     gsw => {
@@ -880,7 +871,9 @@ our $LOCALES = {
         USD => '$',
     },
     he => {
+        CNY => "\N{LEFT-TO-RIGHT MARK}CN¥\N{LEFT-TO-RIGHT MARK}",
         ILP => 'ל״י',
+        JPY => '¥',
         THB => '฿',
         USD => '$',
     },
@@ -979,10 +972,8 @@ our $LOCALES = {
         TWD => 'TWD',
     },
     ja => {
-        AUD => 'AU$',
         CNY => '元',
         JPY => '￥',
-        THB => '฿',
         USD => '$',
     },
     jmc => {
@@ -1018,8 +1009,6 @@ our $LOCALES = {
         KES => 'Ksh',
     },
     kk => {
-        BMD => 'БД',
-        CAD => 'КД$',
         KZT => '₸',
         RUB => '₽',
         THB => '฿',
@@ -1042,7 +1031,6 @@ our $LOCALES = {
     },
     ko => {
         AUD => 'AU$',
-        THB => '฿',
     },
     ksb => {
         TZS => 'TSh',
@@ -1186,9 +1174,13 @@ our $LOCALES = {
         SGD => '$',
     },
     my => {
-        CRC => 'စီအာစီ',
+        ANG => 'NAf',
+        AWG => 'Afl',
+        HTG => 'G',
         MMK => 'K',
+        PAB => 'B/.',
         THB => '฿',
+        TTD => 'TT$',
     },
     mzn => {
         USD => '$',
@@ -1321,7 +1313,7 @@ our $LOCALES = {
         STD => 'Db',
     },
     qu => {
-        PEN => 'S/.',
+        PEN => 'S/',
     },
     'qu-BO' => {
         BOB => 'Bs',
@@ -1370,7 +1362,7 @@ our $LOCALES = {
         XXX => 'XXXX',
     },
     'ru-BY' => {
-        BYR => 'р.',
+        BYN => 'Br',
         RUR => 'RUR',
     },
     'ru-KG' => {
@@ -1459,8 +1451,6 @@ our $LOCALES = {
     sr => {
         AUD => 'AUD',
         BAM => 'КМ',
-        BGN => '[BGN]',
-        BYR => '[BYR]',
         JPY => '¥',
         KRW => 'KRW',
         NZD => 'NZD',
@@ -1469,8 +1459,6 @@ our $LOCALES = {
     'sr-Latn' => {
         AUD => 'AUD',
         BAM => 'KM',
-        BGN => '[BGN]',
-        BYR => '[BYR]',
         JPY => '¥',
         KRW => 'KRW',
         NZD => 'NZD',
@@ -1490,6 +1478,7 @@ our $LOCALES = {
         EGP => 'EG£',
         GBP => 'GBP',
         HKD => 'HKD',
+        IEP => 'IE£',
         INR => 'INR',
         ISK => 'Ikr',
         JMD => 'JM$',
@@ -1635,7 +1624,6 @@ our $LOCALES = {
         AUD => 'AU$',
         JPY => '¥',
         KRW => '￦',
-        TWD => '$',
     },
     zh => {
         AUD => 'AU$',
@@ -1703,6 +1691,10 @@ our $CURRENCIES = {
         digits => 0,
         rounding => 0,
     },
+    BYN => {
+        digits => 2,
+        rounding => 0,
+    },
     BYR => {
         digits => 0,
         rounding => 0,
@@ -1730,8 +1722,10 @@ our $CURRENCIES = {
         rounding => 0,
     },
     CRC => {
-        digits => 0,
+        digits => 2,
         rounding => 0,
+        cash_digits => 0,
+        cash_rounding => 0,
     },
     CZK => {
         digits => 2,

@@ -12,7 +12,7 @@ use CLDR::Number::Constant qw( $N $M $P $C );
 # classes instead.
 
 our $VERSION      = '0.19';
-our $CLDR_VERSION = '29';
+our $CLDR_VERSION = '30';
 
 our $DATA = {
     root => {
@@ -71,26 +71,33 @@ our $DATA = {
     ar => {
         pattern => {
             at_least => '+{0}',
+            currency => '#,##0.00 ¤',
+            percent => '#,##0 %',
         },
         symbol => {
             decimal => '٫',
             group => '٬',
-            minus => "\N{RIGHT-TO-LEFT MARK}-",
+            minus => '؜-',
             nan => 'ليس رقم',
-            percent => '٪',
+            percent => '٪؜',
             permil => '؉',
-            plus => "\N{RIGHT-TO-LEFT MARK}+",
+            plus => '؜+',
         },
         attr => {
             system => 'arab',
         },
     },
     'ar-DZ' => {
+        pattern => {
+            currency => '¤ #,##0.00',
+            percent => '#,##0%',
+        },
         symbol => {
             decimal => ',',
             group => '.',
             minus => "\N{LEFT-TO-RIGHT MARK}-",
             nan => 'ليس رقمًا',
+            percent => "\N{LEFT-TO-RIGHT MARK}%\N{LEFT-TO-RIGHT MARK}",
             permil => '‰',
             plus => "\N{LEFT-TO-RIGHT MARK}+",
         },
@@ -99,11 +106,16 @@ our $DATA = {
         },
     },
     'ar-EH' => {
+        pattern => {
+            currency => '¤ #,##0.00',
+            percent => '#,##0%',
+        },
         symbol => {
             decimal => '.',
             group => ',',
             minus => "\N{LEFT-TO-RIGHT MARK}-",
             nan => 'ليس رقمًا',
+            percent => "\N{LEFT-TO-RIGHT MARK}%\N{LEFT-TO-RIGHT MARK}",
             permil => '‰',
             plus => "\N{LEFT-TO-RIGHT MARK}+",
         },
@@ -112,11 +124,16 @@ our $DATA = {
         },
     },
     'ar-LY' => {
+        pattern => {
+            currency => '¤ #,##0.00',
+            percent => '#,##0%',
+        },
         symbol => {
             decimal => ',',
             group => '.',
             minus => "\N{LEFT-TO-RIGHT MARK}-",
             nan => 'ليس رقمًا',
+            percent => "\N{LEFT-TO-RIGHT MARK}%\N{LEFT-TO-RIGHT MARK}",
             permil => '‰',
             plus => "\N{LEFT-TO-RIGHT MARK}+",
         },
@@ -125,11 +142,16 @@ our $DATA = {
         },
     },
     'ar-MA' => {
+        pattern => {
+            currency => '¤ #,##0.00',
+            percent => '#,##0%',
+        },
         symbol => {
             decimal => ',',
             group => '.',
             minus => "\N{LEFT-TO-RIGHT MARK}-",
             nan => 'ليس رقمًا',
+            percent => "\N{LEFT-TO-RIGHT MARK}%\N{LEFT-TO-RIGHT MARK}",
             permil => '‰',
             plus => "\N{LEFT-TO-RIGHT MARK}+",
         },
@@ -138,11 +160,16 @@ our $DATA = {
         },
     },
     'ar-TN' => {
+        pattern => {
+            currency => '¤ #,##0.00',
+            percent => '#,##0%',
+        },
         symbol => {
             decimal => ',',
             group => '.',
             minus => "\N{LEFT-TO-RIGHT MARK}-",
             nan => 'ليس رقمًا',
+            percent => "\N{LEFT-TO-RIGHT MARK}%\N{LEFT-TO-RIGHT MARK}",
             permil => '‰',
             plus => "\N{LEFT-TO-RIGHT MARK}+",
         },
@@ -227,7 +254,7 @@ our $DATA = {
     bg => {
         pattern => {
             at_least => '⩾ {0}',
-            currency => '#,##0.00 ¤',
+            currency => '#0.00 ¤',
             range => '{0} – {1}',
         },
         symbol => {
@@ -248,10 +275,6 @@ our $DATA = {
             at_least => '{0}+',
             currency => '#,##,##0.00¤',
             decimal => '#,##,##0.###',
-            percent => '#,##,##0%',
-        },
-        symbol => {
-            nan => 'সংখ্যা না',
         },
         attr => {
             system => 'beng',
@@ -278,6 +301,8 @@ our $DATA = {
         pattern => {
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
+            percent => '#,##0 %',
+            range => '{0} – {1}',
         },
         symbol => {
             decimal => ',',
@@ -320,17 +345,22 @@ our $DATA = {
     },
     chr => {
         pattern => {
+            at_least => '{0}+',
             currency => '¤#,##0.00',
         },
     },
     ckb => {
+        pattern => {
+            currency => '#,##0.00 ¤',
+            percent => '#,##0 %',
+        },
         symbol => {
             decimal => '٫',
             group => '٬',
-            minus => "\N{RIGHT-TO-LEFT MARK}-",
+            minus => '؜-',
             percent => '٪',
             permil => '؉',
-            plus => "\N{RIGHT-TO-LEFT MARK}+",
+            plus => '؜+',
         },
         attr => {
             system => 'arab',
@@ -615,6 +645,9 @@ our $DATA = {
             decimal => ',',
             group => '.',
         },
+        attr => {
+            min_group => 2,
+        },
     },
     'es-BO' => {
         symbol => {
@@ -630,16 +663,21 @@ our $DATA = {
             decimal => ',',
             group => '.',
         },
+        attr => {
+            min_group => 2,
+        },
     },
     'es-CO' => {
         pattern => {
             currency => '¤ #,##0.00',
             percent => '#,##0%',
-            range => 'de {0} a {1}',
         },
         symbol => {
             decimal => ',',
             group => '.',
+        },
+        attr => {
+            min_group => 2,
         },
     },
     'es-CR' => {
@@ -651,6 +689,9 @@ our $DATA = {
     'es-DO' => {
         pattern => {
             percent => '#,##0%',
+        },
+        attr => {
+            min_group => 2,
         },
     },
     'es-EC' => {
@@ -668,8 +709,8 @@ our $DATA = {
         },
     },
     'es-GT' => {
-        pattern => {
-            range => '{0} al {1}',
+        attr => {
+            min_group => 2,
         },
     },
     'es-MX' => {
@@ -684,6 +725,11 @@ our $DATA = {
         symbol => {
             decimal => ',',
             group => '.',
+        },
+    },
+    'es-SV' => {
+        attr => {
+            min_group => 2,
         },
     },
     'es-UY' => {
@@ -741,20 +787,25 @@ our $DATA = {
     fa => {
         pattern => {
             at_least => "\N{LEFT-TO-RIGHT MARK}{0}+\N{LEFT-TO-RIGHT MARK}",
-            currency => "\N{LEFT-TO-RIGHT MARK}¤#,##0.00",
-            range => '{0} تا {1}',
+            currency => '#,##0.00 ؜¤;؜-#,##0.00 ؜¤',
+            percent => '% #,##0;% -#,##0',
         },
         symbol => {
             decimal => '٫',
             group => '٬',
             minus => "\N{LEFT-TO-RIGHT MARK}−",
             nan => 'ناعدد',
-            percent => '٪',
+            percent => "\N{LEFT-TO-RIGHT MARK}٪",
             permil => '؉',
-            plus => "\N{LEFT-TO-RIGHT MARK}+\N{LEFT-TO-RIGHT MARK}",
+            plus => "\N{LEFT-TO-RIGHT MARK}+",
         },
         attr => {
             system => 'arabext',
+        },
+    },
+    'fa-AF' => {
+        pattern => {
+            currency => '¤ #,##0.00',
         },
     },
     ff => {
@@ -801,7 +852,6 @@ our $DATA = {
     },
     fr => {
         pattern => {
-            at_least => 'au moins {0}',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
         },
@@ -810,9 +860,9 @@ our $DATA = {
             group => ' ',
         },
     },
-    'fr-BE' => {
-        symbol => {
-            group => '.',
+    'fr-CD' => {
+        pattern => {
+            at_least => 'au moins {0}',
         },
     },
     'fr-CH' => {
@@ -824,6 +874,11 @@ our $DATA = {
             decimal => '.',
         },
     },
+    'fr-CI' => {
+        pattern => {
+            at_least => 'au moins {0}',
+        },
+    },
     'fr-LU' => {
         symbol => {
             group => '.',
@@ -832,6 +887,16 @@ our $DATA = {
     'fr-MA' => {
         symbol => {
             group => '.',
+        },
+    },
+    'fr-ML' => {
+        pattern => {
+            at_least => 'au moins {0}',
+        },
+    },
+    'fr-RE' => {
+        pattern => {
+            at_least => 'au moins {0}',
         },
     },
     fur => {
@@ -866,6 +931,7 @@ our $DATA = {
     gl => {
         pattern => {
             currency => '#,##0.00 ¤',
+            percent => '#,##0 %',
         },
         symbol => {
             decimal => ',',
@@ -909,7 +975,7 @@ our $DATA = {
     he => {
         pattern => {
             at_least => '⩾{0}+',
-            currency => '#,##0.00 ¤',
+            currency => "\N{RIGHT-TO-LEFT MARK}#,##0.00 ¤;\N{RIGHT-TO-LEFT MARK}-#,##0.00 ¤",
         },
         symbol => {
             minus => "\N{LEFT-TO-RIGHT MARK}-",
@@ -928,6 +994,7 @@ our $DATA = {
         pattern => {
             at_least => '{0}+',
             currency => '#,##0.00 ¤',
+            range => '{0} – {1}',
         },
         symbol => {
             decimal => ',',
@@ -958,12 +1025,11 @@ our $DATA = {
     hy => {
         pattern => {
             at_least => '{0}+',
-            decimal => '#0.###',
-            range => '{0}-{1}',
         },
         symbol => {
             decimal => ',',
-            group => '.',
+            group => ' ',
+            nan => 'ՈչԹ',
         },
     },
     id => {
@@ -1093,6 +1159,7 @@ our $DATA = {
         symbol => {
             decimal => ',',
             group => ' ',
+            nan => 'сан емес',
         },
     },
     kkj => {
@@ -1119,7 +1186,7 @@ our $DATA = {
     km => {
         pattern => {
             at_least => '{0}+',
-            currency => '¤#,##0.00',
+            currency => '#,##0.00¤',
         },
         symbol => {
             decimal => ',',
@@ -1287,16 +1354,15 @@ our $DATA = {
     },
     lv => {
         pattern => {
-            at_least => 'vismaz {0}',
-            currency => '#0.00 ¤',
+            currency => '#,##0.00 ¤',
         },
         symbol => {
             decimal => ',',
             group => ' ',
-            nan => 'nav skaitlis',
+            nan => 'NS',
         },
         attr => {
-            min_group => 3,
+            min_group => 2,
         },
     },
     mas => {
@@ -1314,11 +1380,6 @@ our $DATA = {
             group => ' ',
         },
     },
-    mg => {
-        pattern => {
-            currency => '¤#,##0.00',
-        },
-    },
     mgh => {
         symbol => {
             decimal => ',',
@@ -1328,6 +1389,7 @@ our $DATA = {
     mk => {
         pattern => {
             at_least => '{0}+',
+            currency => '#,##0.00 ¤',
         },
         symbol => {
             decimal => ',',
@@ -1387,11 +1449,15 @@ our $DATA = {
         },
     },
     my => {
+        pattern => {
+            at_least => '{0} နှင့်အထက်',
+            currency => '#,##0.00 ¤',
+            range => '{0} - {1}',
+        },
         symbol => {
             nan => 'ဂဏန်းမဟုတ်သော',
         },
         attr => {
-            min_group => 3,
             system => 'mymr',
         },
     },
@@ -1465,6 +1531,7 @@ our $DATA = {
         pattern => {
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
+            range => '{0}‒{1}',
         },
         symbol => {
             decimal => ',',
@@ -1567,6 +1634,11 @@ our $DATA = {
             group => '.',
         },
     },
+    'pt-AO' => {
+        attr => {
+            min_group => 1,
+        },
+    },
     'pt-PT' => {
         pattern => {
             currency => '#,##0.00 ¤',
@@ -1612,7 +1684,6 @@ our $DATA = {
     },
     ro => {
         pattern => {
-            at_least => '>{0}',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
             range => '{0} - {1}',
@@ -1629,15 +1700,18 @@ our $DATA = {
     },
     ru => {
         pattern => {
-            at_least => '{0}+',
             currency => '#,##0.00 ¤',
             percent => '#,##0 %',
-            range => '{0}-{1}',
         },
         symbol => {
             decimal => ',',
             group => ' ',
             nan => 'не число',
+        },
+    },
+    'ru-UA' => {
+        attr => {
+            min_group => 2,
         },
     },
     rw => {
@@ -1649,6 +1723,16 @@ our $DATA = {
     rwk => {
         pattern => {
             currency => '#,##0.00¤',
+        },
+    },
+    sah => {
+        pattern => {
+            currency => '#,##0.00 ¤',
+        },
+        symbol => {
+            decimal => ',',
+            group => ' ',
+            nan => 'чыыһыла буотах',
         },
     },
     saq => {
@@ -1738,17 +1822,23 @@ our $DATA = {
     sl => {
         pattern => {
             currency => '#,##0.00 ¤',
+            percent => '#,##0 %',
         },
         symbol => {
             decimal => ',',
             group => '.',
+            minus => '–',
         },
     },
     smn => {
         pattern => {
             at_least => 'ucemustáá {0}',
+            currency => '#,##0.00 ¤',
+            percent => '#,##0 %',
         },
         symbol => {
+            decimal => ',',
+            group => ' ',
             nan => 'epiloho',
         },
     },
@@ -1887,7 +1977,7 @@ our $DATA = {
     tr => {
         pattern => {
             at_least => '{0}+',
-            currency => '#,##0.00 ¤',
+            currency => '¤#,##0.00',
             percent => '%#,##0',
         },
         symbol => {
@@ -1939,6 +2029,10 @@ our $DATA = {
         },
     },
     'ur-IN' => {
+        pattern => {
+            at_least => '{0}+',
+            percent => '#,##0%',
+        },
         symbol => {
             minus => "\N{LEFT-TO-RIGHT MARK}-\N{LEFT-TO-RIGHT MARK}",
             plus => "\N{LEFT-TO-RIGHT MARK}+\N{LEFT-TO-RIGHT MARK}",
@@ -1972,9 +2066,14 @@ our $DATA = {
         },
     },
     'uz-Cyrl' => {
+        pattern => {
+            at_least => '{0}+',
+            currency => '#,##0.00 ¤',
+        },
         symbol => {
             decimal => ',',
             group => ' ',
+            nan => 'ҳақиқий сон эмас',
         },
     },
     vai => {
@@ -2074,27 +2173,27 @@ our $DATA = {
         af-NA ar-AE ar-BH ar-DJ ar-EG ar-ER ar-IL ar-IQ ar-JO ar-KM ar-KW ar-LB
         ar-MR ar-OM ar-PS ar-QA ar-SA ar-SD ar-SO ar-SS ar-SY ar-TD ar-YE
         az-Latn bn-IN bo bo-IN bs-Latn ca-AD ca-ES-u-va-valencia ca-FR ca-IT
-        ckb-IR cu da-GL de-BE de-LU ee-TG el-CY en-001 en-AG en-AI en-AS en-AU
-        en-BB en-BI en-BM en-BS en-BW en-BZ en-CA en-CC en-CK en-CM en-CX en-CY
-        en-DG en-DM en-ER en-FJ en-FK en-FM en-GB en-GD en-GG en-GH en-GI en-GM
-        en-GU en-GY en-HK en-IE en-IL en-IM en-IO en-JE en-JM en-KE en-KI en-KN
-        en-KY en-LC en-LR en-LS en-MG en-MH en-MO en-MP en-MS en-MT en-MU en-MW
-        en-MY en-NA en-NF en-NG en-NR en-NU en-NZ en-PG en-PH en-PK en-PN en-PR
-        en-PW en-RW en-SB en-SC en-SD en-SG en-SH en-SI en-SL en-SS en-SX en-SZ
-        en-TC en-TK en-TO en-TT en-TV en-TZ en-UG en-UM en-VC en-VG en-VI en-VU
-        en-WS en-ZM en-ZW es-BR es-CU es-EA es-HN es-IC es-NI es-PA es-PE es-PH
-        es-PR es-SV es-US fa-AF ff-CM ff-GN ff-MR fo-DK fr-BF fr-BI fr-BJ fr-BL
-        fr-CA fr-CD fr-CF fr-CG fr-CI fr-CM fr-DJ fr-DZ fr-GA fr-GF fr-GN fr-GP
-        fr-GQ fr-HT fr-KM fr-MC fr-MF fr-MG fr-ML fr-MQ fr-MR fr-MU fr-NC fr-NE
-        fr-PF fr-PM fr-RE fr-RW fr-SC fr-SN fr-SY fr-TD fr-TG fr-TN fr-VU fr-WF
-        fr-YT gsw-FR gsw-LI ha ha-GH ha-NE hr-BA ii it-SM ko-KP lag lkt ln-AO
-        ln-CF ln-CG lrc-IQ mas-TZ mgo ms-SG nb-SJ ne-IN nl-AW nl-BQ nl-CW nl-SR
-        nl-SX om-KE os-RU pa-Guru prg pt-AO pt-CH pt-CV pt-GQ pt-GW pt-LU pt-MO
-        pt-MZ pt-ST pt-TL qu-EC ro-MD ru-BY ru-KG ru-KZ ru-MD ru-UA sah se-FI
-        se-SE shi-Tfng so-DJ so-ET so-KE sq-MK sq-XK sr-Cyrl sr-Cyrl-BA
-        sr-Cyrl-ME sr-Cyrl-XK sr-Latn-BA sr-Latn-ME sr-Latn-XK sv-AX sv-FI sw-KE
-        sw-UG ta-LK teo-KE ti-ER tr-CY uz-Latn vai-Vaii vo yi yo-BJ zh-Hans
-        zh-Hans-HK zh-Hans-MO zh-Hans-SG zh-Hant-HK zh-Hant-MO
+        ckb-IR cu da-GL de-BE de-IT de-LU ee-TG el-CY en-001 en-AG en-AI en-AS
+        en-AU en-BB en-BI en-BM en-BS en-BW en-BZ en-CA en-CC en-CK en-CM en-CX
+        en-CY en-DG en-DM en-ER en-FJ en-FK en-FM en-GB en-GD en-GG en-GH en-GI
+        en-GM en-GU en-GY en-HK en-IE en-IL en-IM en-IO en-JE en-JM en-KE en-KI
+        en-KN en-KY en-LC en-LR en-LS en-MG en-MH en-MO en-MP en-MS en-MT en-MU
+        en-MW en-MY en-NA en-NF en-NG en-NR en-NU en-NZ en-PG en-PH en-PK en-PN
+        en-PR en-PW en-RW en-SB en-SC en-SD en-SG en-SH en-SI en-SL en-SS en-SX
+        en-SZ en-TC en-TK en-TO en-TT en-TV en-TZ en-UG en-UM en-VC en-VG en-VI
+        en-VU en-WS en-ZM en-ZW es-BR es-CU es-EA es-HN es-IC es-NI es-PA es-PE
+        es-PH es-PR es-US ff-CM ff-GN ff-MR fo-DK fr-BE fr-BF fr-BI fr-BJ fr-BL
+        fr-CA fr-CF fr-CG fr-CM fr-DJ fr-DZ fr-GA fr-GF fr-GN fr-GP fr-GQ fr-HT
+        fr-KM fr-MC fr-MF fr-MG fr-MQ fr-MR fr-MU fr-NC fr-NE fr-PF fr-PM fr-RW
+        fr-SC fr-SN fr-SY fr-TD fr-TG fr-TN fr-VU fr-WF fr-YT gsw-FR gsw-LI ha
+        ha-GH ha-NE hr-BA ii it-SM ko-KP lag lkt ln-AO ln-CF ln-CG lrc-IQ mas-TZ
+        mg mgo ms-SG nb-SJ nds nds-NL ne-IN nl-AW nl-BQ nl-CW nl-SR nl-SX om-KE
+        os-RU pa-Guru prg pt-CH pt-CV pt-GQ pt-GW pt-LU pt-MO pt-MZ pt-ST pt-TL
+        qu-EC ro-MD ru-BY ru-KG ru-KZ ru-MD se-FI se-SE shi-Tfng so-DJ so-ET
+        so-KE sq-MK sq-XK sr-Cyrl sr-Cyrl-BA sr-Cyrl-ME sr-Cyrl-XK sr-Latn-BA
+        sr-Latn-ME sr-Latn-XK sv-AX sv-FI sw-KE sw-UG ta-LK teo-KE ti-ER tr-CY
+        uz-Latn vai-Vaii vo yi yo-BJ zh-Hans zh-Hans-HK zh-Hans-MO zh-Hans-SG
+        zh-Hant-HK zh-Hant-MO
     )
 };
 
