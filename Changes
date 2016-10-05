@@ -1,5 +1,34 @@
 Revision history for Perl module CLDR::Number
 
+0.20 XXX
+ [ New CLDR version ]
+ - Upgrade CLDR data from v29 (2016-03-16) to v30 (2016-10-05)
+ - Release notes: http://cldr.unicode.org/index/downloads/cldr-30
+
+ [ New languages ]
+ - sah (Sakha)
+
+ [ New locales for existing languages ]
+ - es-SV (Spanish in El Salvador)
+ - fa-AF (Persian in Afghanistan)
+ - fr-CD (French in Congo - Kinshasa)
+ - fr-CI (French in Côte d’Ivoire)
+ - fr-ML (French in Mali)
+ - fr-RE (French in Réunion)
+ - pt-AO (Portuguese in Angola)
+ - ru-UA (Russian in Ukraine)
+
+ [ New numbering systems ]
+ - adlm (Adlam Digits)
+ - bhks (Bhaiksuki Digits)
+ - newa (Newa Digits)
+
+ [ New currencies ]
+ - BYN (Belarusian Ruble)
+
+ [ Updated currencies ]
+ - CRC (Costa Rican Colón): XXX
+
 0.19 2016-04-06
  - Bugfix: require Class::Method::Modifiers because it’s a requirement of using
    Moo::Role method modifiers but not a requirement of Moo::Role itself
