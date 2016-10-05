@@ -286,10 +286,24 @@ sub quote_key {
     return $key =~ /-/ ? "'$key'" : $key;
 }
 
+# escape control characters
 sub escape_control {
     my ($str) = @_;
 
-    $str =~ s{ ( \p{Cf} ) }{ '\\N{' . charinfo(ord $1)->{name} . '}' }xeg;
+    # Perl v5.8.1 supports Unicode v4.0 so we can safely \N-escape those
+    # characters, otherwise \x-escape
+    $str =~ s{
+        (?= \p{In=4.0} )
+        (   \p{Cf}     )
+    }{
+        sprintf '\\N{%s}', charinfo(ord $1)->{name}
+    }xeg;
+
+    $str =~ s{
+        ( \p{Cf} )
+    }{
+        sprintf '\\x{%04X}', ord $1
+    }xeg;
 
     return $str       if $str =~ /^[0-9]+$/;
     return qq["$str"] if $str =~ /\\/;
